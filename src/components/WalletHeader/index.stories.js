@@ -12,8 +12,8 @@ storiesOf('Wallet Header', module)
       coinBalance={'12.4321'}
       currencySymbol={'$'}
       currencyBalance={'4321.21'}
-      totalRevenue={'Total revenue 121.0000'}
-      nextPaymentTime={'Next payment day 2017-12-21 14:57:02'}
+      totalRevenueHint={'Total revenue 121.0000'}
+      nextPaymentTimeHint={'Next payment day 2017-12-21 14:57:02'}
       colors={WalletHeaderGradientPreset.purple}
       buttons={[
         {

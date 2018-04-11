@@ -27,12 +27,12 @@ const WalletHeader = ({
   currencySymbol,
   currencyBalance,
   colors,
-  totalRevenue,
-  nextPaymentTime,
+  totalRevenueHint,
+  nextPaymentTimeHint,
   buttons,
 }) => {
-  const hasTotalRevenue = totalRevenue && totalRevenue.length > 0;
-  const hasNextPaymentTime = nextPaymentTime && nextPaymentTime.length > 0;
+  const hasTotalRevenue = totalRevenueHint && totalRevenueHint.length > 0;
+  const hasNextPaymentTime = nextPaymentTimeHint && nextPaymentTimeHint.length > 0;
   const hasDescription = hasTotalRevenue || hasNextPaymentTime;
 
   return renderGradientContainer({
@@ -45,8 +45,8 @@ const WalletHeader = ({
 
         {hasDescription && (
           <Description>
-            {hasTotalRevenue && <TotalRevenue>{totalRevenue}</TotalRevenue>}
-            {hasNextPaymentTime && <NextPaymentTime>{nextPaymentTime}</NextPaymentTime>}
+            {hasTotalRevenue && <TotalRevenue>{totalRevenueHint}</TotalRevenue>}
+            {hasNextPaymentTime && <NextPaymentTime>{nextPaymentTimeHint}</NextPaymentTime>}
           </Description>
         )}
 
@@ -71,8 +71,8 @@ WalletHeader.propTypes = {
   currencySymbol: PropTypes.string.isRequired,
   currencyBalance: PropTypes.string.isRequired,
   colors: PropTypes.array.isRequired,
-  totalRevenue: PropTypes.string,
-  nextPaymentTime: PropTypes.string,
+  totalRevenueHint: PropTypes.string,
+  nextPaymentTimeHint: PropTypes.string,
   /**
    * [{onPress, canPress, title}]
    */
@@ -87,8 +87,8 @@ WalletHeader.propTypes = {
 };
 
 WalletHeader.defaultProps = {
-  totalRevenue: '',
-  nextPaymentTime: '',
+  totalRevenueHint: '',
+  nextPaymentTimeHint: '',
 };
 
 export default WalletHeader;
