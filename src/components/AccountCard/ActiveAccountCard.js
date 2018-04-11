@@ -86,9 +86,9 @@ ActivateAccountCard.propTypes = {
    */
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
-      onPress: PropTypes.func,
-      canPress: PropTypes.bool,
-      title: PropTypes.string,
+      onPress: PropTypes.func.isRequired,
+      canPress: PropTypes.bool.isRequired,
+      title: PropTypes.string.isRequired,
     })
   ),
 };

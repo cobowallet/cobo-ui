@@ -7,12 +7,14 @@
 function loadStories() {
   require('../src/components/AccountCard/index.stories');
   require('../src/components/Core/CBGradientCard/index.stories');
+  require('../src/components/WalletHeader/index.stories');
   
 }
 
 const stories = [
   '../src/components/AccountCard/index.stories',
   '../src/components/Core/CBGradientCard/index.stories',
+  '../src/components/WalletHeader/index.stories',
   
 ];
 
