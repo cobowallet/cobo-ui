@@ -1,6 +1,19 @@
 ## Cobo UI Components
 
-#### Development
+This package should contains most of the UI Components in Cobo App.
+
+Target:
+
+* Support IOS and Android, maybe share some code with web.
+* Support theme, use styled-components themeProvider maybe.
+* Provide docs, use react-docgen currently, maybe find other tools to provide better experience.
+
+Style:
+
+* We use styled-components for styling, and theme.
+* But styled-components cannot share same code using react-native-web, will dive further.
+
+#### Develop
 
 ```
 git clone https://github.com/cobowallet/UI.git
@@ -14,7 +27,5 @@ Open browser at: http://localhost:7007
 
 ```
 yarn add cobowallet/UI
-react native link
-
 import { ActiveAccountCard } from 'CoboUI';
 ```
