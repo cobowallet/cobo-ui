@@ -19,7 +19,7 @@ const Gradient = styled(LinearGradient)`
 `;
 
 export const Container = styled.View`
-  padding-top: ${iphoneX ? 84 : 64};
+  padding-top: ${iphoneX ? 94 : 74};
 `;
 
 export const BottomContainer = styled.View`
