@@ -79,8 +79,8 @@ InactiveAccountCard.propTypes = {
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
       onPress: PropTypes.func,
-      canPress: PropTypes.bool,
-      title: PropTypes.string,
+      canPress: PropTypes.bool.isRequired,
+      title: PropTypes.string.isRequired,
     })
   ),
 };
