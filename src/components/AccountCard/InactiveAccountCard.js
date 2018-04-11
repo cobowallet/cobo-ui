@@ -35,8 +35,6 @@ const InactiveAccountCard = ({
   }
   return (
     <CBGradientCard
-      hasRadius
-      hasShadow
       colors={colors}
       renderChild={() => {
         return (

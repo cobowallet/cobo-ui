@@ -39,8 +39,6 @@ const ActivateAccountCard = ({
   }
   return (
     <CBGradientCard
-      hasRadius
-      hasShadow
       colors={colors}
       renderChild={() => {
         return (

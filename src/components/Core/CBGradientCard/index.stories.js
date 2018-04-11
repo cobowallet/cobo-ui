@@ -13,7 +13,7 @@ storiesOf('GradientCard', module)
   .addDecorator(doc)
   .add('default', () => (
     <CBContainer padder>
-      <GradientCard hasRadius hasShadow colors={['#6E93E9', '#014AF3']} renderChild={renderChild} />
-      <GradientCard hasRadius hasShadow colors={['#014AF3', '#7E02E0']} renderChild={renderChild} />
+      <GradientCard colors={['#6E93E9', '#014AF3']} renderChild={renderChild} />
+      <GradientCard colors={['#014AF3', '#7E02E0']} renderChild={renderChild} />
     </CBContainer>
   ));
