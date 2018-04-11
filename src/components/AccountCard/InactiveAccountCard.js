@@ -18,20 +18,20 @@ const InactiveAccountCard = ({
   onEnter,
   buttons,
 }) => {
-  let bottomButtons = buttons;
-  if (buttons === null) {
-    bottomButtons = [
-      {
-        onPress: onViewRule,
-        canPress: true,
-        title: viewRuleTitle,
-      },
-      {
-        onPress: onOpen,
-        canPress: true,
-        title: openTitle,
-      },
-    ];
+  let bottomButtons = [
+    {
+      onPress: onViewRule,
+      canPress: true,
+      title: viewRuleTitle,
+    },
+    {
+      onPress: onOpen,
+      canPress: true,
+      title: openTitle,
+    },
+  ];
+  if (buttons && buttons.length > 0) {
+    bottomButtons = buttons;
   }
   return (
     <CBGradientCard
@@ -73,13 +73,16 @@ InactiveAccountCard.propTypes = {
   onEnter: PropTypes.func.isRequired,
   viewRuleTitle: PropTypes.string,
   openTitle: PropTypes.string,
+  /**
+   * [{onPress, canPress, title}]
+   */
   buttons: PropTypes.array,
 };
 
 InactiveAccountCard.defaultProps = {
   viewRuleTitle: 'View Rule',
   openTitle: 'Open Now',
-  buttons: null,
+  buttons: [],
 };
 
 export default InactiveAccountCard;

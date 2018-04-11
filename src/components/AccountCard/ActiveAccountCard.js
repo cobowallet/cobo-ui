@@ -22,20 +22,20 @@ const ActivateAccountCard = ({
   reward,
   buttons,
 }) => {
-  let bottomButtons = buttons;
-  if (buttons === null) {
-    bottomButtons = [
-      {
-        onPress: onReceivePress,
-        canPress: true,
-        title: receiveTitle,
-      },
-      {
-        onPress: onSendPress,
-        canPress: true,
-        title: sendTitle,
-      },
-    ];
+  let bottomButtons = [
+    {
+      onPress: onReceivePress,
+      canPress: true,
+      title: receiveTitle,
+    },
+    {
+      onPress: onSendPress,
+      canPress: true,
+      title: sendTitle,
+    },
+  ];
+  if (buttons && buttons.length > 0) {
+    bottomButtons = buttons;
   }
   return (
     <CBGradientCard
@@ -81,6 +81,9 @@ ActivateAccountCard.propTypes = {
   reward: PropTypes.string,
   receiveTitle: PropTypes.string,
   sendTitle: PropTypes.string,
+  /**
+   * [{onPress, canPress, title}]
+   */
   buttons: PropTypes.array,
 };
 
@@ -91,7 +94,7 @@ ActivateAccountCard.defaultProps = {
   reward: '',
   receiveTitle: 'Receive',
   sendTitle: 'Send',
-  buttons: null,
+  buttons: [],
 };
 
 export default ActivateAccountCard;
