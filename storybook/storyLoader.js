@@ -6,12 +6,14 @@
 
 function loadStories() {
   require('../src/components/AccountCard/index.stories');
+  require('../src/components/AccountLevelBox/index.stories');
   require('../src/components/Core/CBGradientCard/index.stories');
   
 }
 
 const stories = [
   '../src/components/AccountCard/index.stories',
+  '../src/components/AccountLevelBox/index.stories',
   '../src/components/Core/CBGradientCard/index.stories',
   
 ];
