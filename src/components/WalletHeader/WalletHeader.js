@@ -17,7 +17,11 @@ import {
   NextPaymentTime,
 } from './style';
 
-function WalletHeader({
+/**
+ * Wallet Header, Spending Wallet Header, Financing Wallet Header
+ */
+
+const WalletHeader = ({
   coinCode,
   coinBalance,
   currencySymbol,
@@ -26,7 +30,7 @@ function WalletHeader({
   totalRevenue,
   nextPaymentTime,
   buttons,
-}) {
+}) => {
   const hasTotalRevenue = totalRevenue && totalRevenue.length > 0;
   const hasNextPaymentTime = nextPaymentTime && nextPaymentTime.length > 0;
   const hasDescription = hasTotalRevenue || hasNextPaymentTime;
@@ -57,7 +61,7 @@ function WalletHeader({
     ),
     colors,
   });
-}
+};
 
 WalletHeader.displayName = 'Wallet Header';
 
