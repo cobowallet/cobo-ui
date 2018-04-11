@@ -52,7 +52,7 @@ const WalletHeader = ({
 
         <BottomContainer
           style={{
-            marginTop: hasDescription ? 32 : 24,
+            marginTop: hasDescription ? 24 : 32,
           }}
         >
           {renderButtons(buttons)}
