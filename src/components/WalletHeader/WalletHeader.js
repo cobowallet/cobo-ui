@@ -43,12 +43,12 @@ const WalletHeader = ({
           <CurrencyText>{`${currencySymbol} ${currencyBalance}`}</CurrencyText>
         </Balance>
 
-        {hasDescription && (
+        {hasDescription ? (
           <Description>
-            {hasTotalRevenue && <TotalRevenue>{totalRevenueHint}</TotalRevenue>}
-            {hasNextPaymentTime && <NextPaymentTime>{nextPaymentTimeHint}</NextPaymentTime>}
+            {hasTotalRevenue ? <TotalRevenue>{totalRevenueHint}</TotalRevenue> : null}
+            {hasNextPaymentTime ? <NextPaymentTime>{nextPaymentTimeHint}</NextPaymentTime> : null}
           </Description>
-        )}
+        ) : null}
 
         <BottomContainer
           style={{
