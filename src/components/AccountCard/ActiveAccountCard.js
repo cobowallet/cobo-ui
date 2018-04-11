@@ -12,13 +12,31 @@ const ActivateAccountCard = ({
   coinBalance,
   currencySymbol,
   currencyBalance,
+  sendTitle,
   onSendPress,
+  receiveTitle,
   onReceivePress,
   onEnter,
   colors,
   title,
   reward,
+  buttons,
 }) => {
+  let bottomButtons = [
+    {
+      onPress: onReceivePress,
+      canPress: true,
+      title: receiveTitle,
+    },
+    {
+      onPress: onSendPress,
+      canPress: true,
+      title: sendTitle,
+    },
+  ];
+  if (buttons && buttons.length > 0) {
+    bottomButtons = buttons;
+  }
   return (
     <CBGradientCard
       colors={colors}
@@ -34,20 +52,7 @@ const ActivateAccountCard = ({
                 currencyBalance={currencyBalance}
               />
             </TopContainer>
-            <BottomContainer>
-              {renderButtons([
-                {
-                  onPress: onReceivePress,
-                  canPress: true,
-                  title: 'Receive',
-                },
-                {
-                  onPress: onSendPress,
-                  canPress: true,
-                  title: 'Send',
-                },
-              ])}
-            </BottomContainer>
+            <BottomContainer>{renderButtons(bottomButtons)}</BottomContainer>
           </TouchableOpacity>
         );
       }}
@@ -74,6 +79,18 @@ ActivateAccountCard.propTypes = {
   colors: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
   reward: PropTypes.string,
+  receiveTitle: PropTypes.string,
+  sendTitle: PropTypes.string,
+  /**
+   * [{onPress, canPress, title}]
+   */
+  buttons: PropTypes.arrayOf(
+    PropTypes.shape({
+      onPress: PropTypes.func,
+      canPress: PropTypes.bool,
+      title: PropTypes.string,
+    })
+  ),
 };
 
 ActivateAccountCard.defaultProps = {
@@ -81,6 +98,9 @@ ActivateAccountCard.defaultProps = {
   onReceivePress: null,
   onEnter: null,
   reward: '',
+  receiveTitle: 'Receive',
+  sendTitle: 'Send',
+  buttons: [],
 };
 
 export default ActivateAccountCard;

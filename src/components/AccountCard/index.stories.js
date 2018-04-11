@@ -8,6 +8,7 @@ import { GradientPreset } from './index';
 storiesOf('Account Card', module)
   .add('default', () => (
     <InactiveAccountCard
+      onEnter={action('onEnter')}
       onViewRule={action('View Rule')}
       onOpen={action('Open Account')}
       title={'Reward Wallet'}
