@@ -71,7 +71,10 @@ export function Header({ title, reward }) {
       <CBText color={'white'} bold>
         {title}
       </CBText>
-      {reward && <RewardText style={{ transform: [{ translateY: 3 }] }}>{reward}</RewardText>}
+      {reward &&
+        reward.length > 0 && (
+          <RewardText style={{ transform: [{ translateY: 3 }] }}>{reward}</RewardText>
+        )}
     </View>
   );
 }
