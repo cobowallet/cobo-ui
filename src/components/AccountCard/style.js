@@ -13,6 +13,8 @@ export const TopContainer = styled.View`
 export const BottomContainer = styled.View`
   flex-direction: row;
   justify-content: flex-end;
+  padding-left: 16;
+  padding-right: 16;
 `;
 
 export const CoinText = styled.Text`
@@ -55,7 +57,7 @@ export function renderButtons(actions) {
         key={item.title}
         onPress={item.onPress}
         disabled={!item.canPress}
-        style={{ height: 48, paddingLeft: 16, paddingRight: 16, justifyContent: 'center' }}
+        style={{ height: 48, paddingLeft: 16, justifyContent: 'center' }}
       >
         <CBText color={item.canPress ? 'white' : 'grayLight'}>{item.title}</CBText>
       </TouchableOpacity>

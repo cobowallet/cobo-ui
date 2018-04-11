@@ -4,7 +4,6 @@ import LinearGradient from 'react-native-linear-gradient';
 export const GradientContainer = styled.View`
   overflow: hidden;
   width: 100%;
-  border-radius: 5;
 `;
 
 export const Gradient = styled(LinearGradient)`
