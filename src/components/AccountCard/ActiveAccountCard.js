@@ -84,7 +84,13 @@ ActivateAccountCard.propTypes = {
   /**
    * [{onPress, canPress, title}]
    */
-  buttons: PropTypes.array,
+  buttons: PropTypes.arrayOf(
+    PropTypes.shape({
+      onPress: PropTypes.func,
+      canPress: PropTypes.bool,
+      title: PropTypes.string,
+    })
+  ),
 };
 
 ActivateAccountCard.defaultProps = {
