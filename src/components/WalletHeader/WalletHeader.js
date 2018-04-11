@@ -78,7 +78,7 @@ WalletHeader.propTypes = {
    */
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
-      onPress: PropTypes.func.isRequired,
+      onPress: PropTypes.func,
       canPress: PropTypes.bool.isRequired,
       title: PropTypes.string.isRequired,
       renderImage: PropTypes.func.isRequired,
