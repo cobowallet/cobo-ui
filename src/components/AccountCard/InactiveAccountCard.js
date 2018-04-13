@@ -42,9 +42,9 @@ const InactiveAccountCard = ({
             <TopContainer style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1 }}>
                 <Header title={title} />
-                <SloganText>{slogan}</SloganText>
+                <SloganText style={{ width: '100%' }}>{slogan}</SloganText>
               </View>
-              <View style={{ justifyContent: 'center', alignItems: 'center', marginLeft: 16 }}>
+              <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <Image style={{ width: 25, height: 25 }} source={require('./img/add.png')} />
               </View>
             </TopContainer>

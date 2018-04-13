@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { Platform, TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
 import { CBText } from '../Core';
 
@@ -22,21 +22,24 @@ export const CoinText = styled.Text`
   font-weight: bold;
   font-size: 32;
   margin-bottom: 4;
-  font-family: 'DIN Next LT Pro';
+  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-style: normal;
 `;
 
 export const CurrencyText = styled.Text`
   color: rgba(255, 255, 255, 0.6);
   font-weight: bold;
   font-size: 24;
-  font-family: 'DIN Next LT Pro';
+  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-style: normal;
 `;
 
 export const RewardText = styled.Text`
   color: white;
   font-weight: bold;
   font-size: 24;
-  font-family: 'DIN Next LT Pro';
+  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-style: normal;
   margin-left: 4;
 `;
 
@@ -71,8 +74,10 @@ export function Header({ title, reward }) {
       <CBText color={'white'} bold>
         {title}
       </CBText>
-      {reward && reward.length > 0 ? (
-        <RewardText style={{ transform: [{ translateY: 3 }] }}>{reward}</RewardText>
+      {reward ? (
+        <RewardText style={{ transform: [{ translateY: Platform.OS === 'ios' ? 3 : -3 }] }}>
+          {reward}
+        </RewardText>
       ) : null}
     </View>
   );
