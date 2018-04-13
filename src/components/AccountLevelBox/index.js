@@ -21,6 +21,7 @@ const Container = styled.TouchableOpacity`
   shadow-radius: 4;
   shadow-opacity: 0.15;
   border-radius: 4;
+  elevation: 2;
 `;
 
 const Left = styled.View`
