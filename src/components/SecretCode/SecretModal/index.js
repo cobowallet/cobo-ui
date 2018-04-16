@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
 import Modal from 'react-native-modal';
 import SecretModalIcon from './SecretModalIcon';
 import { CBHeader, CBText } from '../../Core';
 import CBButton from '../../Core/CBButton/';
 
-const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    top: 0,
-    opacity: 0.7,
-    backgroundColor: '#000',
-  },
-});
+const Container = styled.View`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0.7;
+  background-color: #000;
+  display: ${props => (props.isModalOpen ? 'flex' : 'none')};
+`;
 
 class SecretModal extends Component {
   render() {
     return (
-      <View style={styles.page}>
+      <Container>
         <Modal isVisible={this.props.isModalOpen}>
           <View
             style={{
@@ -58,7 +57,7 @@ class SecretModal extends Component {
             />
           </View>
         </Modal>
-      </View>
+      </Container>
     );
   }
 }
