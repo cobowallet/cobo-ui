@@ -12,7 +12,7 @@ const Gradient = styled(LinearGradient)`
   left: 0;
 `;
 
-const SecretCodePanel = ({ header, descriptions, body, button }) => {
+const SecretCodePanel = ({ header, descriptions, body, button, children }) => {
   return (
     <View style={{ height: '100%', width: '100%' }}>
       <Gradient colors={['#6163FF', '#8D04FF']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 0.8 }} />
@@ -28,6 +28,7 @@ const SecretCodePanel = ({ header, descriptions, body, button }) => {
         {body}
       </View>
       {button}
+      {children}
     </View>
   );
 };

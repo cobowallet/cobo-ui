@@ -9,5 +9,12 @@ export const lang = {
       ],
       button: '开始抄写 Cobo 密语',
     },
+
+    modal: {
+      header: '请勿截图',
+      description:
+        '如果有人获取你的 Cobo 密语将直接获取你的资产！请抄写下 Cobo 密语并存放在安全的地方。',
+      button: '知道了',
+    },
   },
 };
