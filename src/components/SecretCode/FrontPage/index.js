@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import SecretCodePanel from '../SecretCodePanel';
-import FontPageIcon from './FontPageIcon/index';
+import FrontPageIcon from './FrontPageIcon/index';
 import { lang } from '../lang';
 import CBButton from '../../Core/CBButton/index';
 import SecretModal from '../SecretModal';
@@ -16,7 +16,7 @@ const Container = styled.View`
 
 const Body = (
   <Container>
-    <FontPageIcon />
+    <FrontPageIcon />
   </Container>
 );
 

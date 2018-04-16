@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 import { SlidingPane, SlidingPaneWrapper } from 'react-native-sliding-panes';
-import FontPage from './FontPage';
+import FrontPage from './FrontPage';
 
 class SecretCode extends Component {
   constructor(props) {
@@ -14,7 +14,6 @@ class SecretCode extends Component {
   }
 
   openModal() {
-    console.log('xxxxx--called')
     this.setState({
       isModalOpen: true,
     });
@@ -47,7 +46,7 @@ class SecretCode extends Component {
             this.pane1 = pane1;
           }}
         >
-          <FontPage
+          <FrontPage
             locale={'zh'}
             isModalOpen={this.state.isModalOpen}
             openModal={this.openModal}
