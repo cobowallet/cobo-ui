@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 import { SlidingPane, SlidingPaneWrapper } from 'react-native-sliding-panes';
+import FontPage from './FontPage';
 
 class SecretCode extends Component {
   componentDidMount() {
@@ -19,18 +20,12 @@ class SecretCode extends Component {
         }}
       >
         <SlidingPane
-          style={[{ borderColor: '#FF9999', borderWidth: 2 }]}
+          style={[{}]}
           ref={pane1 => {
             this.pane1 = pane1;
           }}
         >
-          <View>
-            <Text>Pane 1</Text>
-            <Button
-              onPress={() => this.slidingPaneWrapper.setActive(2)}
-              title={'This is the Button'}
-            />
-          </View>
+          <FontPage locale={'zh'} />
         </SlidingPane>
         <SlidingPane
           style={[{ borderColor: '#FF9999', borderWidth: 2 }]}
