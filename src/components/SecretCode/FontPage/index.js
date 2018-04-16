@@ -20,7 +20,7 @@ const Body = (
   </Container>
 );
 
-const generateBtn = title => (
+const generateBtn = (title, onPress) => (
   <CBButton
     style={{
       position: 'absolute',
@@ -31,10 +31,11 @@ const generateBtn = title => (
     }}
     textColor={'#5170EB'}
     text={title}
+    onPress={onPress}
   />
 );
 
-const FontPage = ({ locale }) => {
+const FontPage = ({ locale, isModalOpen, closeModal, openModal }) => {
   const fontPageSetting = lang[locale].fontPage;
   const modalSetting = lang[locale].modal;
   return (
@@ -42,13 +43,14 @@ const FontPage = ({ locale }) => {
       header={fontPageSetting.header}
       descriptions={fontPageSetting.descriptions}
       body={Body}
-      button={generateBtn(fontPageSetting.button)}
+      button={generateBtn(fontPageSetting.button, openModal)}
     >
       <SecretModal
-        isModalOpen
+        isModalOpen={isModalOpen}
         header={modalSetting.header}
         description={modalSetting.description}
         button={modalSetting.button}
+        onPress={closeModal}
       />
     </SecretCodePanel>
   );

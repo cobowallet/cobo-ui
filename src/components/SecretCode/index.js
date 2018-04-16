@@ -4,6 +4,28 @@ import { SlidingPane, SlidingPaneWrapper } from 'react-native-sliding-panes';
 import FontPage from './FontPage';
 
 class SecretCode extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isModalOpen: false,
+    };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal() {
+    console.log('xxxxx--called')
+    this.setState({
+      isModalOpen: true,
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      isModalOpen: false,
+    });
+  }
+
   componentDidMount() {
     this.pane1.warpCenter();
     this.pane2.warpRight();
@@ -25,7 +47,12 @@ class SecretCode extends Component {
             this.pane1 = pane1;
           }}
         >
-          <FontPage locale={'zh'} />
+          <FontPage
+            locale={'zh'}
+            isModalOpen={this.state.isModalOpen}
+            openModal={this.openModal}
+            closeModal={this.closeModal}
+          />
         </SlidingPane>
         <SlidingPane
           style={[{ borderColor: '#FF9999', borderWidth: 2 }]}

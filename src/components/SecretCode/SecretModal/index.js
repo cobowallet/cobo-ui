@@ -20,7 +20,7 @@ const Container = styled.View`
 class SecretModal extends Component {
   render() {
     return (
-      <Container>
+      <Container isModalOpen={this.props.isModalOpen}>
         <Modal isVisible={this.props.isModalOpen}>
           <View
             style={{
@@ -54,6 +54,7 @@ class SecretModal extends Component {
               style={{ backgroundColor: 'white' }}
               textStyle={{ color: '#F83363' }}
               text={this.props.button}
+              onPress={this.props.onPress}
             />
           </View>
         </Modal>
