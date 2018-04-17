@@ -19,6 +19,13 @@ export const lang = {
       button: '我已抄好',
     },
 
+    confirmPage: {
+      header: '请确认 Cobo 密语',
+      descriptions: ['为了确保您已将 Cobo 密语正确得抄写，请选择对应序号的单词。'],
+      button1: '下一步',
+      button2: '完成',
+    },
+
     modal: {
       header: '请勿截图',
       description:
