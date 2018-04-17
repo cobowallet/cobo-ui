@@ -33,13 +33,13 @@ const CellContainer = styled.View`
 `;
 
 const Left = styled.View`
-  width: 20%;
-  padding-top: 10;
-  padding-left: 10;
+  width: 10%;
+  padding-top: 2;
+  padding-left: 2;
 `;
 
 const Right = styled.View`
-  width: 80%;
+  width: 90%;
   justify-content: center;
   align-items: center;
 `;
@@ -47,17 +47,16 @@ const Right = styled.View`
 const CodeCell = ({ code }) => (
   <CellContainer>
     <Left>
-      <Text style={{ fontSize: 11, color: '#D8D8D8' }}>{'11'}</Text>
+      <Text style={{ fontSize: 10, color: '#D8D8D8' }}>{'11'}</Text>
     </Left>
     <Right>
-      <Text style={{ fontSize: 24, color: '#ffff' }}>{code}</Text>
+      <Text style={{ fontSize: 20, color: '#ffff', fontWeight: '800' }}>{code}</Text>
     </Right>
   </CellContainer>
 );
 
 const CodeTable = ({ codes }) => {
   const chuckedCodes = chunk(codes, CODE_PER_ROW);
-  console.log(chuckedCodes);
   return (
     <View style={{ backgroundColor: '#5026C1' }}>
       {chuckedCodes.map(eachChuck => <CodeRow codes={eachChuck} />)}
