@@ -41,7 +41,7 @@ class SecretCode extends Component {
         }}
       >
         <SlidingPane
-          style={[{}]}
+          style={[{ flex: 1 }]}
           ref={pane1 => {
             this.pane1 = pane1;
           }}

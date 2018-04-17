@@ -1,32 +1,26 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import SecretCodePanel from '../SecretCodePanel';
-import FrontPageIcon from './FrontPageIcon/index';
 import { lang } from '../lang';
 import CBButton from '../../Core/CBButton/index';
-import SecretModal from '../SecretModal';
+import CodeTable from './CodeTable';
 
 const Container = styled.View`
   margin-top: 50;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 50;
 `;
 
-const Body = (
+const getBody = codes => (
   <Container>
-    <FrontPageIcon />
+    <CodeTable codes={codes} />
   </Container>
 );
 
 const generateBtn = (title, onPress) => (
   <CBButton
     style={{
-      position: 'absolute',
-      bottom: 40,
-      left: 0,
-      right: 0,
+      marginTop: 20,
+      marginBottom: 40,
       backgroundColor: 'white',
     }}
     textColor={'#5170EB'}
@@ -35,25 +29,16 @@ const generateBtn = (title, onPress) => (
   />
 );
 
-const FontPage = ({ locale, isModalOpen, closeModal, openModal }) => {
-  const fontPageSetting = lang[locale].fontPage;
-  const modalSetting = lang[locale].modal;
+const CodePage = ({ locale, codes }) => {
+  const codePageSetting = lang[locale].codePage;
   return (
     <SecretCodePanel
-      header={fontPageSetting.header}
-      descriptions={fontPageSetting.descriptions}
-      body={Body}
-      button={generateBtn(fontPageSetting.button, openModal)}
-    >
-      <SecretModal
-        isModalOpen={isModalOpen}
-        header={modalSetting.header}
-        description={modalSetting.description}
-        button={modalSetting.button}
-        onPress={closeModal}
-      />
-    </SecretCodePanel>
+      header={codePageSetting.header}
+      descriptions={codePageSetting.descriptions}
+      body={getBody(codes)}
+      button={generateBtn(codePageSetting.button, () => {})}
+    />
   );
 };
 
-export default FontPage;
+export default CodePage;

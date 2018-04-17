@@ -7,11 +7,11 @@ import CBButton from '../../Core/CBButton/index';
 import SecretModal from '../SecretModal';
 
 const Container = styled.View`
-  margin-top: 50;
+  margin-top: 100;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50;
+  margin-bottom: 30;
 `;
 
 const Body = (
@@ -23,10 +23,8 @@ const Body = (
 const generateBtn = (title, onPress) => (
   <CBButton
     style={{
-      position: 'absolute',
-      bottom: 40,
-      left: 0,
-      right: 0,
+      marginTop: 20,
+      marginBottom: 40,
       backgroundColor: 'white',
     }}
     textColor={'#5170EB'}
@@ -36,7 +34,7 @@ const generateBtn = (title, onPress) => (
 );
 
 const FrontPage = ({ locale, isModalOpen, closeModal, openModal }) => {
-  const fontPageSetting = lang[locale].fontPage;
+  const fontPageSetting = lang[locale].frontPage;
   const modalSetting = lang[locale].modal;
   return (
     <SecretCodePanel
