@@ -29,14 +29,14 @@ const generateBtn = (title, onPress) => (
   />
 );
 
-const CodePage = ({ locale, codes }) => {
+const CodePage = ({ locale, codes, goToConfirmOne }) => {
   const codePageSetting = lang[locale].codePage;
   return (
     <SecretCodePanel
       header={codePageSetting.header}
       descriptions={codePageSetting.descriptions}
       body={getBody(codes)}
-      button={generateBtn(codePageSetting.button, () => {})}
+      button={generateBtn(codePageSetting.button, goToConfirmOne)}
     />
   );
 };

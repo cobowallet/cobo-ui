@@ -1,5 +1,5 @@
-const shuffle = array => {
-  const newArray = array.map(a => ({ ...a }));
+export const shuffle = array => {
+  const newArray = JSON.parse(JSON.stringify(array));
   let m = newArray.length;
   let t, i;
   while (m) {

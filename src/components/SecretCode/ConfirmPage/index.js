@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
 import SecretCodePanel from '../SecretCodePanel';
@@ -11,10 +11,10 @@ const Container = styled.View`
   margin-bottom: 200;
 `;
 
-const getBody = (words, page, selectedWord) => (
+const getBody = (words, page, selectedWord, onItemPress) => (
   <Container>
     <Text style={{ fontSize: 40, color: 'white' }}>{`#${page}`}</Text>
-    <WordsBox words={words} />
+    <WordsBox words={words} selectedWord={selectedWord} onItemPress={onItemPress} />
   </Container>
 );
 
@@ -31,17 +31,41 @@ const generateBtn = (title, onPress) => (
   />
 );
 
-const confirmPage = page => ({ locale, words, selectedWord }) => {
-  const confirmPageSetting = lang[locale].confirmPage;
-  return (
-    <SecretCodePanel
-      header={confirmPageSetting.header}
-      descriptions={confirmPageSetting.descriptions}
-      body={getBody(words, page, selectedWord)}
-      button={generateBtn(confirmPageSetting[`button${page}`], () => {})}
-    />
-  );
-};
+class ConfirmPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: '',
+    };
+    this.onPageClick = this.onPageClick.bind(this);
+    this.onItemClick = this.onItemClick.bind(this);
+  }
 
-export const ConfirmPageOne = confirmPage(1);
-export const ConfirmPageTwo = confirmPage(2);
+  onPageClick() {
+    if (this.state.clicked === this.props.answer) {
+      this.props.goToConfirmTwo();
+    }
+    this.props.regenerateQuestionAndNoise();
+  }
+
+  onItemClick(item) {
+    this.setState({
+      clicked: item,
+    });
+  }
+
+  render() {
+    const { locale, words, page, answer } = this.props;
+    const confirmPageSetting = lang[locale].confirmPage;
+    return (
+      <SecretCodePanel
+        header={confirmPageSetting.header}
+        descriptions={confirmPageSetting.descriptions}
+        body={getBody(words, page, answer, this.onItemClick)}
+        button={generateBtn(confirmPageSetting[`button${page}`], this.onPageClick)}
+      />
+    );
+  }
+}
+
+export default ConfirmPage;

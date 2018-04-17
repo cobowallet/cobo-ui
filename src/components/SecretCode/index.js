@@ -3,7 +3,8 @@ import { Text, View, Button } from 'react-native';
 import { SlidingPane, SlidingPaneWrapper } from 'react-native-sliding-panes';
 import FrontPage from './FrontPage';
 import CodePage from './CodePage';
-import { transformSecretCodeFormat, pickQuestionWords, getNoiseWord } from './codeHelper';
+import ConfirmPage from './ConfirmPage';
+import { transformSecretCodeFormat, pickQuestionWords, getNoiseWord, shuffle } from './codeHelper';
 
 class SecretCode extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class SecretCode extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.goToCodePage = this.goToCodePage.bind(this);
+    this.goToConfirmPage = this.goToConfirmPage.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -24,7 +26,7 @@ class SecretCode extends Component {
     let questionWords = pickQuestionWords(secretWords);
     const questionWordsAndNoise = questionWords.map(each => ({
       ...each,
-      ...{ noise: getNoiseWord(each) },
+      ...{ noiseWithAnswer: shuffle([...getNoiseWord(each), each.value]) },
     }));
     this.setState({
       secretWords,
@@ -32,7 +34,7 @@ class SecretCode extends Component {
     });
   }
 
-  regenrateQuestionAndNoise() {
+  regenerateQuestionAndNoise() {
     let questionWords = pickQuestionWords(this.state.secretWords);
     const questionWordsAndNoise = questionWords.map(each => ({
       ...each,
@@ -47,6 +49,12 @@ class SecretCode extends Component {
     this.setState({
       isModalOpen: true,
       activeIndex: 1,
+    });
+  }
+
+  goToConfirmPage(num) {
+    this.setState({
+      activeIndex: num,
     });
   }
 
@@ -100,17 +108,31 @@ class SecretCode extends Component {
             this.pane2 = pane2;
           }}
         >
-          <CodePage locale={'zh'} codes={this.state.secretWords} />
+          <CodePage
+            locale={'zh'}
+            codes={this.state.secretWords}
+            goToConfirmOne={() => this.goToConfirmPage(2)}
+          />
         </SlidingPane>
         <SlidingPane
-          style={[{ borderColor: '#FF9999', borderWidth: 2 }]}
+          style={[]}
           ref={pane3 => {
             this.pane3 = pane3;
           }}
         >
-          <View>
-            <Text>Pane 3</Text>
-          </View>
+          <ConfirmPage
+            locale={'zh'}
+            words={
+              this.state.questionWordsAndNoise[0]
+                ? this.state.questionWordsAndNoise[0].noiseWithAnswer
+                : []
+            }
+            answer={
+              this.state.questionWordsAndNoise[0] ? this.state.questionWordsAndNoise[0].value : ''
+            }
+            goToConfirmTwo={() => this.goToConfirmPage(3)}
+            regenrateQuestionAndNoise={this.regenerateQuestionAndNoise}
+          />
         </SlidingPane>
       </SlidingPaneWrapper>
     );

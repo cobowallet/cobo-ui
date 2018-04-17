@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import CBButton from '../../Core/CBButton/index';
 
-const Word = ({ word, selected, onPress }) => (
+const Word = ({ word, selected, onItemPress }) => (
   <CBButton
     text={word}
-    onPress={onPress}
+    onPress={onItemPress}
     textStyle={{ color: selected ? '#5170EB' : 'white' }}
     style={{
       height: 50,
@@ -25,10 +25,12 @@ const Word = ({ word, selected, onPress }) => (
   />
 );
 
-const Words = ({ words, selectedWord }) => {
+const Words = ({ words, selectedWord, onItemPress }) => {
   return (
     <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-      {words.map(each => <Word selected={each === selectedWord} word={each} />)}
+      {words.map(each => (
+        <Word selected={each === selectedWord} word={each} onItemPress={() => onItemPress(each)} />
+      ))}
     </View>
   );
 };
