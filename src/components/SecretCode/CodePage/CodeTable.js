@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
-import { CBText } from '../../Core/index';
 
 const chunk = (arr, size) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
@@ -33,13 +32,13 @@ const CellContainer = styled.View`
 `;
 
 const Left = styled.View`
-  width: 10%;
+  width: 15%;
   padding-top: 2;
   padding-left: 2;
 `;
 
 const Right = styled.View`
-  width: 90%;
+  width: 85%;
   justify-content: center;
   align-items: center;
 `;
@@ -47,16 +46,17 @@ const Right = styled.View`
 const CodeCell = ({ code }) => (
   <CellContainer>
     <Left>
-      <Text style={{ fontSize: 10, color: '#D8D8D8' }}>{'11'}</Text>
+      <Text style={{ fontSize: 10, color: '#D8D8D8' }}>{code.number}</Text>
     </Left>
     <Right>
-      <Text style={{ fontSize: 20, color: '#ffff', fontWeight: '800' }}>{code}</Text>
+      <Text style={{ fontSize: 20, color: '#ffff', fontWeight: '800' }}>{code.value}</Text>
     </Right>
   </CellContainer>
 );
 
 const CodeTable = ({ codes }) => {
-  const chuckedCodes = chunk(codes, CODE_PER_ROW);
+  const codeWithOrder = codes.map((eachCode, index) => ({ value: eachCode, number: index + 1 }));
+  const chuckedCodes = chunk(codeWithOrder, CODE_PER_ROW);
   return (
     <View style={{ backgroundColor: '#5026C1' }}>
       {chuckedCodes.map(eachChuck => <CodeRow codes={eachChuck} />)}
