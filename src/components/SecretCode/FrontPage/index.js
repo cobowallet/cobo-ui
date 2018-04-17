@@ -35,7 +35,7 @@ const generateBtn = (title, onPress) => (
   />
 );
 
-const FontPage = ({ locale, isModalOpen, closeModal, openModal }) => {
+const FrontPage = ({ locale, isModalOpen, closeModal, openModal }) => {
   const fontPageSetting = lang[locale].fontPage;
   const modalSetting = lang[locale].modal;
   return (
@@ -56,4 +56,4 @@ const FontPage = ({ locale, isModalOpen, closeModal, openModal }) => {
   );
 };
 
-export default FontPage;
+export default FrontPage;
