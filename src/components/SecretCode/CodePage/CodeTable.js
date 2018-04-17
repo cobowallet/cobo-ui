@@ -46,7 +46,7 @@ const Right = styled.View`
 const CodeCell = ({ code }) => (
   <CellContainer>
     <Left>
-      <Text style={{ fontSize: 10, color: '#D8D8D8' }}>{code.number}</Text>
+      <Text style={{ fontSize: 10, color: '#D8D8D8' }}>{code.index}</Text>
     </Left>
     <Right>
       <Text style={{ fontSize: 20, color: '#ffff', fontWeight: '800' }}>{code.value}</Text>
@@ -55,10 +55,9 @@ const CodeCell = ({ code }) => (
 );
 
 const CodeTable = ({ codes }) => {
-  const codeWithOrder = codes.map((eachCode, index) => ({ value: eachCode, number: index + 1 }));
-  const chuckedCodes = chunk(codeWithOrder, CODE_PER_ROW);
+  const chuckedCodes = chunk(codes, CODE_PER_ROW);
   return (
-    <View style={{ backgroundColor: '#5026C1', borderRadius: 4}}>
+    <View style={{ backgroundColor: '#5026C1', borderRadius: 4 }}>
       {chuckedCodes.map(eachChuck => <CodeRow codes={eachChuck} />)}
     </View>
   );

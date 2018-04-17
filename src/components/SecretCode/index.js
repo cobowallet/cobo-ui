@@ -2,15 +2,56 @@ import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 import { SlidingPane, SlidingPaneWrapper } from 'react-native-sliding-panes';
 import FrontPage from './FrontPage';
+import CodePage from './CodePage';
+import { transformSecretCodeFormat, pickQuestionWords, getNoiseWord } from './codeHelper';
 
 class SecretCode extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isModalOpen: false,
+      activeIndex: 0,
+      secretWords: [],
+      questionWordsAndNoise: [],
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.goToCodePage = this.goToCodePage.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const secretWords = transformSecretCodeFormat(nextProps.secretWords);
+    let questionWords = pickQuestionWords(secretWords);
+    const questionWordsAndNoise = questionWords.map(each => ({
+      ...each,
+      ...{ noise: getNoiseWord(each) },
+    }));
+    this.setState({
+      secretWords,
+      questionWordsAndNoise,
+    });
+  }
+
+  regenrateQuestionAndNoise() {
+    let questionWords = pickQuestionWords(this.state.secretWords);
+    const questionWordsAndNoise = questionWords.map(each => ({
+      ...each,
+      ...{ noise: getNoiseWord(each) },
+    }));
+    this.setState({
+      questionWordsAndNoise,
+    });
+  }
+
+  goToCodePage() {
+    this.setState({
+      isModalOpen: true,
+      activeIndex: 1,
+    });
+  }
+
+  componentDidUpdate() {
+    this.slidingPaneWrapper.setActive(this.state.activeIndex);
   }
 
   openModal() {
@@ -49,19 +90,17 @@ class SecretCode extends Component {
           <FrontPage
             locale={'zh'}
             isModalOpen={this.state.isModalOpen}
-            openModal={this.openModal}
+            goToCodePage={this.goToCodePage}
             closeModal={this.closeModal}
           />
         </SlidingPane>
         <SlidingPane
-          style={[{ borderColor: '#FF9999', borderWidth: 2 }]}
+          style={[]}
           ref={pane2 => {
             this.pane2 = pane2;
           }}
         >
-          <View>
-            <Text>Pane 2</Text>
-          </View>
+          <CodePage locale={'zh'} codes={this.state.secretWords} />
         </SlidingPane>
         <SlidingPane
           style={[{ borderColor: '#FF9999', borderWidth: 2 }]}

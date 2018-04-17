@@ -33,7 +33,7 @@ const generateBtn = (title, onPress) => (
   />
 );
 
-const FrontPage = ({ locale, isModalOpen, closeModal, openModal }) => {
+const FrontPage = ({ locale, isModalOpen, closeModal, goToCodePage }) => {
   const fontPageSetting = lang[locale].frontPage;
   const modalSetting = lang[locale].modal;
   return (
@@ -41,7 +41,7 @@ const FrontPage = ({ locale, isModalOpen, closeModal, openModal }) => {
       header={fontPageSetting.header}
       descriptions={fontPageSetting.descriptions}
       body={Body}
-      button={generateBtn(fontPageSetting.button, openModal)}
+      button={generateBtn(fontPageSetting.button, goToCodePage)}
     >
       <SecretModal
         isModalOpen={isModalOpen}
