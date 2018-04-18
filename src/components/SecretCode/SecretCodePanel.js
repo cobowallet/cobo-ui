@@ -20,16 +20,16 @@ const SecretCodePanel = ({ header, descriptions, body, button, children }) => {
           <CBHeader bold style={{ paddingTop: 10, paddingBottom: 20 }}>
             {header}
           </CBHeader>
-          {descriptions.map(each => (
-            <CBText small color={'white'} style={{ paddingTop: 10, paddingBottom: 10 }}>
+          {descriptions.map((each, index) => (
+            <CBText small color={'white'} style={{ paddingTop: 10, paddingBottom: 10 }} key={index}>
               {each}
             </CBText>
           ))}
           {body}
         </View>
         {button}
+        {children}
       </ScrollView>
-      <View style={{ width: '100%' }}>{children}</View>
     </Gradient>
   );
 };
