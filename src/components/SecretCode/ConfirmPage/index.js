@@ -11,9 +11,9 @@ const Container = styled.View`
   margin-bottom: 200;
 `;
 
-const getBody = (words, page, selectedWord, onItemPress) => (
+const getBody = (words, wordIndex, selectedWord, onItemPress) => (
   <Container>
-    <Text style={{ fontSize: 40, color: 'white' }}>{`#${page}`}</Text>
+    <Text style={{ fontSize: 40, color: 'white' }}>{`#${wordIndex}`}</Text>
     <WordsBox words={words} selectedWord={selectedWord} onItemPress={onItemPress} />
   </Container>
 );
@@ -55,13 +55,13 @@ class ConfirmPage extends Component {
   }
 
   render() {
-    const { locale, words, page, answer } = this.props;
+    const { locale, words, page, wordIndex } = this.props;
     const confirmPageSetting = lang[locale].confirmPage;
     return (
       <SecretCodePanel
         header={confirmPageSetting.header}
         descriptions={confirmPageSetting.descriptions}
-        body={getBody(words, page, answer, this.onItemClick)}
+        body={getBody(words, wordIndex, this.state.clicked, this.onItemClick)}
         button={generateBtn(confirmPageSetting[`button${page}`], this.onPageClick)}
       />
     );

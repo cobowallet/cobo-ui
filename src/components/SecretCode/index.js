@@ -6,6 +6,13 @@ import CodePage from './CodePage';
 import ConfirmPage from './ConfirmPage';
 import { transformSecretCodeFormat, pickQuestionWords, getNoiseWord, shuffle } from './codeHelper';
 
+const generateQuestionWordsAndNoise = secretWords => {
+  return pickQuestionWords(secretWords).map(each => ({
+    ...each,
+    ...{ noiseWithAnswer: shuffle([...getNoiseWord(each), each.value]) },
+  }));
+};
+
 class SecretCode extends Component {
   constructor(props) {
     super(props);
@@ -19,29 +26,21 @@ class SecretCode extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.goToCodePage = this.goToCodePage.bind(this);
     this.goToConfirmPage = this.goToConfirmPage.bind(this);
+    this.regenerateQuestionAndNoise = this.regenerateQuestionAndNoise.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     const secretWords = transformSecretCodeFormat(nextProps.secretWords);
-    let questionWords = pickQuestionWords(secretWords);
-    const questionWordsAndNoise = questionWords.map(each => ({
-      ...each,
-      ...{ noiseWithAnswer: shuffle([...getNoiseWord(each), each.value]) },
-    }));
     this.setState({
       secretWords,
-      questionWordsAndNoise,
+      questionWordsAndNoise: generateQuestionWordsAndNoise(secretWords),
     });
   }
 
   regenerateQuestionAndNoise() {
-    let questionWords = pickQuestionWords(this.state.secretWords);
-    const questionWordsAndNoise = questionWords.map(each => ({
-      ...each,
-      ...{ noise: getNoiseWord(each) },
-    }));
     this.setState({
-      questionWordsAndNoise,
+      questionWordsAndNoise: generateQuestionWordsAndNoise(this.state.secretWords),
+      activeIndex: 0,
     });
   }
 
@@ -90,7 +89,7 @@ class SecretCode extends Component {
         }}
       >
         <SlidingPane
-          style={[{ flex: 1 }]}
+          style={[]}
           ref={pane1 => {
             this.pane1 = pane1;
           }}
@@ -130,8 +129,12 @@ class SecretCode extends Component {
             answer={
               this.state.questionWordsAndNoise[0] ? this.state.questionWordsAndNoise[0].value : ''
             }
+            page={1}
+            wordIndex={
+              this.state.questionWordsAndNoise[0] ? this.state.questionWordsAndNoise[0].index : ''
+            }
             goToConfirmTwo={() => this.goToConfirmPage(3)}
-            regenrateQuestionAndNoise={this.regenerateQuestionAndNoise}
+            regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
           />
         </SlidingPane>
       </SlidingPaneWrapper>
