@@ -16,7 +16,7 @@ const CodeRow = ({ codes }) => {
         flexDirection: 'row',
       }}
     >
-      {codes.map(eachCode => <CodeCell code={eachCode} />)}
+      {codes.map(eachCode => <CodeCell code={eachCode} key={eachCode.index} />)}
     </View>
   );
 };

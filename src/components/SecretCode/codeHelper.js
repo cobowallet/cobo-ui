@@ -22,3 +22,10 @@ export const pickQuestionWords = secretCode => {
 export const getNoiseWord = word => {
   return ['grass', 'belt', 'hello', 'word', 'hi'];
 };
+
+export const generateQuestionWordsAndNoise = secretWords => {
+  return pickQuestionWords(secretWords).map(each => ({
+    ...each,
+    ...{ noiseWithAnswer: shuffle([...getNoiseWord(each), each.value]) },
+  }));
+};

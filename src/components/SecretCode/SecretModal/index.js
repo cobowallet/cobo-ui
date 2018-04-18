@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import Modal from 'react-native-modal';
 import SecretModalIcon from './SecretModalIcon';
 import { CBHeader, CBText } from '../../Core';

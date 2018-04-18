@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
 import { SlidingPane, SlidingPaneWrapper } from 'react-native-sliding-panes';
 import FrontPage from './FrontPage';
 import CodePage from './CodePage';
 import ConfirmPage from './ConfirmPage';
 import SecretModal from './SecretModal';
-import { transformSecretCodeFormat, pickQuestionWords, getNoiseWord, shuffle } from './codeHelper';
-
-const generateQuestionWordsAndNoise = secretWords => {
-  return pickQuestionWords(secretWords).map(each => ({
-    ...each,
-    ...{ noiseWithAnswer: shuffle([...getNoiseWord(each), each.value]) },
-  }));
-};
+import { lang } from './lang';
+import { transformSecretCodeFormat, generateQuestionWordsAndNoise } from './codeHelper';
 
 class SecretCode extends Component {
   constructor(props) {
@@ -83,6 +76,7 @@ class SecretCode extends Component {
   }
 
   render() {
+    const modalSetting = lang[this.props.locale].modal;
     return (
       <SlidingPaneWrapper
         style={{}}
@@ -97,7 +91,7 @@ class SecretCode extends Component {
           }}
         >
           <FrontPage
-            locale={'zh'}
+            locale={this.props.locale}
             isModalOpen={this.state.isModalOpen}
             goToCodePage={this.goToCodePage}
             closeModal={this.closeModal}
@@ -110,7 +104,7 @@ class SecretCode extends Component {
           }}
         >
           <CodePage
-            locale={'zh'}
+            locale={this.props.locale}
             codes={this.state.secretWords}
             goToConfirmOne={() => this.goToConfirmPage(2)}
           />
@@ -122,7 +116,7 @@ class SecretCode extends Component {
           }}
         >
           <ConfirmPage
-            locale={'zh'}
+            locale={this.props.locale}
             words={
               this.state.questionWordsAndNoise[0]
                 ? this.state.questionWordsAndNoise[0].noiseWithAnswer
@@ -146,7 +140,7 @@ class SecretCode extends Component {
           }}
         >
           <ConfirmPage
-            locale={'zh'}
+            locale={this.props.locale}
             words={
               this.state.questionWordsAndNoise[1]
                 ? this.state.questionWordsAndNoise[1].noiseWithAnswer
@@ -163,6 +157,13 @@ class SecretCode extends Component {
             onSuccess={this.props.onSuccess}
           />
         </SlidingPane>
+        <SecretModal
+          isModalOpen={this.state.isModalOpen}
+          header={modalSetting.header}
+          description={modalSetting.description}
+          button={modalSetting.button}
+          onPress={this.closeModal}
+        />
       </SlidingPaneWrapper>
     );
   }

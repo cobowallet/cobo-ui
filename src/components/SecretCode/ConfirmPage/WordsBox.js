@@ -28,8 +28,13 @@ const Word = ({ word, selected, onItemPress }) => (
 const Words = ({ words, selectedWord, onItemPress }) => {
   return (
     <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-      {words.map(each => (
-        <Word selected={each === selectedWord} word={each} onItemPress={() => onItemPress(each)} />
+      {words.map((each, index) => (
+        <Word
+          selected={each === selectedWord}
+          word={each}
+          onItemPress={() => onItemPress(each)}
+          key={index}
+        />
       ))}
     </View>
   );

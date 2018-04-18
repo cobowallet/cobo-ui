@@ -4,7 +4,6 @@ import SecretCodePanel from '../SecretCodePanel';
 import FrontPageIcon from './FrontPageIcon/index';
 import { lang } from '../lang';
 import CBButton from '../../Core/CBButton/index';
-import SecretModal from '../SecretModal';
 
 const Container = styled.View`
   margin-top: 100;
@@ -33,24 +32,15 @@ const generateBtn = (title, onPress) => (
   />
 );
 
-const FrontPage = ({ locale, isModalOpen, closeModal, goToCodePage }) => {
+const FrontPage = ({ locale, goToCodePage }) => {
   const fontPageSetting = lang[locale].frontPage;
-  const modalSetting = lang[locale].modal;
   return (
     <SecretCodePanel
       header={fontPageSetting.header}
       descriptions={fontPageSetting.descriptions}
       body={Body}
       button={generateBtn(fontPageSetting.button, goToCodePage)}
-    >
-      <SecretModal
-        isModalOpen={isModalOpen}
-        header={modalSetting.header}
-        description={modalSetting.description}
-        button={modalSetting.button}
-        onPress={closeModal}
-      />
-    </SecretCodePanel>
+    />
   );
 };
 
