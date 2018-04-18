@@ -43,7 +43,7 @@ class ConfirmPage extends Component {
 
   onPageClick() {
     if (this.state.clicked === this.props.answer) {
-      this.props.goToConfirmTwo();
+      this.props.onSuccess();
     }
     this.props.regenerateQuestionAndNoise();
   }

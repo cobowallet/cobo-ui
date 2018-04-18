@@ -77,7 +77,8 @@ class SecretCode extends Component {
     this.pane1.warpCenter();
     this.pane2.warpRight();
     this.pane3.warpRight();
-    this.slidingPaneWrapper.childPanes = [this.pane1, this.pane2, this.pane3];
+    this.pane4.warpRight();
+    this.slidingPaneWrapper.childPanes = [this.pane1, this.pane2, this.pane3, this.pane4];
   }
 
   render() {
@@ -133,8 +134,32 @@ class SecretCode extends Component {
             wordIndex={
               this.state.questionWordsAndNoise[0] ? this.state.questionWordsAndNoise[0].index : ''
             }
-            goToConfirmTwo={() => this.goToConfirmPage(3)}
+            onSuccess={() => this.goToConfirmPage(3)}
             regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
+          />
+        </SlidingPane>
+        <SlidingPane
+          style={[]}
+          ref={pane4 => {
+            this.pane4 = pane4;
+          }}
+        >
+          <ConfirmPage
+            locale={'zh'}
+            words={
+              this.state.questionWordsAndNoise[1]
+                ? this.state.questionWordsAndNoise[1].noiseWithAnswer
+                : []
+            }
+            answer={
+              this.state.questionWordsAndNoise[1] ? this.state.questionWordsAndNoise[1].value : ''
+            }
+            page={2}
+            wordIndex={
+              this.state.questionWordsAndNoise[1] ? this.state.questionWordsAndNoise[1].index : ''
+            }
+            regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
+            onSuccess={this.props.onSuccess}
           />
         </SlidingPane>
       </SlidingPaneWrapper>
