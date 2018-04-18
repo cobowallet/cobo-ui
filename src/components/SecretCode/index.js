@@ -4,6 +4,7 @@ import { SlidingPane, SlidingPaneWrapper } from 'react-native-sliding-panes';
 import FrontPage from './FrontPage';
 import CodePage from './CodePage';
 import ConfirmPage from './ConfirmPage';
+import SecretModal from './SecretModal';
 import { transformSecretCodeFormat, pickQuestionWords, getNoiseWord, shuffle } from './codeHelper';
 
 const generateQuestionWordsAndNoise = secretWords => {
@@ -84,7 +85,7 @@ class SecretCode extends Component {
   render() {
     return (
       <SlidingPaneWrapper
-        style={{ flex: 1 }}
+        style={{}}
         ref={slidingPaneWrapper => {
           this.slidingPaneWrapper = slidingPaneWrapper;
         }}

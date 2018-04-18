@@ -14,22 +14,23 @@ const Gradient = styled(LinearGradient)`
 
 const SecretCodePanel = ({ header, descriptions, body, button, children }) => {
   return (
-    <ScrollView style={{ flex: 1 }}>
-      <Gradient colors={['#6163FF', '#8D04FF']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 0.9 }} />
-      <View style={{ padding: 10 }}>
-        <CBHeader bold style={{ paddingTop: 10, paddingBottom: 20 }}>
-          {header}
-        </CBHeader>
-        {descriptions.map(each => (
-          <CBText small color={'white'} style={{ paddingTop: 10, paddingBottom: 10 }}>
-            {each}
-          </CBText>
-        ))}
-        {body}
-      </View>
-      {button}
-      {children}
-    </ScrollView>
+    <Gradient colors={['#6163FF', '#8D04FF']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 0.9 }}>
+      <ScrollView style={{ flex: 1 }}>
+        <View style={{ padding: 10 }}>
+          <CBHeader bold style={{ paddingTop: 10, paddingBottom: 20 }}>
+            {header}
+          </CBHeader>
+          {descriptions.map(each => (
+            <CBText small color={'white'} style={{ paddingTop: 10, paddingBottom: 10 }}>
+              {each}
+            </CBText>
+          ))}
+          {body}
+        </View>
+        {button}
+      </ScrollView>
+      <View style={{ width: '100%' }}>{children}</View>
+    </Gradient>
   );
 };
 

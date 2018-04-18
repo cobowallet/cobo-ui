@@ -58,7 +58,7 @@ const CodeTable = ({ codes }) => {
   const chuckedCodes = chunk(codes, CODE_PER_ROW);
   return (
     <View style={{ backgroundColor: '#5026C1', borderRadius: 4 }}>
-      {chuckedCodes.map(eachChuck => <CodeRow codes={eachChuck} />)}
+      {chuckedCodes.map((eachChuck, index) => <CodeRow codes={eachChuck} key={index} />)}
     </View>
   );
 };
