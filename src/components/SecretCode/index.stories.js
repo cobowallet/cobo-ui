@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import SecretCode from './index';
 
-storiesOf('Sercurity code', module).add('default', () => (
+storiesOf('Secret code', module).add('default', () => (
   <SecretCode
     locale={'zh'}
     secretWords={[
@@ -19,5 +19,8 @@ storiesOf('Sercurity code', module).add('default', () => (
       'conduct',
       'invite',
     ]}
+    onSuccess={() => {
+      console.log('this is the callback props');
+    }}
   />
 ));
