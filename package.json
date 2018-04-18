@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "rnpm": {
-    "assets": ["assets/fonts"]
+    "assets": [
+      "assets/fonts"
+    ]
   },
   "main": "src/index.js",
   "scripts": {
@@ -43,11 +45,12 @@
     "react": "16.3.1",
     "react-dom": "^16.3.1",
     "react-native": "0.55.1",
-    "react-native-vector-icons": "^4.6.0",
     "react-native-linear-gradient": ">=2.4.0",
-    "react-native-storybook-loader": "^1.8.0",
     "react-native-sliding-panes": "^1.0.3",
+    "react-native-storybook-loader": "^1.8.0",
+    "react-native-vector-icons": "^4.6.0",
     "react-test-renderer": "16.3.1",
+    "sinon": "^4.5.0",
     "storybook-addon-docgen": "^4.0.0"
   },
   "peerDependencies": {
@@ -58,15 +61,21 @@
   },
   "config": {
     "react-native-storybook-loader": {
-      "searchDir": ["./src"],
+      "searchDir": [
+        "./src"
+      ],
       "pattern": "**/*.stories.js",
       "outputFile": "./storybook/storyLoader.js"
     }
   },
   "jest": {
     "verbose": true,
-    "setupFiles": ["./test/config.js"],
-    "transformIgnorePatterns": ["node_modules/(?!(react-native|react-native-.*|native-.*)/)"],
+    "setupFiles": [
+      "./test/config.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-native|react-native-.*|native-.*)/)"
+    ],
     "preset": "react-native"
   }
 }
