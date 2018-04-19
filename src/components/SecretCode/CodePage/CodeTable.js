@@ -32,26 +32,26 @@ const CellContainer = styled.View`
   border-bottom-width: 1;
 `;
 
-const Left = styled.View`
-  width: 15%;
-  padding-top: 2;
-  padding-left: 2;
+const Top = styled.View`
+  position: absolute;
+  top: 5;
+  left: 5;
 `;
 
-const Right = styled.View`
-  width: 85%;
+const Content = styled.View`
+  width: 100%;
   justify-content: center;
   align-items: center;
 `;
 
 const CodeCell = ({ code }) => (
   <CellContainer>
-    <Left>
+    <Top>
       <Text style={{ fontSize: 10, color: '#D8D8D8' }}>{code.index}</Text>
-    </Left>
-    <Right>
+    </Top>
+    <Content>
       <Text style={{ fontSize: 20, color: '#ffff', fontWeight: '800' }}>{code.value}</Text>
-    </Right>
+    </Content>
   </CellContainer>
 );
 
