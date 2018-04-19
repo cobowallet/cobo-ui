@@ -21,7 +21,7 @@ class ConfirmPage extends React.PureComponent {
     };
   }
 
-  onPageClick = () => {
+  onNext = () => {
     if (this.state.clicked === this.props.answer && this.props.onSuccess) {
       this.props.onSuccess();
     } else {
@@ -67,7 +67,7 @@ class ConfirmPage extends React.PureComponent {
         header={confirmPageSetting.header}
         descriptions={confirmPageSetting.descriptions}
         body={this.renderBody(words, wordIndex, this.state.clicked, this.onItemClick)}
-        button={this.renderButton(confirmPageSetting[`button${page}`], this.onPageClick)}
+        button={this.renderButton(confirmPageSetting[`button${page}`], this.onNext)}
       />
     );
   }

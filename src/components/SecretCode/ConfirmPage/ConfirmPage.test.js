@@ -21,7 +21,7 @@ describe('ConfirmPage', () => {
     // this is the set test case scenario
     wrapper.setState({ clicked: '12' });
 
-    wrapper.instance().onPageClick();
+    wrapper.instance().onNext();
 
     expect(successSpy.called).toBe(true);
     expect(regenerateSpy.called).toBe(false);
@@ -43,7 +43,7 @@ describe('ConfirmPage', () => {
     );
 
     wrapper.setState({ clicked: '34' });
-    wrapper.instance().onPageClick();
+    wrapper.instance().onNext();
     expect(successSpy.called).toBe(false);
     expect(regenerateSpy.called).toBe(true);
   });
