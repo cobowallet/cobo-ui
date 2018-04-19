@@ -1,0 +1,55 @@
+import React from 'react';
+import styled from 'styled-components/native';
+import PropTypes from 'prop-types';
+import SecretCodePanel from '../SecretCodePanel';
+import { lang } from '../lang';
+import CBButton from '../../Core/CBButton/index';
+import CodeTable from './CodeTable';
+
+const Container = styled.View`
+  margin-top: 50;
+  margin-bottom: 50;
+`;
+
+const getBody = codes => (
+  <Container>
+    <CodeTable codes={codes} />
+  </Container>
+);
+
+const generateButton = (title, onPress) => (
+  <CBButton
+    style={{
+      marginTop: 20,
+      marginBottom: 40,
+      backgroundColor: 'white',
+    }}
+    textColor={'#5170EB'}
+    text={title}
+    onPress={onPress}
+  />
+);
+
+const CodePage = ({ locale, codes, goToConfirmOne }) => {
+  const codePageSetting = lang[locale].codePage;
+  return (
+    <SecretCodePanel
+      header={codePageSetting.header}
+      descriptions={codePageSetting.descriptions}
+      body={getBody(codes)}
+      button={generateButton(codePageSetting.button, goToConfirmOne)}
+    />
+  );
+};
+
+CodePage.propTypes = {
+  locale: PropTypes.string.isRequired,
+  codes: PropTypes.arrayOf(
+    PropTypes.shape({
+      index: PropTypes.number.isRequired,
+      value: PropTypes.string.isRequired,
+    })
+  ),
+};
+
+export default CodePage;
