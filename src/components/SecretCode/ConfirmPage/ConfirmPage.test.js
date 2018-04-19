@@ -18,9 +18,11 @@ describe('ConfirmPage', () => {
         regenerateQuestionAndNoise={regenerateSpy}
       />
     );
-
+    // this is the set test case scenario
     wrapper.setState({ clicked: '12' });
+
     wrapper.instance().onPageClick();
+
     expect(successSpy.called).toBe(true);
     expect(regenerateSpy.called).toBe(false);
   });

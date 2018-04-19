@@ -1,60 +1,62 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
+import PropTypes from 'prop-types';
 import SecretCodePanel from '../SecretCodePanel';
 import { lang } from '../lang';
 import CBButton from '../../Core/CBButton/index';
 import WordsBox from './WordsBox';
+import { ButtonColors, FontColors } from '../../../theme/CBColor';
 
 const Container = styled.View`
   margin-top: 50;
   margin-bottom: 200;
 `;
 
-const getBody = (words, wordIndex, selectedWord, onItemPress) => (
-  <Container>
-    <Text style={{ fontSize: 40, color: 'white' }}>{`#${wordIndex}`}</Text>
-    <WordsBox words={words} selectedWord={selectedWord} onItemPress={onItemPress} />
-  </Container>
-);
-
-const generateBtn = (title, onPress) => (
-  <CBButton
-    style={{
-      marginTop: 20,
-      marginBottom: 40,
-      backgroundColor: 'white',
-    }}
-    textColor={'#5170EB'}
-    text={title}
-    onPress={onPress}
-  />
-);
-
-class ConfirmPage extends Component {
+class ConfirmPage extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       clicked: '',
     };
-    this.onPageClick = this.onPageClick.bind(this);
-    this.onItemClick = this.onItemClick.bind(this);
   }
 
-  onPageClick() {
-    if (this.state.clicked === this.props.answer) {
-      if (this.props.onSuccess) {
-        this.props.onSuccess();
-      }
+  onPageClick = () => {
+    if (this.state.clicked === this.props.answer && this.props.onSuccess) {
+      this.props.onSuccess();
     } else {
       this.props.regenerateQuestionAndNoise();
     }
-  }
+  };
 
-  onItemClick(item) {
+  onItemClick = item => {
     this.setState({
       clicked: item,
     });
+  };
+
+  renderBody(words, wordIndex, selectedWord, onItemPress) {
+    return (
+      <Container>
+        <Text style={{ fontSize: 40, color: `${FontColors.white}` }}>{`#${wordIndex}`}</Text>
+        <WordsBox words={words} selectedWord={selectedWord} onItemPress={onItemPress} />
+      </Container>
+    );
+  }
+
+  renderButton(title, onPress) {
+    return (
+      <CBButton
+        style={{
+          marginTop: 20,
+          marginBottom: 40,
+          backgroundColor: `${ButtonColors.white}`,
+        }}
+        textColor={ButtonColors.blue}
+        text={title}
+        onPress={onPress}
+      />
+    );
   }
 
   render() {
@@ -64,11 +66,18 @@ class ConfirmPage extends Component {
       <SecretCodePanel
         header={confirmPageSetting.header}
         descriptions={confirmPageSetting.descriptions}
-        body={getBody(words, wordIndex, this.state.clicked, this.onItemClick)}
-        button={generateBtn(confirmPageSetting[`button${page}`], this.onPageClick)}
+        body={this.renderBody(words, wordIndex, this.state.clicked, this.onItemClick)}
+        button={this.renderButton(confirmPageSetting[`button${page}`], this.onPageClick)}
       />
     );
   }
 }
+
+ConfirmPage.propTypes = {
+  locale: PropTypes.string.isRequired,
+  words: PropTypes.arrayOf(PropTypes.string).isRequired,
+  page: PropTypes.number.isRequired,
+  wordIndex: PropTypes.number.isRequired,
+};
 
 export default ConfirmPage;
