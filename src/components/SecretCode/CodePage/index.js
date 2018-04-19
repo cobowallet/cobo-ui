@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import PropTypes from 'prop-types';
 import SecretCodePanel from '../SecretCodePanel';
 import { lang } from '../lang';
 import CBButton from '../../Core/CBButton/index';
@@ -39,6 +40,16 @@ const CodePage = ({ locale, codes, goToConfirmOne }) => {
       button={generateBtn(codePageSetting.button, goToConfirmOne)}
     />
   );
+};
+
+CodePage.propTypes = {
+  locale: PropTypes.string.isRequired,
+  codes: PropTypes.arrayOf(
+    PropTypes.shape({
+      index: PropTypes.number.isRequired,
+      value: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default CodePage;

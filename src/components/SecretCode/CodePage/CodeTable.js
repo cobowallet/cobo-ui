@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -62,4 +63,14 @@ const CodeTable = ({ codes }) => {
     </View>
   );
 };
+
+CodeTable.propTypes = {
+  codes: PropTypes.arrayOf(
+    PropTypes.shape({
+      index: PropTypes.number.isRequired,
+      value: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
 export default CodeTable;
