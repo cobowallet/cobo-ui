@@ -20,7 +20,7 @@ const Body = (
   </Container>
 );
 
-const generateBtn = (title, onPress) => (
+const generateButton = (title, onPress) => (
   <CBButton
     style={{
       marginTop: 20,
@@ -40,7 +40,7 @@ const FrontPage = ({ locale, goToCodePage }) => {
       header={fontPageSetting.header}
       descriptions={fontPageSetting.descriptions}
       body={Body}
-      button={generateBtn(fontPageSetting.button, goToCodePage)}
+      button={generateButton(fontPageSetting.button, goToCodePage)}
     />
   );
 };

@@ -17,7 +17,7 @@ const getBody = codes => (
   </Container>
 );
 
-const generateBtn = (title, onPress) => (
+const generateButton = (title, onPress) => (
   <CBButton
     style={{
       marginTop: 20,
@@ -37,7 +37,7 @@ const CodePage = ({ locale, codes, goToConfirmOne }) => {
       header={codePageSetting.header}
       descriptions={codePageSetting.descriptions}
       body={getBody(codes)}
-      button={generateBtn(codePageSetting.button, goToConfirmOne)}
+      button={generateButton(codePageSetting.button, goToConfirmOne)}
     />
   );
 };
