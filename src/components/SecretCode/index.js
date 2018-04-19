@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { SlidingPane, SlidingPaneWrapper } from 'react-native-sliding-panes';
 import FrontPage from './FrontPage';
 import CodePage from './CodePage';
@@ -168,5 +169,16 @@ class SecretCode extends Component {
     );
   }
 }
+
+SecretCode.propTypes = {
+  locale: PropTypes.string,
+  secretWords: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onSuccess: PropTypes.func,
+};
+
+SecretCode.defaultProps = {
+  locale: 'zh',
+  onSuccess: () => {},
+};
 
 export default SecretCode;
