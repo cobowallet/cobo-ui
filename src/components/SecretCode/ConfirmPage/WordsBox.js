@@ -7,7 +7,7 @@ import { ButtonColors } from '../../../theme/CBColor';
 
 const WordButton = styled(CBButton)`
   height: 50;
-  background-color: ${props => (props.selected ? ButtonColors.white : 'transparent')};
+  background-color: ${props => (props.selected ? ButtonColors.pureWhite : 'transparent')};
   padding-top: 10;
   padding-bottom: 10;
   padding-right: 20;
@@ -25,7 +25,8 @@ const Word = ({ word, selected, onItemPress }) => (
   <WordButton
     text={word}
     onPress={onItemPress}
-    textStyle={{ color: selected ? ButtonColors.blue : ButtonColors.white }}
+    textStyle={{ color: selected ? ButtonColors.blue : ButtonColors.pureWhite }}
+    selected={selected}
   />
 );
 

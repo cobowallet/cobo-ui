@@ -22,6 +22,7 @@ export const ButtonColors = {
   red: '#f03e3e',
   disabledBlue: '#A8B7F5',
   disabledGray: '#F2F3F7',
+  pureWhite: '#fff',
 };
 
 export const CoinColors = {
