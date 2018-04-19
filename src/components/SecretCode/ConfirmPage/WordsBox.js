@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
 import CBButton from '../../Core/CBButton/index';
 
@@ -39,4 +40,11 @@ const Words = ({ words, selectedWord, onItemPress }) => {
     </View>
   );
 };
+
+Words.propTypes = {
+  words: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedWord: PropTypes.string.isRequired,
+  onItemPress: PropTypes.func.isRequired,
+};
+
 export default Words;

@@ -127,7 +127,7 @@ class SecretCode extends Component {
             }
             page={1}
             wordIndex={
-              this.state.questionWordsAndNoise[0] ? this.state.questionWordsAndNoise[0].index : ''
+              this.state.questionWordsAndNoise[0] ? this.state.questionWordsAndNoise[0].index : 0
             }
             onSuccess={() => this.goToConfirmPage(3)}
             regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
@@ -151,7 +151,7 @@ class SecretCode extends Component {
             }
             page={2}
             wordIndex={
-              this.state.questionWordsAndNoise[1] ? this.state.questionWordsAndNoise[1].index : ''
+              this.state.questionWordsAndNoise[1] ? this.state.questionWordsAndNoise[1].index : 0
             }
             regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
             onSuccess={this.props.onSuccess}
