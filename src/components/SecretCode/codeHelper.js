@@ -1,5 +1,7 @@
+import { clone } from 'ramda';
+
 export const shuffle = array => {
-  const newArray = JSON.parse(JSON.stringify(array));
+  const newArray = clone(array);
   let m = newArray.length;
   let t, i;
   while (m) {
