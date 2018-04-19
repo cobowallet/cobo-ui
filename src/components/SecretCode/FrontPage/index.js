@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import SecretCodePanel from '../SecretCodePanel';
 import FrontPageIcon from './FrontPageIcon/index';
@@ -42,6 +43,11 @@ const FrontPage = ({ locale, goToCodePage }) => {
       button={generateBtn(fontPageSetting.button, goToCodePage)}
     />
   );
+};
+
+FrontPage.propTypes = {
+  locale: PropTypes.string.isRequired,
+  goToCodePage: PropTypes.func.isRequired,
 };
 
 export default FrontPage;

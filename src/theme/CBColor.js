@@ -55,6 +55,11 @@ export const CONTAINER_COLORS = {
   MODAL_BG: '#5170EB',
 };
 
+export const MODAL_COLORS = {
+  black: '#060709',
+  red: '#F83363',
+};
+
 export const PIECHART_COLORS = ['#B5C5FF', '#FFFFFF', '#4800F2', '#1F184F', '#00B191'];
 
 export default {

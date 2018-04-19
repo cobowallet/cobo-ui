@@ -1,52 +1,59 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import Modal from 'react-native-modal';
 import SecretModalIcon from './SecretModalIcon';
 import { CBLabel, CBText } from '../../Core';
-import CBButton from '../../Core/CBButton/';
+import CBButton from '../../Core/CBButton';
+import { MODAL_COLORS } from '../../../theme/CBColor';
 
-class SecretModal extends Component {
-  render() {
-    return (
-      <Modal isVisible={this.props.isModalOpen} backdropColor={'#060709'} backdropOpacity={0.9}>
+const SecretModal = ({ isModalOpen, header, description, button, onPress }) => {
+  return (
+    <Modal isVisible={isModalOpen} backdropColor={MODAL_COLORS.black} backdropOpacity={0.9}>
+      <View
+        style={{
+          backgroundColor: MODAL_COLORS.red,
+          borderRadius: 5,
+          paddingTop: 30,
+          paddingBottom: 30,
+        }}
+      >
         <View
           style={{
-            backgroundColor: '#F83363',
-            borderRadius: 5,
-            paddingTop: 30,
-            paddingBottom: 30,
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          <View
-            style={{
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <SecretModalIcon />
-            <CBLabel bold size={20} style={{ padding: 5 }}>
-              {this.props.header}
-            </CBLabel>
-            <CBText
-              color={'white'}
-              small
-              style={{ paddingTop: 10, paddingBottom: 20, paddingLeft: 10, paddingRight: 10 }}
-            >
-              {this.props.description}
-            </CBText>
-          </View>
-          <CBButton
+          <SecretModalIcon />
+          <CBLabel bold size={20} style={{ padding: 5 }}>
+            {header}
+          </CBLabel>
+          <CBText
             color={'white'}
-            style={{ backgroundColor: 'white' }}
-            textStyle={{ color: '#F83363' }}
-            text={this.props.button}
-            onPress={this.props.onPress}
-          />
+            small
+            style={{ paddingTop: 10, paddingBottom: 20, paddingLeft: 10, paddingRight: 10 }}
+          >
+            {description}
+          </CBText>
         </View>
-      </Modal>
-    );
-  }
-}
+        <CBButton
+          color={'white'}
+          style={{ backgroundColor: 'white' }}
+          textStyle={{ color: '#F83363' }}
+          text={button}
+          onPress={onPress}
+        />
+      </View>
+    </Modal>
+  );
+};
+
+SecretModal.propTypes = {
+  isModalOpen: PropTypes.bool.isRequired,
+  header: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+};
 
 export default SecretModal;
