@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
-import { CBText, CBHeader } from '../Core';
+import { CBText, CBLabel } from '../Core';
 
 const Gradient = styled(LinearGradient)`
   width: 100%;
@@ -17,9 +17,9 @@ const SecretCodePanel = ({ header, descriptions, body, button, children }) => {
     <Gradient colors={['#6163FF', '#8D04FF']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 0.9 }}>
       <ScrollView style={{ flex: 1 }}>
         <View style={{ padding: 10 }}>
-          <CBHeader bold style={{ paddingTop: 10, paddingBottom: 20 }}>
+          <CBLabel bold style={{ paddingTop: 10, paddingBottom: 20 }}>
             {header}
-          </CBHeader>
+          </CBLabel>
           {descriptions.map((each, index) => (
             <CBText small color={'white'} style={{ paddingTop: 10, paddingBottom: 10 }} key={index}>
               {each}

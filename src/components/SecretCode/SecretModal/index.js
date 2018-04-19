@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import Modal from 'react-native-modal';
 import SecretModalIcon from './SecretModalIcon';
-import { CBHeader, CBText } from '../../Core';
+import { CBLabel, CBText } from '../../Core';
 import CBButton from '../../Core/CBButton/';
 
 class SecretModal extends Component {
@@ -25,9 +25,9 @@ class SecretModal extends Component {
             }}
           >
             <SecretModalIcon />
-            <CBHeader bold size={20} style={{ padding: 5 }}>
+            <CBLabel bold size={20} style={{ padding: 5 }}>
               {this.props.header}
-            </CBHeader>
+            </CBLabel>
             <CBText
               color={'white'}
               small

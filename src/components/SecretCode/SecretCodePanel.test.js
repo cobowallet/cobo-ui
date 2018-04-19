@@ -3,7 +3,7 @@ import { View, Button } from 'react-native';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import SecretCodePanel from './SecretCodePanel';
-import { CBText, CBHeader } from '../Core';
+import { CBText, CBLabel } from '../Core';
 
 describe('SecretCodePanel', () => {
   it('should render the give component as the Secret Code panel', () => {
@@ -24,7 +24,7 @@ describe('SecretCodePanel', () => {
     expect(wrapper.find('#children').length).toBe(1);
     expect(wrapper.find(Button).length).toBe(1);
     expect(wrapper.find(CBText).length).toBe(3);
-    expect(wrapper.find(CBHeader).length).toBe(1);
+    expect(wrapper.find(CBLabel).length).toBe(1);
 
     const buttonWrapper = wrapper.find(Button);
     buttonWrapper.props().onPress();

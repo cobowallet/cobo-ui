@@ -15,7 +15,7 @@ const FontColors = {
   green: '#00B191',
 };
 
-const CBHeader = styled.Text`
+const CBLabel = styled.Text`
   font-size: ${props => props.size || 24};
   color: ${props => FontColors[props.color] || props.colorHex};
   font-weight: ${props => {
@@ -29,14 +29,14 @@ const CBHeader = styled.Text`
   }};
 `;
 
-CBHeader.propTypes = {
+CBLabel.propTypes = {
   color: PropTypes.oneOf(['dark', 'gray', 'grayLight', 'primary', 'white', 'red', 'blue']),
   size: PropTypes.number,
 };
 
-CBHeader.defaultProps = {
+CBLabel.defaultProps = {
   color: 'white',
   size: 24,
 };
 
-export default CBHeader;
+export default CBLabel;
