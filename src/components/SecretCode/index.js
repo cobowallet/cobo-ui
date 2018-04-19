@@ -9,62 +9,18 @@ import { lang } from './lang';
 import { transformSecretCodeFormat, generateQuestionWordsAndNoise } from './codeHelper';
 
 class SecretCode extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isModalOpen: false,
-      activeIndex: 0,
-      secretWords: [],
-      questionWordsAndNoise: [],
-    };
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.goToCodePage = this.goToCodePage.bind(this);
-    this.goToConfirmPage = this.goToConfirmPage.bind(this);
-    this.regenerateQuestionAndNoise = this.regenerateQuestionAndNoise.bind(this);
-  }
+  state = {
+    isModalOpen: false,
+    activeIndex: 0,
+    secretWords: [],
+    questionWordsAndNoise: [],
+  };
 
   componentWillReceiveProps(nextProps) {
     const secretWords = transformSecretCodeFormat(nextProps.secretWords);
     this.setState({
       secretWords,
       questionWordsAndNoise: generateQuestionWordsAndNoise(secretWords),
-    });
-  }
-
-  regenerateQuestionAndNoise() {
-    this.setState({
-      questionWordsAndNoise: generateQuestionWordsAndNoise(this.state.secretWords),
-      activeIndex: 0,
-    });
-  }
-
-  goToCodePage() {
-    this.setState({
-      isModalOpen: true,
-      activeIndex: 1,
-    });
-  }
-
-  goToConfirmPage(num) {
-    this.setState({
-      activeIndex: num,
-    });
-  }
-
-  componentDidUpdate() {
-    this.slidingPaneWrapper.setActive(this.state.activeIndex);
-  }
-
-  openModal() {
-    this.setState({
-      isModalOpen: true,
-    });
-  }
-
-  closeModal() {
-    this.setState({
-      isModalOpen: false,
     });
   }
 
@@ -75,6 +31,36 @@ class SecretCode extends Component {
     this.pane4.warpRight();
     this.slidingPaneWrapper.childPanes = [this.pane1, this.pane2, this.pane3, this.pane4];
   }
+
+  componentDidUpdate() {
+    this.slidingPaneWrapper.setActive(this.state.activeIndex);
+  }
+
+  regenerateQuestionAndNoise = () => {
+    this.setState({
+      questionWordsAndNoise: generateQuestionWordsAndNoise(this.state.secretWords),
+      activeIndex: 0,
+    });
+  };
+
+  goToCodePage = () => {
+    this.setState({
+      isModalOpen: true,
+      activeIndex: 1,
+    });
+  };
+
+  goToConfirmPage = num => {
+    this.setState({
+      activeIndex: num,
+    });
+  };
+
+  closeModal = () => {
+    this.setState({
+      isModalOpen: false,
+    });
+  };
 
   render() {
     const modalSetting = lang[this.props.locale].modal;
