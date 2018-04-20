@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
+import { withTheme } from 'styled-components';
 import CBButton from '../../Core/CBButton/index';
 import { ButtonColors } from '../../../theme/CBColor';
 
@@ -21,7 +22,7 @@ const WordButton = styled(CBButton)`
   border-color: ${ButtonColors.white};
 `;
 
-const Word = ({ word, selected, onItemPress }) => (
+const Word = ({ word, selected, onItemPress, theme }) => (
   <WordButton
     text={word}
     onPress={onItemPress}

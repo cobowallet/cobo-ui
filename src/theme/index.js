@@ -16,6 +16,7 @@ export const secretCodeTheme = {
     codePanelColor: '#5026C1',
     codeIndexColor: '#D8D8D8',
     codeColor: '#fff',
+    wordSelectedColor: '#5170EB',
   },
 
   dark: {
@@ -26,5 +27,6 @@ export const secretCodeTheme = {
     codePanelColor: '#666780',
     codeIndexColor: '#D8D8D8',
     codeColor: '#fff',
+    wordSelectedColor: '#000',
   },
 };
