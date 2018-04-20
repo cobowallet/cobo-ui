@@ -2,8 +2,7 @@ import React from 'react';
 import { withTheme } from 'styled-components';
 import { ScrollView, Text, View, Dimensions } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { CBText, CBLabel } from '../Core';
-import CBButton from '../Core/CBButton/index';
+import { CBText, CBLabel, CBButton } from '../Core';
 
 const { width } = Dimensions.get('window');
 
@@ -51,3 +50,4 @@ const SecretCodePanel = ({
 };
 
 export default withTheme(SecretCodePanel);
+export { SecretCodePanel as PureSecretCodePanel };

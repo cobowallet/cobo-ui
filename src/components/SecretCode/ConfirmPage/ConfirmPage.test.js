@@ -12,7 +12,7 @@ describe('ConfirmPage', () => {
         locale={'zh'}
         words={['12', '23', '34']}
         answer={'12'}
-        page={1}
+        page={'Normal'}
         wordIndex={3}
         onSuccess={successSpy}
         regenerateQuestionAndNoise={regenerateSpy}
@@ -35,7 +35,7 @@ describe('ConfirmPage', () => {
         locale={'zh'}
         words={['12', '23', '34']}
         answer={'12'}
-        page={1}
+        page={'Normal'}
         wordIndex={3}
         onSuccess={successSpy}
         regenerateQuestionAndNoise={regenerateSpy}
@@ -46,6 +46,6 @@ describe('ConfirmPage', () => {
     wrapper.instance().onNext();
     expect(successSpy.called).toBe(false);
     expect(regenerateSpy.called).toBe(true);
-    expect(wrapper.state('clicked')).toBe('')
+    expect(wrapper.state('clicked')).toBe('');
   });
 });
