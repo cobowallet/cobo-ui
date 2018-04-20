@@ -37,7 +37,8 @@ const CodePage = ({ locale, codes, goToConfirmOne }) => {
       header={codePageSetting.header}
       descriptions={codePageSetting.descriptions}
       body={getBody(codes)}
-      button={generateButton(codePageSetting.button, goToConfirmOne)}
+      buttonTitle={codePageSetting.button}
+      buttonOnPress={goToConfirmOne}
     />
   );
 };

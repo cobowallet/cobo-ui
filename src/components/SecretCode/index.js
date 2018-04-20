@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components/native';
 import { ScrollView, Dimensions } from 'react-native';
 import FrontPage from './FrontPage';
 import CodePage from './CodePage';
@@ -7,6 +8,7 @@ import ConfirmPage from './ConfirmPage';
 import SecretModal from './SecretModal';
 import { lang } from './lang';
 import { transformSecretCodeFormat, generateQuestionWordsAndNoise } from './codeHelper';
+import { secretCodeTheme } from '../../theme';
 
 const { width } = Dimensions.get('window');
 
@@ -60,67 +62,69 @@ class SecretCode extends Component {
   render() {
     const modalSetting = lang[this.props.locale].modal;
     return (
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        scrollEnabled={false}
-        ref={scrollView => {
-          this.scrollView = scrollView;
-        }}
-      >
-        <FrontPage
-          locale={this.props.locale}
-          isModalOpen={this.state.isModalOpen}
-          goToCodePage={this.goToCodePage}
-          closeModal={this.closeModal}
-        />
-        <CodePage
-          locale={this.props.locale}
-          codes={this.state.secretWords}
-          goToConfirmOne={() => this.goToConfirmPage(2)}
-        />
-        <ConfirmPage
-          locale={this.props.locale}
-          words={
-            this.state.questionWordsAndNoise[0]
-              ? this.state.questionWordsAndNoise[0].noiseWithAnswer
-              : []
-          }
-          answer={
-            this.state.questionWordsAndNoise[0] ? this.state.questionWordsAndNoise[0].value : ''
-          }
-          page={1}
-          wordIndex={
-            this.state.questionWordsAndNoise[0] ? this.state.questionWordsAndNoise[0].index : 0
-          }
-          onSuccess={() => this.goToConfirmPage(3)}
-          regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
-        />
-        <ConfirmPage
-          locale={this.props.locale}
-          words={
-            this.state.questionWordsAndNoise[1]
-              ? this.state.questionWordsAndNoise[1].noiseWithAnswer
-              : []
-          }
-          answer={
-            this.state.questionWordsAndNoise[1] ? this.state.questionWordsAndNoise[1].value : ''
-          }
-          page={2}
-          wordIndex={
-            this.state.questionWordsAndNoise[1] ? this.state.questionWordsAndNoise[1].index : 0
-          }
-          regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
-          onSuccess={this.props.onSuccess}
-        />
-        <SecretModal
-          isModalOpen={this.state.isModalOpen}
-          header={modalSetting.header}
-          description={modalSetting.description}
-          button={modalSetting.button}
-          onPress={this.closeModal}
-        />
-      </ScrollView>
+      <ThemeProvider theme={secretCodeTheme[this.props.theme] || secretCodeTheme.default}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          scrollEnabled={false}
+          ref={scrollView => {
+            this.scrollView = scrollView;
+          }}
+        >
+          <FrontPage
+            locale={this.props.locale}
+            isModalOpen={this.state.isModalOpen}
+            goToCodePage={this.goToCodePage}
+            closeModal={this.closeModal}
+          />
+          <CodePage
+            locale={this.props.locale}
+            codes={this.state.secretWords}
+            goToConfirmOne={() => this.goToConfirmPage(2)}
+          />
+          <ConfirmPage
+            locale={this.props.locale}
+            words={
+              this.state.questionWordsAndNoise[0]
+                ? this.state.questionWordsAndNoise[0].noiseWithAnswer
+                : []
+            }
+            answer={
+              this.state.questionWordsAndNoise[0] ? this.state.questionWordsAndNoise[0].value : ''
+            }
+            page={1}
+            wordIndex={
+              this.state.questionWordsAndNoise[0] ? this.state.questionWordsAndNoise[0].index : 0
+            }
+            onSuccess={() => this.goToConfirmPage(3)}
+            regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
+          />
+          <ConfirmPage
+            locale={this.props.locale}
+            words={
+              this.state.questionWordsAndNoise[1]
+                ? this.state.questionWordsAndNoise[1].noiseWithAnswer
+                : []
+            }
+            answer={
+              this.state.questionWordsAndNoise[1] ? this.state.questionWordsAndNoise[1].value : ''
+            }
+            page={2}
+            wordIndex={
+              this.state.questionWordsAndNoise[1] ? this.state.questionWordsAndNoise[1].index : 0
+            }
+            regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
+            onSuccess={this.props.onSuccess}
+          />
+          <SecretModal
+            isModalOpen={this.state.isModalOpen}
+            header={modalSetting.header}
+            description={modalSetting.description}
+            button={modalSetting.button}
+            onPress={this.closeModal}
+          />
+        </ScrollView>
+      </ThemeProvider>
     );
   }
 }
@@ -129,11 +133,13 @@ SecretCode.propTypes = {
   locale: PropTypes.string,
   secretWords: PropTypes.arrayOf(PropTypes.string).isRequired,
   onSuccess: PropTypes.func,
+  theme: PropTypes.object,
 };
 
 SecretCode.defaultProps = {
   locale: 'zh',
   onSuccess: () => {},
+  theme: secretCodeTheme.default,
 };
 
 export default SecretCode;

@@ -70,7 +70,8 @@ class ConfirmPage extends React.PureComponent {
         header={confirmPageSetting.header}
         descriptions={confirmPageSetting.descriptions}
         body={this.renderBody(words, wordIndex, this.state.clicked, this.onItemClick)}
-        button={this.renderButton(confirmPageSetting[`button${page}`], this.onNext)}
+        buttonTitle={confirmPageSetting[`button${page}`]}
+        buttonOnPress={this.onNext}
       />
     );
   }
