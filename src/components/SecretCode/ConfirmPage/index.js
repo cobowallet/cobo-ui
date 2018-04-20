@@ -25,6 +25,9 @@ class ConfirmPage extends React.PureComponent {
     if (this.state.clicked === this.props.answer && this.props.onSuccess) {
       this.props.onSuccess();
     } else {
+      this.setState({
+        clicked: '',
+      });
       this.props.regenerateQuestionAndNoise();
     }
   };
