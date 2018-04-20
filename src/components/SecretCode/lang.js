@@ -22,8 +22,8 @@ export const lang = {
     confirmPage: {
       header: '请确认 Cobo 助记词',
       descriptions: ['为了确保您已将 Cobo 助记词正确得抄写，请选择对应序号的单词。'],
-      button1: '下一步',
-      button2: '完成',
+      buttonNormal: '下一步',
+      buttonLast: '完成',
     },
 
     modal: {

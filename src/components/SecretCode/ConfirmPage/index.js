@@ -80,7 +80,7 @@ class ConfirmPage extends React.PureComponent {
 ConfirmPage.propTypes = {
   locale: PropTypes.string.isRequired,
   words: PropTypes.arrayOf(PropTypes.string).isRequired,
-  page: PropTypes.number.isRequired,
+  page: PropTypes.string.isRequired,
   wordIndex: PropTypes.number.isRequired,
 };
 
