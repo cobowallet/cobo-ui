@@ -61,7 +61,6 @@ class SecretCode extends Component {
     const modalSetting = lang[this.props.locale].modal;
     return (
       <ScrollView
-        style={{ flexDirection: 'row' }}
         horizontal
         showsHorizontalScrollIndicator={false}
         scrollEnabled={false}
