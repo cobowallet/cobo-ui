@@ -26,16 +26,18 @@ const Word = ({ word, selected, onItemPress, theme }) => (
   <WordButton
     text={word}
     onPress={onItemPress}
-    textStyle={{ color: selected ? ButtonColors.blue : ButtonColors.pureWhite }}
+    textStyle={{ color: selected ? theme['wordSelectedColor'] : ButtonColors.pureWhite }}
     selected={selected}
   />
 );
+
+const WordWithTheme = withTheme(Word);
 
 const Words = ({ words, selectedWord, onItemPress }) => {
   return (
     <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
       {words.map((each, index) => (
-        <Word
+        <WordWithTheme
           selected={each === selectedWord}
           word={each}
           onItemPress={() => onItemPress(each)}
