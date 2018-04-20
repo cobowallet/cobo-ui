@@ -17,19 +17,6 @@ const getBody = codes => (
   </Container>
 );
 
-const generateButton = (title, onPress) => (
-  <CBButton
-    style={{
-      marginTop: 20,
-      marginBottom: 40,
-      backgroundColor: 'white',
-    }}
-    textColor={'#5170EB'}
-    text={title}
-    onPress={onPress}
-  />
-);
-
 const CodePage = ({ locale, codes, goToConfirmOne }) => {
   const codePageSetting = lang[locale].codePage;
   return (
