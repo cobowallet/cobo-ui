@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
-import CoinLogos from 'CoinLogos';
+import CoinLogos from './CoinLogos';
 
 function WalletLogo({ style, coin }) {
   const coinIconSource = coin ? CoinLogos[coin] : '';

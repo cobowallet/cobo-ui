@@ -1,7 +1,3 @@
-/**
- * @providesModule CoinLogos
- */
-
 import BTC from './img/btc.png';
 import ETH from './img/eth.png';
 import ETC from './img/etc.png';

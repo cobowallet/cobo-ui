@@ -1,10 +1,11 @@
 {
   "name": "CoboUI",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "rnpm": {
     "assets": ["assets/fonts"]
   },
+  "files": ["src/*", "assets/*"],
   "main": "src/index.js",
   "scripts": {
     "start": "npm run storybook",
