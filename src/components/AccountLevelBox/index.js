@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import { CBText } from '../Core';
-import { Ionicons } from '../Icons';
+import { Ionicons } from '../../icons';
 
 const Container = styled.TouchableOpacity`
   flex-direction: row;

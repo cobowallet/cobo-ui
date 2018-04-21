@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import AccountLevelBox from './index';
-import { Ionicons } from '../Icons';
+import { Ionicons } from '../../icons';
 
 describe('AccountLevelBox', () => {
   it('should render AccountLevel Box with check mark', () => {
