@@ -4,14 +4,13 @@ import { Keyboard } from 'react-native';
 import { isNil } from 'ramda';
 import { CBText } from '../Core';
 import {
-  Touchable,
   BoxModal,
   MessageContent,
   ButtonsContainer,
-  Line,
   TitleText,
   MessageText,
   MAX_HEIGHT,
+  renderBottomButtons,
 } from './style';
 
 class MessageModal extends PureComponent {
@@ -80,22 +79,7 @@ class MessageModal extends PureComponent {
 
         {renderContent && renderContent()}
 
-        <ButtonsContainer>
-          {buttons &&
-            buttons.length > 0 &&
-            buttons.map((item, index) => {
-              const { titleBold, titleColor, title, onPress, canPress } = item;
-              const dividerLine = <Line key={(index + buttons.length).toString()} />;
-              const button = (
-                <Touchable onPress={onPress} disabled={!canPress} key={index.toString()}>
-                  <CBText color={titleColor} bold={titleBold}>
-                    {title}
-                  </CBText>
-                </Touchable>
-              );
-              return index === 0 ? button : [dividerLine, button];
-            })}
-        </ButtonsContainer>
+        <ButtonsContainer>{renderBottomButtons(buttons)}</ButtonsContainer>
       </BoxModal>
     );
   }

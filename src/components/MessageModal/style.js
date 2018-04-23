@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
 import { LINE_COLORS } from '../../theme/CBColor';
@@ -46,7 +47,7 @@ export const ButtonsContainer = styled.View`
   background-color: transparent;
 `;
 
-export const Touchable = styled.TouchableOpacity`
+const Touchable = styled.TouchableOpacity`
   background-color: transparent;
   justify-content: center;
   align-items: center;
@@ -54,8 +55,26 @@ export const Touchable = styled.TouchableOpacity`
   flex: 1;
 `;
 
-export const Line = styled.View`
+const Line = styled.View`
   background-color: ${LINE_COLORS.LINE};
   height: 100%;
   width: 1;
 `;
+
+export const renderBottomButtons = buttons => {
+  if (buttons && buttons.length > 0) {
+    return buttons.map((item, index) => {
+      const { titleBold, titleColor, title, onPress, canPress } = item;
+      const dividerLine = <Line key={(index + buttons.length).toString()} />;
+      const button = (
+        <Touchable onPress={onPress} disabled={!canPress} key={index.toString()}>
+          <CBText color={titleColor} bold={titleBold}>
+            {title}
+          </CBText>
+        </Touchable>
+      );
+      return index === 0 ? button : [dividerLine, button];
+    });
+  }
+  return null;
+};
