@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import QRCode from 'react-native-qrcode'
+import PropTypes from 'prop-types';
+import QRCode from 'react-native-qrcode';
 import { Image } from 'react-native';
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
 
-import { WalletLogo } from '../../icons'
-import { CBShadow } from '../Core'
+import { WalletLogo } from '../../icons';
+import { CBShadow } from '../Core';
 import { FontColors } from '../../theme/CBColor';
 
 const QRContainer = styled(CBShadow)`
@@ -14,7 +14,7 @@ const QRContainer = styled(CBShadow)`
   background-color: white;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const LogoContainer = styled.View`
   width: ${props => props.size}
@@ -26,15 +26,17 @@ const LogoContainer = styled.View`
   background-color: white;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Logo = ({ size, logo }) => {
   const styled = { width: size, height: size, borderRadius: size / 2 };
 
-  return typeof logo === 'string' ?
-    (<WalletLogo style={ styled } coin={ logo } />)
-      : (<Image style={ styled } source={ logo }/>)
-}
+  return typeof logo === 'string' ? (
+    <WalletLogo style={styled} coin={logo} />
+  ) : (
+    <Image style={styled} source={logo} />
+  );
+};
 
 const DefaultSize = 200;
 
@@ -46,27 +48,26 @@ const CBQRCode = ({ size, code, logo }) => {
   const sizeOfLogo = sizeOfLogoContainer - 5;
 
   return (
-    <QRContainer size={ sizeOfContainer } >
-      <QRCode size={ sizeOfQR } value={ code } />
+    <QRContainer size={sizeOfContainer}>
+      <QRCode size={sizeOfQR} value={code} />
 
       {logo && (
-        <LogoContainer size={ sizeOfLogoContainer } topLeft={ logoContainerTopLeft }>
-          <Logo size={ sizeOfLogo } logo={ logo } />
+        <LogoContainer size={sizeOfLogoContainer} topLeft={logoContainerTopLeft}>
+          <Logo size={sizeOfLogo} logo={logo} />
         </LogoContainer>
       )}
-
     </QRContainer>
-  )
-}
+  );
+};
 
 CBQRCode.propTypes = {
   size: PropTypes.number.isRequired,
   code: PropTypes.string.isRequired,
-  logo: PropTypes.oneOfType([ PropTypes.string, PropTypes.object])
-}
+  logo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+};
 
 CBQRCode.defaultProps = {
-  size: DefaultSize
-}
+  size: DefaultSize,
+};
 
-export default CBQRCode
+export default CBQRCode;

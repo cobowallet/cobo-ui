@@ -96,4 +96,4 @@ export {
   SendTab,
   ReceiveTab,
   SettingTab,
-}
+};
