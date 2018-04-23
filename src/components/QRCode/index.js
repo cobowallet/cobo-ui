@@ -4,7 +4,7 @@ import QRCode from 'react-native-qrcode'
 import { Image } from 'react-native';
 import styled from 'styled-components/native'
 
-import WalletLogo from '../../icons/WalletLogo'
+import { WalletLogo } from '../../icons'
 import { CBShadow } from '../Core'
 import { FontColors } from '../../theme/CBColor';
 
