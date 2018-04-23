@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
 import { CBText } from '../Core';
 import {
-  height,
   Touchable,
   BoxModal,
   MessageContent,
@@ -11,6 +10,7 @@ import {
   Line,
   TitleText,
   MessageText,
+  MAX_HEIGHT,
 } from './style';
 
 class MessageModal extends PureComponent {
@@ -18,6 +18,7 @@ class MessageModal extends PureComponent {
     super(props);
     this.state = {
       contentHeight: 22,
+      titleHeight: 30,
     };
   }
 
@@ -31,10 +32,21 @@ class MessageModal extends PureComponent {
     });
   };
 
+  onTitleLayout = ({ nativeEvent: { layout: { x, y, width, height } } }) => {
+    this.setState({
+      titleHeight: height,
+    });
+  };
+
+  getMessageContentHeight = () => {
+    const { contentHeight, titleHeight } = this.state;
+    const maxMessageHeight = MAX_HEIGHT - titleHeight - 100;
+    return contentHeight > maxMessageHeight ? maxMessageHeight : contentHeight;
+  };
+
   render() {
     const { visible, title, content, buttons } = this.props;
-    const { contentHeight } = this.state;
-    const messageHeight = contentHeight > height - 230 ? height - 230 : contentHeight;
+    const messageHeight = this.getMessageContentHeight();
     return (
       <BoxModal
         visible={visible}
@@ -42,13 +54,13 @@ class MessageModal extends PureComponent {
         animationOutTiming={50}
         backdropTransitionOutTiming={50}
       >
-        <TitleText bold color={'dark'}>
+        <TitleText bold color={'dark'} onLayout={this.onTitleLayout}>
           {title}
         </TitleText>
         <MessageContent
           onContentSizeChange={this.onContentSizeChange}
           showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
+          showsVerticalScrollIndicator={messageHeight < this.state.contentHeight}
           alwaysBounceHorizontal={false}
           bounces={false}
           style={{

@@ -15,9 +15,12 @@ export const Touchable = styled.TouchableOpacity`
   flex: 1;
 `;
 
+export const MAX_WIDTH = width - 2 * width * 0.05;
+export const MAX_HEIGHT = height - 2 * height * 0.1;
+
 export const BoxModal = styled(CBModal)`
-  width: ${width - 50 > 320 ? 320 : width - 50};
-  max-height: ${height - 100};
+  width: ${MAX_WIDTH};
+  max-height: ${MAX_HEIGHT};
   padding-top: 16;
   padding-bottom: 0;
   background-color: white;
@@ -29,8 +32,7 @@ export const BoxModal = styled(CBModal)`
 export const MessageContent = styled.ScrollView`
   margin-top: 12;
   width: 100%;
-  padding-horizontal: 20;
-  max-height: ${height - 230};
+  padding-horizontal: 16;
 `;
 
 export const ButtonsContainer = styled.View`
