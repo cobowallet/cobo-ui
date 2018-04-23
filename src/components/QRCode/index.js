@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import QRCode from 'react-native-qrcode'
 import { FontColors } from '../../theme/CBColor';
 import WalletLogo from '../../icons/WalletLogo'
-import CoinLogos from '../../icons/CoinLogos';
 import { Image } from 'react-native';
 
 const QRContainer = styled.View`
@@ -19,18 +18,20 @@ const LogoContainer = styled.View`
   width: ${prop => prop.size}
   height: ${prop => prop.size}
   border-radius: ${prop => prop.size / 2};
+  position: absolute;
   top: ${prop => prop.marginOf}
   left: ${prop => prop.marginOf}
   background-color: white;
-  position: absolute;
   justify-content: center;
   align-items: center;
 `
 
 const Logo = ({ size, logo }) => {
-  return typeof logo === 'string' && CoinLogos[logo] ?
-    (<WalletLogo style={{ width: size, height: size }} coin={ logo } />)
-      : (<Image style={{ width: size, height: size, borderRadius: size / 2 }} source={ logo }/>)
+  const styled = { width: size, height: size, borderRadius: size / 2 };
+
+  return typeof logo === 'string' ?
+    (<WalletLogo style={ styled } coin={ logo } />)
+      : (<Image style={ styled } source={ logo }/>)
 }
 
 const ShadowStyle = {
