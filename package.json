@@ -8,11 +8,12 @@
   "files": ["src", "assets"],
   "main": "src/index.js",
   "scripts": {
+    "eslint": "eslint src/**/*.js",
     "start": "npm run storybook",
     "test": "jest",
     "prestorybook": "rnstl",
     "precommit": "lint-staged",
-    "prettier": "prettier --write '{./,__{tests,mocks}__}/**/*.js'",
+    "prettier": "prettier --write '{src,__{tests,mocks}__}/**/*.js'",
     "storybook": "storybook start -p 7007"
   },
   "dependencies": {
@@ -66,7 +67,7 @@
     }
   },
   "lint-staged": {
-    "./**/*.{js,css}": ["eslint", "prettier --write", "git add"]
+    "src/**/*.{js,json,css}": ["eslint", "prettier --write", "git add"]
   },
   "jest": {
     "verbose": true,

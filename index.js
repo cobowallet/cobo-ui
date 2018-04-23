@@ -7,7 +7,7 @@ import { loadStories } from './storybook/storyLoader';
 global.STORYBOOK_REACT_CLASSES = {};
 
 // center all storeis
-addDecorator(doc );
+addDecorator(doc);
 
 //https://github.com/facebook/react-native/issues/18175
 YellowBox.ignoreWarnings([
