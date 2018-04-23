@@ -46,6 +46,6 @@ describe('ConfirmPage', () => {
     wrapper.instance().onNext();
     expect(successSpy.called).toBe(false);
     expect(regenerateSpy.called).toBe(true);
-    expect(wrapper.state('clicked')).toBe('')
+    expect(wrapper.state('clicked')).toBe('');
   });
 });

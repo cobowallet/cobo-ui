@@ -11,6 +11,8 @@
     "start": "npm run storybook",
     "test": "jest",
     "prestorybook": "rnstl",
+    "precommit": "lint-staged",
+    "prettier": "prettier --write '{./,__{tests,mocks}__}/**/*.js'",
     "storybook": "storybook start -p 7007"
   },
   "dependencies": {
@@ -62,6 +64,9 @@
       "pattern": "**/*.stories.js",
       "outputFile": "./storybook/storyLoader.js"
     }
+  },
+  "lint-staged": {
+    "./**/*.{js,css}": ["eslint", "prettier --write", "git add"]
   },
   "jest": {
     "verbose": true,
