@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
+import { isNil } from 'ramda';
 import { CBText } from '../Core';
 import {
   Touchable,
@@ -32,7 +33,7 @@ class MessageModal extends PureComponent {
     });
   };
 
-  onTitleLayout = ({ nativeEvent: { layout: { x, y, width, height } } }) => {
+  onTitleLayout = ({ nativeEvent: { layout: { height } } }) => {
     this.setState({
       titleHeight: height,
     });
@@ -45,8 +46,10 @@ class MessageModal extends PureComponent {
   };
 
   render() {
-    const { visible, title, content, buttons } = this.props;
+    const { visible, title, content, buttons, renderContent } = this.props;
     const messageHeight = this.getMessageContentHeight();
+    const hasTitle = !isNil(title) && title.length > 0;
+    const hasMessage = !isNil(content) && content.length > 0;
     return (
       <BoxModal
         visible={visible}
@@ -54,21 +57,28 @@ class MessageModal extends PureComponent {
         animationOutTiming={50}
         backdropTransitionOutTiming={50}
       >
-        <TitleText bold color={'dark'} onLayout={this.onTitleLayout}>
-          {title}
-        </TitleText>
-        <MessageContent
-          onContentSizeChange={this.onContentSizeChange}
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={messageHeight < this.state.contentHeight}
-          alwaysBounceHorizontal={false}
-          bounces={false}
-          style={{
-            height: messageHeight,
-          }}
-        >
-          <MessageText color={'dark'}>{content}</MessageText>
-        </MessageContent>
+        {hasTitle && (
+          <TitleText bold color={'dark'} onLayout={this.onTitleLayout}>
+            {title}
+          </TitleText>
+        )}
+
+        {hasMessage && (
+          <MessageContent
+            onContentSizeChange={this.onContentSizeChange}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={messageHeight < this.state.contentHeight}
+            alwaysBounceHorizontal={false}
+            bounces={false}
+            style={{
+              height: messageHeight,
+            }}
+          >
+            <MessageText color={'dark'}>{content}</MessageText>
+          </MessageContent>
+        )}
+
+        {renderContent && renderContent()}
 
         <ButtonsContainer>
           {buttons &&
@@ -91,10 +101,13 @@ class MessageModal extends PureComponent {
   }
 }
 
+MessageModal.displayName = 'Simple Message Modal';
+
 MessageModal.propTypes = {
-  visible: PropTypes.bool,
+  visible: PropTypes.bool.isRequired,
   title: PropTypes.string,
   content: PropTypes.string,
+  renderContent: PropTypes.func,
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
       onPress: PropTypes.func,
@@ -107,10 +120,9 @@ MessageModal.propTypes = {
 };
 
 MessageModal.defaultProps = {
-  visible: false,
   title: '',
   content: '',
-  buttons: null,
+  renderContent: null,
 };
 
 export default MessageModal;
