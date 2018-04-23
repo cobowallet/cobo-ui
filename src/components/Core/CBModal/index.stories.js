@@ -49,14 +49,7 @@ class ModalTest extends React.Component {
           flex: 1,
         }}
       >
-        <CBModal
-          visible={this.state.display}
-          style={{
-            paddingVertical: 0,
-            paddingTop: 0,
-            paddingBottom: 0,
-          }}
-        >
+        <CBModal visible={this.state.display}>
           <ModalInner
             onPress={() => {
               this.setState({ display: false });
