@@ -1,26 +1,28 @@
 import React from 'react';
-import styled from 'styled-components/native'
 import PropTypes from 'prop-types'
 import QRCode from 'react-native-qrcode'
-import { FontColors } from '../../theme/CBColor';
-import WalletLogo from '../../icons/WalletLogo'
 import { Image } from 'react-native';
+import styled from 'styled-components/native'
 
-const QRContainer = styled.View`
-  width: ${prop => prop.size}
-  height: ${prop => prop.size}
+import WalletLogo from '../../icons/WalletLogo'
+import { CBShadow } from '../Core'
+import { FontColors } from '../../theme/CBColor';
+
+const QRContainer = styled(CBShadow)`
+  width: ${props => props.size}
+  height: ${props => props.size}
   background-color: white;
   justify-content: center;
   align-items: center;
 `
 
 const LogoContainer = styled.View`
-  width: ${prop => prop.size}
-  height: ${prop => prop.size}
-  border-radius: ${prop => prop.size / 2};
+  width: ${props => props.size}
+  height: ${props => props.size}
+  border-radius: ${props => props.size / 2};
   position: absolute;
-  top: ${prop => prop.marginOf}
-  left: ${prop => prop.marginOf}
+  top: ${props => props.topLeft}
+  left: ${props => props.topLeft}
   background-color: white;
   justify-content: center;
   align-items: center;
@@ -34,29 +36,21 @@ const Logo = ({ size, logo }) => {
       : (<Image style={ styled } source={ logo }/>)
 }
 
-const ShadowStyle = {
-  shadowColor: FontColors.grayLight,
-  shadowOffset: { width: 3, height: 3 },
-  shadowRadius: 5,
-  shadowOpacity: 0.3,
-  elevation: 15,
-};
-
 const DefaultSize = 200;
 
 const CBQRCode = ({ size, code, logo }) => {
   const sizeOfContainer = Math.max(DefaultSize, size);
   const sizeOfQR = sizeOfContainer - 20;
   const sizeOfLogoContainer = sizeOfContainer * 0.2;
-  const logoContainerMargin = (sizeOfContainer - sizeOfLogoContainer) / 2;
+  const logoContainerTopLeft = (sizeOfContainer - sizeOfLogoContainer) / 2;
   const sizeOfLogo = sizeOfLogoContainer - 5;
 
   return (
-    <QRContainer style={{ ...ShadowStyle }} size={ sizeOfContainer }>
+    <QRContainer size={ sizeOfContainer } >
       <QRCode size={ sizeOfQR } value={ code } />
 
       {logo && (
-        <LogoContainer size={ sizeOfLogoContainer } marginOf={ logoContainerMargin }>
+        <LogoContainer size={ sizeOfLogoContainer } topLeft={ logoContainerTopLeft }>
           <Logo size={ sizeOfLogo } logo={ logo } />
         </LogoContainer>
       )}
@@ -68,7 +62,7 @@ const CBQRCode = ({ size, code, logo }) => {
 CBQRCode.propTypes = {
   size: PropTypes.number.isRequired,
   code: PropTypes.string.isRequired,
-  logo: PropTypes.object
+  logo: PropTypes.oneOfType([ PropTypes.string, PropTypes.object])
 }
 
 CBQRCode.defaultProps = {
