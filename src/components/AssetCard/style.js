@@ -23,6 +23,7 @@ export const Row = styled.TouchableOpacity`
 
 export const IconContent = styled.View`
   justify-content: center;
+  margin-right: 12;
 `;
 
 export const CoinIcon = styled(WalletLogo)`

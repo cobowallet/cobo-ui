@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { View, Text } from 'react-native';
 import { action } from '@storybook/addon-actions';
-import AssetCard from './AssetCard';
+import AssetCard from './index';
 
 class AssetCardTest extends PureComponent {
   render() {
@@ -49,6 +49,7 @@ class AssetCardTest extends PureComponent {
                         borderTopWidth: 1,
                         justifyContent: 'center',
                         paddingHorizontal: 16,
+                        backgroundColor: 'white',
                       }}
                     >
                       <Text
