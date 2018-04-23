@@ -8,6 +8,42 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Octicons from 'react-native-vector-icons/Octicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Feather from 'react-native-vector-icons/Feather';
+import ArrowDown from './ArrowDown';
+import ArrowUp from './ArrowUp';
+import Menu from './Menu';
+import Sort from './Sort';
+import PlusSign from './PlusSign';
+import AngleRight from './AngleRight';
+import Fingerprint from './Fingerprint';
+import SuccessIcon from './SuccessIcon';
+import CheckMark from './CheckMark';
+import Circle from './Circle';
+import CloseArrow from './CloseArrow';
+import GrayArrowDown from './GrayArrowDown';
+import Close from './Close';
+import ArrowBack from './ArrowBack';
+import ArrowRight from './ArrowRight';
+import Indicator from './Indicator';
+import Copy from './Copy';
+import TriangleMark from './TriangleMark';
+import FoldingSwitch from './FoldingSwitch';
+import WalletLogo from './WalletLogo';
+import SendIcon from './SendIcon';
+import ReceiveIcon from './ReceiveIcon';
+import UserAvatarIcon from './UserAvatarIcon';
+import ScanQRCode from './ScanQRCode';
+import RightDownTriangleMark from './RightDownTriangleMark';
+import SendTo from './SendTo';
+import GreenCheck from './GreenCheck';
+import SweetIcon from './SweetIcon';
+import ConversionIcon from './ConversionIcon';
+import FaceID from './FaceID';
+import EntryIcon from './EntryIcon';
+import ContactUsSms from './ContactUsSms';
+import RedPacket from './RedPacket';
+import AccountTransfer from './AccountTransfer';
+import RewardIcon from './RewardIcon';
+import { AssetsTab, MarketTab, SendTab, ReceiveTab, SettingTab } from './TabIcons';
 
 export {
   FontAwesome,
@@ -20,40 +56,44 @@ export {
   Octicons,
   SimpleLineIcons,
   Feather,
-};
-export { AssetsTab, MarketTab, SendTab, ReceiveTab, SettingTab } from './TabIcons';
-export { ArrowDown } from './ArrowDown';
-export { ArrowUp } from './ArrowUp';
-export { Menu } from './Menu';
-export { Sort } from './Sort';
-export { PlusSign } from './PlusSign';
-export { AngleRight } from './AngleRight';
-export { Fingerprint } from './Fingerprint';
-export { SuccessIcon } from './SuccessIcon';
-export { CheckMark } from './CheckMark';
-export { Circle } from './Circle';
-export { CloseArrow } from './CloseArrow';
-export { GrayArrowDown } from './GrayArrowDown';
-export { Close } from './Close';
-export { ArrowBack } from './ArrowBack';
-export { ArrowRight } from './ArrowRight';
-export { Indicator } from './Indicator';
-export { Copy } from './Copy';
-export { TriangleMark } from './TriangleMark';
-export { FoldingSwitch } from './FoldingSwitch';
-export { WalletLogo } from './WalletLogo';
-export { SendIcon } from './SendIcon';
-export { ReceiveIcon } from './ReceiveIcon';
-export { UserAvatarIcon } from './UserAvatarIcon';
-export { ScanQRCode } from './ScanQRCode';
-export { RightDownTriangleMark } from './RightDownTriangleMark';
-export { SendTo } from './SendTo';
-export { GreenCheck } from './GreenCheck';
-export { SweetIcon } from './SweetIcon';
-export { ConversionIcon } from './ConversionIcon';
-export { FaceID } from './FaceID';
-export { EntryIcon } from './EntryIcon';
-export { ContactUsSms } from './ContactUsSms';
-export { RedPacket } from './RedPacket';
-export { AccountTransfer } from './AccountTransfer';
-export { RewardIcon } from './RewardIcon';
+  ArrowDown,
+  ArrowUp,
+  Menu,
+  Sort,
+  PlusSign,
+  AngleRight,
+  Fingerprint,
+  SuccessIcon,
+  CheckMark,
+  Circle,
+  CloseArrow,
+  GrayArrowDown,
+  Close,
+  ArrowBack,
+  ArrowRight,
+  Indicator,
+  Copy,
+  TriangleMark,
+  FoldingSwitch,
+  WalletLogo,
+  SendIcon,
+  ReceiveIcon,
+  UserAvatarIcon,
+  ScanQRCode,
+  RightDownTriangleMark,
+  SendTo,
+  GreenCheck,
+  SweetIcon,
+  ConversionIcon,
+  FaceID,
+  EntryIcon,
+  ContactUsSms,
+  RedPacket,
+  AccountTransfer,
+  RewardIcon,
+  AssetsTab,
+  MarketTab,
+  SendTab,
+  ReceiveTab,
+  SettingTab,
+}
