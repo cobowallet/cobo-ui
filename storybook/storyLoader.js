@@ -14,6 +14,7 @@ function loadStories() {
   require('../src/components/HorizontalAssetRatio/index.stories');
   require('../src/components/MessageModal/index.stories');
   require('../src/components/QRCode/index.stories');
+  require('../src/components/ReceivedSentButtonGroup/index.stories');
   require('../src/components/SecretCode/index.stories');
   require('../src/components/TransactionRecordRow/index.stories');
   require('../src/components/TransactionStatus/index.stories');
@@ -31,6 +32,7 @@ const stories = [
   '../src/components/HorizontalAssetRatio/index.stories',
   '../src/components/MessageModal/index.stories',
   '../src/components/QRCode/index.stories',
+  '../src/components/ReceivedSentButtonGroup/index.stories',
   '../src/components/SecretCode/index.stories',
   '../src/components/TransactionRecordRow/index.stories',
   '../src/components/TransactionStatus/index.stories',

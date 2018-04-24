@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import transaction from './img/receive-coin.png';
 import financing from './img/financing-receive.png';
 import spending from './img/spending-receive.png';
+import received from './img/received.png';
 
 const RECEIVE_IMG_PATHS = {
   transaction,
   financing,
   spending,
+  received,
 };
 
 function ReceiveIcon({ style, type }) {
@@ -17,7 +19,7 @@ function ReceiveIcon({ style, type }) {
 
 ReceiveIcon.propTypes = {
   style: PropTypes.object,
-  type: PropTypes.oneOf(['transaction', 'financing', 'spending']),
+  type: PropTypes.oneOf(['transaction', 'financing', 'spending', 'received']),
 };
 
 ReceiveIcon.defaultProps = {
