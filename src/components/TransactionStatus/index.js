@@ -28,60 +28,15 @@ const StatusContent = styled.View`
   padding-bottom: 4;
 `;
 
-StatusContent.propTypes = {
-  status: PropTypes.string,
-};
-
 const StatusText = CBText.extend`
   font-size: 10;
   color: ${props => StatusColors[props.status].font || StatusColors.other.font};
 `;
 
-StatusText.propTypes = {
-  status: PropTypes.string,
-};
-
-function getTransactionStatusText({
-  isInternal,
-  status,
-  statusText,
-  coinCode,
-  blockTotal,
-  blockConfirmed,
-}) {
-  let statusTextPrefix = '';
-  const nonStatusPrefixCoins = ['XRP', 'TXRP'];
-  const findCoin = nonStatusPrefixCoins.find(coin => coin === coinCode);
-  const isNonShowCoin = !isNil(findCoin) && findCoin.length > 0;
-  if (!isInternal && !isNonShowCoin) {
-    if (status === 'pending' || status === 'complete') {
-      statusTextPrefix = `${blockConfirmed}/${blockTotal}`;
-    }
-  }
-  return `${statusTextPrefix} ${statusText}`;
-}
-
-function TransactionStatus({
-  style,
-  isInternal,
-  status,
-  coinCode,
-  blockTotal,
-  blockConfirmed,
-  statusText,
-}) {
-  const statusTextShowing = getTransactionStatusText({
-    isInternal,
-    status,
-    statusText,
-    coinCode,
-    blockTotal,
-    blockConfirmed,
-  });
-
+function TransactionStatus({ style, status, statusText }) {
   return (
     <StatusContent style={style} status={status}>
-      <StatusText status={status}>{statusTextShowing}</StatusText>
+      <StatusText status={status}>{statusText}</StatusText>
     </StatusContent>
   );
 }
@@ -89,17 +44,6 @@ function TransactionStatus({
 TransactionStatus.propTypes = {
   status: PropTypes.string.isRequired,
   statusText: PropTypes.string.isRequired,
-  blockTotal: PropTypes.number,
-  blockConfirmed: PropTypes.number,
-  isInternal: PropTypes.bool,
-  coinCode: PropTypes.string,
-};
-
-TransactionStatus.defaultProps = {
-  blockTotal: 0,
-  blockConfirmed: 12,
-  isInternal: true,
-  coinCode: '',
 };
 
 export default TransactionStatus;

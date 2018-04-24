@@ -59,7 +59,7 @@ const TransactionRecordRow = ({ isSendOut, showIcon, title, amount, message, coi
       {typeof extra === 'string' ? (
         <TimeText time={extra} style={{ marginTop: 4 }} />
       ) : (
-        <TransactionStatus {...extra} coinCode={coinCode} isSendOut={isSendOut} />
+        <TransactionStatus {...extra} />
       )}
     </View>
   </Container>
@@ -76,9 +76,6 @@ TransactionRecordRow.propTypes = {
     PropTypes.shape({
       status: PropTypes.string.isRequired,
       statusText: PropTypes.string.isRequired,
-      blockConfirmed: PropTypes.number,
-      blockTotal: PropTypes.number,
-      isInternal: PropTypes.bool,
     }),
     PropTypes.string,
   ]).isRequired,

@@ -23,10 +23,7 @@ storiesOf('Transaction Record', module)
       message="To: 0x1jf...ddjf"
       extra={{
         status: 'pending',
-        statusText: '确认中',
-        blockTotal: 12,
-        blockConfirmed: 3,
-        isInternal: false,
+        statusText: '3/12 确认中',
       }}
     />
   ))
@@ -49,10 +46,7 @@ storiesOf('Transaction Record', module)
       message="From: 0x1jf...ddjf"
       extra={{
         status: 'complete',
-        statusText: '已确认',
-        blockTotal: 12,
-        blockConfirmed: 12,
-        isInternal: false,
+        statusText: '12/12 已确认',
       }}
     />
   ))
