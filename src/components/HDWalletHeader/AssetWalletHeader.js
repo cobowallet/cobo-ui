@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { HDWalletHeaderTheme } from '../../theme';
 import HDWalletHeader from './HDWalletHeader';
-import { AddIcon } from '../Core/Icons';
+import { AddWallet } from '../../icons';
 
 class AssetWalletHeader extends React.PureComponent {
   state = {
@@ -41,7 +41,7 @@ class AssetWalletHeader extends React.PureComponent {
   renderIcon() {
     return (
       <TouchableOpacity onPress={this.props.IconPress}>
-        <AddIcon />
+        <AddWallet />
       </TouchableOpacity>
     );
   }

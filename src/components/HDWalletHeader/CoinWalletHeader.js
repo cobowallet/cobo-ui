@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { HDWalletHeaderTheme } from '../../theme';
-import HDWalletHeader from './index';
+import HDWalletHeader from './HDWalletHeader';
 
 const CoinWalletHeader = ({
   coinValue,
@@ -41,7 +41,6 @@ CoinWalletHeader.propTypes = {
 };
 
 CoinWalletHeader.defaultProps = {
-  icon: null,
   address: null,
 };
 
