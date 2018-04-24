@@ -12,18 +12,13 @@ class AssetWalletHeader extends React.PureComponent {
   };
 
   getValue = () => {
-    if (this.state.unitIndex === 0) {
-      return this.props.legalTenderValue;
-    }
+    const valueMap = {
+      0: this.props.legalTenderValue,
+      1: this.props.BTCValue,
+      2: '********',
+    };
 
-    if (this.state.unitIndex === 1) {
-      return this.props.BTCValue;
-    }
-
-    if (this.state.unitIndex === 2) {
-      return '********';
-    }
-    return this.props.legalTenderValue;
+    return valueMap[this.state.unitIndex] || this.props.legalTenderValue;
   };
 
   onHeaderClick = () => {
@@ -53,6 +48,7 @@ class AssetWalletHeader extends React.PureComponent {
           headerValue={this.getValue()}
           icon={this.renderIcon()}
           headerOnPress={this.onHeaderClick}
+          children={this.props.children}
         />
       </ThemeProvider>
     );
@@ -62,10 +58,12 @@ class AssetWalletHeader extends React.PureComponent {
 AssetWalletHeader.propTypes = {
   legalTenderValue: PropTypes.string.isRequired,
   BTCValue: PropTypes.string.isRequired,
+  children: PropTypes.element,
   theme: PropTypes.string,
 };
 
 AssetWalletHeader.defaultProps = {
+  children: null,
   theme: 'default',
 };
 

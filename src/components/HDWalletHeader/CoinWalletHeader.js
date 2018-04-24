@@ -10,8 +10,8 @@ const CoinWalletHeader = ({
   icon,
   percent,
   color,
-  address,
   theme,
+  children,
 }) => {
   const subHeader = `≈${legalTenderValue}`;
 
@@ -23,8 +23,8 @@ const CoinWalletHeader = ({
         icon={icon}
         percent={percent}
         color={color}
-        detail={address}
         HeaderOnPress={() => {}}
+        children={children}
       />
     </ThemeProvider>
   );
@@ -36,12 +36,12 @@ CoinWalletHeader.propTypes = {
   icon: PropTypes.element.isRequired,
   percent: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  address: PropTypes.element,
   theme: PropTypes.string.isRequired,
+  children: PropTypes.element,
 };
 
 CoinWalletHeader.defaultProps = {
-  address: null,
+  children: null,
 };
 
 export default CoinWalletHeader;

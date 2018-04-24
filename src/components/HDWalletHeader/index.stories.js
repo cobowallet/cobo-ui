@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import { AssetWalletHeader, CoinWalletHeader } from './index';
 import coins from '../../icons/CoinLogos';

@@ -8,7 +8,6 @@ import { CBLabel } from '../Core/index';
 const HDWalletHeader = ({
   headerValue,
   subHeaderValue,
-  detail,
   icon,
   children,
   headerOnPress,
@@ -35,7 +34,6 @@ const HDWalletHeader = ({
               {percent ? ` (${percent}) ` : null}
             </CBLabel>
           </View>
-          {detail}
           <View style={{ position: 'absolute', top: 0, right: 10 }}>{icon}</View>
         </View>
         {children}
@@ -47,7 +45,6 @@ const HDWalletHeader = ({
 HDWalletHeader.propTypes = {
   headerValue: PropTypes.string.isRequired,
   subHeaderValue: PropTypes.string,
-  detail: PropTypes.element,
   icon: PropTypes.element.isRequired,
   children: PropTypes.element,
   headerOnPress: PropTypes.func,
