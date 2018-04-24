@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import { AssetWalletHeader, CoinWalletHeader } from './index';
 import coins from '../../icons/CoinLogos';
@@ -10,7 +10,9 @@ storiesOf('AssetWalletHeader', module).add('default', () => (
     BTCValue={'9.20 BTC'}
     IconPress={() => console.log('hello icon is pressed')}
     theme={'dark'}
-  />
+  >
+    <Text>This is the children</Text>
+  </AssetWalletHeader>
 ));
 
 const { ETH } = coins;
@@ -24,5 +26,7 @@ storiesOf('CoinWalletHeader', module).add('default', () => (
     icon={ETHIcon}
     color={'green'}
     theme={'default'}
-  />
+  >
+    <Text>This is the children</Text>
+  </CoinWalletHeader>
 ));
