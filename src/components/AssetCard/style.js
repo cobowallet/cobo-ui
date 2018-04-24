@@ -1,15 +1,14 @@
-import React from 'react';
 import styled from 'styled-components/native';
 import { CBShadow, CBText } from '../Core';
-import CBColors from '../../theme/CBColor';
 import { WalletLogo } from '../../icons';
 
 export const Container = styled(CBShadow)`
   background-color: white;
   border-radius: 3;
   margin-vertical: 8;
+  shadow-opacity: 0.15;
   elevation: 1;
-  shadow-color: ${CBColors.grayLight};
+  shadow-color: ${props => props.theme.backgroundShadowColor};
 `;
 
 export const Row = styled.TouchableOpacity`
@@ -38,15 +37,24 @@ export const AmountContainer = styled.View`
   align-items: flex-end;
 `;
 
-export const AmountText = styled(CBText)`
-  font-weight: 800;
-  font-size: 17;
-  margin-bottom: 5;
-`;
-
 export const ToggleArea = styled.TouchableOpacity`
   width: 50;
   height: 100%;
   justify-content: center;
   align-items: center;
+`;
+
+export const CoinCodeText = styled(CBText)`
+  color: ${props => props.theme.CoinCodeColor};
+`;
+
+export const AmountText = styled(CBText)`
+  font-weight: 800;
+  font-size: 17;
+  margin-bottom: 5;
+  color: ${props => props.theme.amountTextColor};
+`;
+
+export const FiatCurrencyAmountText = styled(CBText)`
+  color: ${props => props.theme.fiatCurrencyAmountColor};
 `;

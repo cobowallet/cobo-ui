@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { LayoutAnimation, UIManager, Platform } from 'react-native';
-import { CBText } from '../Core';
+import { ThemeProvider } from 'styled-components/native';
 import { FoldingSwitch } from '../../icons';
 import {
   Container,
@@ -11,7 +11,10 @@ import {
   AmountContainer,
   AmountText,
   ToggleArea,
+  CoinCodeText,
+  FiatCurrencyAmountText,
 } from './style';
+import { assetCardTheme } from '../../theme';
 
 class AssetCard extends PureComponent {
   constructor(props) {
@@ -33,29 +36,30 @@ class AssetCard extends PureComponent {
   };
 
   render() {
-    const { amount, fiatCurrencyAmount, fiatCurrencySymbol, coinCode, onPress } = this.props;
+    const { amount, fiatCurrencyAmount, fiatCurrencySymbol, coinCode, onPress, theme } = this.props;
     return (
-      <Container>
-        <Row onPress={onPress}>
-          <IconContent>
-            <CoinIcon coin={coinCode} />
-          </IconContent>
-          <CBText bold>{coinCode}</CBText>
-          <AmountContainer>
-            <AmountText numberOfLines={1}>{amount}</AmountText>
-            <CBText
-              small
-              bold
-              color={'grayLight'}
-              numberOfLines={1}
-            >{`${fiatCurrencySymbol} ${fiatCurrencyAmount}`}</CBText>
-          </AmountContainer>
-          <ToggleArea onPress={this.onFold}>
-            <FoldingSwitch isCollapsed={!this.state.open} />
-          </ToggleArea>
-        </Row>
-        {this.state.open && this.props.children}
-      </Container>
+      <ThemeProvider theme={assetCardTheme[theme] || assetCardTheme.default}>
+        <Container style={{ shadowOffset: { width: 0, height: 2 } }}>
+          <Row onPress={onPress}>
+            <IconContent>
+              <CoinIcon coin={coinCode} />
+            </IconContent>
+            <CoinCodeText bold>{coinCode}</CoinCodeText>
+            <AmountContainer>
+              <AmountText numberOfLines={1}>{amount}</AmountText>
+              <FiatCurrencyAmountText
+                small
+                bold
+                numberOfLines={1}
+              >{`${fiatCurrencySymbol} ${fiatCurrencyAmount}`}</FiatCurrencyAmountText>
+            </AmountContainer>
+            <ToggleArea onPress={this.onFold}>
+              <FoldingSwitch isCollapsed={!this.state.open} />
+            </ToggleArea>
+          </Row>
+          {this.state.open && this.props.children}
+        </Container>
+      </ThemeProvider>
     );
   }
 }
@@ -69,12 +73,14 @@ AssetCard.propTypes = {
   coinCode: PropTypes.string.isRequired,
   defaultOpen: PropTypes.bool,
   onPress: PropTypes.func,
+  theme: PropTypes.string,
 };
 
 AssetCard.defaultProps = {
   symbol: '$',
   defaultOpen: false,
   onPress: null,
+  theme: 'default',
 };
 
 export default AssetCard;
