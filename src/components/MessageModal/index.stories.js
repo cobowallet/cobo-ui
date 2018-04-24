@@ -59,10 +59,12 @@ class MessageModalTest extends PureComponent {
           visible={this.state.display}
         />
         <MessageModal
+          theme={'red'}
           buttons={buttons}
           title={'简单信息通知'}
           visible={this.state.displayNoTitle}
         />
+
         <Button title={'show message modal'} onPress={() => this.setState({ display: true })} />
         <Button
           title={'show no title message modal'}

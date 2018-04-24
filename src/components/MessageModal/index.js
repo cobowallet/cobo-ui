@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
 import { isNil } from 'ramda';
-import { CBText } from '../Core';
+import { ThemeProvider } from 'styled-components/native';
+import { messageModalTheme } from '../../theme';
 import {
   BoxModal,
   MessageContent,
@@ -45,42 +46,44 @@ class MessageModal extends PureComponent {
   };
 
   render() {
-    const { visible, title, content, buttons, renderContent } = this.props;
+    const { visible, title, content, buttons, renderContent, theme } = this.props;
     const messageHeight = this.getMessageContentHeight();
     const hasTitle = !isNil(title) && title.length > 0;
     const hasMessage = !isNil(content) && content.length > 0;
     return (
-      <BoxModal
-        visible={visible}
-        onModalShow={this.onModalShow}
-        animationOutTiming={50}
-        backdropTransitionOutTiming={50}
-      >
-        {hasTitle && (
-          <TitleText bold color={'dark'} onLayout={this.onTitleLayout}>
-            {title}
-          </TitleText>
-        )}
+      <ThemeProvider theme={messageModalTheme[theme] || messageModalTheme.default}>
+        <BoxModal
+          visible={visible}
+          onModalShow={this.onModalShow}
+          animationOutTiming={50}
+          backdropTransitionOutTiming={50}
+        >
+          {hasTitle && (
+            <TitleText bold onLayout={this.onTitleLayout}>
+              {title}
+            </TitleText>
+          )}
 
-        {hasMessage && (
-          <MessageContent
-            onContentSizeChange={this.onContentSizeChange}
-            showsHorizontalScrollIndicator={false}
-            showsVerticalScrollIndicator={messageHeight < this.state.contentHeight}
-            alwaysBounceHorizontal={false}
-            bounces={false}
-            style={{
-              height: messageHeight,
-            }}
-          >
-            <MessageText color={'dark'}>{content}</MessageText>
-          </MessageContent>
-        )}
+          {hasMessage && (
+            <MessageContent
+              onContentSizeChange={this.onContentSizeChange}
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={messageHeight < this.state.contentHeight}
+              alwaysBounceHorizontal={false}
+              bounces={false}
+              style={{
+                height: messageHeight,
+              }}
+            >
+              <MessageText>{content}</MessageText>
+            </MessageContent>
+          )}
 
-        {renderContent && renderContent()}
+          {renderContent && renderContent()}
 
-        <ButtonsContainer>{renderBottomButtons(buttons)}</ButtonsContainer>
-      </BoxModal>
+          <ButtonsContainer>{renderBottomButtons(buttons)}</ButtonsContainer>
+        </BoxModal>
+      </ThemeProvider>
     );
   }
 }
@@ -101,12 +104,14 @@ MessageModal.propTypes = {
       titleBold: PropTypes.bool,
     })
   ).isRequired,
+  theme: PropTypes.string,
 };
 
 MessageModal.defaultProps = {
   title: '',
   content: '',
   renderContent: null,
+  theme: 'default',
 };
 
 export default MessageModal;

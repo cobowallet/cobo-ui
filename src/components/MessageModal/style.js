@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
-import { LINE_COLORS } from '../../theme/CBColor';
 import { CBModal, CBText } from '../Core';
 
 export const { width, height } = Dimensions.get('window');
@@ -23,6 +22,7 @@ export const BoxModal = styled(CBModal)`
 export const TitleText = styled(CBText)`
   padding-horizontal: 16;
   line-height: 28;
+  color: ${props => props.theme.titleColor};
 `;
 
 export const MessageContent = styled.ScrollView`
@@ -33,6 +33,7 @@ export const MessageContent = styled.ScrollView`
 
 export const MessageText = styled(CBText)`
   line-height: 22;
+  color: ${props => props.theme.messageColor};
 `;
 
 export const ButtonsContainer = styled.View`
@@ -41,7 +42,7 @@ export const ButtonsContainer = styled.View`
   justify-content: center;
   flex-direction: row;
   height: 50;
-  border-top-color: ${LINE_COLORS.LINE};
+  border-top-color: ${props => props.theme.lineColor};
   border-top-width: 1;
   width: 100%;
   background-color: transparent;
@@ -56,7 +57,7 @@ const Touchable = styled.TouchableOpacity`
 `;
 
 const Line = styled.View`
-  background-color: ${LINE_COLORS.LINE};
+  background-color: ${props => props.theme.lineColor};
   height: 100%;
   width: 1;
 `;
