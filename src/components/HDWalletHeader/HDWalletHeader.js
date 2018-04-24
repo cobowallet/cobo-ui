@@ -2,8 +2,8 @@ import React from 'react';
 import { View } from 'react-native';
 import { withTheme } from 'styled-components';
 import LinearGradient from 'react-native-linear-gradient';
+import PropTypes from 'prop-types';
 import { CBLabel } from '../Core/index';
-import CBText from '../Core/CBText/index';
 
 const HDWalletHeader = ({
   headerValue,
@@ -28,10 +28,10 @@ const HDWalletHeader = ({
             {headerValue}
           </CBLabel>
           <View style={{ flexDirection: 'row' }}>
-            <CBLabel size={24} color={'grayLight'}>
+            <CBLabel size={24} color={'white'}>
               {subHeaderValue}
             </CBLabel>
-            <CBLabel size={24} color={color}>{`(${percent})`}</CBLabel>
+            <CBLabel size={24} color={color}>{` (${percent}) `}</CBLabel>
           </View>
           {detail}
           <View style={{ position: 'absolute', top: 0, right: 10 }}>{icon}</View>
@@ -40,6 +40,27 @@ const HDWalletHeader = ({
       </View>
     </LinearGradient>
   );
+};
+
+HDWalletHeader.propTypes = {
+  headerValue: PropTypes.string.isRequired,
+  subHeaderValue: PropTypes.string,
+  detail: PropTypes.element,
+  icon: PropTypes.element.isRequired,
+  children: PropTypes.element,
+  headerOnPress: PropTypes.func,
+  percent: PropTypes.string,
+  color: PropTypes.string,
+  theme: PropTypes.object.isRequired,
+};
+
+HDWalletHeader.defaultProps = {
+  subHeaderValue: null,
+  detail: null,
+  children: null,
+  headerOnPress: () => {},
+  percent: null,
+  color: null,
 };
 
 export default withTheme(HDWalletHeader);

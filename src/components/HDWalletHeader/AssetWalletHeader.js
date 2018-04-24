@@ -1,8 +1,9 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import { TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types';
 import { HDWalletHeaderTheme } from '../../theme';
-import HDWalletHeader from './index';
+import HDWalletHeader from './HDWalletHeader';
 import { AddIcon } from '../Core/Icons';
 
 class AssetWalletHeader extends React.PureComponent {
@@ -57,5 +58,15 @@ class AssetWalletHeader extends React.PureComponent {
     );
   }
 }
+
+AssetWalletHeader.propTypes = {
+  legalTenderValue: PropTypes.string.isRequired,
+  BTCValue: PropTypes.string.isRequired,
+  theme: PropTypes.string,
+};
+
+AssetWalletHeader.defaultProps = {
+  theme: 'default',
+};
 
 export default AssetWalletHeader;
