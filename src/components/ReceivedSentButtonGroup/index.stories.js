@@ -5,6 +5,7 @@ import ReceivedSentButtonGroup from './index';
 
 storiesOf('ReceivedSentButtonGroup', module).add('default', () => (
   <ReceivedSentButtonGroup
+    theme={'red'}
     sendTitle={'Sent'}
     onSendPress={action('onSendPress')}
     receiveTitle={'Received'}
