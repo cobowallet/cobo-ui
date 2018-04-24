@@ -6,12 +6,12 @@ import { CBLabel } from '../Core/index';
 import CBText from '../Core/CBText/index';
 
 const HDWalletHeader = ({
-  HeaderValue,
-  SubHeaderValue,
+  headerValue,
+  subHeaderValue,
   detail,
   icon,
   children,
-  HeaderOnPress,
+  headerOnPress,
   percent,
   color,
   theme,
@@ -24,13 +24,15 @@ const HDWalletHeader = ({
     >
       <View style={{ width: '100%', minHeight: '25%' }}>
         <View style={{ marginTop: 40, marginLeft: 10, marginBottom: 5 }}>
-          <CBLabel size={34} color={'white'} onPress={HeaderOnPress}>
-            {HeaderValue}
+          <CBLabel size={34} color={'white'} onPress={headerOnPress}>
+            {headerValue}
           </CBLabel>
-          <CBLabel size={24} color={'grayLight'}>
-            {SubHeaderValue}
-            <CBText size={24} color={color}>{`(${percent})`}</CBText>
-          </CBLabel>
+          <View style={{ flexDirection: 'row' }}>
+            <CBLabel size={24} color={'grayLight'}>
+              {subHeaderValue}
+            </CBLabel>
+            <CBLabel size={24} color={color}>{`(${percent})`}</CBLabel>
+          </View>
           {detail}
           <View style={{ position: 'absolute', top: 0, right: 10 }}>{icon}</View>
         </View>

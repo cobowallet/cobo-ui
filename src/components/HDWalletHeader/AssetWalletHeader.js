@@ -49,9 +49,9 @@ class AssetWalletHeader extends React.PureComponent {
     return (
       <ThemeProvider theme={HDWalletHeaderTheme[this.props.theme]}>
         <HDWalletHeader
-          HeaderValue={this.getValue()}
+          headerValue={this.getValue()}
           icon={this.renderIcon()}
-          HeaderOnPress={this.onHeaderClick}
+          headerOnPress={this.onHeaderClick}
         />
       </ThemeProvider>
     );
