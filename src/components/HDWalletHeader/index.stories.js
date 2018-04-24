@@ -1,14 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import AssetWalletHeader from './AssetWalletHeader';
-import CoinWalletHeader from './CoinWalletHeader';
+import { AssetWalletHeader, CoinWalletHeader } from './index';
 
 storiesOf('AssetWalletHeader', module).add('default', () => (
   <AssetWalletHeader
     legalTenderValue={'$48,213 USD'}
     BTCValue={'9.20 BTC'}
     IconPress={() => console.log('hello icon is pressed')}
-    theme={'default'}
+    theme={'dark'}
   />
 ));
 

@@ -31,7 +31,9 @@ const HDWalletHeader = ({
             <CBLabel size={24} color={'white'}>
               {subHeaderValue}
             </CBLabel>
-            <CBLabel size={24} color={color}>{` (${percent}) `}</CBLabel>
+            <CBLabel size={24} color={color}>
+              {percent ? ` (${percent}) ` : null}
+            </CBLabel>
           </View>
           {detail}
           <View style={{ position: 'absolute', top: 0, right: 10 }}>{icon}</View>
@@ -60,7 +62,7 @@ HDWalletHeader.defaultProps = {
   children: null,
   headerOnPress: () => {},
   percent: null,
-  color: null,
+  color: 'white',
 };
 
 export default withTheme(HDWalletHeader);
