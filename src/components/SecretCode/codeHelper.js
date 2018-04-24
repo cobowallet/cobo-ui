@@ -16,17 +16,17 @@ export const shuffle = array => {
 export const transformSecretCodeFormat = secretCode =>
   secretCode.map((eachCode, index) => ({ value: eachCode, index: index + 1 }));
 
-export const pickQuestionWords = secretCode => {
+export const pickQuestionWords = (secretCode, questionNumber) => {
   const shuffledNewList = shuffle(secretCode);
-  return [shuffledNewList[0], shuffledNewList[1]];
+  return [...Array(questionNumber).keys()].map(eachIndex => shuffledNewList[eachIndex]);
 };
 
 export const getNoiseWord = word => {
   return ['grass', 'belt', 'hello', 'word', 'hi'];
 };
 
-export const generateQuestionWordsAndNoise = secretWords => {
-  return pickQuestionWords(secretWords).map(each => ({
+export const generateQuestionWordsAndNoise = (secretWords, questionNumber) => {
+  return pickQuestionWords(secretWords, questionNumber).map(each => ({
     ...each,
     ...{ noiseWithAnswer: shuffle([...getNoiseWord(each), each.value]) },
   }));

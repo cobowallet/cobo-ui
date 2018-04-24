@@ -70,7 +70,8 @@ class ConfirmPage extends React.PureComponent {
         header={confirmPageSetting.header}
         descriptions={confirmPageSetting.descriptions}
         body={this.renderBody(words, wordIndex, this.state.clicked, this.onItemClick)}
-        button={this.renderButton(confirmPageSetting[`button${page}`], this.onNext)}
+        buttonTitle={confirmPageSetting[`button${page}`]}
+        buttonOnPress={this.onNext}
       />
     );
   }
@@ -79,7 +80,7 @@ class ConfirmPage extends React.PureComponent {
 ConfirmPage.propTypes = {
   locale: PropTypes.string.isRequired,
   words: PropTypes.arrayOf(PropTypes.string).isRequired,
-  page: PropTypes.number.isRequired,
+  page: PropTypes.string.isRequired,
   wordIndex: PropTypes.number.isRequired,
 };
 

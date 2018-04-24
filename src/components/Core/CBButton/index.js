@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { withTheme } from 'styled-components';
 import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import CBColors, { ButtonColors } from '../../../theme/CBColor';

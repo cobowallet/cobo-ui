@@ -4,7 +4,6 @@ import styled from 'styled-components/native';
 import SecretCodePanel from '../SecretCodePanel';
 import FrontPageIcon from './FrontPageIcon/index';
 import { lang } from '../lang';
-import CBButton from '../../Core/CBButton/index';
 
 const Container = styled.View`
   margin-top: 100;
@@ -20,19 +19,6 @@ const Body = (
   </Container>
 );
 
-const generateButton = (title, onPress) => (
-  <CBButton
-    style={{
-      marginTop: 20,
-      marginBottom: 40,
-      backgroundColor: 'white',
-    }}
-    textColor={'#5170EB'}
-    text={title}
-    onPress={onPress}
-  />
-);
-
 const FrontPage = ({ locale, goToCodePage }) => {
   const fontPageSetting = lang[locale].frontPage;
   return (
@@ -40,7 +26,8 @@ const FrontPage = ({ locale, goToCodePage }) => {
       header={fontPageSetting.header}
       descriptions={fontPageSetting.descriptions}
       body={Body}
-      button={generateButton(fontPageSetting.button, goToCodePage)}
+      buttonTitle={fontPageSetting.button}
+      buttonOnPress={goToCodePage}
     />
   );
 };

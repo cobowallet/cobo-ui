@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
+import { withTheme } from 'styled-components';
 import CBButton from '../../Core/CBButton/index';
 import { ButtonColors } from '../../../theme/CBColor';
 
@@ -21,20 +22,22 @@ const WordButton = styled(CBButton)`
   border-color: ${ButtonColors.white};
 `;
 
-const Word = ({ word, selected, onItemPress }) => (
+const Word = ({ word, selected, onItemPress, theme }) => (
   <WordButton
     text={word}
     onPress={onItemPress}
-    textStyle={{ color: selected ? ButtonColors.blue : ButtonColors.pureWhite }}
+    textStyle={{ color: selected ? theme['wordSelectedColor'] : ButtonColors.pureWhite }}
     selected={selected}
   />
 );
+
+const WordWithTheme = withTheme(Word);
 
 const Words = ({ words, selectedWord, onItemPress }) => {
   return (
     <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
       {words.map((each, index) => (
-        <Word
+        <WordWithTheme
           selected={each === selectedWord}
           word={each}
           onItemPress={() => onItemPress(each)}

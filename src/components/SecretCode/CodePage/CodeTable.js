@@ -44,23 +44,39 @@ const Content = styled.View`
   align-items: center;
 `;
 
+const Index = styled.Text`
+  font-size: 10;
+  color: ${props => props.theme['codeIndexColor']};
+`;
+
+const Cell = styled.Text`
+  font-size: 20;
+  font-weight: 800;
+  color: ${props => props.theme['codeColor']};
+`;
+
 const CodeCell = ({ code }) => (
   <CellContainer>
     <Top>
-      <Text style={{ fontSize: 10, color: '#D8D8D8' }}>{code.index}</Text>
+      <Index>{code.index}</Index>
     </Top>
     <Content>
-      <Text style={{ fontSize: 20, color: '#ffff', fontWeight: '800' }}>{code.value}</Text>
+      <Cell>{code.value}</Cell>
     </Content>
   </CellContainer>
 );
 
+const CodePanel = styled.View`
+  background-color: ${props => props.theme['codePanelColor']};
+  border-radius: 4;
+`;
+
 const CodeTable = ({ codes }) => {
   const chuckedCodes = chunk(codes, CODE_PER_ROW);
   return (
-    <View style={{ backgroundColor: '#5026C1', borderRadius: 4 }}>
+    <CodePanel>
       {chuckedCodes.map((eachChuck, index) => <CodeRow codes={eachChuck} key={index} />)}
-    </View>
+    </CodePanel>
   );
 };
 
