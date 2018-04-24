@@ -63,7 +63,7 @@ const CBQRCode = ({ size, code, logo }) => {
 CBQRCode.propTypes = {
   size: PropTypes.number.isRequired,
   code: PropTypes.string.isRequired,
-  logo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  logo: PropTypes.oneOfType([PropTypes.string, Image.propTypes.source]),
 };
 
 CBQRCode.defaultProps = {

@@ -1,3 +1,4 @@
+
 // Auto-generated file created by react-native-storybook-loader
 // Do not edit.
 //
@@ -9,7 +10,10 @@ function loadStories() {
   require('../src/components/Core/CBGradientCard/index.stories');
   require('../src/components/QRCode/index.stories');
   require('../src/components/SecretCode/index.stories');
+  require('../src/components/TransactionRecordRow/index.stories');
+  require('../src/components/TransactionStatus/index.stories');
   require('../src/components/WalletHeader/index.stories');
+  
 }
 
 const stories = [
@@ -18,7 +22,10 @@ const stories = [
   '../src/components/Core/CBGradientCard/index.stories',
   '../src/components/QRCode/index.stories',
   '../src/components/SecretCode/index.stories',
+  '../src/components/TransactionRecordRow/index.stories',
+  '../src/components/TransactionStatus/index.stories',
   '../src/components/WalletHeader/index.stories',
+  
 ];
 
 module.exports = {
