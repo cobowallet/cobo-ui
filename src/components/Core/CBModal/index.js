@@ -5,9 +5,9 @@ import { ModalContainer, ModalContent } from './style';
 function CBModal({
   children,
   visible,
+  animationIn,
+  animationOut,
   style,
-  animationIn = { from: { opacity: 0 }, to: { opacity: 1 } },
-  animationOut = { from: { opacity: 1 }, to: { opacity: 0 } },
   ...otherProps // orther react-native-modal props
 }) {
   return (
@@ -24,8 +24,16 @@ function CBModal({
 
 CBModal.propTypes = {
   visible: PropTypes.bool.isRequired,
+  /**
+   * animation props type string | { from: Object, to: Object };
+   */
+  animationIn: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  animationOut: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
-CBModal.defaultProps = {};
+CBModal.defaultProps = {
+  animationIn: { from: { opacity: 0 }, to: { opacity: 1 } },
+  animationOut: { from: { opacity: 1 }, to: { opacity: 0 } },
+};
 
 export default CBModal;

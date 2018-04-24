@@ -12,7 +12,7 @@ export const ModalContainer = styled(Modal)`
 `;
 
 export const ModalContent = styled.View`
-  width: ${width - 2 * width * 0.05};
+  width: ${0.9 * width};
   background-color: white;
   align-items: center;
   flex-direction: column;

@@ -6,8 +6,8 @@ import { CBModal, CBText } from '../Core';
 
 export const { width, height } = Dimensions.get('window');
 export const BORDER_RADIUS = 12;
-export const MAX_WIDTH = width - 2 * width * 0.05;
-export const MAX_HEIGHT = height - 2 * height * 0.1;
+export const MAX_WIDTH = 0.9 * width;
+export const MAX_HEIGHT = 0.8 * height;
 
 export const BoxModal = styled(CBModal)`
   width: ${MAX_WIDTH};
