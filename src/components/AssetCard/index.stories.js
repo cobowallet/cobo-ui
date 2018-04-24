@@ -5,8 +5,8 @@ import { action } from '@storybook/addon-actions';
 import AssetCard from './index';
 
 class AssetCardTest extends PureComponent {
-  render() {
-    const wallets = [
+  getTestData = () => {
+    return [
       {
         coinCode: 'ETH',
         amount: '4.800',
@@ -29,11 +29,14 @@ class AssetCardTest extends PureComponent {
         txList: [{ title: 'Received' }, { title: 'Sent' }],
       },
     ];
+  };
+
+  render() {
     return (
       <View
         style={{ flex: 1, paddingHorizontal: 16, paddingVertical: 16, backgroundColor: '#f5f5f6' }}
       >
-        {wallets.map((item, index) => {
+        {this.getTestData().map((item, index) => {
           return (
             <AssetCard {...item} onPress={action('assetCard did click')} key={index.toString()}>
               {item.txList &&

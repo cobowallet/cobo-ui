@@ -24,7 +24,7 @@ class AssetCard extends PureComponent {
         UIManager.setLayoutAnimationEnabledExperimental(true);
     }
     this.state = {
-      open: props.defaultOpen || false,
+      open: props.defaultOpen,
     };
   }
 
