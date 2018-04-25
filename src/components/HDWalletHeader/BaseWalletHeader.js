@@ -4,7 +4,6 @@ import { withTheme } from 'styled-components';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
-import { CBLabel } from '../Core/index';
 
 const ValueLabel = styled.Text`
   color: ${props => props.color || 'white'};
