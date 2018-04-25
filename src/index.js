@@ -1,7 +1,6 @@
 import * as Icon from './icons';
-import WalletButtonGroup from './components/WalletButtonGroup';
 
-export { Icon, WalletButtonGroup };
+export { Icon };
 export * from './components/Core';
 export { ActiveAccountCard, InactiveAccountCard, GradientPreset } from './components/AccountCard';
 export { WalletHeader, WalletHeaderGradientPreset } from './components/WalletHeader';
@@ -14,3 +13,4 @@ export { default as HorizontalAssetRatio } from './components/HorizontalAssetRat
 export { default as CBQRCode } from './components/QRCode';
 export { default as TransactionRecordRow } from './components/TransactionRecordRow';
 export { default as TransactionStatus } from './components/TransactionStatus';
+export { default as WalletButtonGroup } from './components/WalletButtonGroup';
