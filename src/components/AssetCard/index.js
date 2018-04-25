@@ -14,7 +14,7 @@ import {
   CoinCodeText,
   FiatCurrencyAmountText,
 } from './style';
-import { assetCardTheme } from '../../theme';
+import { assetCardTheme } from './theme';
 
 class AssetCard extends PureComponent {
   constructor(props) {
