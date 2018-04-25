@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components/native';
 import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { HDWalletHeaderTheme } from '../../theme';
-import HDWalletHeader from './HDWalletHeader';
+import BaseWalletHeader from './BaseWalletHeader';
 import { AddWallet } from '../../icons';
 
 class AssetWalletHeader extends React.PureComponent {
@@ -13,12 +13,12 @@ class AssetWalletHeader extends React.PureComponent {
 
   getValue = () => {
     const valueMap = {
-      0: this.props.legalTenderValue,
+      0: this.props.fiatCurrencyValue,
       1: this.props.BTCValue,
       2: '********',
     };
 
-    return valueMap[this.state.unitIndex] || this.props.legalTenderValue;
+    return valueMap[this.state.unitIndex] || this.props.fiatCurrencyValue;
   };
 
   onHeaderClick = () => {
@@ -44,7 +44,7 @@ class AssetWalletHeader extends React.PureComponent {
   render() {
     return (
       <ThemeProvider theme={HDWalletHeaderTheme[this.props.theme]}>
-        <HDWalletHeader
+        <BaseWalletHeader
           headerValue={this.getValue()}
           icon={this.renderIcon()}
           headerOnPress={this.onHeaderClick}
@@ -56,7 +56,7 @@ class AssetWalletHeader extends React.PureComponent {
 }
 
 AssetWalletHeader.propTypes = {
-  legalTenderValue: PropTypes.string.isRequired,
+  fiatCurrencyValue: PropTypes.string.isRequired,
   BTCValue: PropTypes.string.isRequired,
   children: PropTypes.element,
   theme: PropTypes.string,

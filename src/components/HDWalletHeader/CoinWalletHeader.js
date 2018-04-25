@@ -2,22 +2,22 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { HDWalletHeaderTheme } from '../../theme';
-import HDWalletHeader from './HDWalletHeader';
+import BaseWalletHeader from './BaseWalletHeader';
 
 const CoinWalletHeader = ({
   coinValue,
-  legalTenderValue,
+  fiatCurrencyValue,
   icon,
   percent,
   color,
   theme,
   children,
 }) => {
-  const subHeader = `≈${legalTenderValue}`;
+  const subHeader = `≈${fiatCurrencyValue}`;
 
   return (
     <ThemeProvider theme={HDWalletHeaderTheme[theme]}>
-      <HDWalletHeader
+      <BaseWalletHeader
         headerValue={coinValue}
         subHeaderValue={subHeader}
         icon={icon}
@@ -32,7 +32,7 @@ const CoinWalletHeader = ({
 
 CoinWalletHeader.propTypes = {
   coinValue: PropTypes.string.isRequired,
-  legalTenderValue: PropTypes.string.isRequired,
+  fiatCurrencyValue: PropTypes.string.isRequired,
   icon: PropTypes.element.isRequired,
   percent: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,

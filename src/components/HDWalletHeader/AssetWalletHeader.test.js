@@ -6,7 +6,7 @@ import HDWalletHeader from './HDWalletHeader';
 describe('AssetWalletHeader', () => {
   it('should render btc value on user first click ', () => {
     const wrapper = shallow(
-      <AssetWalletHeader legalTenderValue={'valueOne'} BTCValue={'valueTwo'} />
+      <AssetWalletHeader fiatCurrencyValue={'valueOne'} BTCValue={'valueTwo'} />
     );
 
     wrapper.instance().onHeaderClick();
@@ -17,7 +17,7 @@ describe('AssetWalletHeader', () => {
 
   it('should render **** on user second click ', () => {
     const wrapper = shallow(
-      <AssetWalletHeader legalTenderValue={'valueOne'} BTCValue={'valueTwo'} />
+      <AssetWalletHeader fiatCurrencyValue={'valueOne'} BTCValue={'valueTwo'} />
     );
 
     wrapper.instance().onHeaderClick();
@@ -29,7 +29,7 @@ describe('AssetWalletHeader', () => {
 
   it('should render render value on user third click ', () => {
     const wrapper = shallow(
-      <AssetWalletHeader legalTenderValue={'valueOne'} BTCValue={'valueTwo'} />
+      <AssetWalletHeader fiatCurrencyValue={'valueOne'} BTCValue={'valueTwo'} />
     );
 
     wrapper.instance().onHeaderClick();

@@ -1,11 +1,19 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import { withTheme } from 'styled-components';
 import LinearGradient from 'react-native-linear-gradient';
+import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { CBLabel } from '../Core/index';
 
-const HDWalletHeader = ({
+const ValueLabel = styled.Text`
+  color: ${props => props.color || 'white'};
+  font-size: ${props => props.size};
+  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-style: normal;
+`;
+
+const BaseWalletHeader = ({
   headerValue,
   subHeaderValue,
   icon,
@@ -23,16 +31,14 @@ const HDWalletHeader = ({
     >
       <View style={{ width: '100%', minHeight: '25%' }}>
         <View style={{ marginTop: 40, marginLeft: 10, marginBottom: 5 }}>
-          <CBLabel size={34} color={'white'} onPress={headerOnPress}>
+          <ValueLabel size={34} color={'white'} onPress={headerOnPress}>
             {headerValue}
-          </CBLabel>
+          </ValueLabel>
           <View style={{ flexDirection: 'row' }}>
-            <CBLabel size={24} color={'white'}>
-              {subHeaderValue}
-            </CBLabel>
-            <CBLabel size={24} color={color}>
+            <ValueLabel size={24}>{subHeaderValue}</ValueLabel>
+            <ValueLabel size={24} color={color}>
               {percent ? ` (${percent}) ` : null}
-            </CBLabel>
+            </ValueLabel>
           </View>
           <View style={{ position: 'absolute', top: 0, right: 10 }}>{icon}</View>
         </View>
@@ -42,7 +48,7 @@ const HDWalletHeader = ({
   );
 };
 
-HDWalletHeader.propTypes = {
+BaseWalletHeader.propTypes = {
   headerValue: PropTypes.string.isRequired,
   subHeaderValue: PropTypes.string,
   icon: PropTypes.element.isRequired,
@@ -53,7 +59,7 @@ HDWalletHeader.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-HDWalletHeader.defaultProps = {
+BaseWalletHeader.defaultProps = {
   subHeaderValue: null,
   detail: null,
   children: null,
@@ -62,4 +68,4 @@ HDWalletHeader.defaultProps = {
   color: 'white',
 };
 
-export default withTheme(HDWalletHeader);
+export default withTheme(BaseWalletHeader);
