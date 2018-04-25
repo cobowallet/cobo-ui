@@ -67,20 +67,21 @@ class AssetCard extends PureComponent {
 AssetCard.displayName = 'Asset Card';
 
 AssetCard.propTypes = {
+  coinCode: PropTypes.string.isRequired,
   amount: PropTypes.string.isRequired,
   fiatCurrencyAmount: PropTypes.string.isRequired,
   fiatCurrencySymbol: PropTypes.string,
-  coinCode: PropTypes.string.isRequired,
   defaultOpen: PropTypes.bool,
   onPress: PropTypes.func,
   theme: PropTypes.string,
 };
 
 AssetCard.defaultProps = {
-  symbol: '$',
+  fiatCurrencySymbol: '$',
   defaultOpen: false,
   onPress: null,
   theme: 'default',
 };
 
 export default AssetCard;
+module.exports = () => 'AssetCard';
