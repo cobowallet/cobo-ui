@@ -1,22 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components/native';
-import { receivedSentButtonGroupTheme } from '../../theme';
+import { walletButtonGroupTheme } from './theme';
 import { ButtonContainer, Button, ButtonText, DivideLine } from './style';
 import { SendIcon, ReceiveIcon } from '../../icons';
 
-function ReceivedSentButtonGroup({
-  sendTitle,
-  onSendPress,
-  receiveTitle,
-  onReceivePress,
-  style,
-  theme,
-}) {
+function WalletButtonGroup({ sendTitle, onSendPress, receiveTitle, onReceivePress, style, theme }) {
   return (
-    <ThemeProvider
-      theme={receivedSentButtonGroupTheme[theme] || receivedSentButtonGroupTheme.default}
-    >
+    <ThemeProvider theme={walletButtonGroupTheme[theme] || walletButtonGroupTheme.default}>
       <ButtonContainer style={[{ shadowOffset: { width: 0, height: -1 } }, style]}>
         <Button onPress={onSendPress}>
           <SendIcon type={'sent'} />
@@ -32,9 +23,9 @@ function ReceivedSentButtonGroup({
   );
 }
 
-ReceivedSentButtonGroup.displayName = 'Received and sent buttons group';
+WalletButtonGroup.displayName = 'Received and sent buttons group';
 
-ReceivedSentButtonGroup.propTypes = {
+WalletButtonGroup.propTypes = {
   sendTitle: PropTypes.string.isRequired,
   onSendPress: PropTypes.func.isRequired,
   receiveTitle: PropTypes.string.isRequired,
@@ -42,8 +33,8 @@ ReceivedSentButtonGroup.propTypes = {
   theme: PropTypes.string,
 };
 
-ReceivedSentButtonGroup.defaultProps = {
+WalletButtonGroup.defaultProps = {
   theme: 'default',
 };
 
-export default ReceivedSentButtonGroup;
+export default WalletButtonGroup;
