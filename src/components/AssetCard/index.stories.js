@@ -26,7 +26,6 @@ class AssetCardTest extends PureComponent {
         amount: '4.800',
         fiatCurrencyAmount: '5220.96',
         fiatCurrencySymbol: '$',
-        txList: [{ title: 'Received' }, { title: 'Sent' }],
       },
     ];
   };
