@@ -44,6 +44,7 @@ import ContactUsSms from './ContactUsSms';
 import RedPacket from './RedPacket';
 import AccountTransfer from './AccountTransfer';
 import RewardIcon from './RewardIcon';
+import CameraBackground from './CameraBackground';
 import { AssetsTab, MarketTab, SendTab, ReceiveTab, SettingTab } from './TabIcons';
 
 export {
@@ -93,6 +94,7 @@ export {
   RedPacket,
   AccountTransfer,
   RewardIcon,
+  CameraBackground,
   AssetsTab,
   MarketTab,
   SendTab,
