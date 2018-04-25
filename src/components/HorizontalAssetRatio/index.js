@@ -61,11 +61,23 @@ const RatioView = ({ assets, colors }) => (
   </RatioContainer>
 );
 
-const HorizontalAssetRatio = ({ assets, colorScale }) => {
+const HorizontalAssetRatio = ({ assets, colorScale, labelOfOthers }) => {
+  if (assets.length == 0) {
+    return <View />;
+  }
+
   assets = assets
-    .slice(0, 5)
-    .map(asset => ({ label: asset.label, percentage: (asset.percentage * 100).toFixed(0) }))
+    .map(asset => ({ ...asset, percentage: parseInt((asset.percentage * 100).toFixed(0)) }))
     .sort((first, second) => second.percentage - first.percentage);
+
+  if (assets.length > 5) {
+    const remain = assets
+      .slice(4)
+      .map(asset => asset.percentage)
+      .reduce((sum, percentage) => sum + percentage);
+
+    assets.splice(4, assets.length - 4, { label: labelOfOthers, percentage: remain });
+  }
 
   return (
     <View style={{ alignItems: 'flex-start' }}>
@@ -83,10 +95,12 @@ HorizontalAssetRatio.propTypes = {
     }).isRequired
   ).isRequired,
   colorScale: PropTypes.arrayOf(PropTypes.string).isRequired,
+  labelOfOthers: PropTypes.string,
 };
 
 HorizontalAssetRatio.defaultProps = {
   colorScale: DEFAULT_COLORS,
+  labelOfOthers: 'Others',
 };
 
 export default HorizontalAssetRatio;

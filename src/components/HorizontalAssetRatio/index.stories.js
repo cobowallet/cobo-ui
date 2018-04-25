@@ -19,7 +19,8 @@ storiesOf('Asset Ratio', module).add('default', () => (
         { label: 'ETH', percentage: 0.1 },
         { label: 'LBTC', percentage: 0.2 },
         { label: 'EOS', percentage: 0.4 },
-        { label: 'OTHER', percentage: 0.09 },
+        { label: 'TCH', percentage: 0.01 },
+        { label: 'BEC', percentage: 0.08 },
       ]}
     />
   </Container>
