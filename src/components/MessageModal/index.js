@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
 import { isNil } from 'ramda';
 import { ThemeProvider } from 'styled-components/native';
-import { messageModalTheme } from '../../theme';
+import { messageModalTheme } from './theme';
 import {
   BoxModal,
   MessageContent,
