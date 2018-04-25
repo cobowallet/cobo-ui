@@ -30,3 +30,15 @@ export const secretCodeTheme = {
     wordSelectedColor: '#000',
   },
 };
+
+export const HDWalletHeaderTheme = {
+  default: {
+    backgroundStartColor: '#571DEA',
+    backgroundEndColor: '#599AFF',
+  },
+
+  dark: {
+    backgroundStartColor: '#5C6C92',
+    backgroundEndColor: '#223155',
+  },
+};

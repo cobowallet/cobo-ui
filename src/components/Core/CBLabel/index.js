@@ -30,7 +30,7 @@ const CBLabel = styled.Text`
 `;
 
 CBLabel.propTypes = {
-  color: PropTypes.oneOf(['dark', 'gray', 'grayLight', 'primary', 'white', 'red', 'blue']),
+  color: PropTypes.oneOf(['dark', 'gray', 'grayLight', 'primary', 'white', 'red', 'blue', 'green']),
   size: PropTypes.number,
 };
 

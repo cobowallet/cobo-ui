@@ -9,6 +9,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import ArrowDown from './ArrowDown';
+import AddWallet from './AddWallet';
 import ArrowUp from './ArrowUp';
 import Menu from './Menu';
 import Sort from './Sort';
@@ -58,6 +59,7 @@ export {
   Feather,
   ArrowDown,
   ArrowUp,
+  AddWallet,
   Menu,
   Sort,
   PlusSign,

@@ -8,6 +8,7 @@ function loadStories() {
   require('../src/components/AccountCard/index.stories');
   require('../src/components/AccountLevelBox/index.stories');
   require('../src/components/Core/CBGradientCard/index.stories');
+  require('../src/components/HDWalletHeader/index.stories');
   require('../src/components/QRCode/index.stories');
   require('../src/components/SecretCode/index.stories');
   require('../src/components/TransactionRecordRow/index.stories');
@@ -20,6 +21,7 @@ const stories = [
   '../src/components/AccountCard/index.stories',
   '../src/components/AccountLevelBox/index.stories',
   '../src/components/Core/CBGradientCard/index.stories',
+  '../src/components/HDWalletHeader/index.stories',
   '../src/components/QRCode/index.stories',
   '../src/components/SecretCode/index.stories',
   '../src/components/TransactionRecordRow/index.stories',
