@@ -84,4 +84,3 @@ AssetCard.defaultProps = {
 };
 
 export default AssetCard;
-module.exports = () => 'AssetCard';

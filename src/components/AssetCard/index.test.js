@@ -1,20 +1,20 @@
 import React from 'react';
+import { LayoutAnimation, View } from 'react-native';
+import sinon from 'sinon';
 import { shallow } from 'enzyme';
-
-// This will mutate `react-native`'s require cache with `react-native-mock`'s.
-require('react-native-mock/mock');
-const AssetCard = require('AssetCard');
+import AssetCard from './index';
 
 describe('AssetCard', () => {
-  jest.mock(
-    'AssetCard',
-    () => {
-      return jest.fn(() => 1);
-    },
-    { virtual: true }
-  );
+  let layStub;
+  beforeAll(() => {
+    layStub = sinon.stub(LayoutAnimation, 'configureNext');
+  });
 
-  it('should render asset card on user firist click', () => {
+  afterAll(() => {
+    layStub.restore();
+  });
+
+  it('should render asset card on user first click', () => {
     const walletInfo = {
       coinCode: 'ETH',
       amount: '4.800',
@@ -23,10 +23,14 @@ describe('AssetCard', () => {
       defaultOpen: false,
       onPress: () => {},
     };
-    const wrapper = shallow(<AssetCard {...walletInfo} />);
+    const wrapper = shallow(
+      <AssetCard {...walletInfo}>
+        <View id={'test'} />
+      </AssetCard>
+    );
 
     wrapper.instance().onFold();
     wrapper.update();
-    expect(wrapper.state().open).toBe(true);
+    expect(wrapper.find('#test').length).toBe(1);
   });
 });
