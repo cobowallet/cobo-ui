@@ -13,3 +13,4 @@ export { default as HorizontalAssetRatio } from './components/HorizontalAssetRat
 export { default as CBQRCode } from './components/QRCode';
 export { default as TransactionRecordRow } from './components/TransactionRecordRow';
 export { default as TransactionStatus } from './components/TransactionStatus';
+export { default as WalletButtonGroup } from './components/WalletButtonGroup';
