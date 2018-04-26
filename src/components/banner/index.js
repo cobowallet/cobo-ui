@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Container, Right, Left, ArrowContainer } from './style';
 import CBText from '../Core/CBText/index';
 import DoubleArrow from '../../icons/DoubleArrow';
-import { BannerTheme } from '../../theme';
+import BannerTheme from './theme';
 
 const Banner = ({ description, onPress, theme }) => {
   const bannerTheme = BannerTheme[theme];
