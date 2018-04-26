@@ -20,6 +20,7 @@ const BaseWalletHeader = ({
   headerOnPress,
   percent,
   color,
+  style,
   theme,
 }) => {
   return (
@@ -28,7 +29,7 @@ const BaseWalletHeader = ({
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 0.9 }}
     >
-      <View style={{ width: '100%', minHeight: '25%' }}>
+      <View style={[{ width: '100%', minHeight: '25%' }, style]}>
         <View style={{ marginTop: 40, marginLeft: 10, marginBottom: 5 }}>
           <ValueLabel size={34} color={'white'} onPress={headerOnPress}>
             {headerValue}
@@ -56,6 +57,7 @@ BaseWalletHeader.propTypes = {
   percent: PropTypes.string,
   color: PropTypes.string,
   theme: PropTypes.object.isRequired,
+  style: PropTypes.object,
 };
 
 BaseWalletHeader.defaultProps = {
@@ -65,6 +67,7 @@ BaseWalletHeader.defaultProps = {
   headerOnPress: () => {},
   percent: null,
   color: 'white',
+  style: {},
 };
 
 export default withTheme(BaseWalletHeader);
