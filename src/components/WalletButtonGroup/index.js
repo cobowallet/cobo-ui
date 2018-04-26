@@ -31,10 +31,12 @@ WalletButtonGroup.propTypes = {
   receiveTitle: PropTypes.string.isRequired,
   onReceivePress: PropTypes.func.isRequired,
   theme: PropTypes.string,
+  style: PropTypes.object,
 };
 
 WalletButtonGroup.defaultProps = {
   theme: 'default',
+  style: {},
 };
 
 export default WalletButtonGroup;
