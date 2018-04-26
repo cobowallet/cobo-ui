@@ -17,6 +17,7 @@ const Dot = styled.View`
 `;
 
 const LabelContaienr = styled.View`
+  width: 20%;
   flex-direction: row;
   align-items: center;
 `;
@@ -34,7 +35,7 @@ const LabelView = ({ assets, colors }) => (
     {zip(assets, colors).map(([asset, color], index) => (
       <LabelContaienr key={index}>
         <Dot color={color} />
-        <CBText style={{ fontSize: 12, marginRight: 12 }} color="white">{`${asset.label} ${
+        <CBText style={{ fontSize: 12, marginRight: 5 }} color="white">{`${asset.label} ${
           asset.percentage
         }%`}</CBText>
       </LabelContaienr>
@@ -66,23 +67,23 @@ const HorizontalAssetRatio = ({ assets, colorScale, labelOfOthers }) => {
     return <View />;
   }
 
-  assets = assets
+  let sortedAssets = assets
     .map(asset => ({ ...asset, percentage: parseInt((asset.percentage * 100).toFixed(0)) }))
     .sort((first, second) => second.percentage - first.percentage);
 
-  if (assets.length > 5) {
-    const remain = assets
+  if (sortedAssets.length > 5) {
+    const remain = sortedAssets
       .slice(4)
       .map(asset => asset.percentage)
       .reduce((sum, percentage) => sum + percentage);
 
-    assets.splice(4, assets.length - 4, { label: labelOfOthers, percentage: remain });
+    sortedAssets.splice(4, sortedAssets.length - 4, { label: labelOfOthers, percentage: remain });
   }
 
   return (
     <View style={{ alignItems: 'flex-start' }}>
-      <RatioView assets={assets} colors={colorScale} />
-      <LabelView assets={assets} colors={colorScale} />
+      <RatioView assets={sortedAssets} colors={colorScale} />
+      <LabelView assets={sortedAssets} colors={colorScale} />
     </View>
   );
 };
