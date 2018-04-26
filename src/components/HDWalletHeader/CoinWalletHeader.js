@@ -24,7 +24,6 @@ const CoinWalletHeader = ({
         icon={icon}
         percent={percent}
         color={color}
-        HeaderOnPress={() => {}}
         style={style}
         children={children}
       />

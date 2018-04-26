@@ -30,8 +30,8 @@ const BaseWalletHeader = ({
       end={{ x: 0, y: 0.9 }}
     >
       <View style={[{ width: '100%', minHeight: '25%' }, style]}>
-        <View style={{ marginTop: 40, marginLeft: 10, marginBottom: 5 }}>
-          <ValueLabel size={34} color={'white'} onPress={headerOnPress}>
+        <View style={{ marginTop: 81, marginLeft: 16 }}>
+          <ValueLabel size={34} color={'white'} onPress={headerOnPress} disabled={!headerOnPress}>
             {headerValue}
           </ValueLabel>
           <View style={{ flexDirection: 'row' }}>
@@ -40,7 +40,7 @@ const BaseWalletHeader = ({
               {percent ? ` (${percent}) ` : null}
             </ValueLabel>
           </View>
-          <View style={{ position: 'absolute', top: 0, right: 10 }}>{icon}</View>
+          <View style={{ position: 'absolute', top: 0, right: 16 }}>{icon}</View>
         </View>
         {children}
       </View>
@@ -64,7 +64,7 @@ BaseWalletHeader.defaultProps = {
   subHeaderValue: null,
   detail: null,
   children: null,
-  headerOnPress: () => {},
+  headerOnPress: null,
   percent: null,
   color: 'white',
   style: {},

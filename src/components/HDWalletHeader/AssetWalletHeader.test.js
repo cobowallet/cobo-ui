@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import AssetWalletHeader from './AssetWalletHeader';
-import HDWalletHeader from './HDWalletHeader';
+import BaseWalletHeader from './BaseWalletHeader';
 
 describe('AssetWalletHeader', () => {
   it('should render btc value on user first click ', () => {
@@ -11,7 +11,7 @@ describe('AssetWalletHeader', () => {
 
     wrapper.instance().onHeaderClick();
     wrapper.update();
-    const HDwrapper = wrapper.find(HDWalletHeader);
+    const HDwrapper = wrapper.find(BaseWalletHeader);
     expect(HDwrapper.props().headerValue).toBe('valueTwo');
   });
 
@@ -23,7 +23,7 @@ describe('AssetWalletHeader', () => {
     wrapper.instance().onHeaderClick();
     wrapper.instance().onHeaderClick();
     wrapper.update();
-    const HDwrapper = wrapper.find(HDWalletHeader);
+    const HDwrapper = wrapper.find(BaseWalletHeader);
     expect(HDwrapper.props().headerValue).toBe('********');
   });
 
@@ -36,7 +36,7 @@ describe('AssetWalletHeader', () => {
     wrapper.instance().onHeaderClick();
     wrapper.instance().onHeaderClick();
     wrapper.update();
-    const HDwrapper = wrapper.find(HDWalletHeader);
+    const HDwrapper = wrapper.find(BaseWalletHeader);
     expect(HDwrapper.props().headerValue).toBe('valueOne');
   });
 });
