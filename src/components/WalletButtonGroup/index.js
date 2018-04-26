@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components/native';
-import { walletButtonGroupTheme } from './theme';
+import walletButtonGroupTheme from './theme';
 import { ButtonContainer, Button, ButtonText, DivideLine } from './style';
 import { SendIcon, ReceiveIcon } from '../../icons';
 
