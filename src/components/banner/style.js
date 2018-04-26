@@ -8,19 +8,13 @@ export const Container = styled(TouchableOpacity)`
 
 export const Left = styled.View`
   width: 90%;
-  align-content: center;
   justify-content: center;
   padding-left: 10;
 `;
 
 export const Right = styled.View`
   width: 10%;
-  align-content: center;
   justify-content: center;
-`;
-
-export const ArrowContainer = styled.View`
-  flex-direction: row;
-  justify-content: flex-end;
+  align-items: flex-end;
   padding-right: 10;
 `;

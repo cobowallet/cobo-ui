@@ -3,7 +3,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import PropTypes from 'prop-types';
 import { Container, Right, Left, ArrowContainer } from './style';
 import CBText from '../Core/CBText/index';
-import ArrowRight from '../../icons/ArrowRight';
+import DoubleArrow from '../../icons/DoubleArrow';
 import { BannerTheme } from '../../theme';
 
 const Banner = ({ description, onPress, theme }) => {
@@ -22,10 +22,7 @@ const Banner = ({ description, onPress, theme }) => {
           </CBText>
         </Left>
         <Right>
-          <ArrowContainer>
-            <ArrowRight />
-            <ArrowRight />
-          </ArrowContainer>
+          <DoubleArrow />
         </Right>
       </Container>
     </LinearGradient>
