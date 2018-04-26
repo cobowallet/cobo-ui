@@ -21,7 +21,7 @@ function loadStories() {
   require('../src/components/banner/index.stories');
   require('../src/components/WalletButtonGroup/index.stories');
   require('../src/components/WalletHeader/index.stories');
-
+  require('../src/components/IntroductionCard/index.stories');
 }
 
 const stories = [
@@ -41,7 +41,7 @@ const stories = [
   '../src/components/banner/index.stories',
   '../src/components/WalletButtonGroup/index.stories',
   '../src/components/WalletHeader/index.stories',
-
+  '../src/components/IntroductionCard/index.stories',
 ];
 
 module.exports = {
