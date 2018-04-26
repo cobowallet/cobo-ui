@@ -49,6 +49,7 @@ class AssetWalletHeader extends React.PureComponent {
           icon={this.renderIcon()}
           headerOnPress={this.onHeaderClick}
           children={this.props.children}
+          style={this.props.style}
         />
       </ThemeProvider>
     );

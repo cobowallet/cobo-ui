@@ -12,6 +12,7 @@ const CoinWalletHeader = ({
   color,
   theme,
   children,
+  style,
 }) => {
   const subHeader = `≈${fiatCurrencyValue}`;
 
@@ -24,6 +25,7 @@ const CoinWalletHeader = ({
         percent={percent}
         color={color}
         HeaderOnPress={() => {}}
+        style={style}
         children={children}
       />
     </ThemeProvider>
