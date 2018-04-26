@@ -57,6 +57,7 @@ BaseWalletHeader.propTypes = {
   percent: PropTypes.string,
   color: PropTypes.string,
   theme: PropTypes.object.isRequired,
+  style: PropTypes.object,
 };
 
 BaseWalletHeader.defaultProps = {
@@ -66,6 +67,7 @@ BaseWalletHeader.defaultProps = {
   headerOnPress: () => {},
   percent: null,
   color: 'white',
+  style: {},
 };
 
 export default withTheme(BaseWalletHeader);

@@ -61,11 +61,13 @@ AssetWalletHeader.propTypes = {
   BTCValue: PropTypes.string.isRequired,
   children: PropTypes.element,
   theme: PropTypes.string,
+  style: PropTypes.object,
 };
 
 AssetWalletHeader.defaultProps = {
   children: null,
   theme: 'default',
+  style: {},
 };
 
 export default AssetWalletHeader;

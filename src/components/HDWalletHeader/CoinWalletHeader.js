@@ -40,10 +40,12 @@ CoinWalletHeader.propTypes = {
   color: PropTypes.string.isRequired,
   theme: PropTypes.string.isRequired,
   children: PropTypes.element,
+  style: PropTypes.object,
 };
 
 CoinWalletHeader.defaultProps = {
   children: null,
+  style: {},
 };
 
 export default CoinWalletHeader;
