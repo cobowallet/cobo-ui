@@ -1,20 +1,31 @@
 import styled from 'styled-components/native';
-import { TouchableOpacity } from 'react-native';
 
-export const Container = styled(TouchableOpacity)`
-  height: 60;
+export const Container = styled.TouchableOpacity`
   flex-direction: row;
+  padding-horizontal: 16;
+  padding-vertical: 12;
 `;
 
 export const Left = styled.View`
-  width: 90%;
+  flex: 1;
   justify-content: center;
-  padding-left: 10;
 `;
 
 export const Right = styled.View`
-  width: 10%;
+  margin-left: 12;
   justify-content: center;
   align-items: flex-end;
-  padding-right: 10;
+`;
+
+export const Content = styled.View`
+  width: 100%;
+`;
+
+export const Button = styled.TouchableOpacity`
+  border-width: 1;
+  border-radius: 3;
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding-horizontal: 20;
+  padding-vertical: 8;
 `;

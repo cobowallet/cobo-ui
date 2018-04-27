@@ -14,5 +14,5 @@ export { default as CBQRCode } from './components/QRCode';
 export { default as TransactionRecordRow } from './components/TransactionRecordRow';
 export { default as TransactionStatus } from './components/TransactionStatus';
 export { default as WalletButtonGroup } from './components/WalletButtonGroup';
-export { default as Banner } from './components/banner';
+export { RewardBanner, NoticeBanner } from './components/banner';
 export { default as IntroductionCard } from './components/IntroductionCard';
