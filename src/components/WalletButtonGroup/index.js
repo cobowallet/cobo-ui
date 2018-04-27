@@ -31,7 +31,7 @@ WalletButtonGroup.propTypes = {
   receiveTitle: PropTypes.string.isRequired,
   onReceivePress: PropTypes.func.isRequired,
   theme: PropTypes.string,
-  style: PropTypes.object,
+  style: PropTypes.any,
 };
 
 WalletButtonGroup.defaultProps = {

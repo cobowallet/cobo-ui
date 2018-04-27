@@ -10,7 +10,7 @@ const BaseBanner = ({ renderLeftContent, renderRightContent, onPress, theme, can
       colors={[theme['bannerStartColor'], theme['bannerEndColor']]}
       start={{ x: 0, y: 0 }}
       end={{ x: 0.5, y: 0 }}
-      style={[{ opacity: theme['bannerOpacity'] }, style]}
+      style={style}
     >
       <Container onPress={onPress} disabled={!canPress}>
         <Left>{renderLeftContent && renderLeftContent()}</Left>
