@@ -6,7 +6,7 @@ import { CBText } from '../Core';
 import { SendIcon, ReceiveIcon } from '../../icons';
 import TransactionStatus from '../TransactionStatus';
 
-const Container = styled.View`
+const Container = styled.TouchableOpacity`
   width: 100%;
   flex-direction: row;
   justify-content: center;
@@ -39,11 +39,21 @@ const TimeText = ({ time, style }) => {
   );
 };
 
-const TransactionRecordRow = ({ isSendOut, showIcon, title, amount, message, coinCode, extra }) => (
-  <Container>
+const TransactionRecordRow = ({
+  isSendOut,
+  showIcon,
+  title,
+  amount,
+  message,
+  coinCode,
+  extra,
+  style,
+  onPress,
+}) => (
+  <Container onPress={onPress}>
     {showIcon && <Icon isSendOut={isSendOut} />}
 
-    <View style={{ flex: 1 }}>
+    <View style={[{ flex: 1 }, style]}>
       <CBText bold color="dark">
         {title}
       </CBText>
@@ -79,10 +89,14 @@ TransactionRecordRow.propTypes = {
     }),
     PropTypes.string,
   ]).isRequired,
+  onPress: PropTypes.func,
+  style: PropTypes.any,
 };
 
 TransactionRecordRow.defaultProps = {
   showIcon: true,
+  style: {},
+  onPress: () => {},
 };
 
 export default TransactionRecordRow;
