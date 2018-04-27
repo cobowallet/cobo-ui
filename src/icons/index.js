@@ -22,6 +22,7 @@ import Circle from './Circle';
 import CloseArrow from './CloseArrow';
 import GrayArrowDown from './GrayArrowDown';
 import Close from './Close';
+import DoubleArrow from './DoubleArrow';
 import ArrowBack from './ArrowBack';
 import ArrowRight from './ArrowRight';
 import Indicator from './Indicator';
@@ -72,6 +73,7 @@ export {
   CloseArrow,
   GrayArrowDown,
   Close,
+  DoubleArrow,
   ArrowBack,
   ArrowRight,
   Indicator,
