@@ -24,14 +24,14 @@ const ActivateAccountCard = ({
 }) => {
   let bottomButtons = [
     {
-      onPress: onReceivePress,
-      canPress: true,
-      title: receiveTitle,
-    },
-    {
       onPress: onSendPress,
       canPress: true,
       title: sendTitle,
+    },
+    {
+      onPress: onReceivePress,
+      canPress: true,
+      title: receiveTitle,
     },
   ];
   if (buttons && buttons.length > 0) {
