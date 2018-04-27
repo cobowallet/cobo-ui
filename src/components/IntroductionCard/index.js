@@ -7,18 +7,28 @@ import Cloud from './img/cloud.png';
 import HD from './img/hd.png';
 import { zip } from 'ramda';
 
-class IntroductionCard extends React.Component {
-  tabs = [Cloud, HD];
+const TAB_IMAGES = [Cloud, HD];
 
+const ShadowContainer = styled.View`
+  shadow-color: #e5e7f5;
+  shadow-offset: 0px 14px;
+  shadow-radius: 22;
+  elevation: 4;
+  background: white;
+  border-radius: 3;
+  padding-left: 16;
+  padding-right: 16;
+  padding-top: 3;
+  padding-bottom: 3;
+  margin-top: 16;
+`;
+
+class IntroductionCard extends React.PureComponent {
   state = {
     tabIndex: 0,
   };
 
   switchTabs = index => {
-    if (this.state.tabIndex === index) {
-      return;
-    }
-
     this.setState({ tabIndex: index });
   };
 
@@ -43,7 +53,7 @@ class IntroductionCard extends React.Component {
 
   renderTabs = ({ titles, selectedIndex }) => (
     <View style={{ flexDirection: 'row' }}>
-      {zip(this.tabs, titles).map(([tabIcon, title], index) =>
+      {zip(TAB_IMAGES, titles).map(([tabIcon, title], index) =>
         this.renderTab({
           icon: tabIcon,
           title: title,
@@ -70,43 +80,28 @@ class IntroductionCard extends React.Component {
   };
 
   renderTexts = ({ texts }) => {
-    const shadowStyle = {
-      shadowColor: '#E5E7F5',
-      shadowOffset: { width: 0, height: 14 },
-      shadowRadius: 22,
-      elevation: 4,
-    };
+    const shadowStyle = {};
 
     return (
-      <View
-        style={{
-          ...shadowStyle,
-          backgroundColor: 'white',
-          borderRadius: 3,
-          paddingLeft: 16,
-          paddingRight: 16,
-          paddingTop: 3,
-          paddingBottom: 3,
-          marginTop: 16,
-        }}
-      >
+      <ShadowContainer>
         {texts.map((text, index, array) =>
           this.renderText({ text: text, index: index, showUnderline: index != array.length - 1 })
         )}
-      </View>
+      </ShadowContainer>
     );
   };
 
   render() {
     const { cloud, hd } = this.props;
+    const { tabIndex } = this.state;
 
-    const Tabs = this.renderTabs;
-    const Texts = this.renderTexts;
+    const titles = [cloud.title, hd.title];
+    const texts = tabIndex == 0 ? cloud.texts : hd.texts;
 
     return (
       <View style={{ width: '100%' }}>
-        <Tabs titles={[cloud.title, hd.title]} selectedIndex={this.state.tabIndex} />
-        <Texts texts={this.state.tabIndex == 0 ? cloud.texts : hd.texts} />
+        {this.renderTabs({ titles: titles, selectedIndex: tabIndex })}
+        {this.renderTexts({ texts: texts })}
       </View>
     );
   }
