@@ -1,14 +1,12 @@
 const BannerTheme = {
   default: {
-    bannerStartColor: '#3E0280',
-    bannerEndColor: '#3E0280',
-    bannerOpacity: 0.3,
+    bannerStartColor: 'rgba(62, 2, 128, 0.3)',
+    bannerEndColor: 'rgba(62, 2, 128, 0.3)',
   },
 
   dark: {
-    bannerStartColor: '#000000',
-    bannerEndColor: '#000000',
-    bannerOpacity: 0.3,
+    bannerStartColor: 'rgba(0, 0, 0, 0.3)',
+    bannerEndColor: 'rgba(0, 0, 0, 0.3)',
   },
 };
 
