@@ -13,7 +13,7 @@ const NoticeBanner = ({ description, onPress, theme, canPress, style }) => {
       <BaseBanner
         renderLeftContent={() => (
           <Content>
-            <CBText small color={'white'}>
+            <CBText small color={'white'} style={{ lineHeight: 18 }}>
               {description}
             </CBText>
           </Content>
