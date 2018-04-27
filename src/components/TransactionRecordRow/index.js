@@ -39,11 +39,21 @@ const TimeText = ({ time, style }) => {
   );
 };
 
-const TransactionRecordRow = ({ isSendOut, showIcon, title, amount, message, coinCode, extra }) => (
+const TransactionRecordRow = ({
+  isSendOut,
+  showIcon,
+  title,
+  amount,
+  message,
+  coinCode,
+  extra,
+  style,
+  onPress,
+}) => (
   <Container>
     {showIcon && <Icon isSendOut={isSendOut} />}
 
-    <View style={{ flex: 1 }}>
+    <View style={[{ flex: 1 }, style]} onPress={onPress}>
       <CBText bold color="dark">
         {title}
       </CBText>
@@ -79,10 +89,14 @@ TransactionRecordRow.propTypes = {
     }),
     PropTypes.string,
   ]).isRequired,
+  onPress: PropTypes.func,
+  style: PropTypes.any,
 };
 
 TransactionRecordRow.defaultProps = {
   showIcon: true,
+  style: {},
+  onPress: () => {},
 };
 
 export default TransactionRecordRow;
