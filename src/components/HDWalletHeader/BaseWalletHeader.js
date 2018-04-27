@@ -57,7 +57,7 @@ BaseWalletHeader.propTypes = {
   percent: PropTypes.string,
   color: PropTypes.string,
   theme: PropTypes.object.isRequired,
-  style: PropTypes.object,
+  style: PropTypes.any,
 };
 
 BaseWalletHeader.defaultProps = {

@@ -4,6 +4,8 @@ export const Container = styled.TouchableOpacity`
   flex-direction: row;
   padding-horizontal: 16;
   padding-vertical: 12;
+  min-height: 60;
+  align-items: center;
 `;
 
 export const Left = styled.View`

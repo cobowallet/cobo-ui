@@ -61,7 +61,7 @@ AssetWalletHeader.propTypes = {
   BTCValue: PropTypes.string.isRequired,
   children: PropTypes.element,
   theme: PropTypes.string,
-  style: PropTypes.object,
+  style: PropTypes.any,
 };
 
 AssetWalletHeader.defaultProps = {
