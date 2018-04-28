@@ -7,7 +7,7 @@ storiesOf('Transaction Record', module)
   .add('red packet', () => (
     <TransactionRecordRow
       coinCode="ETH"
-      isSendOut={true}
+      isSendOut
       title="Send red packet"
       amount="20"
       message="To: Red packet"
@@ -17,7 +17,7 @@ storiesOf('Transaction Record', module)
   .add('send to blockchain', () => (
     <TransactionRecordRow
       coinCode="ETH"
-      isSendOut={true}
+      isSendOut
       title="Send"
       amount="1000"
       message="To: 0x1jf...ddjf"
@@ -30,7 +30,7 @@ storiesOf('Transaction Record', module)
   .add('send internally', () => (
     <TransactionRecordRow
       coinCode="ETH"
-      isSendOut={true}
+      isSendOut
       title="Send"
       amount="1000"
       message="To: 0x1jf...ddjf"
