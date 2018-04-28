@@ -22,6 +22,7 @@ function loadStories() {
   require('../src/components/TransactionStatus/index.stories');
   require('../src/components/WalletButtonGroup/index.stories');
   require('../src/components/WalletHeader/index.stories');
+  require('../src/components/WalletSidebar/index.stories');
   require('../src/components/banner/index.stories');
   
 }
@@ -44,6 +45,7 @@ const stories = [
   '../src/components/TransactionStatus/index.stories',
   '../src/components/WalletButtonGroup/index.stories',
   '../src/components/WalletHeader/index.stories',
+  '../src/components/WalletSidebar/index.stories',
   '../src/components/banner/index.stories',
   
 ];
