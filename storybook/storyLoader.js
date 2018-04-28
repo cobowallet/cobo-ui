@@ -15,6 +15,7 @@ function loadStories() {
   require('../src/components/IntroductionCard/index.stories');
   require('../src/components/MessageModal/index.stories');
   require('../src/components/QRCode/index.stories');
+  require('../src/components/RewardBadge/index.stories');
   require('../src/components/SecretCode/index.stories');
   require('../src/components/TransactionRecordRow/index.stories');
   require('../src/components/TransactionStatus/index.stories');
@@ -35,6 +36,7 @@ const stories = [
   '../src/components/IntroductionCard/index.stories',
   '../src/components/MessageModal/index.stories',
   '../src/components/QRCode/index.stories',
+  '../src/components/RewardBadge/index.stories',
   '../src/components/SecretCode/index.stories',
   '../src/components/TransactionRecordRow/index.stories',
   '../src/components/TransactionStatus/index.stories',

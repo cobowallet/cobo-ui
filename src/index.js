@@ -16,3 +16,4 @@ export { default as TransactionStatus } from './components/TransactionStatus';
 export { default as WalletButtonGroup } from './components/WalletButtonGroup';
 export { RewardBanner, NoticeBanner } from './components/banner';
 export { default as IntroductionCard } from './components/IntroductionCard';
+export { default as RewardBadge } from './components/RewardBadge';
