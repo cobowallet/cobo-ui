@@ -50,10 +50,10 @@ const TransactionRecordRow = ({
   style,
   onPress,
 }) => (
-  <Container onPress={onPress}>
+  <Container onPress={onPress} style={style}>
     {showIcon && <Icon isSendOut={isSendOut} />}
 
-    <View style={[{ flex: 1 }, style]}>
+    <View style={{ flex: 1 }}>
       <CBText bold color="dark">
         {title}
       </CBText>
