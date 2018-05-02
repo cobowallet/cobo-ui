@@ -1,39 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Image, TouchableHighlight } from 'react-native';
-import styled from 'styled-components/native';
+import { default as styled, ThemeProvider } from 'styled-components/native';
 import { CBText } from '../Core';
+import MyTheme from './theme';
+import { withTheme } from 'styled-components';
 
 const HorizontalDivide = styled.View`
   width: 100%;
   height: 1;
   margin-left: 16;
-  background: #8994c6;
+  background: ${props => props.theme.divide};
 `;
 
-const Title = ({ children }) => (
-  <CBText color={'dark'} bold style={{ paddingLeft: 16, paddingTop: 16, paddingBottom: 16 }}>
+const Title = withTheme(({ children, theme }) => (
+  <CBText color={theme.title} bold style={{ paddingLeft: 16, paddingTop: 16, paddingBottom: 16 }}>
     {children}
   </CBText>
-);
+));
 
-const CurrencyValueInHeader = ({ children }) => (
-  <CBText superBold color={'dark'} style={{ fontSize: 24 }}>
+const CurrencyValueInHeader = withTheme(({ children, theme }) => (
+  <CBText superBold color={theme.totalAmountInCurrency} style={{ fontSize: 24 }}>
     {children}
   </CBText>
-);
+));
 
-const BTCValueInHeader = ({ children }) => (
-  <CBText superBold color={'grayLight'} style={{ fontSize: 16, marginTop: 8 }}>
+const BTCValueInHeader = withTheme(({ children, theme }) => (
+  <CBText superBold color={theme.totalAmountInBTC} style={{ fontSize: 16, marginTop: 8 }}>
     {children}
   </CBText>
-);
+));
 
-const HeaderName = ({ children }) => (
-  <CBText style={{ marginLeft: 4 }} color={'grayLight'}>
+const HeaderName = withTheme(({ children, theme }) => (
+  <CBText style={{ marginLeft: 4 }} color={theme.headName}>
     {children}
   </CBText>
-);
+));
 
 const Header = ({ data }) => {
   const { name, valueInCurrancy, valueInBTC } = data;
@@ -51,15 +53,15 @@ const Header = ({ data }) => {
   );
 };
 
-const WalletName = ({ children }) => (
-  <CBText bold color={'dark'}>
+const WalletName = withTheme(({ children, theme }) => (
+  <CBText bold color={theme.walletName}>
     {children}
   </CBText>
-);
+));
 
-const WalletValue = ({ style, children }) => (
-  <CBText style={{ fontSize: 12, color: '#ADB3C9', ...style }}>{children}</CBText>
-);
+const WalletValue = withTheme(({ style, children, theme }) => (
+  <CBText style={{ fontSize: 12, color: theme.walletValue, ...style }}>{children}</CBText>
+));
 
 const WalletIcon = styled(Image)`
   width: 40;
@@ -121,23 +123,34 @@ const WalletList = ({ isRefreshing, onRefresh, head, wallets, onWalletPress }) =
 };
 
 const SidebarContainer = styled.View`
-  background: white;
+  background: ${props => props.theme.background};
   flex: 1;
 `;
 
-const HomeSidebar = ({ title, head, wallets, isRefreshing, onRefresh, onWalletPress }) => (
-  <SidebarContainer>
-    <Title>{title}</Title>
-    <HorizontalDivide />
+const HomeSidebar = ({
+  title,
+  head,
+  wallets,
+  isRefreshing,
+  onRefresh,
+  onWalletPress,
+  theme,
+  ...remain
+}) => (
+  <ThemeProvider theme={MyTheme[theme] || MyTheme.default}>
+    <SidebarContainer {...remain}>
+      <Title>{title}</Title>
+      <HorizontalDivide />
 
-    <WalletList
-      head={head}
-      wallets={wallets}
-      isRefreshing={isRefreshing}
-      onRefresh={onRefresh}
-      onWalletPress={onWalletPress}
-    />
-  </SidebarContainer>
+      <WalletList
+        head={head}
+        wallets={wallets}
+        isRefreshing={isRefreshing}
+        onRefresh={onRefresh}
+        onWalletPress={onWalletPress}
+      />
+    </SidebarContainer>
+  </ThemeProvider>
 );
 
 HomeSidebar.propTypes = {
@@ -162,6 +175,8 @@ HomeSidebar.propTypes = {
   onRefresh: PropTypes.func.isRequired,
   isRefreshing: PropTypes.bool.isRequired,
   onWalletPress: PropTypes.func.isRequired,
+  theme: PropTypes.string,
+  remain: PropTypes.object,
 };
 
 HomeSidebar.defaultProps = {
