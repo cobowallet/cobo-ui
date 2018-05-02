@@ -137,7 +137,7 @@ const HomeSidebar = ({
   theme,
   ...remain
 }) => (
-  <ThemeProvider theme={MyTheme[theme] || MyTheme.default}>
+  <ThemeProvider theme={MyTheme[theme]}>
     <SidebarContainer {...remain}>
       <Title>{title}</Title>
       <HorizontalDivide />
@@ -181,6 +181,7 @@ HomeSidebar.propTypes = {
 
 HomeSidebar.defaultProps = {
   isRefreshing: false,
+  theme: 'default',
 };
 
 export default HomeSidebar;
