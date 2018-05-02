@@ -35,7 +35,7 @@ class AssetWalletHeader extends React.PureComponent {
 
   renderIcon() {
     return (
-      <TouchableOpacity onPress={this.props.IconPress}>
+      <TouchableOpacity onPress={this.props.addWalletPress}>
         <AddWallet />
       </TouchableOpacity>
     );
@@ -59,6 +59,7 @@ class AssetWalletHeader extends React.PureComponent {
 AssetWalletHeader.propTypes = {
   fiatCurrencyValue: PropTypes.string.isRequired,
   BTCValue: PropTypes.string.isRequired,
+  addWalletPress: PropTypes.func.isRequired,
   children: PropTypes.element,
   theme: PropTypes.string,
   style: PropTypes.any,

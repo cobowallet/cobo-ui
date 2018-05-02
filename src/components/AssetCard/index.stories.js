@@ -12,6 +12,7 @@ class AssetCardTest extends PureComponent {
         amount: '4.800',
         fiatCurrencyAmount: '5220.96',
         fiatCurrencySymbol: '$',
+        slogan: '年化收益300%+',
         txList: [{ title: 'Received' }, { title: 'Sent' }],
       },
       {

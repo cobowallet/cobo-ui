@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { LayoutAnimation, UIManager, Platform } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
+import { isNil } from 'ramda';
 import { FoldingSwitch } from '../../icons';
+import RewardBadge from '../RewardBadge';
 import {
   Container,
   Row,
@@ -11,6 +13,7 @@ import {
   AmountContainer,
   AmountText,
   ToggleArea,
+  CoinContainer,
   CoinCodeText,
   FiatCurrencyAmountText,
 } from './style';
@@ -36,7 +39,15 @@ class AssetCard extends PureComponent {
   };
 
   render() {
-    const { amount, fiatCurrencyAmount, fiatCurrencySymbol, coinCode, onPress, theme } = this.props;
+    const {
+      amount,
+      fiatCurrencyAmount,
+      fiatCurrencySymbol,
+      coinCode,
+      onPress,
+      theme,
+      slogan,
+    } = this.props;
     return (
       <ThemeProvider theme={assetCardTheme[theme] || assetCardTheme.default}>
         <Container style={{ shadowOffset: { width: 0, height: 2 } }}>
@@ -44,7 +55,14 @@ class AssetCard extends PureComponent {
             <IconContent>
               <CoinIcon coin={coinCode} />
             </IconContent>
-            <CoinCodeText bold>{coinCode}</CoinCodeText>
+            <CoinContainer>
+              <CoinCodeText bold>{coinCode}</CoinCodeText>
+              {!isNil(slogan) &&
+                slogan.length > 0 && (
+                  <RewardBadge content={slogan} theme={theme} style={{ marginTop: 5 }} />
+                )}
+            </CoinContainer>
+
             <AmountContainer>
               <AmountText numberOfLines={1}>{amount}</AmountText>
               <FiatCurrencyAmountText
@@ -74,6 +92,7 @@ AssetCard.propTypes = {
   defaultOpen: PropTypes.bool,
   onPress: PropTypes.func,
   theme: PropTypes.string,
+  slogan: PropTypes.string,
 };
 
 AssetCard.defaultProps = {
@@ -81,6 +100,7 @@ AssetCard.defaultProps = {
   defaultOpen: false,
   onPress: null,
   theme: 'default',
+  slogan: '',
 };
 
 export default AssetCard;
