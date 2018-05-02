@@ -32,8 +32,10 @@ class IntroductionCard extends React.PureComponent {
     this.setState({ tabIndex: index });
   };
 
-  renderTab = ({ icon, title, index, selected }) => {
-    const borderStyle = selected ? { borderBottomWidth: 3, borderBottomColor: '#5170EB' } : {};
+  renderTab = ({ icon, title, subTitle, index, selected }) => {
+    const borderStyle = selected
+      ? { borderBottomWidth: 3, borderBottomColor: '#5170EB', paddingBottom: 3 }
+      : {};
 
     return (
       <View key={index} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -46,17 +48,21 @@ class IntroductionCard extends React.PureComponent {
           <CBText style={{ marginTop: 2, paddingLeft: 3, paddingRight: 3 }} color={'dark'} bold>
             {title}
           </CBText>
+          <CBText color={'grayLight'} style={{ fontSize: 12 }}>
+            ({subTitle})
+          </CBText>
         </TouchableOpacity>
       </View>
     );
   };
 
-  renderTabs = ({ titles, selectedIndex }) => (
+  renderTabs = ({ heads, selectedIndex }) => (
     <View style={{ flexDirection: 'row' }}>
-      {zip(TAB_IMAGES, titles).map(([tabIcon, title], index) =>
+      {zip(TAB_IMAGES, heads).map(([tabIcon, head], index) =>
         this.renderTab({
           icon: tabIcon,
-          title: title,
+          title: head.title,
+          subTitle: head.subTitle,
           index: index,
           selected: selectedIndex == index,
         })
@@ -66,13 +72,12 @@ class IntroductionCard extends React.PureComponent {
 
   renderText = ({ text, index, showUnderline }) => {
     const borderStyle = showUnderline ? { borderBottomColor: '#EAEFFE', borderBottomWidth: 1 } : {};
-    const textColor = index == 0 ? 'dark' : 'grayLight';
 
     return (
       <CBText
         key={index}
         style={{ width: '100%', paddingTop: 18, paddingBottom: 18, ...borderStyle }}
-        color={textColor}
+        color={'grayLight'}
       >
         {text}
       </CBText>
@@ -95,12 +100,15 @@ class IntroductionCard extends React.PureComponent {
     const { cloud, hd } = this.props;
     const { tabIndex } = this.state;
 
-    const titles = [cloud.title, hd.title];
+    const heads = [
+      { title: cloud.title, subTitle: cloud.subTitle },
+      { title: hd.title, subTitle: hd.subTitle },
+    ];
     const texts = tabIndex == 0 ? cloud.texts : hd.texts;
 
     return (
       <View style={{ width: '100%' }}>
-        {this.renderTabs({ titles: titles, selectedIndex: tabIndex })}
+        {this.renderTabs({ heads: heads, selectedIndex: tabIndex })}
         {this.renderTexts({ texts: texts })}
       </View>
     );
@@ -110,11 +118,13 @@ class IntroductionCard extends React.PureComponent {
 IntroductionCard.propTypes = {
   cloud: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    subTitle: PropTypes.string.isRequired,
     texts: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
 
   hd: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    subTitle: PropTypes.string.isRequired,
     texts: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
 };
