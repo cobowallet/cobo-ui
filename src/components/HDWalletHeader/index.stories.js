@@ -8,7 +8,7 @@ storiesOf('AssetWalletHeader', module).add('default', () => (
   <AssetWalletHeader
     fiatCurrencyValue={'$48,213 USD'}
     BTCValue={'9.20 BTC'}
-    IconPress={() => console.log('hello icon is pressed')}
+    addWalletPress={() => console.log('hello icon is pressed')}
     theme={'dark'}
   >
     <Text>This is the children</Text>
