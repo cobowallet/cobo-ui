@@ -30,6 +30,10 @@ export const CoinIcon = styled(WalletLogo)`
   width: 46;
 `;
 
+export const CoinContainer = styled.View`
+  justify-content: center;
+`;
+
 export const AmountContainer = styled.View`
   flex: 1;
   flex-direction: column;
