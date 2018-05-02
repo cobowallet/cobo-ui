@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { View } from 'react-native';
 import HomeSidebar from './index';
+import { AssetWalletLogo } from '../../icons';
 
 const props = {
   title: '我的钱包',
@@ -9,7 +10,7 @@ const props = {
   wallets: [
     {
       id: 1,
-      icon: { uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' },
+      icon: AssetWalletLogo({ type: 'cloud' }),
       name: '云端钱包',
       valueInCurrancy: '$48,213',
       valueInBTC: '9.2123 BTC',
@@ -17,7 +18,7 @@ const props = {
     },
     {
       id: 2,
-      icon: { uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' },
+      icon: AssetWalletLogo({ type: 'hd' }),
       name: '助记词钱包',
       valueInCurrancy: '$48,213',
       valueInBTC: '9.2123 BTC',

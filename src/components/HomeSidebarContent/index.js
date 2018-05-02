@@ -63,11 +63,6 @@ const WalletValue = withTheme(({ style, children, theme }) => (
   <CBText style={{ fontSize: 12, color: theme.walletValue, ...style }}>{children}</CBText>
 ));
 
-const WalletIcon = styled(Image)`
-  width: 40;
-  height: 40;
-`;
-
 const WalletContainer = styled.View`
   padding-top: 12;
   padding-bottom: 12;
@@ -83,7 +78,7 @@ const Wallet = ({ style, data, onWalletPress }) => {
   return (
     <TouchableHighlight onPress={onWalletPress} underlayColor={'#F3F6FB'}>
       <WalletContainer style={style} selected={selected}>
-        <WalletIcon source={icon} />
+        {icon}
         <View style={{ marginLeft: 12 }}>
           <WalletName>{name}</WalletName>
 
@@ -164,7 +159,7 @@ HomeSidebar.propTypes = {
   wallets: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      icon: Image.propTypes.source,
+      icon: PropTypes.element,
       name: PropTypes.string.isRequired,
       valueInCurrancy: PropTypes.string.isRequired,
       valueInBTC: PropTypes.string.isRequired,
