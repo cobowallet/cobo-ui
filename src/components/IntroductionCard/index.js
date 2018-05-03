@@ -48,7 +48,7 @@ class IntroductionCard extends React.PureComponent {
           <CBText style={{ marginTop: 2, paddingLeft: 3, paddingRight: 3 }} color={'dark'} bold>
             {title}
           </CBText>
-          <CBText color={'grayLight'} style={{ fontSize: 12 }}>
+          <CBText color={'grayLight'} small>
             ({subTitle})
           </CBText>
         </TouchableOpacity>
@@ -108,7 +108,7 @@ class IntroductionCard extends React.PureComponent {
 
     return (
       <View style={{ width: '100%' }}>
-        {this.renderTabs({ heads: heads, selectedIndex: tabIndex })}
+        {this.renderTabs({ heads, selectedIndex: tabIndex })}
         {this.renderTexts({ texts: texts })}
       </View>
     );
