@@ -33,18 +33,21 @@ const HeadTitle = withTheme(({ children, theme, style }) => (
   </CBText>
 ));
 
+const calculateCurrency = amount => numeral(amount).format('0,0.00');
+const calculateBTC = (amount, exchangeRate) => numeral(amount / exchangeRate).format('0,0.0000');
+
 const Head = ({ title, amount, exchangeRate, currencySymbol, currencyName }) => {
-  const fixedAmount = numeral(amount);
-  const inBTC = fixedAmount.divide(exchangeRate);
+  const fixedAmount = calculateCurrency(amount);
+  const inBTC = calculateBTC(amount, exchangeRate);
 
   return (
     <View style={{ paddingLeft: 16, paddingTop: 20, marginBottom: 28 }}>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <CurrencyInHead>{`${currencySymbol}${fixedAmount.format('0,0.00')}`}</CurrencyInHead>
+        <CurrencyInHead>{`${currencySymbol}${fixedAmount}`}</CurrencyInHead>
         <HeadTitle>{`${title}(${currencyName})`}</HeadTitle>
       </View>
 
-      <BTCInHead>{`=${inBTC.format('0,0.0000')} BTC`}</BTCInHead>
+      <BTCInHead>{`=${inBTC} BTC`}</BTCInHead>
       <HorizontalDivide style={{ marginTop: 20, marginLeft: 0 }} />
     </View>
   );
@@ -73,8 +76,8 @@ const WalletContainer = styled.View`
 
 const Wallet = ({ data, exchangeRate, currencySymbol, onWalletPress }) => {
   const { type, title, amount, selected } = data;
-  const fixedAmount = numeral(amount);
-  const inBTC = fixedAmount.divide(exchangeRate);
+  const fixedAmount = calculateCurrency(amount.toFixed(2));
+  const inBTC = calculateBTC(amount, exchangeRate);
 
   return (
     <TouchableHighlight onPress={() => onWalletPress(type)} underlayColor={'#F3F6FB'}>
@@ -86,10 +89,8 @@ const Wallet = ({ data, exchangeRate, currencySymbol, onWalletPress }) => {
             <WalletName>{title}</WalletName>
 
             <View style={{ flexDirection: 'row', marginTop: 4 }}>
-              <WalletValue>{`${currencySymbol}${fixedAmount.format('0,0.00')}`}</WalletValue>
-              <WalletValue style={{ marginLeft: 18 }}>{`${inBTC.format(
-                '0,0.0000'
-              )} BTC`}</WalletValue>
+              <WalletValue>{`${currencySymbol}${fixedAmount}`}</WalletValue>
+              <WalletValue style={{ marginLeft: 18 }}>{`${inBTC} BTC`}</WalletValue>
             </View>
           </View>
         </WalletContainer>
