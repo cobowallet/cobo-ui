@@ -76,7 +76,7 @@ const WalletContainer = styled.View`
 
 const Wallet = ({ data, exchangeRate, currencySymbol, onWalletPress }) => {
   const { type, title, amount, selected } = data;
-  const fixedAmount = calculateCurrency(amount.toFixed(2));
+  const fixedAmount = calculateCurrency(amount);
   const inBTC = calculateBTC(amount, exchangeRate);
 
   return (
@@ -118,7 +118,6 @@ const Container = styled.View`
 `;
 
 const HomeDrawerContent = ({
-  drawerTitle,
   assetTitle,
   currencySymbol,
   currencyName,
