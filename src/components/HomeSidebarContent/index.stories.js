@@ -10,7 +10,7 @@ const props = {
   wallets: [
     {
       id: 1,
-      icon: AssetWalletLogo({ type: 'cloud' }),
+      icon: <AssetWalletLogo type={'cloud'} style={{ width: 40, height: 40 }} />,
       name: '云端钱包',
       valueInCurrancy: '$48,213',
       valueInBTC: '9.2123 BTC',
@@ -18,7 +18,7 @@ const props = {
     },
     {
       id: 2,
-      icon: AssetWalletLogo({ type: 'hd' }),
+      icon: <AssetWalletLogo type={'hd'} style={{ width: 40, height: 40 }} />,
       name: '助记词钱包',
       valueInCurrancy: '$48,213',
       valueInBTC: '9.2123 BTC',

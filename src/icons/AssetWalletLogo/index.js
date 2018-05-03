@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
 
-const Icon = ({ type }) => {
+const Icon = ({ type, style }) => {
   const getSource = type => {
     switch (type) {
       case 'cloud':
@@ -12,13 +12,11 @@ const Icon = ({ type }) => {
     }
   };
 
-  return (
-    <Image source={getSource(type)} style={{ width: 40, height: 40, resizeMode: 'contain' }} />
-  );
+  return <Image source={getSource(type)} style={{ resizeMode: 'contain', ...style }} />;
 };
 
 Icon.propTypes = {
-  type: PropTypes.arrayOf(['cloud', 'hd']).isRequired,
+  type: PropTypes.oneOf(['cloud', 'hd']).isRequired,
 };
 
 export default Icon;
