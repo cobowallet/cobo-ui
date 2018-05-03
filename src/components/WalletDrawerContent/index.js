@@ -26,23 +26,24 @@ const Icon = ({ style, source }) => (
   <Image style={{ width: 40, height: 40, ...style }} source={source} />
 );
 
+const Row = styled.View`
+  flex-direction: row;
+  align-items: center;
+  padding-left: 16;
+  padding-top: 12;
+  padding-bottom: 12;
+  background: ${props => (props.background ? props.background : 'white')};
+`;
+
 const OverView = ({ data, onOverviewPress }) => {
   const { name, icon } = data;
 
   return (
     <TouchableOpacity onPress={onOverviewPress} activeOpacity={1}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          paddingLeft: 16,
-          paddingTop: 12,
-          paddingBottom: 12,
-        }}
-      >
+      <Row>
         <Icon source={icon} />
         <BoldText style={{ marginLeft: 12 }}>{name}</BoldText>
-      </View>
+      </Row>
     </TouchableOpacity>
   );
 };
@@ -53,23 +54,16 @@ const RowItem = ({ data, onItemPress }) => {
 
   return (
     <TouchableHighlight onPress={onItemPress} underlayColor={'#F3F6FB'}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          paddingTop: 12,
-          paddingBottom: 12,
-          paddingLeft: 16,
-          backgroundColor: bgColor,
-        }}
-      >
+      <Row background={bgColor}>
         <Icon source={icon} />
 
         <View style={{ marginLeft: 12 }}>
           <BoldText>{name}</BoldText>
-          <CBText style={{ fontSize: 12, color: '#ADB3C9', marginTop: 2 }}>{address}</CBText>
+          <CBText color={'grayLight'} style={{ fontSize: 12, marginTop: 2 }}>
+            {address}
+          </CBText>
         </View>
-      </View>
+      </Row>
     </TouchableHighlight>
   );
 };
@@ -81,22 +75,14 @@ const List = styled.FlatList`
 
 const WalletCreator = ({ name, onWalletCreatorPress }) => (
   <TouchableOpacity onPress={onWalletCreatorPress} activeOpacity={1}>
-    <View
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingLeft: 16,
-        paddingTop: 12,
-        paddingBottom: 12,
-      }}
-    >
+    <Row>
       <Icon source={IconWalletCreator} style={{ resizeMode: 'center' }} />
       <BoldText style={{ marginLeft: 12 }}>{name}</BoldText>
-    </View>
+    </Row>
   </TouchableOpacity>
 );
 
-const WalletSidebar = ({
+const WalletDrawerContent = ({
   title,
   overview,
   walletCreatorName,
@@ -134,7 +120,7 @@ const WalletSidebar = ({
   );
 };
 
-WalletSidebar.propTypes = {
+WalletDrawerContent.propTypes = {
   title: PropTypes.string.isRequired,
   walletCreatorName: PropTypes.string.isRequired,
 
@@ -158,4 +144,4 @@ WalletSidebar.propTypes = {
   onItemPress: PropTypes.func.isRequired,
 };
 
-export default WalletSidebar;
+export default WalletDrawerContent;
