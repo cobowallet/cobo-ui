@@ -22,6 +22,7 @@
     "storybook": "storybook start -p 7007"
   },
   "dependencies": {
+    "numeral": "^2.0.6",
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
     "react-native-actionsheet": "^2.4.0",
