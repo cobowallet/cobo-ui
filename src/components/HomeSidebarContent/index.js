@@ -47,7 +47,7 @@ const Header = ({ data }) => {
         <HeaderName>{name}</HeaderName>
       </View>
 
-      <BTCValueInHeader>{valueInBTC}</BTCValueInHeader>
+      <BTCValueInHeader>={valueInBTC}</BTCValueInHeader>
       <HorizontalDivide style={{ marginTop: 20, marginLeft: 0 }} />
     </View>
   );

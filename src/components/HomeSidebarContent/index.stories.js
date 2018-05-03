@@ -6,7 +6,7 @@ import { AssetWalletLogo } from '../../icons';
 
 const props = {
   title: '我的钱包',
-  head: { name: '总资产(USD)', valueInCurrancy: '$96,426', valueInBTC: '=18.44676 BTC' },
+  head: { name: '总资产(USD)', valueInCurrancy: '$96,426', valueInBTC: '18.44676 BTC' },
   wallets: [
     {
       id: 1,
