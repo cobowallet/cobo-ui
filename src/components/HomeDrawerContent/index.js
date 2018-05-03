@@ -5,6 +5,7 @@ import { default as styled, ThemeProvider } from 'styled-components/native';
 import { CBText } from '../Core';
 import MyTheme from './theme';
 import { withTheme } from 'styled-components';
+import { AssetWalletLogo } from '../../icons';
 
 const HorizontalDivide = styled.View`
   width: 100%;
@@ -38,12 +39,12 @@ const HeaderName = withTheme(({ children, theme }) => (
 ));
 
 const Header = ({ data }) => {
-  const { name, valueInCurrancy, valueInBTC } = data;
+  const { name, valueInCurrency, valueInBTC } = data;
 
   return (
     <View style={{ paddingLeft: 16, paddingTop: 20, marginBottom: 28 }}>
       <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-        <CurrencyValueInHeader>{valueInCurrancy}</CurrencyValueInHeader>
+        <CurrencyValueInHeader>{valueInCurrency}</CurrencyValueInHeader>
         <HeaderName>{name}</HeaderName>
       </View>
 
@@ -73,17 +74,17 @@ const WalletContainer = styled.View`
 `;
 
 const Wallet = ({ style, data, onWalletPress }) => {
-  const { icon, name, valueInCurrancy, valueInBTC, selected } = data;
+  const { type, name, valueInCurrency, valueInBTC, selected } = data;
 
   return (
     <TouchableHighlight onPress={onWalletPress} underlayColor={'#F3F6FB'}>
       <WalletContainer style={style} selected={selected}>
-        {icon}
+        <AssetWalletLogo type={type} style={{ width: 40, height: 40 }} />
         <View style={{ marginLeft: 12 }}>
           <WalletName>{name}</WalletName>
 
           <View style={{ flexDirection: 'row', marginTop: 4 }}>
-            <WalletValue>{valueInCurrancy}</WalletValue>
+            <WalletValue>{valueInCurrency}</WalletValue>
             <WalletValue style={{ marginLeft: 18 }}>{valueInBTC}</WalletValue>
           </View>
         </View>
@@ -98,9 +99,9 @@ const List = styled.FlatList`
 
 const WalletList = ({ isRefreshing, onRefresh, head, wallets, onWalletPress }) => {
   const renderItem = ({ item, index }) => {
-    const { id } = item;
+    const { type } = item;
 
-    return <Wallet data={item} onWalletPress={() => onWalletPress(id)} />;
+    return <Wallet data={item} onWalletPress={() => onWalletPress(type)} />;
   };
 
   return (
@@ -122,7 +123,7 @@ const SidebarContainer = styled.View`
   flex: 1;
 `;
 
-const HomeSidebar = ({
+const HomeDrawerContent = ({
   title,
   head,
   wallets,
@@ -148,20 +149,19 @@ const HomeSidebar = ({
   </ThemeProvider>
 );
 
-HomeSidebar.propTypes = {
+HomeDrawerContent.propTypes = {
   title: PropTypes.string.isRequired,
   head: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    valueInCurrancy: PropTypes.string.isRequired,
+    valueInCurrency: PropTypes.string.isRequired,
     valueInBTC: PropTypes.string.isRequired,
   }).isRequired,
 
   wallets: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      icon: PropTypes.element,
+      type: AssetWalletLogo.propTypes.type,
       name: PropTypes.string.isRequired,
-      valueInCurrancy: PropTypes.string.isRequired,
+      valueInCurrency: PropTypes.string.isRequired,
       valueInBTC: PropTypes.string.isRequired,
       selected: PropTypes.bool,
     })
@@ -174,9 +174,9 @@ HomeSidebar.propTypes = {
   remain: PropTypes.object,
 };
 
-HomeSidebar.defaultProps = {
+HomeDrawerContent.defaultProps = {
   isRefreshing: false,
   theme: 'default',
 };
 
-export default HomeSidebar;
+export default HomeDrawerContent;
