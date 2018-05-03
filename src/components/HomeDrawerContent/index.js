@@ -40,11 +40,11 @@ const Head = ({ title, amount, exchangeRate, currencySymbol, currencyName }) => 
   return (
     <View style={{ paddingLeft: 16, paddingTop: 20, marginBottom: 28 }}>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <CurrencyInHead>{`${currencySymbol}${fixedAmount.format('0,0')}`}</CurrencyInHead>
+        <CurrencyInHead>{`${currencySymbol}${fixedAmount.format('0,0.00')}`}</CurrencyInHead>
         <HeadTitle>{`${title}(${currencyName})`}</HeadTitle>
       </View>
 
-      <BTCInHead>{`=${inBTC.format('0,0.00')} BTC`}</BTCInHead>
+      <BTCInHead>{`=${inBTC.format('0,0.0000')} BTC`}</BTCInHead>
       <HorizontalDivide style={{ marginTop: 20, marginLeft: 0 }} />
     </View>
   );
@@ -75,6 +75,7 @@ const Wallet = ({ data, exchangeRate, currencySymbol, onWalletPress }) => {
   const { type, title, amount, selected } = data;
   const fixedAmount = numeral(amount);
   const inBTC = fixedAmount.divide(exchangeRate);
+
   return (
     <TouchableHighlight onPress={() => onWalletPress(type)} underlayColor={'#F3F6FB'}>
       <View>
@@ -85,9 +86,9 @@ const Wallet = ({ data, exchangeRate, currencySymbol, onWalletPress }) => {
             <WalletName>{title}</WalletName>
 
             <View style={{ flexDirection: 'row', marginTop: 4 }}>
-              <WalletValue>{`${currencySymbol}${fixedAmount.format('0,0')}`}</WalletValue>
+              <WalletValue>{`${currencySymbol}${fixedAmount.format('0,0.00')}`}</WalletValue>
               <WalletValue style={{ marginLeft: 18 }}>{`${inBTC.format(
-                '0,0.00'
+                '0,0.0000'
               )} BTC`}</WalletValue>
             </View>
           </View>
