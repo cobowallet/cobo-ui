@@ -12,26 +12,27 @@ const InputView = styled.View`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin-top: 16;
 `;
 
 const PasswordInput = styled.TextInput`
-  padding-top: 15;
-  padding-bottom: 15;
+  height: 50;
   flex: 1;
   font-size: 15;
+  justify-content: center;
   border-bottom-width: 1;
   border-bottom-color: ${props => props.theme.line};
 `;
 
 const PasswordHintText = styled.Text`
-  margin-top: 15;
+  margin-top: 6;
   font-size: 12;
   color: ${props => props.color};
 `;
 
 export const renderPasswordInputContent = ({
   onChangeText,
-  defaultVale,
+  value,
   placeholder,
   passwordPrompt,
   passwordPromptColor,
@@ -44,7 +45,7 @@ export const renderPasswordInputContent = ({
         <PasswordInput
           secureTextEntry
           onChangeText={onChangeText}
-          defaultValue={defaultVale}
+          value={value}
           onSubmitEditing={onSubmitEditing || Keyboard.dismiss}
           placeholder={placeholder}
           autoCorrect={false}
