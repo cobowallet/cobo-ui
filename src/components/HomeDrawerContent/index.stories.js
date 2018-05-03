@@ -4,25 +4,25 @@ import { View } from 'react-native';
 import HomeDrawerContent from './index';
 
 const props = {
-  title: '我的钱包',
-  head: { name: '总资产(USD)', valueInCurrency: '$96,426', valueInBTC: '18.44676 BTC' },
+  assetTitle: '总资产',
+  currencySymbol: '$',
+  currencyName: 'USD',
+  btcExchangeRate: 10,
+
   wallets: [
     {
       type: 'CLOUD',
-      name: '云端钱包',
-      valueInCurrency: '$48,213',
-      valueInBTC: '9.2123 BTC',
+      title: '云端钱包',
+      amount: 48213,
       selected: true,
     },
     {
       type: 'HD',
-      name: '助记词钱包',
-      valueInCurrency: '$48,213',
-      valueInBTC: '9.2123 BTC',
+      title: '助记词钱包',
+      amount: 4813,
     },
   ],
-  onRefresh: () => console.log('刷新啦'),
-  isRefreshing: false,
+
   onWalletPress: type => console.log('type=' + type),
 };
 
