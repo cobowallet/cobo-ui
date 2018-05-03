@@ -18,3 +18,4 @@ export { RewardBanner, NoticeBanner } from './components/banner';
 export { default as IntroductionCard } from './components/IntroductionCard';
 export { default as RewardBadge } from './components/RewardBadge';
 export { default as HomeDrawerContent } from './components/HomeDrawerContent';
+export { default as WalletDrawerContent } from './components/WalletDrawerContent';
