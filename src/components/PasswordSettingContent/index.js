@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { Container, renderPasswordInputContent } from './style';
 import PasswordSettingContentTheme from './theme';
+import { composePasswordContent, composeConfirmContent } from './help';
 
 class PasswordSettingContent extends React.PureComponent {
   constructor(props) {
@@ -53,66 +54,21 @@ class PasswordSettingContent extends React.PureComponent {
   };
 
   inputPassword = text => {
-    const { theme, verifyPassword } = this.state;
     const {
-      enterPasswordHint,
-      passwordLengthHint,
-      passwordContainsTypeHint,
-      passwordNotConsistentHint,
-      mediumLevelHint,
-      strongLevelHint,
-    } = this.props;
-    const containsTypes = this.regularVerifyPassword(text);
-
-    let passwordPrompt = '';
-    let passwordPromptColor = theme.errorColor;
-    let passwordComplete = false;
-    let verifyPasswordComplete = this.state.verifyPasswordComplete;
-    let verifyPasswordPrompt = this.state.verifyPasswordPrompt;
-
-    if (!text) {
-      passwordPrompt = enterPasswordHint;
-    } else {
-      if (text.length < 8) {
-        if (containsTypes < 2) {
-          passwordPrompt = enterPasswordHint;
-        } else {
-          passwordPrompt = passwordLengthHint;
-        }
-      } else {
-        if (containsTypes < 2) {
-          passwordPrompt = passwordContainsTypeHint;
-        } else {
-          passwordComplete = true;
-          if (containsTypes >= 3) {
-            passwordPromptColor = theme.completeColor;
-            passwordPrompt = strongLevelHint;
-          } else {
-            passwordPrompt = mediumLevelHint;
-            passwordPromptColor = theme.mediumLevelColor;
-          }
-        }
-      }
-
-      if (verifyPassword) {
-        if (verifyPassword.length >= text.length) {
-          if (verifyPassword === text) {
-            verifyPasswordComplete = passwordComplete;
-            verifyPasswordPrompt = '';
-          } else {
-            verifyPasswordPrompt = passwordNotConsistentHint;
-            verifyPasswordComplete = false;
-          }
-        } else {
-          verifyPasswordComplete = false;
-          verifyPasswordPrompt = '';
-        }
-      }
-    }
-
+      password,
+      passwordComplete,
+      passwordPrompt,
+      passwordPromptColor,
+    } = composePasswordContent(this.state, this.props, text);
+    const { verifyPasswordComplete, verifyPasswordPrompt } = composeConfirmContent(
+      this.state,
+      this.props,
+      text,
+      passwordComplete
+    );
     this.setState(
       {
-        password: text,
+        password,
         passwordComplete,
         passwordPrompt,
         passwordPromptColor,
@@ -149,17 +105,6 @@ class PasswordSettingContent extends React.PureComponent {
         setTimeout(this.onComplete, 100);
       }
     );
-  };
-
-  regularVerifyPassword = password => {
-    let containsTypes = 0;
-    containsTypes += password.search('[0-9]') >= 0 ? 1 : 0;
-    containsTypes += password.search('[A-Za-z]') >= 0 ? 1 : 0;
-    containsTypes +=
-      password.search("[`~!@#$^&*()=|{}':;',.<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]") >= 0
-        ? 1
-        : 0;
-    return containsTypes;
   };
 
   render() {
@@ -212,11 +157,17 @@ PasswordSettingContent.propTypes = {
   strongLevelHint: PropTypes.string.isRequired,
   theme: PropTypes.string,
   style: PropTypes.any,
+  minPasswordLength: PropTypes.number,
+  minPasswordContainsTypeCount: PropTypes.number,
+  strongPasswordContainsTypeCount: PropTypes.number,
 };
 
 PasswordSettingContent.defaultProps = {
   theme: 'default',
   style: {},
+  minPasswordLength: 8,
+  minPasswordContainsTypeCount: 2,
+  strongPasswordContainsTypeCount: 3,
   passwordPlaceholder: '',
   verifyPasswordPlaceholder: '',
   enterPasswordHint:
