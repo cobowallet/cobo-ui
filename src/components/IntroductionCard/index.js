@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import { Image, View, TouchableOpacity } from 'react-native';
+import { zip } from 'ramda';
 import { CBText } from '../Core';
 import Cloud from './img/cloud.png';
 import HD from './img/hd.png';
-import { zip } from 'ramda';
 
 const TAB_IMAGES = [Cloud, HD];
 
@@ -25,23 +25,24 @@ const ShadowContainer = styled.View`
 
 class IntroductionCard extends React.PureComponent {
   state = {
-    tabIndex: 0,
+    tab: 'cloud',
   };
 
-  switchTabs = index => {
-    this.setState({ tabIndex: index });
+  switchTabs = tab => {
+    this.props.switchTab(tab);
+    this.setState({ tab });
   };
 
-  renderTab = ({ icon, title, subTitle, index, selected }) => {
+  renderTab = ({ icon, title, subTitle, id, selected }) => {
     const borderStyle = selected
       ? { borderBottomWidth: 3, borderBottomColor: '#5170EB', paddingBottom: 3 }
       : {};
 
     return (
-      <View key={index} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => this.switchTabs(index)}
+          onPress={() => this.switchTabs(id)}
           style={{ alignItems: 'center', ...borderStyle }}
         >
           <Image style={{ width: 40, height: 40, resizeMode: 'contain' }} source={icon} />
@@ -56,15 +57,15 @@ class IntroductionCard extends React.PureComponent {
     );
   };
 
-  renderTabs = ({ heads, selectedIndex }) => (
+  renderTabs = ({ tabs, selected }) => (
     <View style={{ flexDirection: 'row' }}>
-      {zip(TAB_IMAGES, heads).map(([tabIcon, head], index) =>
+      {zip(TAB_IMAGES, tabs).map(([tabIcon, { title, subTitle, id }]) =>
         this.renderTab({
           icon: tabIcon,
-          title: head.title,
-          subTitle: head.subTitle,
-          index: index,
-          selected: selectedIndex == index,
+          title,
+          subTitle,
+          id,
+          selected: selected === id,
         })
       )}
     </View>
@@ -85,31 +86,38 @@ class IntroductionCard extends React.PureComponent {
   };
 
   renderTexts = ({ texts }) => {
-    const shadowStyle = {};
-
     return (
       <ShadowContainer>
         {texts.map((text, index, array) =>
-          this.renderText({ text: text, index: index, showUnderline: index != array.length - 1 })
+          this.renderText({ text, index, showUnderline: index !== array.length - 1 })
         )}
       </ShadowContainer>
     );
   };
 
   render() {
-    const { cloud, hd } = this.props;
-    const { tabIndex } = this.state;
+    const { cloud, hd, selected } = this.props;
 
-    const heads = [
-      { title: cloud.title, subTitle: cloud.subTitle },
-      { title: hd.title, subTitle: hd.subTitle },
+    const tab = selected || this.state.tab;
+
+    const tabs = [
+      {
+        title: cloud.title,
+        subTitle: cloud.subTitle,
+        id: cloud.id,
+      },
+      {
+        title: hd.title,
+        subTitle: hd.subTitle,
+        id: hd.id,
+      },
     ];
-    const texts = tabIndex == 0 ? cloud.texts : hd.texts;
+    const texts = tab === 'cloud' ? cloud.texts : hd.texts;
 
     return (
       <View style={{ width: '100%' }}>
-        {this.renderTabs({ heads, selectedIndex: tabIndex })}
-        {this.renderTexts({ texts: texts })}
+        {this.renderTabs({ tabs, selected: tab })}
+        {this.renderTexts({ texts })}
       </View>
     );
   }
@@ -120,13 +128,19 @@ IntroductionCard.propTypes = {
     title: PropTypes.string.isRequired,
     subTitle: PropTypes.string.isRequired,
     texts: PropTypes.arrayOf(PropTypes.string).isRequired,
+    id: PropTypes.string.isRequired,
   }).isRequired,
 
   hd: PropTypes.shape({
     title: PropTypes.string.isRequired,
     subTitle: PropTypes.string.isRequired,
     texts: PropTypes.arrayOf(PropTypes.string).isRequired,
+    id: PropTypes.string.isRequired,
   }).isRequired,
+};
+
+IntroductionCard.defaultProps = {
+  switchTab: () => {},
 };
 
 export default IntroductionCard;

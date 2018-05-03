@@ -16,11 +16,13 @@ storiesOf('Introduction', module).add('default', () => (
     <IntroductionCard
       cloud={{
         title: '云端钱包',
+        id: 'cloud',
         subTitle: ' 私钥在云端',
         texts: ['随时随地安全的存储和收发', '钱包备份在云端管理', '需要使用手机号码注册'],
       }}
       hd={{
         title: '助记词钱包',
+        id: 'hd',
         subTitle: '私钥在本地',
         texts: [
           '私钥仅保管在本地设备，由自己管理',
