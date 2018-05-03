@@ -7,9 +7,43 @@ const sanitizeInputContainsTypeCount = text => {
   return containsTypes;
 };
 
-export const composePasswordContent = (state, props, text) => {
-  const { theme } = state;
-  const {
+const verdictPasswordLength = (
+  containsTypes,
+  minPasswordContainsTypeCount,
+  enterPasswordHint,
+  passwordLengthHint
+) => {
+  if (containsTypes < minPasswordContainsTypeCount) {
+    return enterPasswordHint;
+  } else {
+    return passwordLengthHint;
+  }
+};
+
+const verdictPasswordLevel = (
+  containsTypes,
+  strongPasswordContainsTypeCount,
+  theme,
+  strongLevelHint,
+  mediumLevelHint
+) => {
+  let passwordPrompt = '';
+  let passwordPromptColor = '';
+  if (containsTypes >= strongPasswordContainsTypeCount) {
+    passwordPromptColor = theme.completeColor;
+    passwordPrompt = strongLevelHint;
+  } else {
+    passwordPrompt = mediumLevelHint;
+    passwordPromptColor = theme.mediumLevelColor;
+  }
+
+  return { passwordComplete: true, passwordPromptColor, passwordPrompt };
+};
+
+export const composePasswordContent = (
+  text,
+  theme,
+  {
     enterPasswordHint,
     passwordLengthHint,
     passwordContainsTypeHint,
@@ -18,7 +52,8 @@ export const composePasswordContent = (state, props, text) => {
     minPasswordLength,
     minPasswordContainsTypeCount,
     strongPasswordContainsTypeCount,
-  } = props;
+  }
+) => {
   const containsTypes = sanitizeInputContainsTypeCount(text);
 
   let passwordPrompt = '';
@@ -29,23 +64,26 @@ export const composePasswordContent = (state, props, text) => {
     passwordPrompt = enterPasswordHint;
   } else {
     if (text.length < minPasswordLength) {
-      if (containsTypes < minPasswordContainsTypeCount) {
-        passwordPrompt = enterPasswordHint;
-      } else {
-        passwordPrompt = passwordLengthHint;
-      }
+      passwordPrompt = verdictPasswordLength(
+        containsTypes,
+        minPasswordContainsTypeCount,
+        enterPasswordHint,
+        passwordLengthHint
+      );
     } else {
       if (containsTypes < minPasswordContainsTypeCount) {
         passwordPrompt = passwordContainsTypeHint;
       } else {
-        passwordComplete = true;
-        if (containsTypes >= strongPasswordContainsTypeCount) {
-          passwordPromptColor = theme.completeColor;
-          passwordPrompt = strongLevelHint;
-        } else {
-          passwordPrompt = mediumLevelHint;
-          passwordPromptColor = theme.mediumLevelColor;
-        }
+        const passwordLevel = verdictPasswordLevel(
+          containsTypes,
+          strongPasswordContainsTypeCount,
+          theme,
+          strongLevelHint,
+          mediumLevelHint
+        );
+        passwordComplete = passwordLevel.passwordComplete;
+        passwordPromptColor = passwordLevel.passwordPromptColor;
+        passwordPrompt = passwordLevel.passwordPrompt;
       }
     }
   }
@@ -58,13 +96,12 @@ export const composePasswordContent = (state, props, text) => {
   };
 };
 
-export const composeConfirmContent = (state, props, password, passwordComplete) => {
-  const { verifyPassword } = state;
-  const { passwordNotConsistentHint } = props;
-
-  let verifyPasswordComplete = state.verifyPasswordComplete;
-  let verifyPasswordPrompt = state.verifyPasswordPrompt;
-
+export const composeConfirmContent = (
+  password,
+  passwordComplete,
+  { verifyPassword, verifyPasswordComplete, verifyPasswordPrompt },
+  { passwordNotConsistentHint }
+) => {
   if (password && password.length > 0 && verifyPassword && verifyPassword.length > 0) {
     if (verifyPassword.length >= password.length) {
       if (verifyPassword === password) {

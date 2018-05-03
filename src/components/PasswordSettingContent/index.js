@@ -59,12 +59,12 @@ class PasswordSettingContent extends React.PureComponent {
       passwordComplete,
       passwordPrompt,
       passwordPromptColor,
-    } = composePasswordContent(this.state, this.props, text);
+    } = composePasswordContent(text, this.state.theme, this.props);
     const { verifyPasswordComplete, verifyPasswordPrompt } = composeConfirmContent(
+      password,
+      passwordComplete,
       this.state,
-      this.props,
-      text,
-      passwordComplete
+      this.props
     );
     this.setState(
       {
