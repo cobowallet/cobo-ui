@@ -50,6 +50,8 @@ class PasswordSettingContent extends React.PureComponent {
     const { password, passwordComplete, verifyPasswordComplete } = this.state;
     if (passwordComplete && verifyPasswordComplete) {
       this.props.onComplete(password);
+    } else {
+      this.props.onWaitingComplete();
     }
   };
 
@@ -75,9 +77,7 @@ class PasswordSettingContent extends React.PureComponent {
         verifyPasswordComplete,
         verifyPasswordPrompt,
       },
-      () => {
-        setTimeout(this.onComplete, 100);
-      }
+      this.onComplete
     );
   };
 
@@ -101,9 +101,7 @@ class PasswordSettingContent extends React.PureComponent {
         verifyPasswordComplete,
         verifyPasswordPrompt,
       },
-      () => {
-        setTimeout(this.onComplete, 100);
-      }
+      this.onComplete
     );
   };
 
@@ -147,6 +145,7 @@ class PasswordSettingContent extends React.PureComponent {
 
 PasswordSettingContent.propTypes = {
   onComplete: PropTypes.func.isRequired,
+  onWaitingComplete: PropTypes.func.isRequired,
   passwordPlaceholder: PropTypes.string.isRequired,
   verifyPasswordPlaceholder: PropTypes.string.isRequired,
   enterPasswordHint: PropTypes.string.isRequired,
