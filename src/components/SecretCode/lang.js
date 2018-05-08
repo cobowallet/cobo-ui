@@ -29,9 +29,8 @@ export const lang = {
     },
 
     modal: {
-      header: '请勿截图',
-      description:
-        '如果有人获取你的 Cobo 助记词将直接获取你的资产！请抄写下 Cobo 助记词并存放在安全的地方。',
+      header: '请环顾四周',
+      description: '任何人获得了助记词，意味着获取了您的资产，请确保周围无人，无摄像头。',
       button: '知道了',
     },
   },

@@ -1,5 +1,13 @@
 import { clone } from 'ramda';
-import { wordlists } from 'bip39';
+import englishWordList from 'bip39/wordlists/english.json';
+import chineseSimplifiedWordList from 'bip39/wordlists/chinese_simplified.json';
+import chineseTraditionalWordList from 'bip39/wordlists/chinese_traditional.json';
+
+const wordlists = {
+  EN: englishWordList,
+  chinese_simplified: chineseSimplifiedWordList,
+  chinese_traditional: chineseTraditionalWordList,
+};
 
 export const shuffle = array => {
   const newArray = clone(array);
@@ -22,17 +30,17 @@ export const pickQuestionWords = (secretCode, questionNumber) => {
   return [...Array(questionNumber).keys()].map(eachIndex => shuffledNewList[eachIndex]);
 };
 
-const EXPECT_LENGTH = 5;
+const EXPECT_LENGTH = 4;
 export const getNoiseWord = (word, language = 'EN') => {
   const result = [];
-  while (result.length !== EXPECT_LENGTH - 1) {
+  while (result.length !== EXPECT_LENGTH) {
     const pickedWord = wordlists[language][Math.floor(Math.random() * wordlists[language].length)];
     if (pickedWord !== word) {
       result.push(pickedWord);
     }
   }
-  result.push(word);
-  return shuffle(result);
+
+  return result;
 };
 
 export const generateQuestionWordsAndNoise = (secretWords, questionNumber) => {
