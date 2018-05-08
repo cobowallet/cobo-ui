@@ -1,13 +1,15 @@
 export const lang = {
   zh: {
     frontPage: {
-      header: '备份 Cobo 助记词',
+      header: '备份钱包助记词',
+      subTitle: '助记词即为私钥，它是掌管您资产的钥匙',
       descriptions: [
-        '如果您的手机丢失、被盗、损坏或升级，Cobo 助记词是恢复钱包的唯一方法',
-        'Cobo 助记词是一张单词表，一共包含 12 个单词，请将其写在纸上并保存在安全的地方',
-        '如果你丢失了 Cobo 助记词，将不能恢复钱包。',
+        '由12个字符组成，请抄写并保管在安全的地方。',
+        '100%由您掌管，一经丢失，无法找回。',
+        '请在收币或卸载之前，务必完成助记词备份。',
       ],
-      button: '开始抄写 Cobo 助记词',
+      button: '立即备份',
+      secondButton: '我先看看，稍后再说',
     },
 
     codePage: {
@@ -27,9 +29,8 @@ export const lang = {
     },
 
     modal: {
-      header: '请勿截图',
-      description:
-        '如果有人获取你的 Cobo 助记词将直接获取你的资产！请抄写下 Cobo 助记词并存放在安全的地方。',
+      header: '请环顾四周',
+      description: '任何人获得了助记词，意味着获取了您的资产，请确保周围无人，无摄像头。',
       button: '知道了',
     },
   },

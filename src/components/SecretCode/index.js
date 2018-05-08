@@ -140,7 +140,7 @@ SecretCode.propTypes = {
 SecretCode.defaultProps = {
   locale: 'zh',
   onSuccess: () => {},
-  theme: 'default',
+  theme: 'dark',
   questionNumber: 2,
 };
 

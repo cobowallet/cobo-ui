@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import SecretCodePanel from '../SecretCodePanel';
 import { lang } from '../lang';
-import CBButton from '../../Core/CBButton/index';
 import CodeTable from './CodeTable';
 
 const Container = styled.View`

@@ -4,7 +4,7 @@ import { FontColors } from '../../../theme/CBColor';
 
 const CBText = styled.Text`
   font-size: ${props => (props.small ? 13 : 15)};
-  color: ${props => FontColors[props.color] || props.colorHex};
+  color: ${props => props.colorHex || FontColors[props.color]};
   font-weight: ${props => {
     if (props.bold) {
       return 600;
@@ -23,7 +23,7 @@ CBText.propTypes = {
 
 CBText.defaultProps = {
   color: 'gray',
-  colorHex: '#000',
+  colorHex: undefined,
 };
 
 export default CBText;

@@ -20,14 +20,14 @@ export const secretCodeTheme = {
   },
 
   dark: {
-    pageBackgroundStartColor: '#000',
-    pageBackgroundEndColor: '#666767',
+    pageBackgroundStartColor: '#223155',
+    pageBackgroundEndColor: '#5C6C92',
     buttonBackgroundColor: '#fff',
-    buttonTextColor: '#000',
-    codePanelColor: '#666780',
+    buttonTextColor: '#3A5ADB',
+    codePanelColor: '#00000066',
     codeIndexColor: '#D8D8D8',
     codeColor: '#fff',
-    wordSelectedColor: '#000',
+    wordSelectedColor: '#5170EB',
   },
 };
 
