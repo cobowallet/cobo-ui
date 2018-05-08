@@ -14,6 +14,7 @@ const SecretCodePanel = ({
   buttonOnPress,
   children,
   theme,
+  style,
 }) => {
   return (
     <LinearGradient
@@ -21,7 +22,7 @@ const SecretCodePanel = ({
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 0.9 }}
     >
-      <ScrollView style={{ width }}>
+      <ScrollView style={[{ width }, style]}>
         <View style={{ padding: 10 }}>
           <CBLabel bold style={{ paddingTop: 10, paddingBottom: 20 }}>
             {header}

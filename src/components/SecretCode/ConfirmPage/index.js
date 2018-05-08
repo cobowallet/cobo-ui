@@ -63,7 +63,7 @@ class ConfirmPage extends React.PureComponent {
   }
 
   render() {
-    const { locale, words, page, wordIndex } = this.props;
+    const { locale, words, page, wordIndex, style } = this.props;
     const confirmPageSetting = lang[locale].confirmPage;
     return (
       <SecretCodePanel
@@ -72,6 +72,7 @@ class ConfirmPage extends React.PureComponent {
         body={this.renderBody(words, wordIndex, this.state.clicked, this.onItemClick)}
         buttonTitle={confirmPageSetting[`button${page}`]}
         buttonOnPress={this.onNext}
+        style={style}
       />
     );
   }

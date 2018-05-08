@@ -16,7 +16,7 @@ const getBody = codes => (
   </Container>
 );
 
-const CodePage = ({ locale, codes, goToConfirmOne }) => {
+const CodePage = ({ locale, codes, goToConfirmOne, style }) => {
   const codePageSetting = lang[locale].codePage;
   return (
     <SecretCodePanel
@@ -25,6 +25,7 @@ const CodePage = ({ locale, codes, goToConfirmOne }) => {
       body={getBody(codes)}
       buttonTitle={codePageSetting.button}
       buttonOnPress={goToConfirmOne}
+      style={style}
     />
   );
 };
