@@ -23,6 +23,6 @@ storiesOf('Secret code', module).add('default', () => (
       console.log('this is the callback props');
     }}
     questionNumber={3}
-    theme={'darker'}
+    theme={'dark'}
   />
 ));
