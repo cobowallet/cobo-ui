@@ -20,7 +20,7 @@ const Body = (
   </Container>
 );
 
-const FrontPage = ({ locale, goToCodePage }) => {
+const FrontPage = ({ locale, goToCodePage, style }) => {
   const fontPageSetting = lang[locale].frontPage;
   return (
     <FrontPagePanle
@@ -30,6 +30,7 @@ const FrontPage = ({ locale, goToCodePage }) => {
       body={Body}
       buttonTitle={fontPageSetting.button}
       buttonOnPress={goToCodePage}
+      style={style}
     >
       <CBButton
         style={{ paddingTop: 10 }}

@@ -16,6 +16,7 @@ const FrontPagePanel = ({
   buttonOnPress,
   children,
   theme,
+  style,
 }) => {
   return (
     <LinearGradient
@@ -23,7 +24,7 @@ const FrontPagePanel = ({
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 0.9 }}
     >
-      <ScrollView style={{ width }}>
+      <ScrollView style={[{ width }, style]}>
         <View style={{ padding: 10 }}>
           {body}
           <CBLabel bold size={20} style={{ paddingBottom: 4 }}>

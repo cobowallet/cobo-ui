@@ -79,11 +79,13 @@ class SecretCode extends Component {
             isModalOpen={this.state.isModalOpen}
             goToCodePage={this.goToCodePage}
             closeModal={this.closeModal}
+            style={this.props.style}
           />
           <CodePage
             locale={this.props.locale}
             codes={this.state.secretWords}
             goToConfirmOne={() => this.goToConfirmPage(2)}
+            style={this.props.style}
           />
           {[...Array(this.props.questionNumber).keys()].map(eachIndex => {
             const onSuccess =
@@ -113,6 +115,7 @@ class SecretCode extends Component {
                 }
                 onSuccess={onSuccess}
                 regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
+                style={this.props.style}
               />
             );
           })}
@@ -135,6 +138,7 @@ SecretCode.propTypes = {
   onSuccess: PropTypes.func,
   theme: PropTypes.string,
   questionNumber: PropTypes.number,
+  style: PropTypes.object,
 };
 
 SecretCode.defaultProps = {
@@ -142,6 +146,7 @@ SecretCode.defaultProps = {
   onSuccess: () => {},
   theme: 'dark',
   questionNumber: 2,
+  style: {},
 };
 
 export default SecretCode;
