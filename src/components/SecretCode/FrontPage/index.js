@@ -31,7 +31,12 @@ const FrontPage = ({ locale, goToCodePage }) => {
       buttonTitle={fontPageSetting.button}
       buttonOnPress={goToCodePage}
     >
-      <CBButton style={{ paddingTop: 10 }} simple text={'我先看看，稍后再说'} />
+      <CBButton
+        style={{ paddingTop: 10 }}
+        simple
+        text={fontPageSetting.secondButton}
+        textStyle={{ color: '#ffffffB3' }}
+      />
     </FrontPagePanle>
   );
 };

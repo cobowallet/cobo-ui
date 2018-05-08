@@ -24,10 +24,10 @@ export const secretCodeTheme = {
     pageBackgroundEndColor: '#5C6C92',
     buttonBackgroundColor: '#fff',
     buttonTextColor: '#3A5ADB',
-    codePanelColor: '#666780',
+    codePanelColor: '#00000066',
     codeIndexColor: '#D8D8D8',
     codeColor: '#fff',
-    wordSelectedColor: '#000',
+    wordSelectedColor: '#5170EB',
   },
 };
 

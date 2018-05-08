@@ -29,11 +29,7 @@ const FrontPagePanel = ({
           <CBLabel bold size={20} style={{ paddingBottom: 4 }}>
             {header}
           </CBLabel>
-          <CBText
-            small
-            colorHex={'rgba(255,255,255,0.7)'}
-            style={{ paddingTop: 4, paddingBottom: 20 }}
-          >
+          <CBText small colorHex={'#ffffffB3'} style={{ paddingTop: 4, paddingBottom: 20 }}>
             {subTitle}
           </CBText>
           {descriptions.map((each, index) => (
@@ -45,7 +41,7 @@ const FrontPagePanel = ({
                 paddingBottom: 2,
               }}
             >
-              <Entypo name={'dot-single'} size={16} color={'rgba(255, 255,255, 0.7)'} />
+              <Entypo name={'dot-single'} size={16} color={'#ffffffB3'} />
               <CBText small color={'white'} style={{ paddingLeft: 6 }} key={index}>
                 {each}
               </CBText>

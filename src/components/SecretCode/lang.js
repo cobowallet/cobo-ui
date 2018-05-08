@@ -9,6 +9,7 @@ export const lang = {
         '请在收币或卸载之前，务必完成助记词备份。',
       ],
       button: '立即备份',
+      secondButton: '我先看看，稍后再说',
     },
 
     codePage: {
