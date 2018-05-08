@@ -1,4 +1,5 @@
 import { clone } from 'ramda';
+import { wordlists } from 'bip39';
 
 export const shuffle = array => {
   const newArray = clone(array);
@@ -21,8 +22,17 @@ export const pickQuestionWords = (secretCode, questionNumber) => {
   return [...Array(questionNumber).keys()].map(eachIndex => shuffledNewList[eachIndex]);
 };
 
-export const getNoiseWord = word => {
-  return ['grass', 'belt', 'hello', 'word', 'hi'];
+const EXPECT_LENGTH = 5;
+export const getNoiseWord = (word, language = 'EN') => {
+  const result = [];
+  while (result.length !== EXPECT_LENGTH - 1) {
+    const pickedWord = wordlists[language][Math.floor(Math.random() * wordlists[language].length)];
+    if (pickedWord !== word) {
+      result.push(pickedWord);
+    }
+  }
+  result.push(word);
+  return shuffle(result);
 };
 
 export const generateQuestionWordsAndNoise = (secretWords, questionNumber) => {
