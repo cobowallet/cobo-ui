@@ -10,20 +10,6 @@ const chunk = (arr, size) =>
 
 const CODE_PER_ROW = 3;
 
-const CodeRow = ({ codes, onInputChange }) => {
-  return (
-    <View
-      style={{
-        flexDirection: 'row',
-      }}
-    >
-      {codes.map(eachCode => (
-        <CodeCell code={eachCode} key={eachCode.index} onInputChange={onInputChange} />
-      ))}
-    </View>
-  );
-};
-
 const CellContainer = styled.View`
   flex: 1;
   height: 60;
@@ -58,28 +44,71 @@ const CellInput = styled.TextInput`
   color: ${props => props.theme['codeColor']};
 `;
 
-const CodeCell = ({ code, onInputChange }) => (
-  <CellContainer>
-    <Top>
-      <Index>{code.index}</Index>
-    </Top>
-    <Content>
-      <CellInput value={code.value} onChangeText={text => onInputChange(code.index, text)} />
-    </Content>
-  </CellContainer>
-);
+const CodeRow = ({ codes, onInputChange, focusedId, onKeyPress }) => {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+      }}
+    >
+      {codes.map(eachCode => (
+        <CodeCell
+          code={eachCode}
+          key={eachCode.index}
+          onInputChange={onInputChange}
+          onKeyPress={onKeyPress}
+          focusedId={focusedId}
+        />
+      ))}
+    </View>
+  );
+};
+
+class CodeCell extends React.PureComponent {
+  componentDidUpdate() {
+    if (this.props.focusedId === this.props.code.index) {
+      this.textInput.focus();
+    }
+  }
+
+  render() {
+    return (
+      <CellContainer>
+        <Top>
+          <Index>{this.props.code.index}</Index>
+        </Top>
+        <Content>
+          <CellInput
+            innerRef={input => {
+              this.textInput = input;
+            }}
+            value={this.props.code.value}
+            onChangeText={text => this.props.onInputChange(this.props.code.index, text)}
+            onKeyPress={e => this.props.onKeyPress(this.props.code.index, e.nativeEvent)}
+          />
+        </Content>
+      </CellContainer>
+    );
+  }
+}
 
 const CodePanel = styled.View`
   background-color: ${props => props.theme['codePanelColor']};
   border-radius: 4;
 `;
 
-const CodeInputTable = ({ codes, onInputChange }) => {
+const CodeInputTable = ({ codes, onInputChange, focusedId, onKeyPress }) => {
   const chuckedCodes = chunk(codes, CODE_PER_ROW);
   return (
     <CodePanel>
       {chuckedCodes.map((eachChuck, index) => (
-        <CodeRow codes={eachChuck} key={index} onInputChange={onInputChange} />
+        <CodeRow
+          codes={eachChuck}
+          key={index}
+          onInputChange={onInputChange}
+          onKeyPress={onKeyPress}
+          focusedId={focusedId}
+        />
       ))}
     </CodePanel>
   );

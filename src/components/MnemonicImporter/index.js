@@ -12,9 +12,14 @@ const Container = styled.View`
   margin-bottom: 50;
 `;
 
-const getBody = (words, onInputChange) => (
+const getBody = (words, onInputChange, focusedId, onKeyPress) => (
   <Container>
-    <CodeTable codes={words} onInputChange={onInputChange} />
+    <CodeTable
+      codes={words}
+      onInputChange={onInputChange}
+      focusedId={focusedId}
+      onKeyPress={onKeyPress}
+    />
   </Container>
 );
 
@@ -23,14 +28,22 @@ class MnemonicImporter extends PureComponent {
     words: new Array(this.props.wordsNumber)
       .fill()
       .map((each, index) => ({ index: index + 1, value: undefined })),
+    focusedId: 1,
   };
 
   onInputChange = (index, text) => {
-    const newState = update(index - 1, { index, value: text }, this.state.words);
+    const newState = update(index - 1, { index, value: text.trim() }, this.state.words);
     this.setState({
       words: newState,
     });
-    console.log(this.state.words);
+  };
+
+  setFocusedId = (index, event) => {
+    if (event.key === ' ') {
+      this.setState({
+        focusedId: index + 1,
+      });
+    }
   };
 
   render() {
@@ -40,7 +53,12 @@ class MnemonicImporter extends PureComponent {
         <SecretCodePanel
           header={importPageSetting.header}
           descriptions={importPageSetting.descriptions}
-          body={getBody(this.state.words, this.onInputChange)}
+          body={getBody(
+            this.state.words,
+            this.onInputChange,
+            this.state.focusedId,
+            this.setFocusedId
+          )}
           buttonTitle={importPageSetting.button}
           buttonOnPress={() => {}}
           style={this.props.style}
