@@ -20,7 +20,7 @@ const Body = (
   </Container>
 );
 
-const FrontPage = ({ locale, goToCodePage, style }) => {
+const FrontPage = ({ locale, goToCodePage, style, onCancel }) => {
   const fontPageSetting = lang[locale].frontPage;
   return (
     <FrontPagePanle
@@ -37,6 +37,7 @@ const FrontPage = ({ locale, goToCodePage, style }) => {
         simple
         text={fontPageSetting.secondButton}
         textStyle={{ color: '#ffffffB3' }}
+        onPress={onCancel}
       />
     </FrontPagePanle>
   );
@@ -45,6 +46,8 @@ const FrontPage = ({ locale, goToCodePage, style }) => {
 FrontPage.propTypes = {
   locale: PropTypes.string.isRequired,
   goToCodePage: PropTypes.func.isRequired,
+  style: PropTypes.object,
+  onCancel: PropTypes.func.isRequired,
 };
 
 export default FrontPage;

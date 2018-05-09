@@ -80,6 +80,7 @@ class SecretCode extends Component {
             goToCodePage={this.goToCodePage}
             closeModal={this.closeModal}
             style={this.props.style}
+            onCancel={this.props.onCancel}
           />
           <CodePage
             locale={this.props.locale}
@@ -136,6 +137,7 @@ SecretCode.propTypes = {
   locale: PropTypes.string,
   secretWords: PropTypes.arrayOf(PropTypes.string).isRequired,
   onSuccess: PropTypes.func,
+  onCancel: PropTypes.func,
   theme: PropTypes.string,
   questionNumber: PropTypes.number,
   style: PropTypes.object,
@@ -144,6 +146,7 @@ SecretCode.propTypes = {
 SecretCode.defaultProps = {
   locale: 'zh',
   onSuccess: () => {},
+  onCancel: () => {},
   theme: 'dark',
   questionNumber: 2,
   style: {},

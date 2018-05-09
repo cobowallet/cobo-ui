@@ -22,6 +22,7 @@ storiesOf('Secret code', module).add('default', () => (
     onSuccess={() => {
       console.log('this is the callback props');
     }}
+    onCancel={() => console.log('this is the cancel function')}
     questionNumber={3}
   />
 ));
