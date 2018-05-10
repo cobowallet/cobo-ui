@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
-import WarningModalIcon from './WarningModalIcon';
-import { CBLabel, CBText } from '../../Core';
-import ButtonGroup from '../ButtonGroup';
-import { MODAL_COLORS } from '../../../theme/CBColor';
-import { Entypo, FontAwesome } from '../../../icons';
+import WarningModalIcon from './WarningModalIcon/index';
+import { CBLabel, CBText } from '../Core/index';
+import ButtonGroup from './ButtonGroup';
+import { MODAL_COLORS } from '../../theme/CBColor';
+import { FontAwesome } from '../../icons/index';
 
 class WarningModal extends React.PureComponent {
   state = {
@@ -77,6 +77,8 @@ class WarningModal extends React.PureComponent {
             rightButtonStyle={this.state.isChecked ? { color: '#3A5ADB' } : { color: '#8F95AA' }}
             divideLineWidth={2}
             rightButtonDisable={!this.state.isChecked}
+            onLeftPress={onCancel}
+            onRightPress={onSuccess}
           />
         </View>
       </Modal>
@@ -88,7 +90,11 @@ WarningModal.propTypes = {
   isModalOpen: PropTypes.bool.isRequired,
   header: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
+  submitText: PropTypes.string.isRequired,
+  cancelText: PropTypes.string.isRequired,
+  clickBox: PropTypes.string.isRequired,
+  onSuccess: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
 };
 
 export default WarningModal;

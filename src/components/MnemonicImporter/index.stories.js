@@ -5,7 +5,7 @@ import MnemonicImporter from './index';
 storiesOf('Mnemonic Importer', module).add('default', () => (
   <MnemonicImporter
     locale={'zh'}
-    onSuccess={() => {
+    onNextPage={() => {
       console.log('this is the callback props');
     }}
     wordsNumber={12}

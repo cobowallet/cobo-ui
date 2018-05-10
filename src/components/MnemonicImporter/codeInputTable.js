@@ -118,7 +118,7 @@ CodeInputTable.propTypes = {
   codes: PropTypes.arrayOf(
     PropTypes.shape({
       index: PropTypes.number.isRequired,
-      value: PropTypes.string.isRequired,
+      value: PropTypes.string,
     })
   ).isRequired,
 };

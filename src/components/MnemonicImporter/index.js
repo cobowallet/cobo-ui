@@ -6,7 +6,6 @@ import SecretCodePanel from '../SecretCode/SecretCodePanel';
 import { lang } from './lang';
 import CodeTable from './codeInputTable';
 import { secretCodeTheme } from '../../theme';
-import WarningModal from './WarningModal';
 
 const Container = styled.View`
   margin-top: 50;
@@ -49,7 +48,6 @@ class MnemonicImporter extends PureComponent {
 
   render() {
     const importPageSetting = lang[this.props.locale].importPage;
-    const modalSetting = lang[this.props.locale].modal;
     return (
       <ThemeProvider theme={secretCodeTheme[this.props.theme] || secretCodeTheme.default}>
         <SecretCodePanel
@@ -62,17 +60,10 @@ class MnemonicImporter extends PureComponent {
             this.setFocusedId
           )}
           buttonTitle={importPageSetting.button}
-          buttonOnPress={() => {}}
+          buttonOnPress={this.props.onNextPage}
           style={this.props.style}
         >
-          <WarningModal
-            isModalOpen
-            header={modalSetting.header}
-            description={modalSetting.description}
-            submitText={modalSetting.submit}
-            cancelText={modalSetting.cancel}
-            clickBox={modalSetting.clickBox}
-          />
+          {this.props.children}
         </SecretCodePanel>
       </ThemeProvider>
     );
@@ -80,13 +71,15 @@ class MnemonicImporter extends PureComponent {
 }
 
 MnemonicImporter.propTypes = {
+  theme: PropTypes.string,
   locale: PropTypes.string.isRequired,
-  codes: PropTypes.arrayOf(
-    PropTypes.shape({
-      index: PropTypes.number.isRequired,
-      value: PropTypes.string.isRequired,
-    })
-  ),
+  wordsNumber: PropTypes.number.isRequired,
+  style: PropTypes.object,
+  onNextPage: PropTypes.func.isRequired,
+};
+
+MnemonicImporter.defaultProps = {
+  theme: 'dark',
 };
 
 export default MnemonicImporter;
