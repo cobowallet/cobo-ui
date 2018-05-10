@@ -12,7 +12,7 @@ storiesOf('Account Card', module)
       onViewRule={action('View Rule')}
       onOpen={action('Open Account')}
       title={'Reward Wallet'}
-      slogan={'Highest annual earnings of 6.9%, Weekly payment'}
+      slogan={'Highest annual earnings of 6.9%↑, Weekly payment'}
       colors={GradientPreset.purple}
     />
   ))
