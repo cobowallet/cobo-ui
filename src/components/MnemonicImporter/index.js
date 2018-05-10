@@ -6,6 +6,7 @@ import SecretCodePanel from '../SecretCode/SecretCodePanel';
 import { lang } from './lang';
 import CodeTable from './codeInputTable';
 import { secretCodeTheme } from '../../theme';
+import WarningModal from './WarningModal';
 
 const Container = styled.View`
   margin-top: 50;
@@ -48,6 +49,7 @@ class MnemonicImporter extends PureComponent {
 
   render() {
     const importPageSetting = lang[this.props.locale].importPage;
+    const modalSetting = lang[this.props.locale].modal;
     return (
       <ThemeProvider theme={secretCodeTheme[this.props.theme] || secretCodeTheme.default}>
         <SecretCodePanel
@@ -62,7 +64,16 @@ class MnemonicImporter extends PureComponent {
           buttonTitle={importPageSetting.button}
           buttonOnPress={() => {}}
           style={this.props.style}
-        />
+        >
+          <WarningModal
+            isModalOpen
+            header={modalSetting.header}
+            description={modalSetting.description}
+            submitText={modalSetting.submit}
+            cancelText={modalSetting.cancel}
+            clickBox={modalSetting.clickBox}
+          />
+        </SecretCodePanel>
       </ThemeProvider>
     );
   }

@@ -17,7 +17,7 @@ const FontColors = {
 
 const CBLabel = styled.Text`
   font-size: ${props => props.size || 24};
-  color: ${props => FontColors[props.color] || props.colorHex};
+  color: ${props => props.colorHex || FontColors[props.color]};
   font-weight: ${props => {
     if (props.bold) {
       return 600;
