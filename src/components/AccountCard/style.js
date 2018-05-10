@@ -40,7 +40,7 @@ export const RewardText = styled.Text`
   font-size: 24;
   font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
   font-style: normal;
-  margin-left: 4;
+  margin-left: 2;
 `;
 
 export const SloganText = styled.Text`
