@@ -48,6 +48,9 @@ import RewardIcon from './RewardIcon';
 import CameraBackground from './CameraBackground';
 import { default as AssetWalletLogo } from './AssetWalletLogo';
 import { AssetsTab, MarketTab, SendTab, ReceiveTab, SettingTab } from './TabIcons';
+import Asset from './Asset';
+import Delete from './Delete';
+import Exchange from './Exchange';
 
 export {
   FontAwesome,
@@ -104,4 +107,7 @@ export {
   ReceiveTab,
   SettingTab,
   AssetWalletLogo,
+  Asset,
+  Delete,
+  Exchange,
 };
