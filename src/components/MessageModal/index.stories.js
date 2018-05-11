@@ -14,7 +14,8 @@ class MessageModalTest extends PureComponent {
     return [
       {
         title: '取消',
-        titleColor: 'grayLight',
+        titleColor: 'blue',
+        titleBold: true,
         canPress: true,
         onPress: () => {
           this.setState({
@@ -25,7 +26,7 @@ class MessageModalTest extends PureComponent {
       },
       {
         title: '确定',
-        titleColor: 'primary',
+        titleColor: 'red',
         titleBold: true,
         canPress: true,
         onPress: () => {
@@ -59,9 +60,14 @@ class MessageModalTest extends PureComponent {
           visible={this.state.display}
         />
         <MessageModal
-          theme={'red'}
+          theme={'gray'}
           buttons={buttons}
           title={'简单信息通知'}
+          content={'该删除操作不可撤回，您确定要删除"Grace 的 ETH 钱包"吗？'}
+          contentStyle={{
+            justifyContent: 'center',
+            textAlign: 'center',
+          }}
           visible={this.state.displayNoTitle}
         />
 

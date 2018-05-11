@@ -15,6 +15,7 @@ function loadStories() {
   require('../src/components/HorizontalAssetRatio/index.stories');
   require('../src/components/IntroductionCard/index.stories');
   require('../src/components/MessageModal/index.stories');
+  require('../src/components/MnemonicImporter/index.stories');
   require('../src/components/PasswordSettingContent/index.stories');
   require('../src/components/QRCode/index.stories');
   require('../src/components/RewardBadge/index.stories');
@@ -24,6 +25,7 @@ function loadStories() {
   require('../src/components/WalletButtonGroup/index.stories');
   require('../src/components/WalletDrawerContent/index.stories');
   require('../src/components/WalletHeader/index.stories');
+  require('../src/components/WarningModal/index.stories');
   require('../src/components/banner/index.stories');
   
 }
@@ -39,6 +41,7 @@ const stories = [
   '../src/components/HorizontalAssetRatio/index.stories',
   '../src/components/IntroductionCard/index.stories',
   '../src/components/MessageModal/index.stories',
+  '../src/components/MnemonicImporter/index.stories',
   '../src/components/PasswordSettingContent/index.stories',
   '../src/components/QRCode/index.stories',
   '../src/components/RewardBadge/index.stories',
@@ -48,6 +51,7 @@ const stories = [
   '../src/components/WalletButtonGroup/index.stories',
   '../src/components/WalletDrawerContent/index.stories',
   '../src/components/WalletHeader/index.stories',
+  '../src/components/WarningModal/index.stories',
   '../src/components/banner/index.stories',
   
 ];
