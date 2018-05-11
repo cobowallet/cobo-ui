@@ -46,7 +46,16 @@ class MessageModal extends PureComponent {
   };
 
   render() {
-    const { visible, title, content, buttons, renderContent, theme } = this.props;
+    const {
+      visible,
+      title,
+      content,
+      buttons,
+      renderContent,
+      theme,
+      titleStyle,
+      contentStyle,
+    } = this.props;
     const messageHeight = this.getMessageContentHeight();
     const hasTitle = !isNil(title) && title.length > 0;
     const hasMessage = !isNil(content) && content.length > 0;
@@ -59,7 +68,7 @@ class MessageModal extends PureComponent {
           backdropTransitionOutTiming={50}
         >
           {hasTitle && (
-            <TitleText bold onLayout={this.onTitleLayout}>
+            <TitleText bold onLayout={this.onTitleLayout} style={titleStyle}>
               {title}
             </TitleText>
           )}
@@ -75,7 +84,7 @@ class MessageModal extends PureComponent {
                 height: messageHeight,
               }}
             >
-              <MessageText>{content}</MessageText>
+              <MessageText style={contentStyle}>{content}</MessageText>
             </MessageContent>
           )}
 
@@ -93,7 +102,9 @@ MessageModal.displayName = 'Simple Message Modal';
 MessageModal.propTypes = {
   visible: PropTypes.bool.isRequired,
   title: PropTypes.string,
+  titleStyle: PropTypes.object,
   content: PropTypes.string,
+  contentStyle: PropTypes.object,
   renderContent: PropTypes.func,
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
@@ -112,6 +123,8 @@ MessageModal.defaultProps = {
   content: '',
   renderContent: null,
   theme: 'default',
+  titleStyle: {},
+  contentStyle: {},
 };
 
 export default MessageModal;

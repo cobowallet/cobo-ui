@@ -41,11 +41,13 @@ export const ButtonsContainer = styled.View`
   align-items: stretch;
   justify-content: center;
   flex-direction: row;
-  height: 50;
-  border-top-color: ${props => props.theme.lineColor};
+  height: 56;
+  border-top-color: ${props => props.theme.buttonsContainerBorderColor};
   border-top-width: 1;
   width: 100%;
-  background-color: transparent;
+  background-color: ${props => props.theme.buttonsContainerColor};
+  border-bottom-left-radius: ${BORDER_RADIUS};
+  border-bottom-right-radius: ${BORDER_RADIUS};
 `;
 
 const Touchable = styled.TouchableOpacity`
@@ -56,17 +58,26 @@ const Touchable = styled.TouchableOpacity`
   flex: 1;
 `;
 
+const LineContainer = styled.View`
+  justify-content: center;
+`;
+
 const Line = styled.View`
   background-color: ${props => props.theme.lineColor};
-  height: 100%;
-  width: 1;
+  height: ${props => props.theme.lineHeight};
+  width: ${props => props.theme.lineWidth};
+  border-radius: ${props => props.theme.lineBorderRadius};
 `;
 
 export const renderBottomButtons = buttons => {
   if (buttons && buttons.length > 0) {
     return buttons.map((item, index) => {
       const { titleBold, titleColor, title, onPress, canPress } = item;
-      const dividerLine = <Line key={(index + buttons.length).toString()} />;
+      const dividerLine = (
+        <LineContainer key={(index + buttons.length).toString()}>
+          <Line />
+        </LineContainer>
+      );
       const button = (
         <Touchable onPress={onPress} disabled={!canPress} key={index.toString()}>
           <CBText color={titleColor} bold={titleBold}>
