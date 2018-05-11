@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { update } from 'ramda';
 import SecretCodePanel from '../SecretCode/SecretCodePanel';
 import { lang } from './lang';
-import CodeTable from './codeInputTable';
+import CodeInputTable from './codeInputTable';
 import { secretCodeTheme } from '../../theme';
 
 const Container = styled.View`
@@ -14,7 +14,7 @@ const Container = styled.View`
 
 const getBody = (words, onInputChange, focusedId, onKeyPress) => (
   <Container>
-    <CodeTable
+    <CodeInputTable
       codes={words}
       onInputChange={onInputChange}
       focusedId={focusedId}
@@ -60,7 +60,7 @@ class MnemonicImporter extends PureComponent {
             this.setFocusedId
           )}
           buttonTitle={importPageSetting.button}
-          buttonOnPress={() => this.props.onNextPage(this.props.state.words)}
+          buttonOnPress={() => this.props.onNextPage(this.state.words)}
           style={this.props.style}
         >
           {this.props.children}

@@ -32,7 +32,7 @@ const Content = styled.View`
   align-items: center;
 `;
 
-const Index = styled.TextInput`
+const Index = styled.Text`
   font-size: 10;
   color: ${props => props.theme['codeIndexColor']};
 `;
