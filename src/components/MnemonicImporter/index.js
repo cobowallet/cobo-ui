@@ -60,7 +60,7 @@ class MnemonicImporter extends PureComponent {
             this.setFocusedId
           )}
           buttonTitle={importPageSetting.button}
-          buttonOnPress={this.props.onNextPage}
+          buttonOnPress={() => this.props.onNextPage(this.props.state.words)}
           style={this.props.style}
         >
           {this.props.children}
