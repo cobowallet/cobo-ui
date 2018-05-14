@@ -31,6 +31,22 @@ class MnemonicImporter extends PureComponent {
     focusedId: 1,
   };
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.words) {
+      return {
+        words: nextProps.words.map((each, index) => ({ index: index + 1, value: each })),
+        focusedId: 1,
+      };
+    } else {
+      return {
+        words: new Array(nextProps.wordsNumber)
+          .fill()
+          .map((each, index) => ({ index: index + 1, value: undefined })),
+        focusedId: 1,
+      };
+    }
+  }
+
   onInputChange = (index, text) => {
     const newState = update(index - 1, { index, value: text.trim() }, this.state.words);
     this.setState({
@@ -73,7 +89,8 @@ class MnemonicImporter extends PureComponent {
 MnemonicImporter.propTypes = {
   theme: PropTypes.string,
   locale: PropTypes.string.isRequired,
-  wordsNumber: PropTypes.number.isRequired,
+  words: PropTypes.array,
+  wordsNumber: PropTypes.number,
   style: PropTypes.object,
   onNextPage: PropTypes.func.isRequired,
 };

@@ -39,7 +39,7 @@ class IntroductionCard extends React.PureComponent {
       : {};
 
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View key={id} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <TouchableOpacity
           activeOpacity={1}
           onPress={() => this.switchTabs(id)}
