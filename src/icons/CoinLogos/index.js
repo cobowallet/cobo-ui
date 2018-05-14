@@ -25,6 +25,10 @@ import UBTC from './img/ubtc.png';
 import BCH from './img/bch.png';
 import BTN from './img/btn.png';
 import LBTC from './img/LBTC.png';
+import OKB from './img/okb.png';
+import Tether from './img/tether.png';
+import HT from './img/ht.png';
+import Bibox from './img/bibox.png';
 
 export default {
   BTC,
@@ -57,4 +61,9 @@ export default {
   TETH: ETH,
   TXRP: XRP,
   TXZC: XZC,
+  OKB,
+  Tether,
+  USDT: Tether,
+  HT,
+  Bibox,
 };
