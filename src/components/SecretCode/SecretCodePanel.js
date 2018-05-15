@@ -34,17 +34,20 @@ const SecretCodePanel = ({
           ))}
           {body}
         </View>
-        <CBButton
-          style={{
-            marginTop: 20,
-            marginBottom: 40,
-            backgroundColor: theme['buttonBackgroundColor'],
-          }}
-          textColor={theme['buttonTextColor']}
-          text={buttonTitle}
-          onPress={buttonOnPress}
-        />
-        {children}
+        {children ? (
+          children
+        ) : (
+          <CBButton
+            style={{
+              marginTop: 20,
+              marginBottom: 40,
+              backgroundColor: theme['buttonBackgroundColor'],
+            }}
+            textColor={theme['buttonTextColor']}
+            text={buttonTitle}
+            onPress={buttonOnPress}
+          />
+        )}
       </ScrollView>
     </LinearGradient>
   );

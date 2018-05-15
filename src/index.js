@@ -22,3 +22,4 @@ export { default as WalletDrawerContent } from './components/WalletDrawerContent
 export { default as PasswordSettingContent } from './components/PasswordSettingContent';
 export { default as MnemonicImporter } from './components/MnemonicImporter';
 export { default as WarningModal } from './components/WarningModal';
+export { default as MnemonicChecker } from './components/MnemonicChecker';
