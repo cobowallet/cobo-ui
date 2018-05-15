@@ -13,8 +13,8 @@ import {
   BottomContainer,
   renderButtons,
   Description,
-  TotalRevenue,
-  NextPaymentTime,
+  DescriptionRow,
+  DescriptionText,
 } from './style';
 
 /**
@@ -27,13 +27,10 @@ const WalletHeader = ({
   currencySymbol,
   currencyBalance,
   colors,
-  totalRevenueHint,
-  nextPaymentTimeHint,
+  descriptions,
   buttons,
 }) => {
-  const hasTotalRevenue = totalRevenueHint && totalRevenueHint.length > 0;
-  const hasNextPaymentTime = nextPaymentTimeHint && nextPaymentTimeHint.length > 0;
-  const hasDescription = hasTotalRevenue || hasNextPaymentTime;
+  const hasDescription = descriptions && descriptions.length > 0;
 
   return renderGradientContainer({
     renderChild: () => (
@@ -45,8 +42,15 @@ const WalletHeader = ({
 
         {hasDescription ? (
           <Description>
-            {hasTotalRevenue ? <TotalRevenue>{totalRevenueHint}</TotalRevenue> : null}
-            {hasNextPaymentTime ? <NextPaymentTime>{nextPaymentTimeHint}</NextPaymentTime> : null}
+            {descriptions.map((item, index) => {
+              const { key, value } = item;
+              return (
+                <DescriptionRow key={index.toString()}>
+                  <DescriptionText>{key}</DescriptionText>
+                  <DescriptionText>{value}</DescriptionText>
+                </DescriptionRow>
+              );
+            })}
           </Description>
         ) : null}
 
@@ -71,8 +75,12 @@ WalletHeader.propTypes = {
   currencySymbol: PropTypes.string.isRequired,
   currencyBalance: PropTypes.string.isRequired,
   colors: PropTypes.array.isRequired,
-  totalRevenueHint: PropTypes.string,
-  nextPaymentTimeHint: PropTypes.string,
+  descriptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    })
+  ),
   /**
    * [{onPress, canPress, title}]
    */
@@ -87,8 +95,7 @@ WalletHeader.propTypes = {
 };
 
 WalletHeader.defaultProps = {
-  totalRevenueHint: '',
-  nextPaymentTimeHint: '',
+  descriptions: [],
 };
 
 export default WalletHeader;
