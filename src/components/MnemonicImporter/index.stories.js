@@ -9,6 +9,7 @@ storiesOf('Mnemonic Importer', module)
       onNextPage={state => {
         console.log(state);
       }}
+      words={[]}
       wordsNumber={12}
       theme={'dark'}
       onCancel={() => console.log('this is the cancel function')}

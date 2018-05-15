@@ -25,14 +25,12 @@ const getBody = (words, onInputChange, focusedId, onKeyPress) => (
 
 class MnemonicImporter extends PureComponent {
   state = {
-    words: new Array(this.props.wordsNumber)
-      .fill()
-      .map((each, index) => ({ index: index + 1, value: undefined })),
+    words: [],
     focusedId: 1,
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.words) {
+    if (nextProps.words.length > 0) {
       return {
         words: nextProps.words.map((each, index) => ({ index: index + 1, value: each })),
         focusedId: 1,
@@ -89,7 +87,7 @@ class MnemonicImporter extends PureComponent {
 MnemonicImporter.propTypes = {
   theme: PropTypes.string,
   locale: PropTypes.string.isRequired,
-  words: PropTypes.array,
+  words: PropTypes.array.isRequired,
   wordsNumber: PropTypes.number,
   style: PropTypes.object,
   onNextPage: PropTypes.func.isRequired,
