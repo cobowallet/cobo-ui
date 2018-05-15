@@ -62,13 +62,12 @@ export const Description = styled.View`
   margin-top: 26;
 `;
 
-export const TotalRevenue = styled.Text`
-  font-size: 12;
-  color: rgba(255, 255, 255, 0.6);
+export const DescriptionRow = styled.View`
+  flex-direction: row;
+  margin-top: 6;
 `;
 
-export const NextPaymentTime = styled.Text`
-  margin-top: 6;
+export const DescriptionText = styled.Text`
   font-size: 12;
   color: rgba(255, 255, 255, 0.6);
 `;
