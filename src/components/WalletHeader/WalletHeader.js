@@ -42,10 +42,10 @@ const WalletHeader = ({
 
         {hasDescription ? (
           <Description>
-            {descriptions.map(item => {
+            {descriptions.map((item, index) => {
               const { key, value } = item;
               return (
-                <DescriptionRow>
+                <DescriptionRow key={index.toString()}>
                   <DescriptionText>{key}</DescriptionText>
                   <DescriptionText>{value}</DescriptionText>
                 </DescriptionRow>
