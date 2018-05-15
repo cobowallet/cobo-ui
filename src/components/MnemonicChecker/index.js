@@ -39,6 +39,7 @@ const MnemonicChecker = ({ locale, codes, style, children, theme }) => {
 
 MnemonicChecker.propTypes = {
   theme: PropTypes.string,
+  codes: PropTypes.array.isRequired,
   locale: PropTypes.string.isRequired,
   style: PropTypes.object,
 };
