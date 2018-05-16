@@ -38,20 +38,16 @@ const AcceptContainer = styled.TouchableOpacity`
 
 const AcceptText = styled(CBText)`
   color: ${props => props.theme.acceptTextColor};
-  margin-left: 8;
 `;
 
 const ContinueButton = styled(CBButton)`
   margin-top: 20;
 `;
 
-const renderCheckIcon = selected => {
-  if (selected) {
-    return <MaterialIcons name="check-circle" size={20} color="#3A5ADB" />;
-  } else {
-    return <Feather name="circle" size={20} color="#8F95AA" />;
-  }
-};
+const CheckIconContainer = styled.View`
+  margin-right: 8;
+  margin-top: -2;
+`;
 
 export const renderBottom = ({
   accept,
@@ -63,7 +59,13 @@ export const renderBottom = ({
   return (
     <BottomContainer style={{ shadowOffset: { width: 0, height: -1 } }}>
       <AcceptContainer onPress={onAcceptPress}>
-        {renderCheckIcon(accept)}
+        <CheckIconContainer>
+          {accept ? (
+            <MaterialIcons name="check-circle" size={20} color="#3A5ADB" />
+          ) : (
+            <Feather name="circle" size={20} color="#8F95AA" />
+          )}
+        </CheckIconContainer>
         <AcceptText>{acceptHint}</AcceptText>
       </AcceptContainer>
       <ContinueButton text={continueTitle} onPress={onContinuePress} disabled={!accept} />
