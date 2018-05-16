@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, version } from 'react';
 import styled, { ThemeProvider } from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { update } from 'ramda';
@@ -25,9 +25,21 @@ const getBody = (words, onInputChange, focusedId, onKeyPress) => (
 
 class MnemonicImporter extends PureComponent {
   state = {
-    words: [],
+    words: new Array(this.props.wordsNumber)
+      .fill()
+      .map((each, index) => ({ index: index + 1, value: undefined })),
     focusedId: 1,
   };
+
+  componentWillReceiveProps(nextProps) {
+    if (parseFloat(version) < 16.3) {
+      if (nextProps.words.length > 0) {
+        this.setState({
+          words: nextProps.words.map((each, index) => ({ index: index + 1, value: each })),
+        });
+      }
+    }
+  }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.words.length > 0) {
@@ -88,7 +100,7 @@ MnemonicImporter.propTypes = {
   theme: PropTypes.string,
   locale: PropTypes.string.isRequired,
   words: PropTypes.array.isRequired,
-  wordsNumber: PropTypes.number,
+  wordsNumber: PropTypes.number.isRequired,
   style: PropTypes.object,
   onNextPage: PropTypes.func.isRequired,
 };
