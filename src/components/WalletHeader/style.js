@@ -59,7 +59,7 @@ export const CurrencyText = styled.Text`
 export const Description = styled.View`
   padding-horizontal: 16;
   align-items: center;
-  margin-top: 26;
+  margin-top: 20;
 `;
 
 export const DescriptionRow = styled.View`
