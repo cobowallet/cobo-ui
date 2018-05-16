@@ -36,6 +36,7 @@ storiesOf('Mnemonic Importer', module)
         'crowd',
       ]}
       theme={'dark'}
+      wordsNumber={12}
       onCancel={() => console.log('this is the cancel function')}
     />
   ));
