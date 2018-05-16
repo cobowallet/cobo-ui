@@ -15,23 +15,41 @@ class AggrementContent extends React.PureComponent {
   onAcceptPress = () => {
     this.setState({
       accept: !this.state.accept,
+      webLoadSuccess: false,
+    });
+  };
+  onError = () => {
+    const { onError } = this.props;
+    if (onError) {
+      onError();
+    }
+  };
+  onLoad = () => {
+    this.setState({
+      webLoadSuccess: true,
     });
   };
 
   render() {
-    const { accept } = this.state;
+    const { accept, webLoadSuccess } = this.state;
     const { source, acceptHint, continueTitle, onContinuePress, style, theme } = this.props;
     return (
       <ThemeProvider theme={AggrementTheme[theme] || AggrementTheme.default}>
         <Container style={style}>
-          <Web source={source} />
-          {renderBottom({
-            accept,
-            acceptHint,
-            continueTitle,
-            onAcceptPress: this.onAcceptPress,
-            onContinuePress,
-          })}
+          <Web
+            source={source}
+            mixedContentMode={'compatibility'}
+            onError={this.onError}
+            onLoad={this.onLoad}
+          />
+          {webLoadSuccess &&
+            renderBottom({
+              accept,
+              acceptHint,
+              continueTitle,
+              onAcceptPress: this.onAcceptPress,
+              onContinuePress,
+            })}
         </Container>
       </ThemeProvider>
     );
@@ -43,6 +61,7 @@ AggrementContent.propTypes = {
   acceptHint: PropTypes.string.isRequired,
   continueTitle: PropTypes.string.isRequired,
   onContinuePress: PropTypes.func.isRequired,
+  onError: PropTypes.func,
   theme: PropTypes.string,
   style: PropTypes.any,
 };
@@ -53,6 +72,7 @@ AggrementContent.defaultProps = {
   continueTitle: 'Continue',
   theme: 'default',
   style: {},
+  onError: () => null,
 };
 
 export default AggrementContent;
