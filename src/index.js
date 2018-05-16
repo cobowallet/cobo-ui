@@ -23,3 +23,4 @@ export { default as PasswordSettingContent } from './components/PasswordSettingC
 export { default as MnemonicImporter } from './components/MnemonicImporter';
 export { default as WarningModal } from './components/WarningModal';
 export { default as MnemonicChecker } from './components/MnemonicChecker';
+export { default as AggrementContent } from './components/AggrementContent';
