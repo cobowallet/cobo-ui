@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { DeviceInfo } from 'react-native';
 import { MaterialIcons, Feather } from '../../icons';
 import { CBText, CBButton, CBContainer } from '../Core';
+
+const iPhoneX = DeviceInfo.isIPhoneX_deprecated;
 
 export const Container = styled(CBContainer)`
   flex: 1;
@@ -22,7 +25,7 @@ const BottomContainer = styled.View`
   shadow-opacity: 0.1;
   shadow-color: ${props => props.theme.bottomShawColor};
   padding-top: 20;
-  padding-bottom: 20;
+  padding-bottom: ${iPhoneX ? 30 : 20};
 `;
 
 const AcceptContainer = styled.TouchableOpacity`

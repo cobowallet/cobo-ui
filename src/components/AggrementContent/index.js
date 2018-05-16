@@ -5,25 +5,24 @@ import AggrementTheme from './theme';
 import { renderBottom, Web, Container } from './style';
 
 class AggrementContent extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      accept: false,
-    };
-  }
+  state = {
+    accept: false,
+    webLoadSuccess: false,
+  };
 
   onAcceptPress = () => {
     this.setState({
       accept: !this.state.accept,
-      webLoadSuccess: false,
     });
   };
+
   onError = () => {
     const { onError } = this.props;
     if (onError) {
       onError();
     }
   };
+
   onLoad = () => {
     this.setState({
       webLoadSuccess: true,
