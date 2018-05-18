@@ -22,7 +22,7 @@ const SecretCodePanel = ({
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 0.9 }}
     >
-      <ScrollView style={[{ width }, style]}>
+      <ScrollView style={[{ width, height: '100%' }]} contentContainerStyle={style}>
         <View style={{ padding: 10 }}>
           <CBLabel bold style={{ paddingTop: 10, paddingBottom: 20 }}>
             {header}
