@@ -51,6 +51,7 @@ import { AssetsTab, MarketTab, SendTab, ReceiveTab, SettingTab } from './TabIcon
 import Asset from './Asset';
 import Delete from './Delete';
 import Exchange from './Exchange';
+import Eye from './Eye';
 
 export {
   FontAwesome,
@@ -110,4 +111,5 @@ export {
   Asset,
   Delete,
   Exchange,
+  Eye,
 };
