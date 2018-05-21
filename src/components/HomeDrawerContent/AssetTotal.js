@@ -52,7 +52,7 @@ export default function AssetTotal(props) {
     exchangeRate,
     currencySymbol,
     currencyName,
-    amountVisible,
+    totalVisible,
     onPress,
   } = props;
   return (
@@ -60,14 +60,14 @@ export default function AssetTotal(props) {
       <View>
         <CurrencyContanier>
           <CurrencyAmount>
-            {amountVisible ? `${currencySymbol}${new BigNumber(amount).toFormat(2)}` : '******'}
+            {totalVisible ? `${currencySymbol}${new BigNumber(amount).toFormat(2)}` : '******'}
           </CurrencyAmount>
           <CurrencyText>
             {title}({currencyName})
           </CurrencyText>
         </CurrencyContanier>
         <BTCAmount>
-          {amountVisible ? `= ${new BigNumber(amount / exchangeRate).toFormat(4)}` : '******'} BTC
+          {totalVisible ? `= ${new BigNumber(amount / exchangeRate).toFormat(4)}` : '******'} BTC
         </BTCAmount>
       </View>
       <TouchableOpacity onPress={onPress}>
@@ -82,10 +82,10 @@ AssetTotal.propTypes = {
   exchangeRate: PropTypes.number.isRequired,
   currencySymbol: PropTypes.string.isRequired,
   currencyName: PropTypes.string.isRequired,
-  amountVisible: PropTypes.bool.isRequired,
+  totalVisible: PropTypes.bool.isRequired,
   onPress: PropTypes.func.isRequired,
 };
 
 AssetTotal.defaultProps = {
-  amountVisible: true,
+  totalVisible: true,
 };

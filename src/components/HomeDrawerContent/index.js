@@ -26,6 +26,7 @@ const HomeDrawerContent = ({
   currencySymbol,
   currencyName,
   btcExchangeRate,
+  totalVisible,
   onTotalVisiblePress,
   wallets,
   onWalletPress,
@@ -44,7 +45,7 @@ const HomeDrawerContent = ({
           exchangeRate={btcExchangeRate}
           currencySymbol={currencySymbol}
           currencyName={currencyName}
-          amountVisible
+          totalVisible
           onPress={onTotalVisiblePress}
         />
 
@@ -64,6 +65,7 @@ HomeDrawerContent.propTypes = {
   currencySymbol: PropTypes.string.isRequired,
   currencyName: PropTypes.string.isRequired,
   btcExchangeRate: PropTypes.number.isRequired,
+  totalVisible: PropTypes.bool.isRequired,
   onTotalVisiblePress: PropTypes.func.isRequired,
 
   wallets: PropTypes.arrayOf(
@@ -73,7 +75,6 @@ HomeDrawerContent.propTypes = {
       amount: PropTypes.number.isRequired,
       isOpen: PropTypes.bool,
       selected: PropTypes.bool,
-      onButtonPress: PropTypes.func.isRequired,
     })
   ).isRequired,
 
