@@ -29,6 +29,8 @@ import OKB from './img/okb.png';
 import Tether from './img/tether.png';
 import HT from './img/ht.png';
 import Bibox from './img/bibox.png';
+import ADA from './img/ada.png';
+import Qtum from './img/qtum.png';
 
 export default {
   BTC,
@@ -66,4 +68,6 @@ export default {
   USDT: Tether,
   HT,
   Bibox,
+  ADA,
+  Qtum,
 };
