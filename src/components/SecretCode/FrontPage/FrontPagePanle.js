@@ -35,6 +35,7 @@ const FrontPagePanel = ({
           </CBText>
           {descriptions.map((each, index) => (
             <View
+              key={index}
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
