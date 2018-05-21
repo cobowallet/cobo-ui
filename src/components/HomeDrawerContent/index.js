@@ -45,7 +45,7 @@ const HomeDrawerContent = ({
           exchangeRate={btcExchangeRate}
           currencySymbol={currencySymbol}
           currencyName={currencyName}
-          totalVisible
+          totalVisible={totalVisible}
           onPress={onTotalVisiblePress}
         />
 
