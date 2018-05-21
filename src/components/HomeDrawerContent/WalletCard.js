@@ -72,16 +72,17 @@ const Button = styled(TouchableOpacity)`
 const ButtonText = styled.Text`
   font-size: 10;
   color: #3a5adb;
+  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
 `;
 
 export default function WalletCard(props) {
-  const { type, title, amount, isOpen, selected, onButtonPress } = props.data;
+  const { type, title, amount, isOpen, selected } = props.data;
   return (
     <Container
       type={type}
       selected={selected}
       disabled={!isOpen || selected}
-      onPress={props.onPress}
+      onPress={() => props.onPress(type)}
     >
       <Card selected={selected}>
         <CardContent>
@@ -100,7 +101,7 @@ export default function WalletCard(props) {
           </CardInfo>
         </CardContent>
         {!isOpen && (
-          <Button onPress={onButtonPress}>
+          <Button onPress={() => props.onPress(type)}>
             <ButtonText>立即开通</ButtonText>
           </Button>
         )}
@@ -119,6 +120,5 @@ WalletCard.propTypes = {
     amount: PropTypes.number.isRequired,
     isOpen: PropTypes.bool,
     selected: PropTypes.bool,
-    onButtonPress: PropTypes.func,
   }).isRequired,
 };
