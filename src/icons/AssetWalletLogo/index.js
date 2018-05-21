@@ -9,6 +9,8 @@ const Logo = ({ type, style }) => {
         return require('./img/drawer_cloud.png');
       case 'HD':
         return require('./img/drawer_hd.png');
+      case 'WATCH_ONLY':
+        return require('./img/drawer_watch_only.png');
     }
   };
 
@@ -16,7 +18,7 @@ const Logo = ({ type, style }) => {
 };
 
 Logo.propTypes = {
-  type: PropTypes.oneOf(['CLOUD', 'HD']).isRequired,
+  type: PropTypes.oneOf(['CLOUD', 'HD', 'WATCH_ONLY']).isRequired,
 };
 
 export default Logo;
