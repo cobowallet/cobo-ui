@@ -31,6 +31,7 @@ storiesOf('Introduction', module)
             '可导入助记词，立即使用资金',
           ],
         }}
+        selected={'cloud'}
       />
     </View>
   ))
@@ -48,7 +49,7 @@ storiesOf('Introduction', module)
         cloud={{
           title: '云端钱包',
           id: 'cloud',
-          subTitle: ' 私钥在云端',
+          subTitle: '私钥在云端',
           texts: ['随时随地安全的存储和收发', '钱包备份在云端管理', '需要使用手机号码注册'],
         }}
         hd={{
