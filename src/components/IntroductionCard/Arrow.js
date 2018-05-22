@@ -21,13 +21,13 @@ export default class Arrow extends React.PureComponent {
     super(props);
 
     this.state = {
-      leftAnim: new Animated.Value(props.left),
+      leftAnim: new Animated.Value(props.index ? 1 / (props.index + 1) : 0),
     };
   }
 
   componentWillReceiveProps(nextProps) {
     Animated.timing(this.state.leftAnim, {
-      toValue: nextProps.left,
+      toValue: nextProps.index ? 1 / (nextProps.index + 1) : 0,
       duration: 300,
     }).start();
   }
@@ -36,6 +36,7 @@ export default class Arrow extends React.PureComponent {
     return (
       <Container>
         <ArrowContainer
+          index={this.props.index}
           style={{
             left: this.state.leftAnim.interpolate({
               inputRange: [0, 1],
@@ -51,5 +52,5 @@ export default class Arrow extends React.PureComponent {
 }
 
 Arrow.propTypes = {
-  left: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
 };

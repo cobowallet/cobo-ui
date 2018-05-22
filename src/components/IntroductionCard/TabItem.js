@@ -34,8 +34,8 @@ const SubTitle = styled.Text`
 `;
 
 function onPress(props) {
-  if (props.selected !== props.id) {
-    props.switchTab(props.id);
+  if (props.selected !== props.index) {
+    props.switchTab(props.index);
   }
 }
 
@@ -52,7 +52,6 @@ function TabItem(props) {
 }
 
 TabItem.propTypes = {
-  id: PropTypes.string.isRequired,
   icon: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,

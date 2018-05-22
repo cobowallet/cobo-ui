@@ -18,14 +18,14 @@ const TabsContainer = styled.View`
 function Tabs(props) {
   return (
     <TabsContainer>
-      {zip(TAB_IMAGES, props.tabs).map(([tabIcon, { title, subTitle, id }]) => (
+      {zip(TAB_IMAGES, props.tabs).map(([tabIcon, { title, subTitle, id }], index) => (
         <TabItem
           key={id}
-          id={id}
+          index={index}
           icon={tabIcon}
           title={title}
           subTitle={subTitle}
-          selected={props.selected === id}
+          selected={props.selected === index}
           switchTab={props.switchTab}
         />
       ))}
@@ -34,7 +34,7 @@ function Tabs(props) {
 }
 
 Tabs.propTypes = {
-  selected: PropTypes.string.isRequired,
+  selected: PropTypes.number.isRequired,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,

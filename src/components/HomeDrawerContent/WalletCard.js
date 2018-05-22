@@ -89,7 +89,7 @@ export default function WalletCard(props) {
           <AssetWalletLogo type={type} style={{ width: 40 }} />
           <CardInfo>
             <Title>{title}</Title>
-            {selected && (
+            {isOpen && (
               <AmountBox>
                 <CurrencyAmount>
                   {props.currencySymbol}

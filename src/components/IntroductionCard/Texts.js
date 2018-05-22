@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { width } from 'window';
 import styled from 'styled-components/native';
+import { ScrollView } from 'react-native';
 
-const Container = styled.View`
-  padding-left: 16;
-  background-color: #fff;
+const ScrollViewContainer = styled(ScrollView)`
+  flex: 1;
   border-radius: 3;
+  background-color: #fff;
+`;
+
+const TextsContainer = styled.View`
+  width: ${width - 32};
+  padding-left: 16;
 `;
 
 const TextContanier = styled.View`
@@ -20,18 +27,65 @@ const TextItem = styled.Text`
   color: #8f95aa;
 `;
 
-export default function Texts(props) {
+function renderTexts(texts) {
   return (
-    <Container>
-      {props.texts.map((text, index) => (
-        <TextContanier key={index} last={index === props.texts.length}>
+    <TextsContainer>
+      {texts.map((text, index) => (
+        <TextContanier key={index} last={index === texts.length}>
           <TextItem>{text}</TextItem>
         </TextContanier>
       ))}
-    </Container>
+    </TextsContainer>
   );
 }
 
+export default class Texts extends React.PureComponent {
+  componentDidMount() {
+    const x = this.props.index * (width - 32);
+    this._scrollView.scrollTo({ x, animated: false });
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.index !== this.props.index) {
+      const x = nextProps.index * (width - 32);
+      this._scrollView.scrollTo({ x });
+    }
+  }
+
+  onMomentumScrollEnd = e => {
+    let offsetX = e.nativeEvent.contentOffset.x;
+    const textIndex = Math.floor(parseFloat(offsetX / width).toFixed(0));
+    this.props.onScroll(textIndex);
+  };
+
+  render() {
+    const { textObj } = this.props;
+    return (
+      <ScrollViewContainer
+        innerRef={scrollView => {
+          this._scrollView = scrollView;
+        }}
+        horizontal
+        pagingEnabled
+        alwaysBounceHorizontal={false}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        onMomentumScrollEnd={this.onMomentumScrollEnd}
+        contentContainerStyle={{
+          backgroundColor: 'white',
+        }}
+      >
+        {renderTexts(textObj.cloudTexts)}
+        {renderTexts(textObj.hdTexts)}
+      </ScrollViewContainer>
+    );
+  }
+}
+
 Texts.propTypes = {
-  texts: PropTypes.array.isRequired,
+  index: PropTypes.number.isRequired,
+  onScroll: PropTypes.func.isRequired,
+  textObj: PropTypes.shape({
+    cloudTexts: PropTypes.array.isRequired,
+    hdTexts: PropTypes.array.isRequired,
+  }).isRequired,
 };

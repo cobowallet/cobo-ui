@@ -38,7 +38,7 @@ const ButtonText = styled.Text`
     return ButtonColors.white;
   }};
   font-size: 15;
-  font-weight: ${props => (props.simple ? 400 : 600)};
+  font-weight: 600;
 `;
 
 function CBButton({
