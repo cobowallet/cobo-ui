@@ -70,4 +70,6 @@ export default {
   Bibox,
   ADA,
   Qtum,
+  TRON: TRX,
+  TTRON: TRX,
 };
