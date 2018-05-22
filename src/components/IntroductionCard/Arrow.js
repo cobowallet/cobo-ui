@@ -21,7 +21,7 @@ export default class Arrow extends React.PureComponent {
     super(props);
 
     this.state = {
-      leftAnim: new Animated.Value(0),
+      leftAnim: new Animated.Value(props.left),
     };
   }
 
