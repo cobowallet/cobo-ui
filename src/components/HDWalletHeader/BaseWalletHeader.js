@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Platform } from 'react-native';
+import { View, Platform } from 'react-native';
 import { withTheme } from 'styled-components';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
@@ -22,28 +22,34 @@ const BaseWalletHeader = ({
   color,
   style,
   theme,
+  transparent,
 }) => {
-  return (
+  const main = (
+    <View style={[{ width: '100%' }, style]}>
+      <View style={{ marginTop: 30, marginLeft: 16 }}>
+        <ValueLabel size={34} color={'white'} onPress={headerOnPress} disabled={!headerOnPress}>
+          {headerValue}
+        </ValueLabel>
+        <View style={{ flexDirection: 'row' }}>
+          <ValueLabel size={24}>{subHeaderValue}</ValueLabel>
+          <ValueLabel size={24} color={color}>
+            {percent ? ` (${percent}) ` : null}
+          </ValueLabel>
+        </View>
+        <View style={{ position: 'absolute', top: 0, right: 16 }}>{icon}</View>
+      </View>
+      {children}
+    </View>
+  );
+  return transparent ? (
+    main
+  ) : (
     <LinearGradient
       colors={[theme['backgroundStartColor'], theme['backgroundEndColor']]}
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 0.9 }}
     >
-      <View style={[{ width: '100%' }, style]}>
-        <View style={{ marginTop: 30, marginLeft: 16 }}>
-          <ValueLabel size={34} color={'white'} onPress={headerOnPress} disabled={!headerOnPress}>
-            {headerValue}
-          </ValueLabel>
-          <View style={{ flexDirection: 'row' }}>
-            <ValueLabel size={24}>{subHeaderValue}</ValueLabel>
-            <ValueLabel size={24} color={color}>
-              {percent ? ` (${percent}) ` : null}
-            </ValueLabel>
-          </View>
-          <View style={{ position: 'absolute', top: 0, right: 16 }}>{icon}</View>
-        </View>
-        {children}
-      </View>
+      {main}
     </LinearGradient>
   );
 };
@@ -58,6 +64,7 @@ BaseWalletHeader.propTypes = {
   color: PropTypes.string,
   theme: PropTypes.object.isRequired,
   style: PropTypes.any,
+  transparent: PropTypes.bool,
 };
 
 BaseWalletHeader.defaultProps = {
@@ -68,6 +75,7 @@ BaseWalletHeader.defaultProps = {
   percent: null,
   color: 'white',
   style: {},
+  transparent: false,
 };
 
 export default withTheme(BaseWalletHeader);

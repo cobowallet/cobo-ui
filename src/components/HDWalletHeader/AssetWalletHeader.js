@@ -50,6 +50,7 @@ class AssetWalletHeader extends React.PureComponent {
           headerOnPress={this.onHeaderClick}
           children={this.props.children}
           style={this.props.style}
+          transparent={this.props.transparent}
         />
       </ThemeProvider>
     );
@@ -63,12 +64,14 @@ AssetWalletHeader.propTypes = {
   children: PropTypes.element,
   theme: PropTypes.string,
   style: PropTypes.any,
+  transparent: PropTypes.bool,
 };
 
 AssetWalletHeader.defaultProps = {
   children: null,
   theme: 'default',
   style: {},
+  transparent: false,
 };
 
 export default AssetWalletHeader;
