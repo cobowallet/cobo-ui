@@ -52,6 +52,7 @@ import Asset from './Asset';
 import Delete from './Delete';
 import Exchange from './Exchange';
 import Eye from './Eye';
+import ChooseWalletArrow from './ChooseWalletArrow';
 
 export {
   FontAwesome,
@@ -112,4 +113,5 @@ export {
   Delete,
   Exchange,
   Eye,
+  ChooseWalletArrow,
 };

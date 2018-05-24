@@ -36,7 +36,7 @@ const CardInfo = styled.View`
 const Title = styled(CBText)`
   color: #000;
   margin-top: 5;
-  margin-bottom: 6;
+  margin-bottom: 4;
   font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
 `;
 
@@ -89,7 +89,7 @@ export default function WalletCard(props) {
           <AssetWalletLogo type={type} style={{ width: 40 }} />
           <CardInfo>
             <Title>{title}</Title>
-            {selected && (
+            {isOpen && (
               <AmountBox>
                 <CurrencyAmount>
                   {props.currencySymbol}
