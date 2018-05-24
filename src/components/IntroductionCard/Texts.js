@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import { ScrollView, Dimensions } from 'react-native';
 
-const window = Dimensions.get('window');
-const { width } = window;
+const { width } = Dimensions.get('window');
 
 const ScrollViewContainer = styled(ScrollView)`
   flex: 1;
