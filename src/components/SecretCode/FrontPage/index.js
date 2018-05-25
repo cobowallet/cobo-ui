@@ -7,11 +7,11 @@ import { lang } from '../lang';
 import CBButton from '../../Core/CBButton/index';
 
 const Container = styled.View`
-  margin-top: 100;
+  margin-top: 64;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30;
+  margin-bottom: 50;
 `;
 
 const Body = (
@@ -33,10 +33,10 @@ const FrontPage = ({ locale, goToCodePage, style, onCancel }) => {
       style={style}
     >
       <CBButton
-        style={{ paddingTop: 10 }}
+        style={{ paddingTop: 20 }}
         simple
         text={fontPageSetting.secondButton}
-        textStyle={{ color: '#ffffffB3' }}
+        textStyle={{ color: 'rgba(255, 255, 255, 0.5)' }}
         onPress={onCancel}
       />
     </FrontPagePanle>

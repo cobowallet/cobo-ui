@@ -1,9 +1,9 @@
 import React from 'react';
 import { withTheme } from 'styled-components';
-import { ScrollView, Text, View, Dimensions } from 'react-native';
+import { ScrollView, View, Dimensions } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { Entypo } from '../../../icons';
 import { CBText, CBLabel, CBButton } from '../../Core';
+import Dot from './Dot';
 
 const { width } = Dimensions.get('window');
 
@@ -25,12 +25,16 @@ const FrontPagePanel = ({
       end={{ x: 0, y: 0.9 }}
     >
       <ScrollView style={[{ width, height: '100%' }]} contentContainerStyle={style}>
-        <View style={{ padding: 10 }}>
+        <View style={{ paddingHorizontal: 16 }}>
           {body}
           <CBLabel bold size={20} style={{ paddingBottom: 4 }}>
             {header}
           </CBLabel>
-          <CBText small colorHex={'#ffffffB3'} style={{ paddingTop: 4, paddingBottom: 20 }}>
+          <CBText
+            small
+            colorHex={'rgba(255, 255, 255, 0.7)'}
+            style={{ paddingTop: 4, paddingBottom: 20 }}
+          >
             {subTitle}
           </CBText>
           {descriptions.map((each, index) => (
@@ -43,8 +47,13 @@ const FrontPagePanel = ({
                 paddingBottom: 2,
               }}
             >
-              <Entypo name={'dot-single'} size={16} color={'#ffffffB3'} />
-              <CBText small color={'white'} style={{ paddingLeft: 6 }} key={index}>
+              <Dot />
+              <CBText
+                small
+                colorHex={'rgba(255, 255, 255, 0.7)'}
+                style={{ paddingLeft: 6, marginBottom: 2 }}
+                key={index}
+              >
                 {each}
               </CBText>
             </View>
@@ -52,7 +61,7 @@ const FrontPagePanel = ({
         </View>
         <CBButton
           style={{
-            marginTop: 60,
+            marginTop: 63,
             backgroundColor: theme['buttonBackgroundColor'],
           }}
           textColor={theme['buttonTextColor']}
