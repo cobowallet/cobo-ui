@@ -63,8 +63,8 @@ const RatioView = ({ assets, colors }) => (
 );
 
 const HorizontalAssetRatio = ({ assets, colorScale, labelOfOthers }) => {
-  if (assets.length == 0) {
-    return <View />;
+  if (assets.length === 0) {
+    return <View style={{ width: '100%', height: 5, backgroundColor: '#FFFFFF20' }} />;
   }
 
   let sortedAssets = assets
