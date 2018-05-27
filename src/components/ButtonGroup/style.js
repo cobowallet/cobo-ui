@@ -18,7 +18,6 @@ const Line = styled.View`
 
 const ButtonText = styled(CBText)`
   margin-left: 12;
-  padding-top: 4;
   color: ${props =>
     props.canPress ? props.theme.buttonTextColor : props.theme.buttonDisableTextColor};
 `;
@@ -27,7 +26,7 @@ const Touchable = styled.TouchableOpacity`
   flex: 1;
   background-color: transparent;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
 `;
 
