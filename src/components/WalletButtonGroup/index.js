@@ -11,7 +11,8 @@ function WalletButtonGroup({
   receiveTitle,
   onReceivePress,
   style,
-  hasThirdButton,
+  canVote,
+  onVote,
   theme,
 }) {
   return (
@@ -26,11 +27,10 @@ function WalletButtonGroup({
           <ReceiveIcon type={'received'} />
           <ButtonText>{receiveTitle}</ButtonText>
         </Button>
-        {hasThirdButton && [
+        {canVote && [
           <DivideLine />,
-          <Button onPress={onReceivePress}>
-            <ReceiveIcon type={'received'} />
-            <ButtonText>{receiveTitle}</ButtonText>
+          <Button onPress={onVote}>
+            <ButtonText>{'投票'}</ButtonText>
           </Button>,
         ]}
       </ButtonContainer>
@@ -47,13 +47,15 @@ WalletButtonGroup.propTypes = {
   onReceivePress: PropTypes.func.isRequired,
   theme: PropTypes.string,
   style: PropTypes.any,
-  hasThirdButton: PropTypes.bool,
+  canVote: PropTypes.bool,
+  onVote: PropTypes.func,
 };
 
 WalletButtonGroup.defaultProps = {
   theme: 'default',
   style: {},
-  hasThirdButton: false,
+  canVote: false,
+  onVote: null,
 };
 
 export default WalletButtonGroup;
