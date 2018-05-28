@@ -16,6 +16,8 @@ storiesOf('Transaction Record', module)
   ))
   .add('send to blockchain', () => (
     <TransactionRecordRow
+      action={'recv_pos_dividend'}
+      showIcon
       coinCode="ETH"
       isSendOut
       title="Send"
@@ -25,6 +27,7 @@ storiesOf('Transaction Record', module)
         status: 'pending',
         statusText: '3/12 确认中',
       }}
+      style={{ backgroundColor: 'red' }}
     />
   ))
   .add('send internally', () => (
