@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
-import { zip } from 'ramda';
+import { zip, isEmpty } from 'ramda';
 import { View } from 'react-native';
-import { Entypo } from '../../icons';
 import { CBText } from '../Core';
 
 export const DEFAULT_COLORS = ['#FFFFFF', '#B5C5FF', '#00B191', '#4800F2', '#1F184F'];
@@ -30,6 +29,17 @@ const LabelList = styled.View`
   padding: 0;
 `;
 
+const RatioContainer = styled.View`
+  width: 100%;
+  flex-direction: row;
+`;
+
+const Ratio = styled.View`
+  flex: ${props => props.percentage};
+  height: 5;
+  background: ${props => props.color};
+`;
+
 const LabelView = ({ assets, colors }) => (
   <LabelList>
     {zip(assets, colors).map(([asset, color], index) => (
@@ -43,17 +53,6 @@ const LabelView = ({ assets, colors }) => (
   </LabelList>
 );
 
-const RatioContainer = styled.View`
-  width: 100%;
-  flex-direction: row;
-`;
-
-const Ratio = styled.View`
-  flex: ${props => props.percentage};
-  height: 5;
-  background: ${props => props.color};
-`;
-
 const RatioView = ({ assets, colors }) => (
   <RatioContainer>
     {zip(assets, colors).map(([asset, color], index) => (
@@ -62,9 +61,26 @@ const RatioView = ({ assets, colors }) => (
   </RatioContainer>
 );
 
-const HorizontalAssetRatio = ({ assets, colorScale, labelOfOthers }) => {
-  if (assets.length === 0) {
-    return <View style={{ width: '100%', height: 5, backgroundColor: '#FFFFFF20' }} />;
+const NoAssetsLable = ({ noAssetsLable }) => (
+  <CBText style={{ fontSize: 12, marginTop: 6 }} colorHex="rgba(255, 255, 255, 0.5)">
+    {noAssetsLable}
+  </CBText>
+);
+
+const NoAssetsView = () => (
+  <RatioContainer>
+    <Ratio percentage={1} color={'rgba(255, 255, 255, 0.2)'} />
+  </RatioContainer>
+);
+
+const HorizontalAssetRatio = ({ assets, colorScale, labelOfOthers, noAssetsLable }) => {
+  if (isEmpty(assets)) {
+    return (
+      <View>
+        <NoAssetsView />
+        <NoAssetsLable noAssetsLable={noAssetsLable} />
+      </View>
+    );
   }
 
   let sortedAssets = assets
@@ -97,6 +113,7 @@ HorizontalAssetRatio.propTypes = {
   ).isRequired,
   colorScale: PropTypes.arrayOf(PropTypes.string).isRequired,
   labelOfOthers: PropTypes.string,
+  noAssetsLable: PropTypes.string.isRequired,
 };
 
 HorizontalAssetRatio.defaultProps = {

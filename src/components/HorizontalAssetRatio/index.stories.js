@@ -11,17 +11,23 @@ const Container = styled.View`
   padding-right: 16;
 `;
 
-storiesOf('Asset Ratio', module).add('default', () => (
-  <Container>
-    <HorizontalAssetRatio
-      assets={[
-        { label: 'BTC', percentage: 0.21 },
-        { label: 'ETH', percentage: 0.1 },
-        { label: 'LBTC', percentage: 0.2 },
-        { label: 'EOS', percentage: 0.4 },
-        { label: 'TCH', percentage: 0.01 },
-        { label: 'BEC', percentage: 0.08 },
-      ]}
-    />
-  </Container>
-));
+storiesOf('Asset Ratio', module)
+  .add('default', () => (
+    <Container>
+      <HorizontalAssetRatio
+        assets={[
+          { label: 'BTC', percentage: 0.21 },
+          { label: 'ETH', percentage: 0.1 },
+          { label: 'LBTC', percentage: 0.2 },
+          { label: 'EOS', percentage: 0.4 },
+          { label: 'TCH', percentage: 0.01 },
+          { label: 'BEC', percentage: 0.08 },
+        ]}
+      />
+    </Container>
+  ))
+  .add('no asset', () => (
+    <Container>
+      <HorizontalAssetRatio assets={[]} noAssetsLable="还未添加币种，请添加" />
+    </Container>
+  ));
