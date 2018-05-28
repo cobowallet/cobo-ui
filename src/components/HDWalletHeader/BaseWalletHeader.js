@@ -16,6 +16,7 @@ const BaseWalletHeader = ({
   headerValue,
   subHeaderValue,
   icon,
+  backupHd,
   children,
   headerOnPress,
   percent,
@@ -30,6 +31,7 @@ const BaseWalletHeader = ({
         <ValueLabel size={34} color={'white'} onPress={headerOnPress} disabled={!headerOnPress}>
           {headerValue}
         </ValueLabel>
+        {backupHd}
         <View style={{ flexDirection: 'row' }}>
           <ValueLabel size={24}>{subHeaderValue}</ValueLabel>
           <ValueLabel size={24} color={color}>
@@ -57,6 +59,7 @@ const BaseWalletHeader = ({
 BaseWalletHeader.propTypes = {
   headerValue: PropTypes.string.isRequired,
   subHeaderValue: PropTypes.string,
+  backupHd: PropTypes.element,
   icon: PropTypes.element.isRequired,
   children: PropTypes.element,
   headerOnPress: PropTypes.func,

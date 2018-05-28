@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { HDWalletHeaderTheme } from '../../theme';
 import BaseWalletHeader from './BaseWalletHeader';
 import { AddWallet } from '../../icons';
+import BackupHd from './BackupHd';
 
 class AssetWalletHeader extends React.PureComponent {
   state = {
@@ -41,12 +42,18 @@ class AssetWalletHeader extends React.PureComponent {
     );
   }
 
+  renderBackupHd() {
+    const { showBackupHD, backupHdText, toBackupHDWallet } = this.props;
+    return showBackupHD ? <BackupHd text={backupHdText} onPress={toBackupHDWallet} /> : null;
+  }
+
   render() {
     return (
       <ThemeProvider theme={HDWalletHeaderTheme[this.props.theme]}>
         <BaseWalletHeader
           headerValue={this.getValue()}
           icon={this.renderIcon()}
+          backupHd={this.renderBackupHd()}
           headerOnPress={this.onHeaderClick}
           children={this.props.children}
           style={this.props.style}
@@ -61,6 +68,9 @@ AssetWalletHeader.propTypes = {
   fiatCurrencyValue: PropTypes.string.isRequired,
   BTCValue: PropTypes.string.isRequired,
   addWalletPress: PropTypes.func.isRequired,
+  showBackupHD: PropTypes.bool,
+  backupHdText: PropTypes.string,
+  toBackupHDWallet: PropTypes.func,
   children: PropTypes.element,
   theme: PropTypes.string,
   style: PropTypes.any,

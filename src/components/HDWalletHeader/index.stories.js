@@ -4,16 +4,30 @@ import { storiesOf } from '@storybook/react-native';
 import { AssetWalletHeader, CoinWalletHeader } from './index';
 import coins from '../../icons/CoinLogos';
 
-storiesOf('AssetWalletHeader', module).add('default', () => (
-  <AssetWalletHeader
-    fiatCurrencyValue={'$48,213 USD'}
-    BTCValue={'9.20 BTC'}
-    addWalletPress={() => console.log('hello icon is pressed')}
-    theme={'dark'}
-  >
-    <Text>This is the children</Text>
-  </AssetWalletHeader>
-));
+storiesOf('AssetWalletHeader', module)
+  .add('default', () => (
+    <AssetWalletHeader
+      fiatCurrencyValue={'$48,213 USD'}
+      BTCValue={'9.20 BTC'}
+      addWalletPress={() => console.log('hello icon is pressed')}
+      theme={'dark'}
+    >
+      <Text>This is the children</Text>
+    </AssetWalletHeader>
+  ))
+  .add('withBackupHd', () => (
+    <AssetWalletHeader
+      fiatCurrencyValue={'$48,213 USD'}
+      BTCValue={'9.20 BTC'}
+      showBackupHD
+      backupHdText="Please Backup"
+      toBackupHDWallet={() => console.log('backup is pressed')}
+      addWalletPress={() => console.log('hello icon is pressed')}
+      theme={'dark'}
+    >
+      <Text>This is the children</Text>
+    </AssetWalletHeader>
+  ));
 
 const { ETH } = coins;
 const ETHIcon = <Image source={ETH} />;
