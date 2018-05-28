@@ -27,7 +27,7 @@ const BaseWalletHeader = ({
 }) => {
   const main = (
     <View style={[{ width: '100%' }, style]}>
-      <View style={{ marginTop: 30, marginLeft: 16 }}>
+      <View style={{ marginTop: 30, marginLeft: 16, height: 64 }}>
         <ValueLabel size={34} color={'white'} onPress={headerOnPress} disabled={!headerOnPress}>
           {headerValue}
         </ValueLabel>
