@@ -62,7 +62,7 @@ const RatioView = ({ assets, colors }) => (
 );
 
 const NoAssetsLable = ({ noAssetsLable }) => (
-  <CBText style={{ fontSize: 12, marginTop: 6 }} colorHex="rgba(255, 255, 255, 0.5)">
+  <CBText style={{ fontSize: 12, marginTop: 9 }} colorHex="rgba(255, 255, 255, 0.5)">
     {noAssetsLable}
   </CBText>
 );

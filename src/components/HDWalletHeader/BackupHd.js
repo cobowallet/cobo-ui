@@ -3,14 +3,18 @@ import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 
-const Button = styled(TouchableOpacity)`
-  width: 84;
+const ButtonContainer = styled(TouchableOpacity)`
+  flex-direction: row;
+`;
+
+const Button = styled.View`
   height: 23;
   justify-content: center;
   align-items: center;
   border-radius: 3;
   border-width: 1;
   border-color: #ffa344;
+  padding-horizontal: 6;
 `;
 
 const Text = styled.Text`
@@ -20,9 +24,11 @@ const Text = styled.Text`
 
 export default function BackupHd({ text, onPress }) {
   return (
-    <Button onPress={onPress}>
-      <Text>{text}</Text>
-    </Button>
+    <ButtonContainer>
+      <Button onPress={onPress}>
+        <Text>{text}</Text>
+      </Button>
+    </ButtonContainer>
   );
 }
 
