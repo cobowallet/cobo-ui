@@ -9,6 +9,7 @@ function loadStories() {
   require('../src/components/AccountLevelBox/index.stories');
   require('../src/components/AggrementContent/index.stories');
   require('../src/components/AssetCard/index.stories');
+  require('../src/components/ButtonGroup/index.stories');
   require('../src/components/Core/CBGradientCard/index.stories');
   require('../src/components/Core/CBModal/index.stories');
   require('../src/components/HDWalletHeader/index.stories');
@@ -37,6 +38,7 @@ const stories = [
   '../src/components/AccountLevelBox/index.stories',
   '../src/components/AggrementContent/index.stories',
   '../src/components/AssetCard/index.stories',
+  '../src/components/ButtonGroup/index.stories',
   '../src/components/Core/CBGradientCard/index.stories',
   '../src/components/Core/CBModal/index.stories',
   '../src/components/HDWalletHeader/index.stories',

@@ -10,5 +10,7 @@ storiesOf('WalletButtonGroup', module).add('default', () => (
     onSendPress={action('onSendPress')}
     receiveTitle={'Received'}
     onReceivePress={action('onReceivePress')}
+    canVote
+    onVote={action('vote')}
   />
 ));

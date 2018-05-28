@@ -113,6 +113,7 @@ HorizontalAssetRatio.propTypes = {
   ).isRequired,
   colorScale: PropTypes.arrayOf(PropTypes.string).isRequired,
   labelOfOthers: PropTypes.string,
+  noAssetsLable: PropTypes.string.isRequired,
 };
 
 HorizontalAssetRatio.defaultProps = {
