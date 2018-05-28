@@ -3,11 +3,11 @@ import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 
-const ButtonContainer = styled(TouchableOpacity)`
+const ButtonContainer = styled.View`
   flex-direction: row;
 `;
 
-const Button = styled.View`
+const Button = styled(TouchableOpacity)`
   height: 23;
   justify-content: center;
   align-items: center;
