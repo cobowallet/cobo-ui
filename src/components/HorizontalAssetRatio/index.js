@@ -11,13 +11,13 @@ const Dot = styled.View`
   width: 6;
   height: 6;
   border-radius: 3;
-  margin-right: 4;
+  margin-right: 2;
   background: ${props => props.color};
 `;
 
 const LabelContaienr = styled.View`
-  width: 20%;
   flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
 `;
 
@@ -45,7 +45,7 @@ const LabelView = ({ assets, colors }) => (
     {zip(assets, colors).map(([asset, color], index) => (
       <LabelContaienr key={index}>
         <Dot color={color} />
-        <CBText style={{ fontSize: 12, marginRight: 5 }} color="white">{`${asset.label} ${
+        <CBText style={{ fontSize: 10, marginRight: 12 }} bold color="white">{`${asset.label} ${
           asset.percentage
         }%`}</CBText>
       </LabelContaienr>
@@ -62,7 +62,7 @@ const RatioView = ({ assets, colors }) => (
 );
 
 const NoAssetsLable = ({ noAssetsLable }) => (
-  <CBText style={{ fontSize: 12, marginTop: 9 }} colorHex="rgba(255, 255, 255, 0.5)">
+  <CBText style={{ fontSize: 12, marginTop: 8 }} colorHex="rgba(255, 255, 255, 0.5)">
     {noAssetsLable}
   </CBText>
 );

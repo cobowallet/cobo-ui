@@ -57,7 +57,7 @@ class AssetCard extends PureComponent {
               <CoinIcon coin={coinCode} uri={iconUrl} />
             </IconContent>
             <CoinContainer>
-              <CoinCodeText bold>{coinCode}</CoinCodeText>
+              <CoinCodeText>{coinCode}</CoinCodeText>
               {!isNil(slogan) &&
                 slogan.length > 0 && (
                   <RewardBadge content={slogan} theme={theme} style={{ marginTop: 5 }} />
