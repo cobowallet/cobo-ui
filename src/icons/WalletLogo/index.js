@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 import CoinLogos from '../CoinLogos';
 
 function WalletLogo({ style, coin, uri }) {
+  const coinIconSource = coin ? CoinLogos[coin] : '';
+  if (coinIconSource) {
+    return <Image style={style} source={coinIconSource} />;
+  }
   if (uri && uri.length > 0) {
     return <Image style={style} source={{ uri }} />;
   }
-  const coinIconSource = coin ? CoinLogos[coin] : '';
-  const logoSource = coinIconSource ? coinIconSource : require('./img/coin-default-logo.png');
-  return <Image style={style} source={logoSource} />;
+  return <Image style={style} source={require('./img/coin-default-logo.png')} />;
 }
 
 WalletLogo.propTypes = {
