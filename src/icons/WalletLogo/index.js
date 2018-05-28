@@ -5,7 +5,7 @@ import CoinLogos from '../CoinLogos';
 
 function WalletLogo({ style, coin, uri }) {
   const coinIconSource = coin ? CoinLogos[coin] : '';
-  if (coinIconSource && coinIconSource.length > 0) {
+  if (coinIconSource) {
     return <Image style={style} source={coinIconSource} />;
   }
   if (uri && uri.length > 0) {
