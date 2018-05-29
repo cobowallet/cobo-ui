@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
-import { View } from 'react-native';
 import { CBText } from '../Core';
 import { SendIcon, ReceiveIcon, RewardIcon } from '../../icons';
 import TransactionStatus from '../TransactionStatus';
@@ -15,6 +14,21 @@ const Container = styled.TouchableOpacity`
   padding-right: 16;
   padding-top: 14;
   padding-bottom: 14;
+`;
+
+const RecordLeft = styled.View`
+  flex: 1;
+`;
+
+const RecordRight = styled.View`
+  flex: 1;
+  align-items: flex-end;
+`;
+
+const MessageBox = styled.View`
+  margin-top: 7;
+  flex-flow: row;
+  align-items: center;
 `;
 
 const Icon = ({ isSendOut, action }) => {
@@ -47,6 +61,7 @@ const TransactionRecordRow = ({
   showIcon,
   title,
   amount,
+  messageTitle,
   message,
   coinCode,
   action,
@@ -57,17 +72,28 @@ const TransactionRecordRow = ({
   <Container onPress={onPress} style={style}>
     {showIcon && <Icon isSendOut={isSendOut} action={action} />}
 
-    <View style={{ flex: 1 }}>
+    <RecordLeft>
       <CBText bold color="dark">
         {title}
       </CBText>
-      <CBText small color="grayLight" style={{ marginTop: 7 }}>
-        {message}
-      </CBText>
-    </View>
+      <MessageBox>
+        <CBText small color="grayLight" style={{ marginRight: 2 }}>
+          {messageTitle}
+        </CBText>
+        <CBText
+          small
+          color="grayLight"
+          numberOfLines={1}
+          ellipsizeMode={'middle'}
+          style={{ flex: 1 }}
+        >
+          {message}
+        </CBText>
+      </MessageBox>
+    </RecordLeft>
 
-    <View style={{ alignItems: 'flex-end' }}>
-      <CBText bold color={isSendOut ? 'dark' : 'primary'}>{`${
+    <RecordRight>
+      <CBText superBold color={isSendOut ? 'dark' : 'primary'}>{`${
         isSendOut ? '-' : '+'
       }${amount} ${coinCode}`}</CBText>
       {typeof extra === 'string' ? (
@@ -75,7 +101,7 @@ const TransactionRecordRow = ({
       ) : (
         <TransactionStatus {...extra} style={{ marginTop: 7 }} />
       )}
-    </View>
+    </RecordRight>
   </Container>
 );
 
@@ -84,6 +110,7 @@ TransactionRecordRow.propTypes = {
   showIcon: PropTypes.bool,
   title: PropTypes.string.isRequired,
   amount: PropTypes.string.isRequired,
+  messageTitle: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   coinCode: PropTypes.string.isRequired,
   action: PropTypes.string,

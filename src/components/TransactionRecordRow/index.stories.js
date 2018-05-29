@@ -10,7 +10,8 @@ storiesOf('Transaction Record', module)
       isSendOut
       title="Send red packet"
       amount="20"
-      message="To: Red packet"
+      messageTitle="To:"
+      message="Red packet"
       extra="2018/04/15"
     />
   ))
@@ -22,7 +23,8 @@ storiesOf('Transaction Record', module)
       isSendOut
       title="Send"
       amount="1000"
-      message="To: 0x1jf...ddjf"
+      messageTitle="To:"
+      message="0x1jffsljflsdjflkjsdfklddjf"
       extra={{
         status: 'pending',
         statusText: '3/12 确认中',
@@ -36,7 +38,8 @@ storiesOf('Transaction Record', module)
       isSendOut
       title="Send"
       amount="1000"
-      message="To: 0x1jf...ddjf"
+      messageTitle="To:"
+      message="0x1jfwejfjsldfjsdlfslkjfdlk;asjfl;kjsadl;fjasd;lfjl;ddjf"
       extra={{ status: 'complete', statusText: '已确认' }}
     />
   ))
@@ -46,7 +49,8 @@ storiesOf('Transaction Record', module)
       isSendOut={false}
       title="Received"
       amount="1000"
-      message="From: 0x1jf...ddjf"
+      messageTitle="From:"
+      message="0x1jfsakljfdl;kjas;lfkjsa;lfjddjf"
       extra={{
         status: 'complete',
         statusText: '12/12 已确认',
@@ -60,7 +64,8 @@ storiesOf('Transaction Record', module)
       showIcon={false}
       title="Received"
       amount="1000"
-      message="From: 0x1jf...ddjf"
+      messageTitle="From:"
+      message="0x1jflskjdflkasdjdflk;jsal;fjsadl;jfddjf"
       extra="2018/04/17"
     />
   ));
