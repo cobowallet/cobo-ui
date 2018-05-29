@@ -8,7 +8,7 @@ const buttons = [
   {
     onPress: () => console.log('send'),
     canPress: true,
-    title: 'send',
+    title: 'Send',
     renderImage: () => <SendIcon type={'spending'} />,
   },
   {

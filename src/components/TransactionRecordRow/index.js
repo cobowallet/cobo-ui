@@ -21,7 +21,7 @@ const RecordLeft = styled.View`
 `;
 
 const RecordRight = styled.View`
-  flex: 1;
+  flex: 1.8;
   align-items: flex-end;
 `;
 
@@ -47,6 +47,11 @@ const Icon = ({ isSendOut, action }) => {
     return <ReceiveIcon type={'transaction'} style={styled} />;
   }
 };
+
+const Amount = styled.View`
+  flex-flow: row;
+  align-items: center;
+`;
 
 const TimeText = ({ time, style }) => {
   return (
@@ -93,9 +98,15 @@ const TransactionRecordRow = ({
     </RecordLeft>
 
     <RecordRight>
-      <CBText superBold color={isSendOut ? 'dark' : 'primary'}>{`${
-        isSendOut ? '-' : '+'
-      }${amount} ${coinCode}`}</CBText>
+      <Amount>
+        <CBText
+          superBold
+          color={isSendOut ? 'dark' : 'primary'}
+          style={{ flex: 1, textAlign: 'right' }}
+          numberOfLines={1}
+        >{`${isSendOut ? '-' : '+'}${amount}`}</CBText>
+        <CBText color={isSendOut ? 'dark' : 'primary'}> {coinCode}</CBText>
+      </Amount>
       {typeof extra === 'string' ? (
         <TimeText time={extra} style={{ marginTop: 7 }} />
       ) : (
