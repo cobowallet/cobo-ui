@@ -2,10 +2,10 @@ import styled from 'styled-components/native';
 import { CBText } from '../Core';
 
 export const Container = styled.View`
-  border-radius: 2;
+  border-radius: 3;
   background-color: ${props => props.theme.backgroundColor};
-  padding-horizontal: 6;
-  padding-vertical: 5;
+  padding-horizontal: 5;
+  padding-vertical: 4;
 `;
 
 export const ContentText = styled(CBText)`
