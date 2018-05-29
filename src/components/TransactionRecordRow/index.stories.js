@@ -48,7 +48,7 @@ storiesOf('Transaction Record', module)
       coinCode="ETH"
       isSendOut={false}
       title="Received"
-      amount="1000"
+      amount="1000.00000000000000"
       messageTitle="From:"
       message="0x1jfsakljfdl;kjas;lfkjsa;lfjddjf"
       extra={{
