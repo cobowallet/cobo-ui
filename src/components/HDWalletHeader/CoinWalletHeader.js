@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import PropTypes from 'prop-types';
-import { HDWalletHeaderTheme } from '../../theme';
+import { CoinWalletHeaderTheme } from '../../theme';
 import BaseWalletHeader from './BaseWalletHeader';
 
 const CoinWalletHeader = ({
@@ -17,7 +17,7 @@ const CoinWalletHeader = ({
   const subHeader = `≈${fiatCurrencyValue}`;
 
   return (
-    <ThemeProvider theme={HDWalletHeaderTheme[theme]}>
+    <ThemeProvider theme={CoinWalletHeaderTheme[theme]}>
       <BaseWalletHeader
         headerValue={coinValue}
         subHeaderValue={subHeader}
@@ -25,6 +25,7 @@ const CoinWalletHeader = ({
         percent={percent}
         color={color}
         style={style}
+        type="coinWallet"
         children={children}
       />
     </ThemeProvider>

@@ -32,15 +32,28 @@ storiesOf('AssetWalletHeader', module)
 const { ETH } = coins;
 const ETHIcon = <Image source={ETH} />;
 
-storiesOf('CoinWalletHeader', module).add('default', () => (
-  <CoinWalletHeader
-    fiatCurrencyValue={'$48,213'}
-    coinValue={'9.20 BTC'}
-    percent={'+23.45%'}
-    icon={ETHIcon}
-    color={'#50DFBE'}
-    theme={'default'}
-  >
-    <Text>This is the children</Text>
-  </CoinWalletHeader>
-));
+storiesOf('CoinWalletHeader', module)
+  .add('default', () => (
+    <CoinWalletHeader
+      fiatCurrencyValue={'$48,213'}
+      coinValue={'9.20 BTC'}
+      percent={'+23.45%'}
+      icon={ETHIcon}
+      color={'#50DFBE'}
+      theme={'default'}
+    >
+      <Text>This is the children</Text>
+    </CoinWalletHeader>
+  ))
+  .add('HD', () => (
+    <CoinWalletHeader
+      fiatCurrencyValue={'$48,213'}
+      coinValue={'9.20 BTC'}
+      percent={'+23.45%'}
+      icon={ETHIcon}
+      color={'#50DFBE'}
+      theme={'dark'}
+    >
+      <Text>This is the children</Text>
+    </CoinWalletHeader>
+  ));
