@@ -21,6 +21,10 @@ const ButtonIcon = styled.View`
   margin-top: -2;
 `;
 
+const ButtonIcon = styled.View`
+  margin-top: -2;
+`;
+
 const ButtonText = styled(CBText)`
   margin-left: 12;
   margin-bottom: -1;
