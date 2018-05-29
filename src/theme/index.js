@@ -42,3 +42,15 @@ export const HDWalletHeaderTheme = {
     backgroundEndColor: '#223155',
   },
 };
+
+export const CoinWalletHeaderTheme = {
+  default: {
+    backgroundStartColor: '#4C80FD',
+    backgroundEndColor: '#014AF3',
+  },
+
+  dark: {
+    backgroundStartColor: '#5C6C92',
+    backgroundEndColor: '#223155',
+  },
+};

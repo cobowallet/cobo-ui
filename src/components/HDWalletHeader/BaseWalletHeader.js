@@ -22,6 +22,7 @@ const BaseWalletHeader = ({
   percent,
   color,
   style,
+  type,
   theme,
   transparent,
 }) => {
@@ -49,7 +50,7 @@ const BaseWalletHeader = ({
     <LinearGradient
       colors={[theme['backgroundStartColor'], theme['backgroundEndColor']]}
       start={{ x: 0, y: 0 }}
-      end={{ x: 0, y: 0.9 }}
+      end={type === 'coinWallet' ? { x: 1, y: 1 } : { x: 0, y: 0.9 }}
     >
       {main}
     </LinearGradient>
