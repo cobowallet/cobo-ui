@@ -24,7 +24,7 @@ const SecretCodePanel = ({
     >
       <ScrollView style={[{ width, height: '100%' }]} contentContainerStyle={style}>
         <View style={{ paddingHorizontal: 16 }}>
-          <CBLabel bold style={{ paddingTop: 26, paddingBottom: 20 }}>
+          <CBLabel bold style={{ paddingTop: 20, paddingBottom: 20 }}>
             {header}
           </CBLabel>
           {descriptions.map((each, index) => (

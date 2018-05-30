@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Platform } from 'react-native';
 
 const ButtonContainer = styled.View`
   flex-direction: row;
@@ -15,6 +15,7 @@ const Button = styled(TouchableOpacity)`
   border-width: 1;
   border-color: #ffa344;
   padding-horizontal: 6;
+  margin-top: ${Platform.OS === 'ios' ? 0 : 6};
 `;
 
 const Text = styled.Text`
