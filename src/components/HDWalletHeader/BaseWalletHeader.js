@@ -12,6 +12,15 @@ const ValueLabel = styled.Text`
   font-style: normal;
 `;
 
+const Container = styled.View`
+  flex-flow: row;
+  margin-top: 30;
+  padding-horizontal: 16;
+  height: ${Platform.OS === 'ios' ? 64 : 75};
+  align-items: center;
+  justify-content: space-between;
+`;
+
 const BaseWalletHeader = ({
   headerValue,
   subHeaderValue,
@@ -28,19 +37,21 @@ const BaseWalletHeader = ({
 }) => {
   const main = (
     <View style={[{ width: '100%' }, style]}>
-      <View style={{ marginTop: 30, marginLeft: 16, height: 64 }}>
-        <ValueLabel size={34} color={'white'} onPress={headerOnPress} disabled={!headerOnPress}>
-          {headerValue}
-        </ValueLabel>
-        {backupHd}
-        <View style={{ flexDirection: 'row' }}>
-          <ValueLabel size={24}>{subHeaderValue}</ValueLabel>
-          <ValueLabel size={24} color={color}>
-            {percent ? ` (${percent}) ` : null}
+      <Container>
+        <View>
+          <ValueLabel size={34} color={'white'} onPress={headerOnPress} disabled={!headerOnPress}>
+            {headerValue}
           </ValueLabel>
+          {backupHd}
+          <View style={{ flexDirection: 'row' }}>
+            <ValueLabel size={24}>{subHeaderValue}</ValueLabel>
+            <ValueLabel size={24} color={color}>
+              {percent ? ` (${percent}) ` : null}
+            </ValueLabel>
+          </View>
         </View>
-        <View style={{ position: 'absolute', top: 0, right: 16 }}>{icon}</View>
-      </View>
+        <View>{icon}</View>
+      </Container>
       {children}
     </View>
   );
