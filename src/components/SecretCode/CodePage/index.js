@@ -6,7 +6,7 @@ import { lang } from '../lang';
 import CodeTable from './CodeTable';
 
 const Container = styled.View`
-  margin-top: 50;
+  margin-top: 46;
   margin-bottom: 50;
 `;
 
