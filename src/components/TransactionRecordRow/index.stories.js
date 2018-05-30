@@ -21,7 +21,7 @@ storiesOf('Transaction Record', module)
       showIcon
       coinCode="ETH"
       isSendOut
-      title="Send"
+      title="Receive red packet"
       amount="1000"
       messageTitle="To:"
       message="0x1jffsljflsdjflkjsdfklddjf"

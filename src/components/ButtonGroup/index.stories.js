@@ -22,7 +22,7 @@ const buttons = [
 storiesOf('ButtonGroup', module).add('default', () => (
   <View
     style={{
-      backgroundColor: 'blue',
+      backgroundColor: '#5C6C92',
       alignItems: 'stretch',
       justifyContent: 'center',
     }}

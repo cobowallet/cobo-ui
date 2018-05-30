@@ -2,7 +2,7 @@ const ButtonGroupTheme = {
   default: {
     buttonTextColor: '#ffffff',
     buttonDisableTextColor: '#8F95AA',
-    lineColor: 'rgba(210, 4, 96, 0.2)',
+    lineColor: 'rgba(235, 240, 245, 0.8)',
     containerColor: 'rgba(255, 255, 255, 0.15)',
   },
 };

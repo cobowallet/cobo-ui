@@ -7,11 +7,11 @@ import { lang } from '../lang';
 import CBButton from '../../Core/CBButton/index';
 
 const Container = styled.View`
-  margin-top: 64;
+  margin-top: 62;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50;
+  margin-bottom: 46;
 `;
 
 const Body = (
