@@ -49,7 +49,7 @@ export const ToggleArea = styled.TouchableOpacity`
 `;
 
 export const CoinCodeText = styled(CBText)`
-  font-weight: 800;
+  font-weight: 700;
   color: ${props => props.theme.CoinCodeColor};
 `;
 

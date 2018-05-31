@@ -5,7 +5,7 @@ import AggrementContent from './index';
 
 storiesOf('AggrementContent', module).add('default', () => (
   <AggrementContent
-    source={{ uri: 'http://192.168.1.42:8888/internal/des/pp/hd' }}
+    source={{ uri: 'https://www.baidu.com' }}
     acceptHint={'I accept Cobo Privacy Policy and Term of Service.'}
     continueTitle={'Continue'}
     onContinuePress={() => {
