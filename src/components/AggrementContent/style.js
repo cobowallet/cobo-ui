@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { DeviceInfo } from 'react-native';
-import { MaterialIcons, Feather } from '../../icons';
+import { CircleCheck } from '../../icons';
 import { CBText, CBButton, CBContainer } from '../Core';
 
 const iPhoneX = DeviceInfo.isIPhoneX_deprecated;
@@ -37,6 +37,7 @@ const AcceptContainer = styled.TouchableOpacity`
 `;
 
 const AcceptText = styled(CBText)`
+  flex: 1;
   color: ${props => props.theme.acceptTextColor};
 `;
 
@@ -46,7 +47,6 @@ const ContinueButton = styled(CBButton)`
 
 const CheckIconContainer = styled.View`
   margin-right: 8;
-  margin-top: -2;
 `;
 
 export const renderBottom = ({
@@ -61,9 +61,9 @@ export const renderBottom = ({
       <AcceptContainer onPress={onAcceptPress}>
         <CheckIconContainer>
           {accept ? (
-            <MaterialIcons name="check-circle" size={20} color="#3A5ADB" />
+            <CircleCheck checked style={{ width: 20, height: 20 }} />
           ) : (
-            <Feather name="circle" size={20} color="#8F95AA" />
+            <CircleCheck style={{ width: 20, height: 20 }} />
           )}
         </CheckIconContainer>
         <AcceptText>{acceptHint}</AcceptText>

@@ -105,7 +105,10 @@ const TransactionRecordRow = ({
           style={{ flex: 1, textAlign: 'right' }}
           numberOfLines={1}
         >{`${isSendOut ? '-' : '+'}${amount}`}</CBText>
-        <CBText color={isSendOut ? 'dark' : 'primary'}> {coinCode}</CBText>
+        <CBText superBold color={isSendOut ? 'dark' : 'primary'}>
+          {' '}
+          {coinCode}
+        </CBText>
       </Amount>
       {typeof extra === 'string' ? (
         <TimeText time={extra} style={{ marginTop: 7 }} />

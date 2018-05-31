@@ -54,6 +54,8 @@ import Exchange from './Exchange';
 import Eye from './Eye';
 import ChooseWalletArrow from './ChooseWalletArrow';
 import Reward from './Reward';
+import CircleCheck from './CircleCheck';
+import Search from './Search';
 
 export {
   FontAwesome,
@@ -116,4 +118,6 @@ export {
   Eye,
   ChooseWalletArrow,
   Reward,
+  CircleCheck,
+  Search,
 };

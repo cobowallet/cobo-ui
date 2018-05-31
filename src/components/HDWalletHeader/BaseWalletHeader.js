@@ -45,9 +45,9 @@ const BaseWalletHeader = ({
           {backupHd}
           <View style={{ flexDirection: 'row' }}>
             <ValueLabel size={24}>{subHeaderValue}</ValueLabel>
-            <ValueLabel size={24} color={color}>
+            {/* <ValueLabel size={24} color={color}>
               {percent ? ` (${percent}) ` : null}
-            </ValueLabel>
+            </ValueLabel> */}
           </View>
         </View>
         <View>{icon}</View>
