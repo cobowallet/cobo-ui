@@ -38,7 +38,7 @@ const Index = styled.Text`
 `;
 
 const CellInput = styled.TextInput`
-  font-size: 20;
+  font-size: 18;
   font-weight: 800;
   width: 80%;
   color: ${props => props.theme['codeColor']};
