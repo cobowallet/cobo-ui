@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 
 export default function ArrowRight({ style, type }) {
   const getSource = type => {
-    return type ? require(`./img/arrow-right-${type}.png`) : require('./img/arrow-right.png');
+    return type === 'setting'
+      ? require(`./img/arrow-right-setting.png`)
+      : require('./img/arrow-right.png');
   };
 
   return <Image style={style} source={getSource(type)} />;
