@@ -91,11 +91,20 @@ export default function WalletCard(props) {
             <Title>{title}</Title>
             {isOpen && (
               <AmountBox>
-                <CurrencyAmount>
-                  {props.currencySymbol}
-                  {new BigNumber(amount).toFormat(2)}
-                </CurrencyAmount>
-                <BTCAmount>{new BigNumber(amount / props.exchangeRate).toFormat(4)} BTC</BTCAmount>
+                {props.totalVisible ? (
+                  <CurrencyAmount>
+                    {props.currencySymbol}
+                    {new BigNumber(amount).toFormat(2)}
+                  </CurrencyAmount>
+                ) : (
+                  <CurrencyAmount>******</CurrencyAmount>
+                )}
+                <BTCAmount>
+                  {props.totalVisible
+                    ? new BigNumber(amount / props.exchangeRate).toFormat(4)
+                    : '******'}{' '}
+                  BTC
+                </BTCAmount>
               </AmountBox>
             )}
           </CardInfo>
@@ -111,6 +120,7 @@ export default function WalletCard(props) {
 }
 
 WalletCard.propTypes = {
+  totalVisible: PropTypes.bool.isRequired,
   exchangeRate: PropTypes.number.isRequired,
   currencySymbol: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,

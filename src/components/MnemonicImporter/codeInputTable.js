@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components/native';
 
 const chunk = (arr, size) =>
@@ -83,7 +83,9 @@ class CodeCell extends React.PureComponent {
               this.textInput = input;
             }}
             value={this.props.code.value}
-            onChangeText={text => this.props.onInputChange(this.props.code.index, text)}
+            onChangeText={text =>
+              this.props.onInputChange(this.props.code.index, text.toLowerCase())
+            }
             onKeyPress={e => this.props.onKeyPress(this.props.code.index, e.nativeEvent)}
           />
         </Content>

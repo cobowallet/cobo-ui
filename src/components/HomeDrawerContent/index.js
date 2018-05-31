@@ -10,10 +10,11 @@ const Container = styled.View`
   flex: 1;
 `;
 
-const WalletList = ({ wallets, onWalletPress, exchangeRate, currencySymbol }) =>
+const WalletList = ({ wallets, totalVisible, onWalletPress, exchangeRate, currencySymbol }) =>
   wallets.map((data, index) => (
     <WalletCard
       key={index}
+      totalVisible={totalVisible}
       exchangeRate={exchangeRate}
       currencySymbol={currencySymbol}
       onPress={onWalletPress}
@@ -51,6 +52,7 @@ const HomeDrawerContent = ({
 
         <WalletList
           wallets={wallets}
+          totalVisible={totalVisible}
           onWalletPress={onWalletPress}
           exchangeRate={btcExchangeRate}
           currencySymbol={currencySymbol}
