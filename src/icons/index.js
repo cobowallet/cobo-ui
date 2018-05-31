@@ -56,6 +56,7 @@ import ChooseWalletArrow from './ChooseWalletArrow';
 import Reward from './Reward';
 import CircleCheck from './CircleCheck';
 import Search from './Search';
+import AccountLevel from './AccountLevel';
 
 export {
   FontAwesome,
@@ -120,4 +121,5 @@ export {
   Reward,
   CircleCheck,
   Search,
+  AccountLevel,
 };
