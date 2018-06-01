@@ -8,7 +8,7 @@ class AssetCardTest extends PureComponent {
   getTestData = () => {
     return [
       {
-        coinCode: 'ETH',
+        coinCode: 'EOS',
         amount: '4.800',
         fiatCurrencyAmount: '5220.96',
         fiatCurrencySymbol: '$',
@@ -16,11 +16,17 @@ class AssetCardTest extends PureComponent {
         txList: [{ title: 'Received' }, { title: 'Sent' }],
       },
       {
-        coinCode: 'ETH',
+        coinCode: 'EOSDAC',
         amount: '4.800',
         fiatCurrencyAmount: '5220.96',
         fiatCurrencySymbol: '$',
         txList: [{ title: 'Received' }, { title: 'Sent' }],
+      },
+      {
+        coinCode: 'TRX',
+        amount: '4.800',
+        fiatCurrencyAmount: '5220.96',
+        fiatCurrencySymbol: '$',
       },
       {
         coinCode: 'ETH',
