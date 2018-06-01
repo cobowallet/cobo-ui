@@ -31,6 +31,8 @@ import HT from './img/ht.png';
 import Bibox from './img/bibox.png';
 import ADA from './img/ada.png';
 import Qtum from './img/qtum.png';
+import AISI from './img/AISI.png';
+import SEELE from './img/SEELE.png';
 
 export default {
   BTC,
@@ -72,4 +74,6 @@ export default {
   Qtum,
   TRON: TRX,
   TTRON: TRX,
+  AISI,
+  SEELE,
 };
