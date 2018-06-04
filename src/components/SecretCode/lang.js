@@ -58,14 +58,17 @@ export const lang = {
 
     confirmPage: {
       header: 'Please confirm Cobo Recovery Phrase',
-      descriptions: ['To ensure you have safely backup Recovery Phrase, please select the word at the following position.'],
+      descriptions: [
+        'To ensure you have safely backup Recovery Phrase, please select the word at the following position.',
+      ],
       buttonNormal: 'Next',
       buttonLast: 'Done',
     },
 
     modal: {
       header: 'Are you being watched',
-      description: 'No Screenshot! Anyone with the Receovery Phrase can gain full access to your associated funds. Please make sure no eyes around.',
+      description:
+        'No Screenshot! Anyone with the Receovery Phrase can gain full access to your associated funds. Please make sure no eyes around.',
       button: 'I have checked',
     },
   },

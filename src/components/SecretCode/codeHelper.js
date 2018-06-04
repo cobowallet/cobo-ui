@@ -1,4 +1,4 @@
-import { clone } from 'ramda';
+import { clone, range } from 'ramda';
 import englishWordList from 'bip39/wordlists/english.json';
 import chineseSimplifiedWordList from 'bip39/wordlists/chinese_simplified.json';
 import chineseTraditionalWordList from 'bip39/wordlists/chinese_traditional.json';
@@ -27,7 +27,7 @@ export const transformSecretCodeFormat = secretCode =>
 
 export const pickQuestionWords = (secretCode, questionNumber) => {
   const shuffledNewList = shuffle(secretCode);
-  return [...Array(questionNumber).keys()].map(eachIndex => shuffledNewList[eachIndex]);
+  return range(0, questionNumber).map(eachIndex => shuffledNewList[eachIndex]);
 };
 
 const EXPECT_LENGTH = 4;

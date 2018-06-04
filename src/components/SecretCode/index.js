@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components/native';
 import { ScrollView, Dimensions } from 'react-native';
+import { range } from 'ramda';
 import FrontPage from './FrontPage';
 import CodePage from './CodePage';
 import ConfirmPage from './ConfirmPage';
@@ -88,7 +89,7 @@ class SecretCode extends Component {
             goToConfirmOne={() => this.goToConfirmPage(2)}
             style={this.props.style}
           />
-          {[...Array(this.props.questionNumber).keys()].map(eachIndex => {
+          {range(0, this.props.questionNumber).map(eachIndex => {
             const onSuccess =
               eachIndex !== this.props.questionNumber - 1
                 ? () => this.goToConfirmPage(3 + eachIndex)
