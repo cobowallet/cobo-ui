@@ -10,16 +10,14 @@ const transferButtons = [
     onPress: () => action('onTransferout'),
     canPress: true,
     title: 'Transfer out',
-    renderImage: () => (
-      <Image style={{ width: 15, height: 15 }} source={require('../AccountCard/img/add.png')} />
-    ),
+    renderImage: () => <Image source={require('../../icons/SendIcon/img/financing-send.png')} />,
   },
   {
     onPress: () => action('onTransferin'),
     canPress: true,
     title: 'Transfer in',
     renderImage: () => (
-      <Image style={{ width: 15, height: 15 }} source={require('../AccountCard/img/add.png')} />
+      <Image source={require('../../icons/ReceiveIcon/img/financing-receive.png')} />
     ),
   },
 ];
@@ -75,10 +73,7 @@ storiesOf('Wallet Header', module)
           canPress: true,
           title: 'Receive',
           renderImage: () => (
-            <Image
-              style={{ width: 15, height: 15 }}
-              source={require('../AccountCard/img/add.png')}
-            />
+            <Image source={require('../../icons/SendIcon/img/financing-send.png')} />
           ),
         },
         {
@@ -86,10 +81,7 @@ storiesOf('Wallet Header', module)
           canPress: true,
           title: 'Send',
           renderImage: () => (
-            <Image
-              style={{ width: 15, height: 15 }}
-              source={require('../AccountCard/img/add.png')}
-            />
+            <Image source={require('../../icons/ReceiveIcon/img/financing-receive.png')} />
           ),
         },
       ]}

@@ -30,7 +30,7 @@ export const BottomContainer = styled.View`
 `;
 
 const Line = styled.View`
-  background-color: #ebf0f5;
+  background-color: rgba(235, 240, 245, 0.2);
   height: 30;
   width: 4;
   border-radius: 2;
@@ -72,9 +72,19 @@ export const DescriptionText = styled.Text`
   color: rgba(255, 255, 255, 0.6);
 `;
 
+export const Touchable = styled.TouchableOpacity`
+  flex: 1;
+  background-color: transparent;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: -2;
+`;
+
 export const ButtonText = styled.Text`
   margin-left: 12;
   font-size: 15;
+  margin-bottom: -2;
   color: ${props => (props.disabled ? '#8F95AA' : '#ffffff')};
 `;
 
@@ -94,21 +104,10 @@ export function renderButtons(buttons) {
     const { renderImage, title, onPress, canPress } = item;
     const dividerLine = <Line key={(index + buttons.length).toString()} />;
     const button = (
-      <TouchableOpacity
-        key={index.toString()}
-        onPress={onPress}
-        disabled={!canPress}
-        style={{
-          flex: 1,
-          backgroundColor: 'transparent',
-          flexDirection: 'row',
-          alignItems: 'stretch',
-          justifyContent: 'center',
-        }}
-      >
+      <Touchable key={index.toString()} onPress={onPress} disabled={!canPress}>
         {renderImage && renderImage()}
         <ButtonText disabled={!canPress}>{title}</ButtonText>
-      </TouchableOpacity>
+      </Touchable>
     );
     return index === 0 ? button : [dividerLine, button];
   });
