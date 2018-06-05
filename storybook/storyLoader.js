@@ -12,6 +12,7 @@ function loadStories() {
   require('../src/components/ButtonGroup/index.stories');
   require('../src/components/Core/CBGradientCard/index.stories');
   require('../src/components/Core/CBModal/index.stories');
+  require('../src/components/DefaultLeftButton/index.stories');
   require('../src/components/HDWalletHeader/index.stories');
   require('../src/components/HomeDrawerContent/index.stories');
   require('../src/components/HorizontalAssetRatio/index.stories');
@@ -41,6 +42,7 @@ const stories = [
   '../src/components/ButtonGroup/index.stories',
   '../src/components/Core/CBGradientCard/index.stories',
   '../src/components/Core/CBModal/index.stories',
+  '../src/components/DefaultLeftButton/index.stories',
   '../src/components/HDWalletHeader/index.stories',
   '../src/components/HomeDrawerContent/index.stories',
   '../src/components/HorizontalAssetRatio/index.stories',
