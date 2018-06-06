@@ -28,7 +28,10 @@ class ConfirmPage extends React.PureComponent {
       this.setState({
         clicked: '',
       });
-      this.props.regenerateQuestionAndNoise();
+      if (this.props.onFail) {
+        this.props.onFail();
+      }
+      setTimeout(() => this.props.regenerateQuestionAndNoise(), 1000);
     }
   };
 
