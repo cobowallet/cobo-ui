@@ -14,16 +14,11 @@ const Line = styled.View`
   height: 30;
   width: 4;
   border-radius: 2;
-  opacity: 0.2;
-`;
-
-const ButtonIcon = styled.View`
-  margin-top: -2;
 `;
 
 const ButtonText = styled(CBText)`
   margin-left: 12;
-  margin-bottom: -1;
+  margin-bottom: -2;
   color: ${props =>
     props.canPress ? props.theme.buttonTextColor : props.theme.buttonDisableTextColor};
 `;
@@ -34,6 +29,7 @@ const Touchable = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: -2;
 `;
 
 export function renderButtons(buttons) {
@@ -42,7 +38,7 @@ export function renderButtons(buttons) {
     const dividerLine = <Line key={(index + buttons.length).toString()} />;
     const button = (
       <Touchable key={index.toString()} onPress={onPress} disabled={!canPress}>
-        <ButtonIcon>{renderImage && renderImage()}</ButtonIcon>
+        {renderImage && renderImage()}
         <ButtonText canPress={canPress}>{title}</ButtonText>
       </Touchable>
     );

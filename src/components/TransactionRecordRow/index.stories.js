@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import styled from 'styled-components/native';
 import TransactionRecordRow from './index';
 
 storiesOf('Transaction Record', module)
@@ -9,7 +8,7 @@ storiesOf('Transaction Record', module)
       coinCode="ETH"
       isSendOut
       title="Send red packet"
-      amount="20"
+      amount="20.000000000000000000000000000"
       messageTitle="To:"
       message="Red packet"
       extra="2018/04/15"

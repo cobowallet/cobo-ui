@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+import { View } from 'react-native';
 import { CBText } from '../Core';
 import { SendIcon, ReceiveIcon, RewardIcon } from '../../icons';
 import TransactionStatus from '../TransactionStatus';
@@ -16,26 +17,24 @@ const Container = styled.TouchableOpacity`
   padding-bottom: 14;
 `;
 
-const RecordLeft = styled.View`
-  flex: 1;
-`;
-
-const RecordRight = styled.View`
-  flex: 1.8;
-  align-items: flex-end;
+const RecordInfo = styled.View`
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const MessageBox = styled.View`
-  margin-top: 7;
+  flex: 1;
   flex-flow: row;
   align-items: center;
+  padding-right: 80;
 `;
 
 const Icon = ({ isSendOut, action }) => {
   const styled = {
-    width: 42,
-    height: 42,
-    marginRight: 12,
+    width: 40,
+    height: 40,
+    marginRight: 8,
   };
 
   if (action === 'recv_pos_dividend') {
@@ -49,8 +48,16 @@ const Icon = ({ isSendOut, action }) => {
 };
 
 const Amount = styled.View`
+  flex: 1;
   flex-flow: row;
   align-items: center;
+  justify-content: flex-end;
+`;
+
+const CoinAmount = styled(CBText)`
+  flex: 1;
+  text-align: right;
+  padding-left: 20;
 `;
 
 const TimeText = ({ time, style }) => {
@@ -77,45 +84,33 @@ const TransactionRecordRow = ({
   <Container onPress={onPress} style={style}>
     {showIcon && <Icon isSendOut={isSendOut} action={action} />}
 
-    <RecordLeft>
-      <CBText bold color="dark">
-        {title}
-      </CBText>
-      <MessageBox>
-        <CBText small color="grayLight" style={{ marginRight: 2 }}>
-          {messageTitle}
+    <View style={{ flex: 1 }}>
+      <RecordInfo style={{ marginBottom: 7 }}>
+        <CBText bold color="dark">
+          {title}
         </CBText>
-        <CBText
-          small
-          color="grayLight"
-          numberOfLines={1}
-          ellipsizeMode={'middle'}
-          style={{ flex: 1 }}
-        >
-          {message}
-        </CBText>
-      </MessageBox>
-    </RecordLeft>
-
-    <RecordRight>
-      <Amount>
-        <CBText
-          superBold
-          color={isSendOut ? 'dark' : 'primary'}
-          style={{ flex: 1, textAlign: 'right' }}
-          numberOfLines={1}
-        >{`${isSendOut ? '-' : '+'}${amount}`}</CBText>
-        <CBText superBold color={isSendOut ? 'dark' : 'primary'}>
-          {' '}
-          {coinCode}
-        </CBText>
-      </Amount>
-      {typeof extra === 'string' ? (
-        <TimeText time={extra} style={{ marginTop: 7 }} />
-      ) : (
-        <TransactionStatus {...extra} style={{ marginTop: 7 }} />
-      )}
-    </RecordRight>
+        <Amount>
+          <CoinAmount superBold color={isSendOut ? 'dark' : 'primary'} numberOfLines={1}>{`${
+            isSendOut ? '-' : '+'
+          }${amount}`}</CoinAmount>
+          <CBText superBold color={isSendOut ? 'dark' : 'primary'}>
+            {' '}
+            {coinCode}
+          </CBText>
+        </Amount>
+      </RecordInfo>
+      <RecordInfo>
+        <MessageBox>
+          <CBText small color="grayLight" style={{ marginRight: 2 }}>
+            {messageTitle}
+          </CBText>
+          <CBText small color="grayLight" numberOfLines={1} ellipsizeMode={'middle'}>
+            {message}
+          </CBText>
+        </MessageBox>
+        {typeof extra === 'string' ? <TimeText time={extra} /> : <TransactionStatus {...extra} />}
+      </RecordInfo>
+    </View>
   </Container>
 );
 
