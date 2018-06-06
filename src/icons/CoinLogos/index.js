@@ -33,6 +33,7 @@ import ADA from './img/ada.png';
 import Qtum from './img/qtum.png';
 import AISI from './img/AISI.png';
 import SEELE from './img/SEELE.png';
+import IOTEX from './img/IOTEX.png';
 
 export default {
   BTC,
@@ -76,4 +77,5 @@ export default {
   TTRON: TRX,
   AISI,
   SEELE,
+  IOTEX,
 };
