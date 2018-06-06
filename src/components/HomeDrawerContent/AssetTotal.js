@@ -4,6 +4,7 @@ import { Platform, View, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { BigNumber } from 'bignumber.js';
 import { Eye } from '../../icons';
+import { CBText } from '../Core';
 
 const Container = styled.View`
   display: flex;
@@ -29,20 +30,17 @@ const CurrencyAmount = styled.Text`
   font-size: 24;
   color: #000;
   margin-right: 6;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
 `;
 
-const CurrencyText = styled.Text`
-  font-size: 13;
-  color: #8f95aa;
+const CurrencyText = styled(CBText)`
   padding-bottom: 4;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
 `;
 
 const BTCAmount = styled.Text`
   font-size: 16;
   color: rgba(143, 149, 170, 0.5);
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
 `;
 
 export default function AssetTotal(props) {
@@ -62,7 +60,7 @@ export default function AssetTotal(props) {
           <CurrencyAmount>
             {totalVisible ? `${currencySymbol}${new BigNumber(amount).toFormat(2)}` : '******'}
           </CurrencyAmount>
-          <CurrencyText>
+          <CurrencyText small bold color="grayLight">
             {title}({currencyName})
           </CurrencyText>
         </CurrencyContanier>

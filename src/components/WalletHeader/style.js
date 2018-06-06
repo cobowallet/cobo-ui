@@ -45,7 +45,7 @@ export const CoinText = styled.Text`
   color: white;
   font-weight: bold;
   font-size: 32;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
 `;
 
 export const CurrencyText = styled.Text`
@@ -53,7 +53,7 @@ export const CurrencyText = styled.Text`
   font-weight: bold;
   font-size: 24;
   margin-top: 4;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
 `;
 
 export const Description = styled.View`
