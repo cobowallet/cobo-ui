@@ -25,7 +25,7 @@ const Title = styled.Text`
   font-size: 14;
   color: #000;
   margin-bottom: 2;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-weight: 600;
 `;
 
 const SubTitle = styled.Text`

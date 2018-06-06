@@ -8,8 +8,7 @@ import PropTypes from 'prop-types';
 const ValueLabel = styled.Text`
   color: ${props => props.color || 'white'};
   font-size: ${props => props.size};
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
-  font-style: normal;
+  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
 `;
 
 const Container = styled.View`
@@ -17,7 +16,7 @@ const Container = styled.View`
   margin-top: 30;
   padding-horizontal: 16;
   height: ${Platform.OS === 'ios' ? 64 : 75};
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 `;
 
@@ -50,7 +49,7 @@ const BaseWalletHeader = ({
             </ValueLabel> */}
           </View>
         </View>
-        <View>{icon}</View>
+        <View style={{ paddingTop: 2 }}>{icon}</View>
       </Container>
       {children}
     </View>

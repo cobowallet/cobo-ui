@@ -34,10 +34,8 @@ const CardInfo = styled.View`
 `;
 
 const Title = styled(CBText)`
-  color: #000;
   margin-top: 5;
   margin-bottom: 4;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
 `;
 
 const AmountBox = styled.View`
@@ -49,13 +47,13 @@ const CurrencyAmount = styled.Text`
   font-size: 12;
   color: #adb3c9;
   margin-right: 12;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-weight: 600;
 `;
 
 const BTCAmount = styled.Text`
   font-size: 12;
   color: #adb3c9;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-weight: 600;
 `;
 
 const Button = styled(TouchableOpacity)`
@@ -72,7 +70,7 @@ const Button = styled(TouchableOpacity)`
 const ButtonText = styled.Text`
   font-size: 10;
   color: #3a5adb;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro'};
+  font-weight: 600;
 `;
 
 export default function WalletCard(props) {
@@ -88,7 +86,9 @@ export default function WalletCard(props) {
         <CardContent>
           <AssetWalletLogo type={type} style={{ width: 40 }} />
           <CardInfo>
-            <Title>{title}</Title>
+            <Title bold color={selected ? 'dark' : 'grayLight'}>
+              {title}
+            </Title>
             {isOpen && (
               <AmountBox>
                 {props.totalVisible ? (
