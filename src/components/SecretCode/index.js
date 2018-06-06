@@ -116,6 +116,7 @@ class SecretCode extends Component {
                     : 0
                 }
                 onSuccess={onSuccess}
+                onFail={this.props.onFail}
                 regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
                 style={this.props.style}
               />
@@ -139,6 +140,7 @@ SecretCode.propTypes = {
   secretWords: PropTypes.arrayOf(PropTypes.string).isRequired,
   onSuccess: PropTypes.func,
   onCancel: PropTypes.func,
+  onFail: PropTypes.func,
   theme: PropTypes.string,
   questionNumber: PropTypes.number,
   style: PropTypes.object,
@@ -148,6 +150,7 @@ SecretCode.defaultProps = {
   locale: 'zh',
   onSuccess: () => {},
   onCancel: () => {},
+  onFail: () => {},
   theme: 'dark',
   questionNumber: 2,
   style: {},
