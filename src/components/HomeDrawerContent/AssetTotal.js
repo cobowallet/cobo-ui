@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Platform, View, TouchableOpacity } from 'react-native';
+import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 import { BigNumber } from 'bignumber.js';
 import { Eye } from '../../icons';
@@ -10,13 +10,15 @@ const Container = styled.View`
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: space-between;
   padding-vertical: 20;
-  padding-right: 20;
   margin-left: 16;
   margin-bottom: 28;
   border-bottom-width: 1;
   border-bottom-color: rgba(137, 148, 198, 0.1);
+`;
+
+const Content = styled.View`
+  flex: 1;
 `;
 
 const CurrencyContanier = styled.View`
@@ -43,6 +45,12 @@ const BTCAmount = styled.Text`
   font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
 `;
 
+const Touchable = styled.TouchableOpacity`
+  padding-left: 16;
+  padding-right: 16;
+  padding-vertical: 16;
+`;
+
 export default function AssetTotal(props) {
   const {
     title,
@@ -55,7 +63,7 @@ export default function AssetTotal(props) {
   } = props;
   return (
     <Container>
-      <View>
+      <Content>
         <CurrencyContanier>
           <CurrencyAmount>
             {totalVisible ? `${currencySymbol}${new BigNumber(amount).toFormat(2)}` : '******'}
@@ -65,12 +73,12 @@ export default function AssetTotal(props) {
           </CurrencyText>
         </CurrencyContanier>
         <BTCAmount>
-          {totalVisible ? `= ${new BigNumber(amount / exchangeRate).toFormat(4)}` : '******'} BTC
+          {totalVisible ? `= ${new BigNumber(amount).div(exchangeRate).toFormat(4)}` : '******'} BTC
         </BTCAmount>
-      </View>
-      <TouchableOpacity onPress={onPress}>
+      </Content>
+      <Touchable onPress={onPress}>
         <Eye />
-      </TouchableOpacity>
+      </Touchable>
     </Container>
   );
 }

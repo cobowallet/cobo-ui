@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { default as styled, ThemeProvider } from 'styled-components/native';
+import { BigNumber } from 'bignumber.js';
 import MyTheme from './theme';
 import AssetTotal from './AssetTotal';
 import WalletCard from './WalletCard';
@@ -10,7 +11,14 @@ const Container = styled.View`
   flex: 1;
 `;
 
-const WalletList = ({ wallets, totalVisible, onWalletPress, exchangeRate, currencySymbol }) =>
+const WalletList = ({
+  wallets,
+  totalVisible,
+  onWalletPress,
+  exchangeRate,
+  currencySymbol,
+  createNowTitle,
+}) =>
   wallets.map((data, index) => (
     <WalletCard
       key={index}
@@ -19,6 +27,7 @@ const WalletList = ({ wallets, totalVisible, onWalletPress, exchangeRate, curren
       currencySymbol={currencySymbol}
       onPress={onWalletPress}
       data={data}
+      createNowTitle={createNowTitle}
     />
   ));
 
@@ -32,10 +41,15 @@ const HomeDrawerContent = ({
   wallets,
   onWalletPress,
   theme,
+  createNowTitle,
 }) => {
   const totalAmount = wallets
     .map(item => item.amount)
-    .reduce((accumulator, currentValue) => accumulator + currentValue);
+    .reduce(
+      (accumulator, currentValue) =>
+        new BigNumber(accumulator).plus(new BigNumber(currentValue)).toString(),
+      new BigNumber(0)
+    );
 
   return (
     <ThemeProvider theme={MyTheme[theme]}>
@@ -56,6 +70,7 @@ const HomeDrawerContent = ({
           onWalletPress={onWalletPress}
           exchangeRate={btcExchangeRate}
           currencySymbol={currencySymbol}
+          createNowTitle={createNowTitle}
         />
       </Container>
     </ThemeProvider>
@@ -69,7 +84,7 @@ HomeDrawerContent.propTypes = {
   btcExchangeRate: PropTypes.number.isRequired,
   totalVisible: PropTypes.bool.isRequired,
   onTotalVisiblePress: PropTypes.func.isRequired,
-
+  createNowTitle: PropTypes.string,
   wallets: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired,
@@ -87,6 +102,7 @@ HomeDrawerContent.propTypes = {
 HomeDrawerContent.defaultProps = {
   theme: 'default',
   btcExchangeRate: 1,
+  createNowTitle: '立即开通',
 };
 
 export default HomeDrawerContent;

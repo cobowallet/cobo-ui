@@ -101,7 +101,7 @@ export default function WalletCard(props) {
                 )}
                 <BTCAmount>
                   {props.totalVisible
-                    ? new BigNumber(amount / props.exchangeRate).toFormat(4)
+                    ? new BigNumber(amount).div(props.exchangeRate).toFormat(4)
                     : '******'}{' '}
                   BTC
                 </BTCAmount>
@@ -111,7 +111,7 @@ export default function WalletCard(props) {
         </CardContent>
         {!isOpen && (
           <Button onPress={() => props.onPress(type)}>
-            <ButtonText>立即开通</ButtonText>
+            <ButtonText>{props.createNowTitle}</ButtonText>
           </Button>
         )}
       </Card>
@@ -131,4 +131,9 @@ WalletCard.propTypes = {
     isOpen: PropTypes.bool,
     selected: PropTypes.bool,
   }).isRequired,
+  createNowTitle: PropTypes.string,
+};
+
+WalletCard.defaultProps = {
+  createNowTitle: '立即开通',
 };
