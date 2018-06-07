@@ -59,6 +59,7 @@ import Search from './Search';
 import AccountLevel from './AccountLevel';
 import CheckSimple from './CheckSimple';
 import Passport from './Passport';
+import Vote from './Vote';
 
 export {
   FontAwesome,
@@ -126,4 +127,5 @@ export {
   AccountLevel,
   CheckSimple,
   Passport,
+  Vote,
 };
