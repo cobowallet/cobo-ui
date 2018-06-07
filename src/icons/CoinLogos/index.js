@@ -77,5 +77,5 @@ export default {
   TTRON: TRX,
   AISI,
   SEELE,
-  IOTEX,
+  IOTX: IOTEX,
 };
