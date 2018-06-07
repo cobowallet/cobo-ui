@@ -16,7 +16,7 @@ class AssetWalletHeader extends React.PureComponent {
     const valueMap = {
       0: this.props.fiatCurrencyValue,
       1: this.props.BTCValue,
-      2: '********',
+      2: this.props.hiddenValue,
     };
 
     return valueMap[this.state.unitIndex] || this.props.fiatCurrencyValue;
@@ -54,7 +54,7 @@ class AssetWalletHeader extends React.PureComponent {
           headerValue={this.getValue()}
           icon={this.renderIcon()}
           backupHd={this.renderBackupHd()}
-          headerOnPress={this.onHeaderClick}
+          headerOnPress={this.props.canClickHeaderValue ? this.onHeaderClick : null}
           children={this.props.children}
           style={this.props.style}
           transparent={this.props.transparent}
@@ -75,6 +75,8 @@ AssetWalletHeader.propTypes = {
   theme: PropTypes.string,
   style: PropTypes.any,
   transparent: PropTypes.bool,
+  hiddenValue: PropTypes.string,
+  canClickHeaderValue: PropTypes.bool,
 };
 
 AssetWalletHeader.defaultProps = {
@@ -82,6 +84,8 @@ AssetWalletHeader.defaultProps = {
   theme: 'default',
   style: {},
   transparent: false,
+  hiddenValue: '********',
+  canClickHeaderValue: true,
 };
 
 export default AssetWalletHeader;
