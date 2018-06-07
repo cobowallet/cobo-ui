@@ -84,8 +84,8 @@ export default function AssetTotal(props) {
 }
 AssetTotal.propTypes = {
   title: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
-  exchangeRate: PropTypes.number.isRequired,
+  amount: PropTypes.string.isRequired,
+  exchangeRate: PropTypes.string.isRequired,
   currencySymbol: PropTypes.string.isRequired,
   currencyName: PropTypes.string.isRequired,
   totalVisible: PropTypes.bool.isRequired,
