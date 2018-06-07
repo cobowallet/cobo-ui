@@ -121,13 +121,13 @@ export default function WalletCard(props) {
 
 WalletCard.propTypes = {
   totalVisible: PropTypes.bool.isRequired,
-  exchangeRate: PropTypes.number.isRequired,
+  exchangeRate: PropTypes.string.isRequired,
   currencySymbol: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
   data: PropTypes.shape({
     type: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    amount: PropTypes.number.isRequired,
+    amount: PropTypes.string.isRequired,
     isOpen: PropTypes.bool,
     selected: PropTypes.bool,
   }).isRequired,

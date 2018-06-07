@@ -81,7 +81,7 @@ HomeDrawerContent.propTypes = {
   assetTitle: PropTypes.string.isRequired,
   currencySymbol: PropTypes.string.isRequired,
   currencyName: PropTypes.string.isRequired,
-  btcExchangeRate: PropTypes.number.isRequired,
+  btcExchangeRate: PropTypes.string.isRequired,
   totalVisible: PropTypes.bool.isRequired,
   onTotalVisiblePress: PropTypes.func.isRequired,
   createNowTitle: PropTypes.string,
@@ -89,7 +89,7 @@ HomeDrawerContent.propTypes = {
     PropTypes.shape({
       type: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      amount: PropTypes.number.isRequired,
+      amount: PropTypes.string.isRequired,
       isOpen: PropTypes.bool,
       selected: PropTypes.bool,
     })
