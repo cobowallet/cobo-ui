@@ -10,7 +10,7 @@ import { ButtonColors, FontColors } from '../../../theme/CBColor';
 
 const Container = styled.View`
   margin-top: 50;
-  margin-bottom: 160;
+  margin-bottom: 120;
 `;
 
 class ConfirmPage extends React.PureComponent {
