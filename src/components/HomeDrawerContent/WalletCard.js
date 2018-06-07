@@ -57,7 +57,8 @@ const BTCAmount = styled.Text`
 `;
 
 const Button = styled(TouchableOpacity)`
-  width: 60;
+  padding-right: 5;
+  padding-left: 5;
   height: 30;
   display: flex;
   align-items: center;
