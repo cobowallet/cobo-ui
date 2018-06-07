@@ -24,20 +24,36 @@ class AggrementContent extends React.PureComponent {
   };
 
   onLoad = () => {
-    this.setState({
-      webLoadSuccess: true,
-    });
+    this.setState(
+      {
+        webLoadSuccess: true,
+      },
+      () => {
+        if (this.props.onLoad) {
+          this.props.onLoad();
+        }
+      }
+    );
   };
 
   render() {
     const { accept, webLoadSuccess } = this.state;
-    const { source, acceptHint, continueTitle, onContinuePress, style, theme } = this.props;
+    const {
+      source,
+      acceptHint,
+      continueTitle,
+      onContinuePress,
+      style,
+      theme,
+      ...otherWebProps
+    } = this.props;
     return (
       <ThemeProvider theme={AggrementTheme[theme] || AggrementTheme.default}>
         <Container style={style}>
           <Web
-            source={source}
             mixedContentMode={'compatibility'}
+            {...otherWebProps}
+            source={source}
             onError={this.onError}
             onLoad={this.onLoad}
           />
@@ -61,6 +77,7 @@ AggrementContent.propTypes = {
   continueTitle: PropTypes.string.isRequired,
   onContinuePress: PropTypes.func.isRequired,
   onError: PropTypes.func,
+  onLoad: PropTypes.func,
   theme: PropTypes.string,
   style: PropTypes.any,
 };
@@ -71,7 +88,8 @@ AggrementContent.defaultProps = {
   continueTitle: 'Continue',
   theme: 'default',
   style: {},
-  onError: () => null,
+  onError: null,
+  onLoad: null,
 };
 
 export default AggrementContent;
