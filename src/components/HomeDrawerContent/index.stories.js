@@ -10,7 +10,7 @@ const props = {
   currencyName: 'USD',
   btcExchangeRate: 1,
   onTotalVisiblePress: action('click'),
-
+  createNowTitle: '立即开通',
   wallets: [
     {
       type: 'CLOUD',
