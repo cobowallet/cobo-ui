@@ -61,7 +61,7 @@ const FrontPagePanel = ({
         </View>
         <CBButton
           style={{
-            marginTop: 63,
+            marginTop: 53,
             backgroundColor: theme['buttonBackgroundColor'],
           }}
           textColor={theme['buttonTextColor']}

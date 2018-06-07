@@ -58,6 +58,7 @@ import CircleCheck from './CircleCheck';
 import Search from './Search';
 import AccountLevel from './AccountLevel';
 import CheckSimple from './CheckSimple';
+import Passport from './Passport';
 
 export {
   FontAwesome,
@@ -124,4 +125,5 @@ export {
   Search,
   AccountLevel,
   CheckSimple,
+  Passport,
 };
