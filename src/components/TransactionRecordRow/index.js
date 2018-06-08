@@ -27,7 +27,7 @@ const MessageBox = styled.View`
   flex: 1;
   flex-flow: row;
   align-items: center;
-  padding-right: 80;
+  padding-right: 120;
 `;
 
 const Icon = ({ isSendOut, action }) => {
@@ -104,7 +104,7 @@ const TransactionRecordRow = ({
           <CBText small color="grayLight" style={{ marginRight: 2 }}>
             {messageTitle}
           </CBText>
-          <CBText small color="grayLight" numberOfLines={1} ellipsizeMode={'middle'}>
+          <CBText small color="grayLight" numberOfLines={1}>
             {message}
           </CBText>
         </MessageBox>
