@@ -88,6 +88,7 @@ AssetCard.displayName = 'Asset Card';
 
 AssetCard.propTypes = {
   coinCode: PropTypes.string.isRequired,
+  displayCode: PropTypes.string,
   iconUrl: PropTypes.string,
   amount: PropTypes.string.isRequired,
   fiatCurrencyAmount: PropTypes.string.isRequired,
