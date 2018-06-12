@@ -76,6 +76,7 @@ const TransactionRecordRow = ({
   messageTitle,
   message,
   coinCode,
+  displayCode,
   action,
   extra,
   style,
@@ -95,7 +96,7 @@ const TransactionRecordRow = ({
           }${amount}`}</CoinAmount>
           <CBText superBold color={isSendOut ? 'dark' : 'primary'}>
             {' '}
-            {coinCode}
+            {displayCode || coinCode}
           </CBText>
         </Amount>
       </RecordInfo>
@@ -122,6 +123,7 @@ TransactionRecordRow.propTypes = {
   messageTitle: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   coinCode: PropTypes.string.isRequired,
+  displayCode: PropTypes.string,
   action: PropTypes.string,
   extra: PropTypes.oneOfType([
     PropTypes.shape({
