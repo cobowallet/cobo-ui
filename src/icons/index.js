@@ -60,6 +60,7 @@ import AccountLevel from './AccountLevel';
 import CheckSimple from './CheckSimple';
 import Passport from './Passport';
 import Vote from './Vote';
+import AddressNotExists from './AddressNotExists';
 
 export {
   FontAwesome,
@@ -128,4 +129,5 @@ export {
   CheckSimple,
   Passport,
   Vote,
+  AddressNotExists,
 };
