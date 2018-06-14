@@ -24,6 +24,7 @@ function loadStories() {
   require('../src/components/QRCode/index.stories');
   require('../src/components/RewardBadge/index.stories');
   require('../src/components/SecretCode/index.stories');
+  require('../src/components/SuccessAnimation/index.stories');
   require('../src/components/TransactionRecordRow/index.stories');
   require('../src/components/TransactionStatus/index.stories');
   require('../src/components/WalletButtonGroup/index.stories');
@@ -54,6 +55,7 @@ const stories = [
   '../src/components/QRCode/index.stories',
   '../src/components/RewardBadge/index.stories',
   '../src/components/SecretCode/index.stories',
+  '../src/components/SuccessAnimation/index.stories',
   '../src/components/TransactionRecordRow/index.stories',
   '../src/components/TransactionStatus/index.stories',
   '../src/components/WalletButtonGroup/index.stories',
