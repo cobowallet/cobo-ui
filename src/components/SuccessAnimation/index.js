@@ -140,7 +140,7 @@ class SuccessAnimation extends React.Component {
                 stroke={'#5170EB'}
                 strokeWidth="3"
                 strokeLinecap={'round'}
-                strokeDasharray={[this.lengthInner, this.lengthInner + 1]}
+                strokeDasharray={[this.lengthInner, this.lengthInner + 2]}
                 strokeDashoffset={this.state.strokeDashoffsetInner}
               />
             </Svg>
