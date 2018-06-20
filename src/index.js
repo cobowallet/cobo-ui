@@ -27,3 +27,4 @@ export { default as AggrementContent } from './components/AggrementContent';
 export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as DefaultLeftButton } from './components/DefaultLeftButton';
 export { default as SuccessAnimation } from './components/SuccessAnimation';
+export { default as VoteHeader } from './components/VoteHeader';
