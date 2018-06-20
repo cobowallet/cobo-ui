@@ -61,6 +61,7 @@ import CheckSimple from './CheckSimple';
 import Passport from './Passport';
 import Vote from './Vote';
 import AddressNotExists from './AddressNotExists';
+import VoteDetailHeader from './VoteDetailHeader';
 
 export {
   FontAwesome,
@@ -131,4 +132,5 @@ export {
   Passport,
   Vote,
   AddressNotExists,
+  VoteDetailHeader,
 };
