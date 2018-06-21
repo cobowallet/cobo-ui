@@ -62,6 +62,7 @@ import Passport from './Passport';
 import Vote from './Vote';
 import AddressNotExists from './AddressNotExists';
 import VoteDetailHeader from './VoteDetailHeader';
+import DescendSort from './DescendSort';
 
 export {
   FontAwesome,
@@ -133,4 +134,5 @@ export {
   Vote,
   AddressNotExists,
   VoteDetailHeader,
+  DescendSort,
 };
