@@ -73,6 +73,11 @@ const BackgroundContent = styled.View`
   align-items: stretch;
 `;
 
+const VoteDetailHeaderImage = styled(VoteDetailHeader)`
+  width: 100%;
+  height: 100%;
+`;
+
 export const renderLogo = (logoUrl, coin) => {
   const hasUrl = logoUrl && logoUrl.length > 0;
   return (
@@ -91,7 +96,7 @@ export const renderLogo = (logoUrl, coin) => {
 export const renderBackground = url => {
   return (
     <BackgroundContent>
-      <VoteDetailHeader uri={url} />
+      <VoteDetailHeaderImage uri={url} />
     </BackgroundContent>
   );
 };
