@@ -78,4 +78,6 @@ export default {
   AISI,
   SEELE,
   IOTX: IOTEX,
+  EOS_EOS: EOS,
+  TEOS_EOS: EOS,
 };
