@@ -45,6 +45,7 @@ class RewardCard extends React.PureComponent {
       displayCode,
       slogan,
       earned,
+      earnedText,
       joinText,
       paidInfo,
       readmoreText,
@@ -73,6 +74,7 @@ class RewardCard extends React.PureComponent {
             displayCode={displayCode}
             slogan={slogan}
             earned={earned}
+            earnedText={earnedText}
             buttonText={joinText}
             onButtonPress={onJoinPress}
           />
@@ -129,6 +131,7 @@ RewardCard.propTypes = {
   displayCode: PropTypes.string.isRequired,
   slogan: PropTypes.string.isRequired,
   earned: PropTypes.string.isRequired,
+  earnedText: PropTypes.string.isRequired,
   joinText: PropTypes.string.isRequired,
   paidInfo: PropTypes.string.isRequired,
   readmoreText: PropTypes.string.isRequired,

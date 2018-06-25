@@ -11,6 +11,7 @@ storiesOf('RewardCard', module).add('default', () => (
       displayCode="LBTC"
       slogan="300%+ Yearly"
       earned="12.32479"
+      earnedText="earned"
       joinText="Join now"
       paidInfo="Pay at 8:00 daily"
       readmoreText="Read more"

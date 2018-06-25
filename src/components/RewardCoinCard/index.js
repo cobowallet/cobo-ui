@@ -13,6 +13,7 @@ export default function RewardCoinCard({
   displayCode,
   slogan,
   earned,
+  earnedText,
   buttonText,
   onButtonPress,
 }) {
@@ -40,7 +41,9 @@ export default function RewardCoinCard({
           >
             {earned}
           </Balance>
-          <RewardMode>{displayCode || coinCode} earned</RewardMode>
+          <RewardMode>
+            {displayCode || coinCode} {earnedText}
+          </RewardMode>
         </View>
       ) : (
         <TouchableOpacity onPress={onButtonPress}>
@@ -68,6 +71,7 @@ RewardCoinCard.propTypes = {
   displayCode: PropTypes.string.isRequired,
   slogan: PropTypes.string.isRequired,
   earned: PropTypes.string.isRequired,
+  earnedText: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   onButtonPress: PropTypes.func.isRequired,
 };

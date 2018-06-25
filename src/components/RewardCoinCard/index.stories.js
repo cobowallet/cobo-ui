@@ -8,8 +8,9 @@ storiesOf('RewardCoinCard', module).add('default', () => (
     <RewardCoinCard
       coinCode="LBTC"
       displayCode="LBTC"
-      slogan="300% Yearly"
+      slogan="300%+ Yearly"
       earned="12.327938"
+      earnedText="earned"
       buttonText="Join now"
       onButtonPress={() => {
         console.log('press');
