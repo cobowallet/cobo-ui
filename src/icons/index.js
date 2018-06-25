@@ -63,6 +63,8 @@ import Vote from './Vote';
 import AddressNotExists from './AddressNotExists';
 import VoteDetailHeader from './VoteDetailHeader';
 import DescendSort from './DescendSort';
+import Clock from './Clock';
+import ArrowRightBlue from './ArrowRightBlue';
 
 export {
   FontAwesome,
@@ -135,4 +137,6 @@ export {
   AddressNotExists,
   VoteDetailHeader,
   DescendSort,
+  Clock,
+  ArrowRightBlue,
 };
