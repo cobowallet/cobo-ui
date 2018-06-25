@@ -43,8 +43,7 @@ class RewardCard extends React.PureComponent {
       isOpen,
       coinCode,
       displayCode,
-      reward,
-      yearly,
+      slogan,
       earned,
       joinText,
       paidInfo,
@@ -72,8 +71,7 @@ class RewardCard extends React.PureComponent {
             isOpen={isOpen}
             coinCode={coinCode}
             displayCode={displayCode}
-            reward={reward}
-            yearly={yearly}
+            slogan={slogan}
             earned={earned}
             buttonText={joinText}
             onButtonPress={onJoinPress}
@@ -129,8 +127,7 @@ RewardCard.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   coinCode: PropTypes.string.isRequired,
   displayCode: PropTypes.string.isRequired,
-  reward: PropTypes.string.isRequired,
-  yearly: PropTypes.string.isRequired,
+  slogan: PropTypes.string.isRequired,
   earned: PropTypes.string.isRequired,
   joinText: PropTypes.string.isRequired,
   paidInfo: PropTypes.string.isRequired,

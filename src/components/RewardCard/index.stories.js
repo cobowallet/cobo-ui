@@ -9,8 +9,7 @@ storiesOf('RewardCard', module).add('default', () => (
       isOpen
       coinCode="LBTC"
       displayCode="LBTC"
-      reward="300%"
-      yearly="yearly"
+      slogan="300%+ Yearly"
       earned="12.32479"
       joinText="Join now"
       paidInfo="Pay at 8:00 daily"

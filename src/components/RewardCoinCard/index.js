@@ -11,8 +11,7 @@ export default function RewardCoinCard({
   isOpen,
   coinCode,
   displayCode,
-  reward,
-  yearly,
+  slogan,
   earned,
   buttonText,
   onButtonPress,
@@ -22,15 +21,12 @@ export default function RewardCoinCard({
       <CoinInfo>
         <CoinLogo source={coins[coinCode]} />
         <View>
-          <CBText superBold style={{ marginBottom: 4 }}>
+          <CBText superBold style={{ marginBottom: 7 }}>
             {displayCode || coinCode}
           </CBText>
-          <View style={{ flexDirection: 'row' }}>
-            <CBText superBold color="blue" style={{ marginRight: 5 }}>
-              {reward}+
-            </CBText>
-            <CBText color="grayLight">{yearly}</CBText>
-          </View>
+          <CBText small superBold color="blue">
+            {slogan}
+          </CBText>
         </View>
       </CoinInfo>
       {isOpen ? (
@@ -70,8 +66,7 @@ RewardCoinCard.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   coinCode: PropTypes.string.isRequired,
   displayCode: PropTypes.string.isRequired,
-  reward: PropTypes.string.isRequired,
-  yearly: PropTypes.string.isRequired,
+  slogan: PropTypes.string.isRequired,
   earned: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   onButtonPress: PropTypes.func.isRequired,
