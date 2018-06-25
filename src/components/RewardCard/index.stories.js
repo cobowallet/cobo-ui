@@ -13,6 +13,7 @@ storiesOf('RewardCard', module).add('default', () => (
       earned="12.32479"
       earnedText="earned"
       joinText="Join now"
+      paidText="Payment day"
       paidInfo="Pay at 8:00 daily"
       readmoreText="Read more"
       rulesText="Rules"
