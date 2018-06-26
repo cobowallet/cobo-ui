@@ -29,3 +29,4 @@ export { default as DefaultLeftButton } from './components/DefaultLeftButton';
 export { default as SuccessAnimation } from './components/SuccessAnimation';
 export { default as VoteHeader } from './components/VoteHeader';
 export { default as BrowseIcon } from './components/Browse';
+export { default as RewardCard } from './components/RewardCard';
