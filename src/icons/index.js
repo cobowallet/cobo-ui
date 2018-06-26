@@ -65,6 +65,9 @@ import VoteDetailHeader from './VoteDetailHeader';
 import DescendSort from './DescendSort';
 import Clock from './Clock';
 import ArrowRightBlue from './ArrowRightBlue';
+import Browse from './Browse';
+import Wallet from './Wallet';
+import ExchangeWallet from './ExchangeWallet';
 
 export {
   FontAwesome,
@@ -139,4 +142,7 @@ export {
   DescendSort,
   Clock,
   ArrowRightBlue,
+  Browse,
+  Wallet,
+  ExchangeWallet,
 };
