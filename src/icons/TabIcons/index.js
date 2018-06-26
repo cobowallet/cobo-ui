@@ -18,7 +18,7 @@ export const AssetsTab = ({ focused }) => (
 );
 
 export const RewardTab = ({ focused }) => (
-  <Image style={{ marginBottom: 3 }} source={focused ? RewardActive : Reward} />
+  <Image style={{ marginBottom: 0 }} source={focused ? RewardActive : Reward} />
 );
 
 export const MarketTab = ({ focused }) => (
