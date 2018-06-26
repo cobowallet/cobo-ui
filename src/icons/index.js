@@ -63,6 +63,9 @@ import Vote from './Vote';
 import AddressNotExists from './AddressNotExists';
 import VoteDetailHeader from './VoteDetailHeader';
 import DescendSort from './DescendSort';
+import Browse from './Browse';
+import Wallet from './Wallet';
+import ExchangeWallet from './ExchangeWallet';
 
 export {
   FontAwesome,
@@ -135,4 +138,7 @@ export {
   AddressNotExists,
   VoteDetailHeader,
   DescendSort,
+  Browse,
+  Wallet,
+  ExchangeWallet,
 };

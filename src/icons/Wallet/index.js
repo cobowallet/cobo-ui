@@ -3,7 +3,16 @@ import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
 function Wallet({ style, size = '1' }) {
-  return <Image style={style} source={require(`./img/wallet@${size}x.png`)} />;
+  switch (size) {
+    case '1':
+      return <Image style={style} source={require(`./img/wallet1x.png`)} />;
+    case '2':
+      return <Image style={style} source={require(`./img/wallet2x.png`)} />;
+    case '3':
+      return <Image style={style} source={require(`./img/wallet3x.png`)} />;
+    default:
+      return null;
+  }
 }
 
 Wallet.propTypes = {
