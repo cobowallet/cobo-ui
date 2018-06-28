@@ -102,22 +102,23 @@ class RewardCard extends React.PureComponent {
               </ReadMore>
             </Rules>
           )}
-          {unfolded && (
-            <TagsContainer>
-              {tags.map((tag, i) => {
-                return (
-                  <Tag key={i}>
-                    <TagDot />
-                    <TagText>{tag}</TagText>
-                  </Tag>
-                );
-              })}
-              <RuleButton onPress={onRulesButtonPress}>
-                <TagText canPress>{viewRulesText}</TagText>
-                <ArrowRightBlue style={{ marginLeft: 4 }} />
-              </RuleButton>
-            </TagsContainer>
-          )}
+          {!isOpen &&
+            unfolded && (
+              <TagsContainer>
+                {tags.map((tag, i) => {
+                  return (
+                    <Tag key={i}>
+                      <TagDot />
+                      <TagText>{tag}</TagText>
+                    </Tag>
+                  );
+                })}
+                <RuleButton onPress={onRulesButtonPress}>
+                  <TagText canPress>{viewRulesText}</TagText>
+                  <ArrowRightBlue style={{ marginLeft: 4 }} />
+                </RuleButton>
+              </TagsContainer>
+            )}
         </Container>
       </ShadowContainer>
     );
