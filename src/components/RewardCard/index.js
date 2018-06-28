@@ -7,6 +7,7 @@ import RewardCionCard from '../RewardCoinCard';
 
 import {
   Container,
+  ShadowContainer,
   LeftSide,
   Rules,
   Cycle,
@@ -58,8 +59,8 @@ class RewardCard extends React.PureComponent {
     } = this.props;
     const { unfolded } = this.state;
     return (
-      <TouchableOpacity onPress={onCardPress}>
-        <Container isOpen={isOpen} style={{ shadowOffset: { width: 0, height: 2 } }}>
+      <ShadowContainer isOpen={isOpen} style={{ shadowOffset: { width: 0, height: 2 } }}>
+        <Container onPress={onCardPress}>
           {isOpen && (
             <LeftSide
               start={{ x: 0, y: 0 }}
@@ -80,7 +81,7 @@ class RewardCard extends React.PureComponent {
           />
           {isOpen ? (
             <Rules>
-              <PaymentDay bold>{paidInfo}</PaymentDay>
+              <PaymentDay>{paidInfo}</PaymentDay>
               <TouchableOpacity style={{ paddingVertical: 10 }} onPress={onRulesButtonPress}>
                 <CBText small bold color="primary">
                   {rulesText}
@@ -120,7 +121,7 @@ class RewardCard extends React.PureComponent {
             </TagsContainer>
           )}
         </Container>
-      </TouchableOpacity>
+      </ShadowContainer>
     );
   }
 }
