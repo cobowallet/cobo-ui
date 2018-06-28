@@ -44,7 +44,7 @@ export const ReadMore = styled.TouchableOpacity`
   padding-vertical: 10;
 `;
 
-export const PaymentDay = styled.Text`
+export const PaymentInfo = styled.Text`
   font-size: 12;
   font-weight: 600;
   color: ${FontColors.grayLight};

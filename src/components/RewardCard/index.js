@@ -12,7 +12,7 @@ import {
   Rules,
   Cycle,
   ReadMore,
-  PaymentDay,
+  PaymentInfo,
   TagsContainer,
   Tag,
   TagDot,
@@ -81,7 +81,7 @@ class RewardCard extends React.PureComponent {
           />
           {isOpen ? (
             <Rules>
-              <PaymentDay>{paidInfo}</PaymentDay>
+              <PaymentInfo>{paidInfo}</PaymentInfo>
               <TouchableOpacity style={{ paddingVertical: 10 }} onPress={onRulesButtonPress}>
                 <CBText small bold color="primary">
                   {rulesText}
@@ -92,9 +92,7 @@ class RewardCard extends React.PureComponent {
             <Rules>
               <Cycle>
                 <Clock style={{ marginRight: 6 }} />
-                <CBText bold small color="grayLight">
-                  {paidInfo}
-                </CBText>
+                <PaymentInfo>{paidInfo}</PaymentInfo>
               </Cycle>
               <ReadMore onPress={this.onFold}>
                 <CBText bold small color="grayLight">
