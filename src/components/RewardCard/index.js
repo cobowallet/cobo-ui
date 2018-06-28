@@ -80,7 +80,7 @@ class RewardCard extends React.PureComponent {
           />
           {isOpen ? (
             <Rules>
-              <PaymentDay>{paidInfo}</PaymentDay>
+              <PaymentDay bold>{paidInfo}</PaymentDay>
               <TouchableOpacity style={{ paddingVertical: 10 }} onPress={onRulesButtonPress}>
                 <CBText small bold color="primary">
                   {rulesText}
