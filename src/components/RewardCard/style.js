@@ -3,13 +3,16 @@ import LinearGradient from 'react-native-linear-gradient';
 import { CBShadow } from '../Core';
 import { LINE_COLORS, FontColors } from '../../theme/CBColor';
 
-export const Container = styled(CBShadow)`
-  background-color: #fff;
+export const Container = styled.TouchableOpacity`
+  overflow: hidden;
   border-radius: 3;
+  background-color: #fff;
+  min-height: 135;
+`;
+
+export const ShadowContainer = styled(CBShadow)`
   shadow-color: #dfe2ea;
   elevation: 1;
-  overflow: hidden;
-  min-height: 135;
 `;
 
 export const LeftSide = styled(LinearGradient)`
@@ -43,6 +46,7 @@ export const ReadMore = styled.TouchableOpacity`
 
 export const PaymentDay = styled.Text`
   font-size: 12;
+  font-weight: 600;
   color: ${FontColors.grayLight};
 `;
 
