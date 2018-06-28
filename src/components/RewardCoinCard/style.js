@@ -1,6 +1,8 @@
+import React from 'react';
 import styled from 'styled-components/native';
 import { Platform } from 'react-native';
 import { LINE_COLORS, FontColors } from '../../theme/CBColor';
+import { WalletLogo } from '../../icons';
 
 export const CoinContainer = styled.View`
   flex-direction: row;
@@ -15,9 +17,10 @@ export const CoinContainer = styled.View`
 export const CoinInfo = styled.View`
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 `;
 
-export const CoinLogo = styled.Image`
+export const CoinLogo = styled(WalletLogo)`
   margin-right: 12;
 `;
 
@@ -40,5 +43,17 @@ export const RewardMode = styled.Text`
   color: ${FontColors.dark};
   font-weight: 800;
   text-align: right;
-  margin-top: -5;
 `;
+
+export const renderLogo = (coin, logoUrl) => {
+  const hasUrl = logoUrl && logoUrl.length > 0;
+  return (
+    <CoinLogo
+      {...(hasUrl
+        ? {
+            uri: logoUrl,
+          }
+        : { coin })}
+    />
+  );
+};

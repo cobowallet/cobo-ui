@@ -47,7 +47,6 @@ class RewardCard extends React.PureComponent {
       earned,
       earnedText,
       joinText,
-      paidText,
       paidInfo,
       readmoreText,
       rulesText,
@@ -81,9 +80,7 @@ class RewardCard extends React.PureComponent {
           />
           {isOpen ? (
             <Rules>
-              <PaymentDay>
-                {paidText}: {paidInfo}
-              </PaymentDay>
+              <PaymentDay>{paidInfo}</PaymentDay>
               <TouchableOpacity style={{ paddingVertical: 10 }} onPress={onRulesButtonPress}>
                 <CBText small bold color="primary">
                   {rulesText}
@@ -136,7 +133,6 @@ RewardCard.propTypes = {
   earned: PropTypes.string.isRequired,
   earnedText: PropTypes.string.isRequired,
   joinText: PropTypes.string.isRequired,
-  paidText: PropTypes.string.isRequired,
   paidInfo: PropTypes.string.isRequired,
   readmoreText: PropTypes.string.isRequired,
   rulesText: PropTypes.string.isRequired,
