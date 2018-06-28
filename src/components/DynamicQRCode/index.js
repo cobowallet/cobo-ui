@@ -1,14 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CBQRCode from '../QRCode';
 
-const MaxStringLength = 2;
-const defaultSpeed = 300;
-
-const regexString = `.{1,${MaxStringLength}}`;
-
-const generateCodes = codes => {
-  const codeList = codes.match(new RegExp(regexString, 'g'));
-  const codeLength = codes.length;
+const generateCodes = (codes, codeCapacity) => {
+  const codeList = codes.match(new RegExp(regexString(codeCapacity), 'g'));
+  const codeLength = codeList.length;
   return codeList.map((code, index) => ({
     total: codeLength,
     index,
@@ -16,10 +12,12 @@ const generateCodes = codes => {
   }));
 };
 
+const regexString = MaxStringLength => `.{1,${MaxStringLength}}`;
+
 class DynamicQRCode extends React.PureComponent {
   state = {
     index: 0,
-    codes: generateCodes(this.props.words),
+    codes: generateCodes(this.props.words, this.props.codeCapacity),
   };
 
   componentDidMount() {
@@ -33,7 +31,7 @@ class DynamicQRCode extends React.PureComponent {
           index: this.state.index + 1,
         });
       }
-    }, defaultSpeed);
+    }, this.props.refreshSpeed);
   }
 
   componentWillUnmount() {
@@ -41,8 +39,23 @@ class DynamicQRCode extends React.PureComponent {
   }
 
   render() {
-    return <CBQRCode size={220} code={JSON.stringify(this.state.codes[this.state.index])} />;
+    return (
+      <CBQRCode size={this.props.size} code={JSON.stringify(this.state.codes[this.state.index])} />
+    );
   }
 }
+
+DynamicQRCode.propTypes = {
+  words: PropTypes.string.isRequired,
+  refreshSpeed: PropTypes.number,
+  size: PropTypes.number,
+  codeCapacity: PropTypes.number,
+};
+
+DynamicQRCode.defaultProps = {
+  refreshSpeed: 500,
+  size: 220,
+  codeCapacity: 100,
+};
 
 export default DynamicQRCode;
