@@ -10,7 +10,6 @@ export const Container = styled(CBShadow)`
   elevation: 1;
   overflow: hidden;
   min-height: 135;
-  padding-left: ${props => (props.isOpen ? 4 : 0)};
 `;
 
 export const LeftSide = styled(LinearGradient)`

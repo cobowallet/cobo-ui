@@ -35,7 +35,7 @@ export default function RewardCoinCard({
               {earned}
             </Balance>
           </CoinInfo>
-          <CoinInfo style={{ marginTop: -5 }}>
+          <CoinInfo style={{ marginTop: -3 }}>
             <CBText small superBold color="blue">
               {slogan}
             </CBText>

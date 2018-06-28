@@ -6,7 +6,7 @@ import RewardCard from './index';
 storiesOf('RewardCard', module).add('default', () => (
   <View style={{ flex: 1, backgroundColor: '#F5F5F8', paddingHorizontal: 16, paddingVertical: 20 }}>
     <RewardCard
-      isOpen={false}
+      isOpen
       coinCode="LBTC"
       displayCode="LBTC"
       slogan="300%+ Yearly"
