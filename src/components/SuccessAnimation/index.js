@@ -54,14 +54,15 @@ class SuccessAnimation extends React.Component {
       duration: 800,
       isInteraction: false,
       useNativeDriver: true,
-    }).start(() => {
-      if (!this.state.success) {
-        this.state.spinValue.setValue(0);
-        this.startLoadingAnimation();
-      } else {
-        this.startSuccessAnimation();
-      }
-    });
+    }).start(this.onLoading);
+  };
+
+  onLoading = () => {
+    if (!this.state.success) {
+      this.restart();
+    } else {
+      this.startSuccessAnimation();
+    }
   };
 
   startSuccessAnimation = () => {
