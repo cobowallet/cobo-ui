@@ -8,28 +8,16 @@ class BrowserIcon extends React.PureComponent {
     return (
       <ScrollView style={{ flex: 1 }}>
         <Row>
-          <Browse size={'1'} />
-          <Browse size={'2'} />
-          <Browse size={'3'} />
+          <Browse />
         </Row>
         <Row>
-          <Browse active size={'1'} />
-          <Browse active size={'2'} />
-          <Browse active size={'3'} />
+          <Browse active />
         </Row>
         <Row>
-          <Wallet size={'1'} />
+          <Wallet />
         </Row>
         <Row>
-          <Wallet size={'2'} />
-        </Row>
-        <Row>
-          <Wallet size={'3'} />
-        </Row>
-        <Row>
-          <ExchangeWallet size={'1'} />
-          <ExchangeWallet size={'2'} />
-          <ExchangeWallet size={'3'} />
+          <ExchangeWallet />
         </Row>
       </ScrollView>
     );
