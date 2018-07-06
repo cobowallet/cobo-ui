@@ -19,6 +19,7 @@ class SuccessAnimation extends React.Component {
       strokeDashoffsetOuter: new Animated.Value(100),
       spinValue: new Animated.Value(0),
       success: false,
+      showInner: false,
     };
   }
 
@@ -41,6 +42,7 @@ class SuccessAnimation extends React.Component {
         strokeDashoffsetOuter: new Animated.Value(100),
         spinValue: new Animated.Value(0),
         success: false,
+        showInner: false,
       },
       () => {
         this.startLoadingAnimation();
@@ -66,6 +68,9 @@ class SuccessAnimation extends React.Component {
   };
 
   startSuccessAnimation = () => {
+    setTimeout(() => {
+      this.setState({ showInner: true });
+    }, 500);
     Animated.sequence([
       Animated.timing(this.state.strokeDashoffsetOuter, {
         toValue: 0,
@@ -131,20 +136,22 @@ class SuccessAnimation extends React.Component {
               height: 120,
             }}
           >
-            <Svg width="120" height="120">
-              <AnimatePath
-                d={PATH_CHECK}
-                x={35}
-                y={35}
-                scale={1.8}
-                fill="none"
-                stroke={'#5170EB'}
-                strokeWidth="3"
-                strokeLinecap={'round'}
-                strokeDasharray={[this.lengthInner, this.lengthInner + 2]}
-                strokeDashoffset={this.state.strokeDashoffsetInner}
-              />
-            </Svg>
+            {this.state.showInner && (
+              <Svg width="120" height="120">
+                <AnimatePath
+                  d={PATH_CHECK}
+                  x={35}
+                  y={35}
+                  scale={1.8}
+                  fill="none"
+                  stroke={'#5170EB'}
+                  strokeWidth="3"
+                  strokeLinecap={'round'}
+                  strokeDasharray={[this.lengthInner, this.lengthInner + 2]}
+                  strokeDashoffset={this.state.strokeDashoffsetInner}
+                />
+              </Svg>
+            )}
           </View>
         </View>
       </CBContainer>
