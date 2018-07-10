@@ -68,6 +68,7 @@ import ArrowRightBlue from './ArrowRightBlue';
 import Browse from './Browse';
 import Wallet from './Wallet';
 import ExchangeWallet from './ExchangeWallet';
+import { Voting, Resources, Bid, Account } from './WalletAddons';
 
 export {
   FontAwesome,
@@ -145,4 +146,8 @@ export {
   Browse,
   Wallet,
   ExchangeWallet,
+  Voting,
+  Resources,
+  Bid,
+  Account,
 };
