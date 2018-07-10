@@ -33,9 +33,11 @@ class RewardCard extends React.PureComponent {
   }
 
   onFold = () => {
+    const { unfolded } = this.state;
+    this.props.onMorePress(!unfolded);
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     this.setState({
-      unfolded: !this.state.unfolded,
+      unfolded: !unfolded,
     });
   };
 
@@ -139,6 +141,7 @@ RewardCard.propTypes = {
   viewRulesText: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string.isRequired),
   defaultOpen: PropTypes.bool,
+  onMorePress: PropTypes.func.isRequired,
   onJoinPress: PropTypes.func.isRequired,
   onRulesButtonPress: PropTypes.func.isRequired,
   onCardPress: PropTypes.func.isRequired,
