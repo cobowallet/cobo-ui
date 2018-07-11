@@ -18,9 +18,9 @@ const ShadowContainer = styled(CBShadow)`
   border-radius: 3;
 `;
 
-function WalletAddonItem({ renderIcon, title, subTitle, onPress }) {
+function WalletAddonItem({ renderIcon, title, subTitle, onPress, style }) {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} style={[{ marginTop: 20 }, style]}>
       <ShadowContainer style={{ shadowColor: '#e5e7f5', shadowOffset: { width: 1, height: 1 } }}>
         {renderIcon()}
         <MainArea>
