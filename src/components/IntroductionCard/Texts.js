@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
-import { ScrollView, Dimensions } from 'react-native';
+import { ScrollView, Dimensions, InteractionManager } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
@@ -42,8 +42,10 @@ function renderTexts(texts) {
 
 export default class Texts extends React.PureComponent {
   componentDidMount() {
-    const x = this.props.index * (width - 32);
-    this._scrollView.scrollTo({ x, animated: false });
+    InteractionManager.runAfterInteractions(() => {
+      const x = this.props.index * (width - 32);
+      this._scrollView.scrollTo({ x, animated: false });
+    });
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.index !== this.props.index) {
