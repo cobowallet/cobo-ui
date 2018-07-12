@@ -23,6 +23,7 @@ function loadStories() {
   require('../src/components/MnemonicChecker/index.stories');
   require('../src/components/MnemonicImporter/index.stories');
   require('../src/components/PasswordSettingContent/index.stories');
+  require('../src/components/ProgreeRow/index.stories');
   require('../src/components/QRCode/index.stories');
   require('../src/components/RewardBadge/index.stories');
   require('../src/components/RewardCard/index.stories');
@@ -60,6 +61,7 @@ const stories = [
   '../src/components/MnemonicChecker/index.stories',
   '../src/components/MnemonicImporter/index.stories',
   '../src/components/PasswordSettingContent/index.stories',
+  '../src/components/ProgreeRow/index.stories',
   '../src/components/QRCode/index.stories',
   '../src/components/RewardBadge/index.stories',
   '../src/components/RewardCard/index.stories',

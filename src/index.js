@@ -31,3 +31,4 @@ export { default as VoteHeader } from './components/VoteHeader';
 export { default as BrowseIcon } from './components/Browse';
 export { default as RewardCard } from './components/RewardCard';
 export { default as WalletAddonItem } from './components/WalletAddonItem';
+export { default as ProgressRow } from './components/ProgressRow';
