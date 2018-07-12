@@ -3,9 +3,9 @@ import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 
 const Outer = styled.View`
-  height: 10px;
+  height: 8px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 4px;
   background-color: #ecf0ff;
   overflow: hidden;
 `;
