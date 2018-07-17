@@ -10,11 +10,11 @@ export const lang = {
   },
   en: {
     importPage: {
-      header: 'Recovery wallet',
+      header: 'Recover HD wallet',
       descriptions: [
-        "Please enter the 12 words Recovery Phrase, use 'space' to jump to the next word.",
+        "Please enter the 12 words Recovery Phrase, use 'space' to move on to the next word.",
       ],
-      button: 'Start Recover',
+      button: 'Start to Recover',
     },
   },
 };
