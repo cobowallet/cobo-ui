@@ -44,7 +44,9 @@ export default class Texts extends React.PureComponent {
   componentDidMount() {
     InteractionManager.runAfterInteractions(() => {
       const x = this.props.index * (width - 32);
-      this._scrollView.scrollTo({ x, animated: false });
+      if (this._scrollView) {
+        this._scrollView.scrollTo({ x, animated: false });
+      }
     });
   }
   componentWillReceiveProps(nextProps) {
