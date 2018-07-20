@@ -40,5 +40,5 @@ export const SettingTab = ({ focused }) => (
 );
 
 export const BrowseTab = ({ focused }) => (
-  <Image style={{ marginBottom: 3 }} source={focused ? BrowseActive : Browse} />
+  <Image style={{ marginBottom: 1 }} source={focused ? BrowseActive : Browse} />
 );
