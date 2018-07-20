@@ -6,12 +6,14 @@ import Market from './market.png';
 import Receive from './receive.png';
 import Send from './send.png';
 import Setting from './setting.png';
+import Browse from './browse.png';
 import AssetsActive from './assets_active.png';
 import RewardActive from './reward_active.png';
 import MarketActive from './market_active.png';
 import ReceiveActive from './receive_active.png';
 import SendActive from './send_active.png';
 import SettingActive from './setting_active.png';
+import BrowseActive from './browse_active.png';
 
 export const AssetsTab = ({ focused }) => (
   <Image style={{ marginBottom: 3 }} source={focused ? AssetsActive : Assets} />
@@ -35,4 +37,8 @@ export const ReceiveTab = ({ focused }) => (
 
 export const SettingTab = ({ focused }) => (
   <Image style={{ marginBottom: 3 }} source={focused ? SettingActive : Setting} />
+);
+
+export const BrowseTab = ({ focused }) => (
+  <Image style={{ marginBottom: 3 }} source={focused ? BrowseActive : Browse} />
 );

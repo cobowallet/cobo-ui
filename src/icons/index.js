@@ -47,7 +47,15 @@ import AccountTransfer from './AccountTransfer';
 import RewardIcon from './RewardIcon';
 import CameraBackground from './CameraBackground';
 import { default as AssetWalletLogo } from './AssetWalletLogo';
-import { AssetsTab, RewardTab, MarketTab, SendTab, ReceiveTab, SettingTab } from './TabIcons';
+import {
+  AssetsTab,
+  RewardTab,
+  MarketTab,
+  SendTab,
+  ReceiveTab,
+  SettingTab,
+  BrowseTab,
+} from './TabIcons';
 import Asset from './Asset';
 import Delete from './Delete';
 import Exchange from './Exchange';
@@ -65,7 +73,6 @@ import VoteDetailHeader from './VoteDetailHeader';
 import DescendSort from './DescendSort';
 import Clock from './Clock';
 import ArrowRightBlue from './ArrowRightBlue';
-import Browse from './Browse';
 import Wallet from './Wallet';
 import ExchangeWallet from './ExchangeWallet';
 import { Voting, Resources, Bid, Account } from './WalletAddons';
@@ -126,6 +133,7 @@ export {
   SendTab,
   ReceiveTab,
   SettingTab,
+  BrowseTab,
   AssetWalletLogo,
   Asset,
   Delete,
@@ -144,7 +152,6 @@ export {
   DescendSort,
   Clock,
   ArrowRightBlue,
-  Browse,
   Wallet,
   ExchangeWallet,
   Voting,

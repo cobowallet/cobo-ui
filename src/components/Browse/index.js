@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { Browse, Wallet, ExchangeWallet } from '../../icons';
+import { BrowseTab, Wallet, ExchangeWallet } from '../../icons';
 import { Row } from './style';
 
 class BrowserIcon extends React.PureComponent {
@@ -8,10 +8,10 @@ class BrowserIcon extends React.PureComponent {
     return (
       <ScrollView style={{ flex: 1 }}>
         <Row>
-          <Browse />
+          <BrowseTab />
         </Row>
         <Row>
-          <Browse active />
+          <BrowseTab focused />
         </Row>
         <Row>
           <Wallet />
