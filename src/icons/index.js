@@ -77,6 +77,7 @@ import Wallet from './Wallet';
 import ExchangeWallet from './ExchangeWallet';
 import { Voting, Resources, Bid, Account } from './WalletAddons';
 import QRCode from './QRCode';
+import Browser from './Browser';
 
 export {
   FontAwesome,
@@ -159,4 +160,5 @@ export {
   Bid,
   Account,
   QRCode,
+  Browser,
 };
