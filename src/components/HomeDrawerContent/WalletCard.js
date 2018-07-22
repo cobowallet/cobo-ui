@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Platform, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { BigNumber } from 'bignumber.js';
 import { CBText } from '../Core';
@@ -78,7 +78,6 @@ export default function WalletCard(props) {
   const { type, title, amount, isOpen, selected, onLayout } = props.data;
   return (
     <Container
-      onLayout={onLayout}
       type={type}
       selected={selected}
       disabled={!isOpen || selected}
@@ -112,7 +111,7 @@ export default function WalletCard(props) {
           </CardInfo>
         </CardContent>
         {!isOpen && (
-          <Button onPress={() => props.onPress(type)}>
+          <Button onPress={() => props.onPress(type)} onLayout={onLayout}>
             <ButtonText>{props.createNowTitle}</ButtonText>
           </Button>
         )}
