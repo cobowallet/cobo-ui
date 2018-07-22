@@ -75,9 +75,10 @@ const ButtonText = styled.Text`
 `;
 
 export default function WalletCard(props) {
-  const { type, title, amount, isOpen, selected } = props.data;
+  const { type, title, amount, isOpen, selected, onLayout } = props.data;
   return (
     <Container
+      onLayout={onLayout}
       type={type}
       selected={selected}
       disabled={!isOpen || selected}
@@ -131,6 +132,7 @@ WalletCard.propTypes = {
     amount: PropTypes.string.isRequired,
     isOpen: PropTypes.bool,
     selected: PropTypes.bool,
+    onLayout: PropTypes.func,
   }).isRequired,
   createNowTitle: PropTypes.string,
 };

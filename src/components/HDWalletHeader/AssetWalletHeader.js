@@ -36,7 +36,7 @@ class AssetWalletHeader extends React.PureComponent {
 
   renderIcon() {
     return (
-      <TouchableOpacity onPress={this.props.addWalletPress}>
+      <TouchableOpacity onPress={this.props.addWalletPress} onLayout={this.props.onAddWalletLayout}>
         <AddWallet />
       </TouchableOpacity>
     );
@@ -68,6 +68,7 @@ AssetWalletHeader.propTypes = {
   fiatCurrencyValue: PropTypes.string.isRequired,
   BTCValue: PropTypes.string.isRequired,
   addWalletPress: PropTypes.func.isRequired,
+  onAddWalletLayout: PropTypes.func,
   showBackupHD: PropTypes.bool,
   backupHdText: PropTypes.string,
   toBackupHDWallet: PropTypes.func,
@@ -86,6 +87,7 @@ AssetWalletHeader.defaultProps = {
   transparent: false,
   hiddenValue: '********',
   canClickHeaderValue: true,
+  onAddWalletLayout: e => null,
 };
 
 export default AssetWalletHeader;

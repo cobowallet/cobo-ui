@@ -49,11 +49,12 @@ class AssetCard extends PureComponent {
       theme,
       slogan,
       iconUrl,
+      onAssetCardLayout,
     } = this.props;
     return (
       <ThemeProvider theme={assetCardTheme[theme] || assetCardTheme.default}>
         <Container style={{ shadowOffset: { width: 0, height: 2 } }}>
-          <Row onPress={onPress}>
+          <Row onPress={onPress} onLayout={onAssetCardLayout}>
             <IconContent>
               <CoinIcon coin={coinCode} uri={iconUrl} />
             </IconContent>
@@ -97,6 +98,7 @@ AssetCard.propTypes = {
   onPress: PropTypes.func,
   theme: PropTypes.string,
   slogan: PropTypes.string,
+  onAssetCardLayout: PropTypes.func,
 };
 
 AssetCard.defaultProps = {
@@ -106,6 +108,7 @@ AssetCard.defaultProps = {
   theme: 'default',
   slogan: '',
   iconUrl: '',
+  onAssetCardLayout: e => null,
 };
 
 export default AssetCard;
