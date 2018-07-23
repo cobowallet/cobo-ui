@@ -56,4 +56,16 @@ storiesOf('CoinWalletHeader', module)
     >
       <Text>This is the children</Text>
     </CoinWalletHeader>
+  ))
+  .add('HardWare', () => (
+    <CoinWalletHeader
+      fiatCurrencyValue={'$48,213'}
+      coinValue={'9.20 BTC'}
+      percent={'+23.45%'}
+      icon={ETHIcon}
+      color={'#50DFBE'}
+      theme={'black'}
+    >
+      <Text>This is the children</Text>
+    </CoinWalletHeader>
   ));

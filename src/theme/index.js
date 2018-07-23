@@ -53,4 +53,9 @@ export const CoinWalletHeaderTheme = {
     backgroundStartColor: '#5C6C92',
     backgroundEndColor: '#223155',
   },
+
+  black: {
+    backgroundStartColor: '#1D1E39',
+    backgroundEndColor: '#00011D',
+  },
 };
