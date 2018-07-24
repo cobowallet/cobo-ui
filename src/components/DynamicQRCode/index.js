@@ -1,23 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { splitData } from 'cobo-wallet-utils/qrCode';
 import CBQRCode from '../QRCode';
-
-const generateCodes = (codes, codeCapacity) => {
-  const codeList = codes.match(new RegExp(regexString(codeCapacity), 'g'));
-  const codeLength = codeList.length;
-  return codeList.map((code, index) => ({
-    total: codeLength,
-    index,
-    value: code,
-  }));
-};
-
-const regexString = MaxStringLength => `.{1,${MaxStringLength}}`;
 
 class DynamicQRCode extends React.PureComponent {
   state = {
     index: 0,
-    codes: generateCodes(this.props.words, this.props.codeCapacity),
+    codes: splitData(this.props.words, this.props.codeCapacity),
   };
 
   componentDidMount() {
