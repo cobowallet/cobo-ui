@@ -40,7 +40,7 @@ const Logo = ({ size, logo }) => {
 
 const DefaultSize = 200;
 
-const CBQRCode = ({ size, code, logo }) => {
+const CBQRCode = ({ size, code, logo, style }) => {
   const sizeOfContainer = Math.max(DefaultSize, size);
   const sizeOfQR = sizeOfContainer - 20;
   const sizeOfLogoContainer = sizeOfContainer * 0.2;
@@ -48,7 +48,7 @@ const CBQRCode = ({ size, code, logo }) => {
   const sizeOfLogo = sizeOfLogoContainer - 5;
 
   return (
-    <QRContainer size={sizeOfContainer}>
+    <QRContainer size={sizeOfContainer} style={style}>
       <QRCode size={sizeOfQR} value={code} />
 
       {logo && (

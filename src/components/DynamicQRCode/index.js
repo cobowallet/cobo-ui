@@ -29,7 +29,11 @@ class DynamicQRCode extends React.PureComponent {
 
   render() {
     return (
-      <CBQRCode size={this.props.size} code={JSON.stringify(this.state.codes[this.state.index])} />
+      <CBQRCode
+        size={this.props.size}
+        code={JSON.stringify(this.state.codes[this.state.index])}
+        style={this.props.style}
+      />
     );
   }
 }
