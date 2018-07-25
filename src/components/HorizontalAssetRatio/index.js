@@ -83,18 +83,10 @@ const HorizontalAssetRatio = ({ assets, colorScale, labelOfOthers, noAssetsLable
     );
   }
 
-  let sortedAssets = assets
-    .map(asset => ({ ...asset, percentage: parseInt((asset.percentage * 100).toFixed(0)) }))
-    .sort((first, second) => second.percentage - first.percentage);
-
-  if (sortedAssets.length > 5) {
-    const remain = sortedAssets
-      .slice(4)
-      .map(asset => asset.percentage)
-      .reduce((sum, percentage) => sum + percentage);
-
-    sortedAssets.splice(4, sortedAssets.length - 4, { label: labelOfOthers, percentage: remain });
-  }
+  let sortedAssets = assets.map(asset => ({
+    ...asset,
+    percentage: parseInt((asset.percentage * 100).toFixed(0), 10),
+  }));
 
   return (
     <View style={{ alignItems: 'flex-start' }}>
