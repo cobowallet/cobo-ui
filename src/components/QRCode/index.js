@@ -6,24 +6,28 @@ import styled from 'styled-components/native';
 
 import { WalletLogo } from '../../icons';
 import { CBShadow } from '../Core';
-import { FontColors } from '../../theme/CBColor';
 
 const QRContainer = styled(CBShadow)`
-  width: ${props => props.size}
-  height: ${props => props.size}
+  width: ${props => props.size};
+  aspect-ratio: 1;
   background-color: white;
   justify-content: center;
   align-items: center;
 `;
 
-const LogoContainer = styled.View`
-  width: ${props => props.size}
-  height: ${props => props.size}
+const CircleLogo = styled.View`
+  width: ${props => props.size};
+  aspect-ratio: 1;
   border-radius: ${props => props.size / 2};
-  position: absolute;
-  top: ${props => props.topLeft}
-  left: ${props => props.topLeft}
   background-color: white;
+  justify-content: center;
+  align-items: center;
+`;
+
+const LogoLayer = styled.View`
+  width: 100%;
+  height: 100%;
+  position: absolute;
   justify-content: center;
   align-items: center;
 `;
@@ -38,23 +42,17 @@ const Logo = ({ size, logo }) => {
   );
 };
 
-const DefaultSize = 200;
-
-const CBQRCode = ({ size, code, logo, style }) => {
-  const sizeOfContainer = Math.max(DefaultSize, size);
-  const sizeOfQR = sizeOfContainer - 20;
-  const sizeOfLogoContainer = sizeOfContainer * 0.2;
-  const logoContainerTopLeft = (sizeOfContainer - sizeOfLogoContainer) / 2;
-  const sizeOfLogo = sizeOfLogoContainer - 5;
-
+const CBQRCode = ({ size, spaceWidth, logoSize, logoSpaceWidth, code, logo, style }) => {
   return (
-    <QRContainer size={sizeOfContainer} style={style}>
-      <QRCode size={sizeOfQR} value={code} />
+    <QRContainer size={size} style={style}>
+      <QRCode size={Math.max(0, size - spaceWidth)} value={code} />
 
       {logo && (
-        <LogoContainer size={sizeOfLogoContainer} topLeft={logoContainerTopLeft}>
-          <Logo size={sizeOfLogo} logo={logo} />
-        </LogoContainer>
+        <LogoLayer>
+          <CircleLogo size={logoSize}>
+            <Logo size={Math.max(0, logoSize - logoSpaceWidth)} logo={logo} />
+          </CircleLogo>
+        </LogoLayer>
       )}
     </QRContainer>
   );
@@ -62,12 +60,18 @@ const CBQRCode = ({ size, code, logo, style }) => {
 
 CBQRCode.propTypes = {
   size: PropTypes.number.isRequired,
+  spaceWidth: PropTypes.number.isRequired,
+  logoSize: PropTypes.number.isRequired,
+  logoSpaceWidth: PropTypes.number.isRequired,
   code: PropTypes.string.isRequired,
   logo: PropTypes.oneOfType([PropTypes.string, Image.propTypes.source]),
 };
 
 CBQRCode.defaultProps = {
-  size: DefaultSize,
+  size: 200,
+  logoSize: 40,
+  spaceWidth: 20,
+  logoSpaceWidth: 5,
 };
 
 export default CBQRCode;
