@@ -78,6 +78,10 @@ import ExchangeWallet from './ExchangeWallet';
 import { Voting, Resources, Bid, Account } from './WalletAddons';
 import QRCode from './QRCode';
 import Browser from './Browser';
+import ExchangeDrawer from './ExchangeDrawer';
+import ExchangeIcon from './ExchangeIcon';
+import ExchangeSwap from './ExchangeSwap';
+import ExchangeTx from './ExchangeTx';
 
 export {
   FontAwesome,
@@ -161,4 +165,8 @@ export {
   Account,
   QRCode,
   Browser,
+  ExchangeDrawer,
+  ExchangeIcon,
+  ExchangeSwap,
+  ExchangeTx,
 };

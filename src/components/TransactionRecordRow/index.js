@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import { View } from 'react-native';
 import { CBText } from '../Core';
-import { SendIcon, ReceiveIcon, RewardIcon } from '../../icons';
+import { SendIcon, ReceiveIcon, RewardIcon, ExchangeTx } from '../../icons';
 import TransactionStatus from '../TransactionStatus';
 
 const Container = styled.TouchableOpacity`
@@ -39,6 +39,9 @@ const Icon = ({ isSendOut, action }) => {
 
   if (action === 'recv_pos_dividend') {
     return <RewardIcon style={styled} />;
+  }
+  if (action === 'send_exchange' || action === 'recv_exchange') {
+    return <ExchangeTx style={styled} />;
   }
   if (isSendOut) {
     return <SendIcon type={'transaction'} style={styled} />;
