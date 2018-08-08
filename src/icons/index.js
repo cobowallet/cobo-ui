@@ -82,6 +82,9 @@ import ExchangeDrawer from './ExchangeDrawer';
 import ExchangeIcon from './ExchangeIcon';
 import ExchangeSwap from './ExchangeSwap';
 import ExchangeTx from './ExchangeTx';
+import MarketArrowUp from './MarketArrowUp';
+import MarketArrowDown from './MarketArrowDown';
+import MarketArrowNone from './MarketArrowNone';
 
 export {
   FontAwesome,
@@ -169,4 +172,7 @@ export {
   ExchangeIcon,
   ExchangeSwap,
   ExchangeTx,
+  MarketArrowUp,
+  MarketArrowDown,
+  MarketArrowNone,
 };
