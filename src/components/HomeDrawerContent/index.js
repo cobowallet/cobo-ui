@@ -1,15 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 import { default as styled, ThemeProvider } from 'styled-components/native';
 import { BigNumber } from 'bignumber.js';
 import MyTheme from './theme';
 import AssetTotal from './AssetTotal';
 import WalletCard from './WalletCard';
+import ServiceCard from './ServiceCard';
+import { CBText } from '../Core';
 
 const Container = styled.View`
   background: ${props => props.theme.contentBg};
   flex: 1;
 `;
+
+const TitleContainer = styled.View`
+  border-bottom-color: rgba(137, 148, 198, 0.1);
+  border-bottom-width: 1;
+  margin-left: 16;
+  padding-top: 16;
+  padding-bottom: 8;
+`;
+
+const Title = ({ children, style = {} }) => (
+  <TitleContainer style={style}>
+    <CBText superBold colorHex={'#000000'}>
+      {children}
+    </CBText>
+  </TitleContainer>
+);
 
 const WalletList = ({
   wallets,
@@ -38,8 +57,11 @@ const HomeDrawerContent = ({
   btcExchangeRate,
   totalVisible,
   onTotalVisiblePress,
+  walletTitle,
   wallets,
   onWalletPress,
+  serviceTitle,
+  services,
   theme,
   createNowTitle,
 }) => {
@@ -63,7 +85,7 @@ const HomeDrawerContent = ({
           totalVisible={totalVisible}
           onPress={onTotalVisiblePress}
         />
-
+        <Title>{walletTitle}</Title>
         <WalletList
           wallets={wallets}
           totalVisible={totalVisible}
@@ -72,6 +94,12 @@ const HomeDrawerContent = ({
           currencySymbol={currencySymbol}
           createNowTitle={createNowTitle}
         />
+        {services.length > 0 && (
+          <View>
+            <Title style={{ marginTop: 28 }}>{serviceTitle}</Title>
+            {services.map((data, index) => <ServiceCard key={index} {...data} />)}
+          </View>
+        )}
       </Container>
     </ThemeProvider>
   );
@@ -85,6 +113,7 @@ HomeDrawerContent.propTypes = {
   totalVisible: PropTypes.bool.isRequired,
   onTotalVisiblePress: PropTypes.func.isRequired,
   createNowTitle: PropTypes.string,
+  walletTitle: PropTypes.string.isRequired,
   wallets: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired,
@@ -94,8 +123,16 @@ HomeDrawerContent.propTypes = {
       selected: PropTypes.bool,
     })
   ).isRequired,
-
   onWalletPress: PropTypes.func.isRequired,
+  serviceTitle: PropTypes.string.isRequired,
+  services: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      subTitle: PropTypes.string,
+      renderIcon: PropTypes.func.isRequired,
+      onPress: PropTypes.func.isRequired,
+    })
+  ).isRequired,
   theme: PropTypes.string,
 };
 
@@ -103,6 +140,9 @@ HomeDrawerContent.defaultProps = {
   theme: 'default',
   btcExchangeRate: 1,
   createNowTitle: '立即开通',
+  walletTitle: 'Wallet',
+  serviceTitle: 'Service',
+  services: [],
 };
 
 export default HomeDrawerContent;
