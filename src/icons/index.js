@@ -85,6 +85,7 @@ import ExchangeTx from './ExchangeTx';
 import MarketArrowUp from './MarketArrowUp';
 import MarketArrowDown from './MarketArrowDown';
 import MarketArrowNone from './MarketArrowNone';
+import InviteFriend from './InviteFriend';
 
 export {
   FontAwesome,
@@ -175,4 +176,5 @@ export {
   MarketArrowUp,
   MarketArrowDown,
   MarketArrowNone,
+  InviteFriend,
 };
