@@ -16,7 +16,7 @@ function InviteFriend({ style, type }) {
 }
 
 InviteFriend.propTypes = {
-  type: PropTypes.oneOf[('red', 'gray')],
+  type: PropTypes.oneOf(['red', 'gray']),
 };
 
 InviteFriend.defaultProps = {
