@@ -9,7 +9,7 @@ import WalletCard from './WalletCard';
 import ServiceCard from './ServiceCard';
 import { CBText } from '../Core';
 
-const Container = styled.View`
+const Container = styled.ScrollView`
   background: ${props => props.theme.contentBg};
   flex: 1;
 `;
@@ -62,6 +62,8 @@ const HomeDrawerContent = ({
   onWalletPress,
   serviceTitle,
   services,
+  eventTitle,
+  events,
   theme,
   createNowTitle,
 }) => {
@@ -100,6 +102,12 @@ const HomeDrawerContent = ({
             {services.map((data, index) => <ServiceCard key={index} {...data} />)}
           </View>
         )}
+        {events.length > 0 && (
+          <View>
+            <Title style={{ marginTop: 28 }}>{eventTitle}</Title>
+            {events.map((data, index) => <ServiceCard key={index} {...data} />)}
+          </View>
+        )}
       </Container>
     </ThemeProvider>
   );
@@ -133,6 +141,15 @@ HomeDrawerContent.propTypes = {
       onPress: PropTypes.func.isRequired,
     })
   ).isRequired,
+  eventTitle: PropTypes.string.isRequired,
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      subTitle: PropTypes.string,
+      renderIcon: PropTypes.func.isRequired,
+      onPress: PropTypes.func.isRequired,
+    })
+  ).isRequired,
   theme: PropTypes.string,
 };
 
@@ -143,6 +160,8 @@ HomeDrawerContent.defaultProps = {
   walletTitle: 'Wallet',
   serviceTitle: 'Service',
   services: [],
+  eventTitle: 'Event',
+  events: [],
 };
 
 export default HomeDrawerContent;
