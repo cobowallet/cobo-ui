@@ -33,3 +33,4 @@ export { default as RewardCard } from './components/RewardCard';
 export { default as WalletAddonItem } from './components/WalletAddonItem';
 export { default as ProgressRow } from './components/ProgressRow';
 export { default as DynamicQRCode } from './components/DynamicQRCode';
+export { default as AdBadge } from './components/AdBadge';
