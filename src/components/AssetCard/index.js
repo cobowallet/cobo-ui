@@ -56,6 +56,8 @@ class AssetCard extends PureComponent {
       adBadge,
       desc,
     } = this.props;
+    const showBadge = !!slogan || !!adBadge;
+    const showDesc = !!desc && !showBadge;
     return (
       <ThemeProvider theme={assetCardTheme[theme] || assetCardTheme.default}>
         <Container style={{ shadowOffset: { width: 0, height: 2 } }}>
@@ -65,20 +67,21 @@ class AssetCard extends PureComponent {
             </IconContent>
             <CoinContainer>
               <CoinCodeText>{displayCode || coinCode}</CoinCodeText>
-              <CoinDescContainer>
-                {!!slogan && (
-                  <CoinDescContainer style={{ marginTop: 0 }}>
-                    {!!slogan && <RewardBadge content={slogan} theme={theme} />}
-                    {!!adBadge && <AdBadge content={adBadge} style={{ marginLeft: 5 }} />}
-                  </CoinDescContainer>
-                )}
-                {!!desc &&
-                  !slogan && (
+              {(showBadge || showDesc) && (
+                <CoinDescContainer>
+                  {showBadge && (
+                    <CoinDescContainer style={{ marginTop: 0 }}>
+                      {!!slogan && <RewardBadge content={slogan} theme={theme} />}
+                      {!!adBadge && <AdBadge content={adBadge} style={{ marginLeft: 5 }} />}
+                    </CoinDescContainer>
+                  )}
+                  {showDesc && (
                     <DescText small numberOfLines={1}>
                       {desc}
                     </DescText>
                   )}
-              </CoinDescContainer>
+                </CoinDescContainer>
+              )}
             </CoinContainer>
 
             <AmountContainer>
