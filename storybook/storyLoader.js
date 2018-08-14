@@ -7,6 +7,7 @@
 function loadStories() {
   require('../src/components/AccountCard/index.stories');
   require('../src/components/AccountLevelBox/index.stories');
+  require('../src/components/AdBadge/index.stories');
   require('../src/components/AggrementContent/index.stories');
   require('../src/components/AssetCard/index.stories');
   require('../src/components/Browse/index.stories');
@@ -45,6 +46,7 @@ function loadStories() {
 const stories = [
   '../src/components/AccountCard/index.stories',
   '../src/components/AccountLevelBox/index.stories',
+  '../src/components/AdBadge/index.stories',
   '../src/components/AggrementContent/index.stories',
   '../src/components/AssetCard/index.stories',
   '../src/components/Browse/index.stories',

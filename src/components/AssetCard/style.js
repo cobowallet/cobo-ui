@@ -32,6 +32,7 @@ export const CoinIcon = styled(WalletLogo)`
 
 export const CoinContainer = styled.View`
   justify-content: center;
+  max-width: 50%;
 `;
 
 export const AmountContainer = styled.View`
@@ -62,4 +63,13 @@ export const AmountText = styled(CBText)`
 
 export const FiatCurrencyAmountText = styled(CBText)`
   color: ${props => props.theme.fiatCurrencyAmountColor};
+`;
+
+export const CoinDescContainer = styled.View`
+  flex-direction: row;
+  margin-top: 5;
+`;
+
+export const DescText = styled(CBText)`
+  color: ${props => props.theme.descTextColor};
 `;

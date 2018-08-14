@@ -4,5 +4,6 @@ export const assetCardTheme = {
     amountTextColor: '#343a40',
     CoinCodeColor: '#343a40',
     backgroundShadowColor: '#8F95AA',
+    descTextColor: '#8F95AA',
   },
 };

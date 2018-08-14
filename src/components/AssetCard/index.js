@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components/native';
 import { isNil } from 'ramda';
 import { FoldingSwitch } from '../../icons';
 import RewardBadge from '../RewardBadge';
+import AdBadge from '../AdBadge';
 import {
   Container,
   Row,
@@ -16,6 +17,8 @@ import {
   CoinContainer,
   CoinCodeText,
   FiatCurrencyAmountText,
+  CoinDescContainer,
+  DescText,
 } from './style';
 import { assetCardTheme } from './theme';
 
@@ -50,6 +53,8 @@ class AssetCard extends PureComponent {
       slogan,
       iconUrl,
       onAssetCardLayout,
+      adBadge,
+      desc,
     } = this.props;
     return (
       <ThemeProvider theme={assetCardTheme[theme] || assetCardTheme.default}>
@@ -60,10 +65,20 @@ class AssetCard extends PureComponent {
             </IconContent>
             <CoinContainer>
               <CoinCodeText>{displayCode || coinCode}</CoinCodeText>
-              {!isNil(slogan) &&
-                slogan.length > 0 && (
-                  <RewardBadge content={slogan} theme={theme} style={{ marginTop: 5 }} />
+              <CoinDescContainer>
+                {!!slogan && (
+                  <CoinDescContainer style={{ marginTop: 0 }}>
+                    {!!slogan && <RewardBadge content={slogan} theme={theme} />}
+                    {!!adBadge && <AdBadge content={adBadge} style={{ marginLeft: 5 }} />}
+                  </CoinDescContainer>
                 )}
+                {!!desc &&
+                  !slogan && (
+                    <DescText small numberOfLines={1}>
+                      {desc}
+                    </DescText>
+                  )}
+              </CoinDescContainer>
             </CoinContainer>
 
             <AmountContainer>
@@ -98,6 +113,8 @@ AssetCard.propTypes = {
   onPress: PropTypes.func,
   theme: PropTypes.string,
   slogan: PropTypes.string,
+  adBadge: PropTypes.string,
+  desc: PropTypes.string,
   onAssetCardLayout: PropTypes.func,
 };
 
@@ -107,6 +124,8 @@ AssetCard.defaultProps = {
   onPress: null,
   theme: 'default',
   slogan: '',
+  adBadge: '',
+  desc: '',
   iconUrl: '',
   onAssetCardLayout: e => null,
 };

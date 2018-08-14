@@ -13,6 +13,8 @@ class AssetCardTest extends PureComponent {
         fiatCurrencyAmount: '5220.96',
         fiatCurrencySymbol: '$',
         slogan: '年化收益300%+',
+        adBadge: 'New',
+        desc: '14:00(GMT+8)',
         txList: [{ title: 'Received' }, { title: 'Sent' }],
       },
       {
@@ -20,6 +22,7 @@ class AssetCardTest extends PureComponent {
         amount: '4.800',
         fiatCurrencyAmount: '5220.96',
         fiatCurrencySymbol: '$',
+        desc: '14:00(GMT+8)',
         txList: [{ title: 'Received' }, { title: 'Sent' }],
       },
       {
@@ -27,12 +30,15 @@ class AssetCardTest extends PureComponent {
         amount: '4.800',
         fiatCurrencyAmount: '5220.96',
         fiatCurrencySymbol: '$',
+        adBadge: 'New',
+        desc: '14:00(GMT+8) Receive VET dividend',
       },
       {
         coinCode: 'ETH',
         amount: '4.800',
         fiatCurrencyAmount: '5220.96',
         fiatCurrencySymbol: '$',
+        desc: '14:00(GMT+8)获取VET增益',
       },
     ];
   };
