@@ -37,7 +37,7 @@ const Icon = ({ isSendOut, action }) => {
     marginRight: 8,
   };
 
-  if (action === 'recv_pos_dividend') {
+  if (action === 'recv_pos_dividend' || action === 'recv_growth_dividend') {
     return <RewardIcon style={styled} />;
   }
   if (action === 'send_exchange' || action === 'recv_exchange') {
