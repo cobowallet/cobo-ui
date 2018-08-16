@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { default as styled, ThemeProvider } from 'styled-components/native';
 import { BigNumber } from 'bignumber.js';
 import MyTheme from './theme';
