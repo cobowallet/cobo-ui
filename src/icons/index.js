@@ -86,6 +86,7 @@ import MarketArrowUp from './MarketArrowUp';
 import MarketArrowDown from './MarketArrowDown';
 import MarketArrowNone from './MarketArrowNone';
 import InviteFriend from './InviteFriend';
+import Warning from './Warning';
 
 export {
   FontAwesome,
@@ -177,4 +178,5 @@ export {
   MarketArrowDown,
   MarketArrowNone,
   InviteFriend,
+  Warning,
 };
