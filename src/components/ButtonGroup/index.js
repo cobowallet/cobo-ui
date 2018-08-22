@@ -19,7 +19,7 @@ ButtonGroup.propTypes = {
       canPress: PropTypes.bool.isRequired,
       title: PropTypes.string.isRequired,
       titleColor: PropTypes.string,
-      renderImage: PropTypes.func.isRequired,
+      renderImage: PropTypes.func,
     })
   ).isRequired,
   theme: PropTypes.string,
