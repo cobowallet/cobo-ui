@@ -87,6 +87,7 @@ import MarketArrowDown from './MarketArrowDown';
 import MarketArrowNone from './MarketArrowNone';
 import InviteFriend from './InviteFriend';
 import Warning from './Warning';
+import QRCodeScaner from './QRCodeScaner';
 
 export {
   FontAwesome,
@@ -179,4 +180,5 @@ export {
   MarketArrowNone,
   InviteFriend,
   Warning,
+  QRCodeScaner,
 };
