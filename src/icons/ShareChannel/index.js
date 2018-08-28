@@ -41,7 +41,7 @@ ShareChannel.propTypes = {
 
 ShareChannel.defaultProps = {
   style: {},
-  type: 'transaction',
+  channel: 'wechatSession',
 };
 
 export default ShareChannel;
