@@ -10,7 +10,7 @@ import twitter from './img/twitter.png';
 import copy from './img/copy.png';
 import more from './img/more.png';
 
-const Channels = {
+const Platforms = {
   wechatSession,
   wechatTimeLine,
   qq,
@@ -21,13 +21,13 @@ const Channels = {
   more,
 };
 
-function ShareChannel({ style, channel }) {
-  return <Image source={Channels[channel]} style={style} />;
+function SharePlatform({ style, platform }) {
+  return <Image source={Platforms[platform]} style={style} />;
 }
 
-ShareChannel.propTypes = {
+SharePlatform.propTypes = {
   style: PropTypes.object,
-  channel: PropTypes.oneOf([
+  platform: PropTypes.oneOf([
     'wechatSession',
     'wechatTimeLine',
     'qq',
@@ -39,9 +39,9 @@ ShareChannel.propTypes = {
   ]),
 };
 
-ShareChannel.defaultProps = {
+SharePlatform.defaultProps = {
   style: {},
   channel: 'wechatSession',
 };
 
-export default ShareChannel;
+export default SharePlatform;
