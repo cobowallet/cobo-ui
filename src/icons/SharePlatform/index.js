@@ -41,7 +41,7 @@ SharePlatform.propTypes = {
 
 SharePlatform.defaultProps = {
   style: {},
-  channel: 'wechatSession',
+  platform: 'wechatSession',
 };
 
 export default SharePlatform;
