@@ -89,6 +89,9 @@ import InviteFriend from './InviteFriend';
 import Warning from './Warning';
 import QRCodeScaner from './QRCodeScaner';
 import SharePlatform from './SharePlatform';
+import CircularArrowRight from './CircularArrowRight';
+import F3DEthIcon from './F3DEthIcon';
+import F3DKey from './F3DKey';
 
 export {
   FontAwesome,
@@ -183,4 +186,7 @@ export {
   Warning,
   QRCodeScaner,
   SharePlatform,
+  CircularArrowRight,
+  F3DEthIcon,
+  F3DKey,
 };

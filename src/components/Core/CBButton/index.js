@@ -20,20 +20,23 @@ const ButtonContainer = styled(TouchableOpacity)`
     if (props.disabled) {
       return ButtonColors.disabledGray;
     }
+    if (props.bgColor) {
+      return ButtonColors.bgColor;
+    }
     return ButtonColors.blue;
   }};
 `;
 
 const ButtonText = styled.Text`
   color: ${props => {
-    if (props.textColor) {
-      return props.textColor;
-    }
     if (props.disabled) {
       return CBColors.grayLight;
     }
     if (props.simple) {
       return ButtonColors.blue;
+    }
+    if (props.textColor) {
+      return props.textColor;
     }
     return ButtonColors.white;
   }};
@@ -44,12 +47,13 @@ const ButtonText = styled.Text`
 function CBButton({
   text,
   simple,
+  bgColor,
   textStyle,
+  textColor,
   disabled,
   rounded,
   horizontalMargin,
   children,
-  textColor,
   ...rest
 }) {
   return (
@@ -57,12 +61,13 @@ function CBButton({
       simple={simple}
       rounded={rounded}
       disabled={disabled}
+      bgColor={bgColor}
       horizontalMargin={horizontalMargin}
       {...rest}
     >
       {children}
       {!children && (
-        <ButtonText style={textStyle} disabled={disabled} simple={simple} textColor={textColor}>
+        <ButtonText style={textStyle} textColor={textColor} disabled={disabled} simple={simple}>
           {text}
         </ButtonText>
       )}

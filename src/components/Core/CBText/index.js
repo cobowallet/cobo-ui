@@ -17,7 +17,16 @@ const CBText = styled.Text`
 `;
 
 CBText.propTypes = {
-  color: PropTypes.oneOf(['dark', 'gray', 'grayLight', 'primary', 'white', 'red', 'blue']),
+  color: PropTypes.oneOf([
+    'dark',
+    'gray',
+    'grayLight',
+    'primary',
+    'white',
+    'red',
+    'blue',
+    'orange',
+  ]),
   colorHex: PropTypes.string,
 };
 
