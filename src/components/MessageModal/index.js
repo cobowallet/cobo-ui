@@ -55,6 +55,7 @@ class MessageModal extends PureComponent {
       theme,
       titleStyle,
       contentStyle,
+      ...otherProps // orther react-native-modal props
     } = this.props;
     const messageHeight = this.getMessageContentHeight();
     const hasTitle = !isNil(title) && title.length > 0;
@@ -66,6 +67,7 @@ class MessageModal extends PureComponent {
           onModalShow={this.onModalShow}
           animationOutTiming={50}
           backdropTransitionOutTiming={50}
+          {...otherProps}
         >
           {hasTitle && (
             <TitleText bold onLayout={this.onTitleLayout} style={titleStyle}>
