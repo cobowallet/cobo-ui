@@ -46,7 +46,7 @@ DynamicQRCode.propTypes = {
 };
 
 DynamicQRCode.defaultProps = {
-  refreshSpeed: 500,
+  refreshSpeed: 800,
   size: 220,
   codeCapacity: 100,
 };
