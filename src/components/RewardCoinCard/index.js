@@ -68,7 +68,7 @@ export default function RewardCoinCard({
               style={{ borderRadius: 16.5 }}
             >
               <Button>
-                <CBText superBold small color={buttonDisabled ? 'disabledGray' : 'white'}>
+                <CBText superBold small color={buttonDisabled ? 'grayLight' : 'white'}>
                   {buttonText}
                 </CBText>
               </Button>
@@ -84,7 +84,7 @@ RewardCoinCard.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   coinCode: PropTypes.string.isRequired,
   displayCode: PropTypes.string.isRequired,
-  savingsRewardCoin: PropTypes.string.isRequired,
+  savingsRewardCoin: PropTypes.string,
   slogan: PropTypes.string.isRequired,
   earned: PropTypes.string.isRequired,
   earnedText: PropTypes.string.isRequired,

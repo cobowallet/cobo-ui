@@ -140,7 +140,7 @@ RewardCard.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   coinCode: PropTypes.string.isRequired,
   displayCode: PropTypes.string.isRequired,
-  savingsRewardCoin: PropTypes.string.isRequired,
+  savingsRewardCoin: PropTypes.string,
   slogan: PropTypes.string.isRequired,
   earned: PropTypes.string.isRequired,
   earnedText: PropTypes.string.isRequired,
