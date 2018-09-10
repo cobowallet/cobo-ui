@@ -92,6 +92,7 @@ import SharePlatform from './SharePlatform';
 import CircularArrowRight from './CircularArrowRight';
 import F3DEthIcon from './F3DEthIcon';
 import F3DKey from './F3DKey';
+import Community from './Community';
 
 export {
   FontAwesome,
@@ -189,4 +190,5 @@ export {
   CircularArrowRight,
   F3DEthIcon,
   F3DKey,
+  Community,
 };
