@@ -43,9 +43,11 @@ class RewardCard extends React.PureComponent {
 
   render() {
     const {
+      disabled,
       isOpen,
       coinCode,
       displayCode,
+      savingsRewardCoin,
       slogan,
       earned,
       earnedText,
@@ -62,7 +64,11 @@ class RewardCard extends React.PureComponent {
     const { unfolded } = this.state;
     return (
       <ShadowContainer isOpen={isOpen} style={{ shadowOffset: { width: 0, height: 2 } }}>
-        <Container onPress={onCardPress}>
+        <Container
+          onPress={() => {
+            return disabled ? null : onCardPress();
+          }}
+        >
           {isOpen && (
             <LeftSide
               start={{ x: 0, y: 0 }}
@@ -75,10 +81,12 @@ class RewardCard extends React.PureComponent {
             isOpen={isOpen}
             coinCode={coinCode}
             displayCode={displayCode}
+            savingsRewardCoin={savingsRewardCoin}
             slogan={slogan}
             earned={earned}
             earnedText={earnedText}
             buttonText={joinText}
+            buttonDisabled={disabled}
             onButtonPress={onJoinPress}
           />
           {isOpen ? (
@@ -128,9 +136,11 @@ class RewardCard extends React.PureComponent {
 }
 
 RewardCard.propTypes = {
+  disabled: PropTypes.bool.isRequired,
   isOpen: PropTypes.bool.isRequired,
   coinCode: PropTypes.string.isRequired,
   displayCode: PropTypes.string.isRequired,
+  savingsRewardCoin: PropTypes.string.isRequired,
   slogan: PropTypes.string.isRequired,
   earned: PropTypes.string.isRequired,
   earnedText: PropTypes.string.isRequired,

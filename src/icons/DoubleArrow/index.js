@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import whiteDoubleArrow from './img/double-arrow.png';
 import blueDoubleArrow from './img/blue-double-arrow.png';
 import purpleDoubleArrow from './img/purple-double-arrow.png';
+import orangeDoubleArrow from './img/orange-double-arrow.png';
 
 const ARROW_IMG_PATHS = {
   whiteDoubleArrow,
   blueDoubleArrow,
   purpleDoubleArrow,
+  orangeDoubleArrow,
 };
 
 function DoubleArrow({ style, type }) {
@@ -17,7 +19,12 @@ function DoubleArrow({ style, type }) {
 
 DoubleArrow.propTypes = {
   style: PropTypes.any,
-  type: PropTypes.oneOf(['whiteDoubleArrow', 'blueDoubleArrow', 'purpleDoubleArrow']),
+  type: PropTypes.oneOf([
+    'whiteDoubleArrow',
+    'blueDoubleArrow',
+    'purpleDoubleArrow',
+    'orangeDoubleArrow',
+  ]),
 };
 
 DoubleArrow.defaultProps = {

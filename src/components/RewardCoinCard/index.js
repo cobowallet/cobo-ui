@@ -10,10 +10,12 @@ export default function RewardCoinCard({
   isOpen,
   coinCode,
   displayCode,
+  savingsRewardCoin,
   slogan,
   earned,
   earnedText,
   buttonText,
+  buttonDisabled,
   onButtonPress,
 }) {
   return (
@@ -40,7 +42,7 @@ export default function RewardCoinCard({
               {slogan}
             </CBText>
             <RewardMode>
-              {displayCode || coinCode} {earnedText}
+              {savingsRewardCoin || displayCode || coinCode} {earnedText}
             </RewardMode>
           </CoinInfo>
         </View>
@@ -54,15 +56,19 @@ export default function RewardCoinCard({
               {slogan}
             </CBText>
           </View>
-          <TouchableOpacity onPress={onButtonPress}>
+          <TouchableOpacity
+            onPress={() => {
+              return buttonDisabled ? null : onButtonPress();
+            }}
+          >
             <LinearGradient
               start={{ x: 0, y: 1 }}
               end={{ x: 1, y: 1 }}
-              colors={['#5555FF', '#8702F1']}
+              colors={buttonDisabled ? ['#EEF0F3', '#EEF0F3'] : ['#5555FF', '#8702F1']}
               style={{ borderRadius: 16.5 }}
             >
               <Button>
-                <CBText superBold small color="white">
+                <CBText superBold small color={buttonDisabled ? 'disabledGray' : 'white'}>
                   {buttonText}
                 </CBText>
               </Button>
@@ -78,9 +84,11 @@ RewardCoinCard.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   coinCode: PropTypes.string.isRequired,
   displayCode: PropTypes.string.isRequired,
+  savingsRewardCoin: PropTypes.string.isRequired,
   slogan: PropTypes.string.isRequired,
   earned: PropTypes.string.isRequired,
   earnedText: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
+  buttonDisabled: PropTypes.bool.isRequired,
   onButtonPress: PropTypes.func.isRequired,
 };
