@@ -46,14 +46,5 @@ export const RewardMode = styled.Text`
 `;
 
 export const renderLogo = (coin, logoUrl) => {
-  const hasUrl = logoUrl && logoUrl.length > 0;
-  return (
-    <CoinLogo
-      {...(hasUrl
-        ? {
-            uri: logoUrl,
-          }
-        : { coin })}
-    />
-  );
+  return <CoinLogo coin={coin} uri={logoUrl} />;
 };

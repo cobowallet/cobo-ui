@@ -84,7 +84,7 @@ export default function RewardCoinCard({
 RewardCoinCard.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   coinCode: PropTypes.string.isRequired,
-  logoUrl: PropTypes.string.isRequired,
+  logoUrl: PropTypes.string,
   displayCode: PropTypes.string.isRequired,
   savingsRewardCoin: PropTypes.string,
   slogan: PropTypes.string.isRequired,
