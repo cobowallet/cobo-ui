@@ -9,6 +9,7 @@ import { CoinContainer, CoinInfo, Button, Balance, RewardMode, renderLogo } from
 export default function RewardCoinCard({
   isOpen,
   coinCode,
+  logoUrl,
   displayCode,
   savingsRewardCoin,
   slogan,
@@ -20,7 +21,7 @@ export default function RewardCoinCard({
 }) {
   return (
     <CoinContainer>
-      {renderLogo(coinCode)}
+      {renderLogo(coinCode, logoUrl)}
       {isOpen ? (
         <View style={{ flex: 1 }}>
           <CoinInfo>
@@ -83,6 +84,7 @@ export default function RewardCoinCard({
 RewardCoinCard.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   coinCode: PropTypes.string.isRequired,
+  logoUrl: PropTypes.string.isRequired,
   displayCode: PropTypes.string.isRequired,
   savingsRewardCoin: PropTypes.string,
   slogan: PropTypes.string.isRequired,

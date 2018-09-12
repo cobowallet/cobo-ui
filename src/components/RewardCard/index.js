@@ -46,6 +46,7 @@ class RewardCard extends React.PureComponent {
       disabled,
       isOpen,
       coinCode,
+      logoUrl,
       displayCode,
       savingsRewardCoin,
       slogan,
@@ -80,6 +81,7 @@ class RewardCard extends React.PureComponent {
           <RewardCionCard
             isOpen={isOpen}
             coinCode={coinCode}
+            logoUrl={logoUrl}
             displayCode={displayCode}
             savingsRewardCoin={savingsRewardCoin}
             slogan={slogan}
@@ -139,6 +141,7 @@ RewardCard.propTypes = {
   disabled: PropTypes.bool.isRequired,
   isOpen: PropTypes.bool.isRequired,
   coinCode: PropTypes.string.isRequired,
+  logoUrl: PropTypes.string.isRequired,
   displayCode: PropTypes.string.isRequired,
   savingsRewardCoin: PropTypes.string,
   slogan: PropTypes.string.isRequired,
