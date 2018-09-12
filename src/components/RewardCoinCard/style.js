@@ -22,8 +22,8 @@ export const CoinInfo = styled.View`
 
 export const CoinLogo = styled(WalletLogo)`
   margin-right: 12;
-  width: 38;
-  height: 38;
+  width: 46;
+  height: 46;
 `;
 
 export const Button = styled.View`
