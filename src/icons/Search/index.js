@@ -1,22 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
+import normal from './img/search.png';
+import inline from './img/search-inline.png';
+import bar from './img/search-bar.png';
 
 const imgs = {
-  normal: require('./img/search.png'),
-  inline: require('./img/search-inline.png'),
-  bar: require('./img/search-bar.png'),
+  normal,
+  inline,
+  bar,
 };
 
 export default function Search({ inline, type, style }) {
-  const getSource = (inline, type) => {
-    if (inline) {
-      type = 'inline';
-    }
-    return imgs[type];
-  };
-
-  return <Image style={style} source={getSource(inline)} />;
+  if (inline) {
+    type = 'inline';
+  }
+  return <Image style={style} source={imgs[type]} />;
 }
 
 Search.propTypes = {
