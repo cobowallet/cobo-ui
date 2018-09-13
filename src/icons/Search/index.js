@@ -23,7 +23,7 @@ Search.propTypes = {
   type: PropTypes.oneOf(['normal', 'inline', 'bar']),
 };
 
-Search.defaultTypes = {
+Search.defaultProps = {
   inline: false,
   type: 'normal',
 };
