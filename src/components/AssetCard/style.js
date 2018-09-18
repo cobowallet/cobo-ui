@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components/native';
 import { CBShadow, CBText } from '../Core';
 import { WalletLogo } from '../../icons';
@@ -28,6 +29,23 @@ export const IconContent = styled.View`
 export const CoinIcon = styled(WalletLogo)`
   height: 46;
   width: 46;
+`;
+
+const ParentIconContainer = styled.View`
+  height: 20;
+  width: 20;
+  border-radius: 10;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -2;
+  right: -2;
+  z-index: 9000;
+`;
+const ParentIcon = styled(WalletLogo)`
+  height: 16;
+  width: 16;
 `;
 
 export const CoinContainer = styled.View`
@@ -73,3 +91,11 @@ export const CoinDescContainer = styled.View`
 export const DescText = styled(CBText)`
   color: ${props => props.theme.descTextColor};
 `;
+
+export const ParentLogo = ({ coin, uri }) => {
+  return (
+    <ParentIconContainer>
+      <ParentIcon coin={coin} uri={uri} />
+    </ParentIconContainer>
+  );
+};

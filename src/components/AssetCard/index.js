@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { LayoutAnimation, UIManager, Platform } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
-import { isNil } from 'ramda';
 import { FoldingSwitch } from '../../icons';
 import RewardBadge from '../RewardBadge';
 import AdBadge from '../AdBadge';
@@ -19,6 +18,7 @@ import {
   FiatCurrencyAmountText,
   CoinDescContainer,
   DescText,
+  ParentLogo,
 } from './style';
 import { assetCardTheme } from './theme';
 
@@ -55,6 +55,8 @@ class AssetCard extends PureComponent {
       onAssetCardLayout,
       adBadge,
       desc,
+      coinParent,
+      coinParentIconUrl,
     } = this.props;
     const showBadge = !!slogan || !!adBadge;
     const showDesc = !!desc && !showBadge;
@@ -64,6 +66,7 @@ class AssetCard extends PureComponent {
           <Row onPress={onPress} onLayout={onAssetCardLayout}>
             <IconContent>
               <CoinIcon coin={coinCode} uri={iconUrl} />
+              {!!coinParent && <ParentLogo coin={coinParent} uri={coinParentIconUrl} />}
             </IconContent>
             <CoinContainer>
               <CoinCodeText>{displayCode || coinCode}</CoinCodeText>
@@ -119,6 +122,8 @@ AssetCard.propTypes = {
   adBadge: PropTypes.string,
   desc: PropTypes.string,
   onAssetCardLayout: PropTypes.func,
+  coinParent: PropTypes.string,
+  coinParentIconUrl: PropTypes.string,
 };
 
 AssetCard.defaultProps = {
@@ -131,6 +136,8 @@ AssetCard.defaultProps = {
   desc: '',
   iconUrl: '',
   onAssetCardLayout: e => null,
+  coinParent: '',
+  coinParentIconUrl: '',
 };
 
 export default AssetCard;

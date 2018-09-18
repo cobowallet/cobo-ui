@@ -16,6 +16,8 @@ class AssetCardTest extends PureComponent {
         adBadge: 'New',
         desc: '14:00(GMT+8)',
         txList: [{ title: 'Received' }, { title: 'Sent' }],
+        coinParent: '',
+        coinParentIconUrl: '',
       },
       {
         coinCode: 'EOSDAC',
@@ -24,6 +26,8 @@ class AssetCardTest extends PureComponent {
         fiatCurrencySymbol: '$',
         desc: '14:00(GMT+8)',
         txList: [{ title: 'Received' }, { title: 'Sent' }],
+        coinParent: 'EOS',
+        coinParentIconUrl: '',
       },
       {
         coinCode: 'TRX',
@@ -32,6 +36,8 @@ class AssetCardTest extends PureComponent {
         fiatCurrencySymbol: '$',
         adBadge: 'New',
         desc: '14:00(GMT+8) Receive VET dividend',
+        coinParent: '',
+        coinParentIconUrl: '',
       },
       {
         coinCode: 'ETH',
@@ -39,6 +45,8 @@ class AssetCardTest extends PureComponent {
         fiatCurrencyAmount: '5220.96',
         fiatCurrencySymbol: '$',
         desc: '14:00(GMT+8)获取VET增益',
+        coinParent: '',
+        coinParentIconUrl: '',
       },
     ];
   };
