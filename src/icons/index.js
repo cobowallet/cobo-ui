@@ -94,6 +94,7 @@ import F3DEthIcon from './F3DEthIcon';
 import F3DKey from './F3DKey';
 import Community from './Community';
 import CircleCheckRegister from './CircleCheckRegister';
+import Secret from './Secret';
 
 export {
   FontAwesome,
@@ -193,4 +194,5 @@ export {
   F3DKey,
   Community,
   CircleCheckRegister,
+  Secret,
 };
