@@ -52,7 +52,7 @@ export default function RewardCoinCard({
         <CoinInfo style={{ flex: 1 }}>
           <View>
             <CBText superBold style={{ marginBottom: 7 }}>
-              {displayCode || coinCode}
+              {name || displayCode || coinCode}
             </CBText>
             <CBText small superBold color="blue">
               {slogan}
