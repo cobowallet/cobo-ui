@@ -10,6 +10,7 @@ export default function RewardCoinCard({
   isOpen,
   coinCode,
   logoUrl,
+  name,
   displayCode,
   savingsRewardCoin,
   slogan,
@@ -26,7 +27,7 @@ export default function RewardCoinCard({
         <View style={{ flex: 1 }}>
           <CoinInfo>
             <CBText superBold style={{ marginBottom: 7 }}>
-              {displayCode || coinCode}
+              {name || displayCode || coinCode}
             </CBText>
             <Balance
               style={{
@@ -85,12 +86,13 @@ RewardCoinCard.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   coinCode: PropTypes.string.isRequired,
   logoUrl: PropTypes.string,
+  name: PropTypes.string,
   displayCode: PropTypes.string.isRequired,
   savingsRewardCoin: PropTypes.string,
   slogan: PropTypes.string.isRequired,
   earned: PropTypes.string.isRequired,
   earnedText: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonDisabled: PropTypes.bool.isRequired,
+  buttonDisabled: PropTypes.bool,
   onButtonPress: PropTypes.func.isRequired,
 };
