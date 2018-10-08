@@ -1,9 +1,10 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import { DeviceInfo, TouchableOpacity, View, Platform } from 'react-native';
+import { View, Platform } from 'react-native';
 import styled from 'styled-components/native';
+import isIPhoneX from '../../utils/devices';
 
-const iphoneX = DeviceInfo.isIPhoneX_deprecated;
+const iPhoneX = isIPhoneX;
 
 const GradientContainer = styled.View`
   overflow: hidden;
@@ -19,7 +20,7 @@ const Gradient = styled(LinearGradient)`
 `;
 
 export const Container = styled.View`
-  padding-top: ${iphoneX ? 94 : 74};
+  padding-top: ${iPhoneX ? 94 : 74};
 `;
 
 export const BottomContainer = styled.View`

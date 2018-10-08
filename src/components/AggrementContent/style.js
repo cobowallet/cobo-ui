@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { DeviceInfo } from 'react-native';
 import { CircleCheck } from '../../icons';
 import { CBText, CBButton, CBContainer } from '../Core';
+import isIPhoneX from '../../utils/devices';
 
-const iPhoneX = DeviceInfo.isIPhoneX_deprecated;
+const iPhoneX = isIPhoneX;
 
 export const Container = styled(CBContainer)`
   flex: 1;
