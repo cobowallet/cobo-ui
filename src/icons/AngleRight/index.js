@@ -1,5 +1,5 @@
 import React from 'react';
-import { FontAwesome } from '../index';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 function AngleRight({ style }) {
   return (
