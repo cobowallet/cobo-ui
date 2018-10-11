@@ -34,7 +34,7 @@ export const Button = styled.View`
 `;
 
 export const Balance = styled.Text`
-  font-size: 28;
+  font-size: 26;
   color: ${FontColors.primary};
   font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
   text-align: right;
