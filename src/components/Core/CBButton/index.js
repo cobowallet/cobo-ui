@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { withTheme } from 'styled-components';
 import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import CBColors, { ButtonColors } from '../../../theme/CBColor';
@@ -21,7 +20,7 @@ const ButtonContainer = styled(TouchableOpacity)`
       return ButtonColors.disabledGray;
     }
     if (props.bgColor) {
-      return ButtonColors.bgColor;
+      return props.bgColor;
     }
     return ButtonColors.blue;
   }};
@@ -32,11 +31,11 @@ const ButtonText = styled.Text`
     if (props.disabled) {
       return CBColors.grayLight;
     }
-    if (props.simple) {
-      return ButtonColors.blue;
-    }
     if (props.textColor) {
       return props.textColor;
+    }
+    if (props.simple) {
+      return ButtonColors.blue;
     }
     return ButtonColors.white;
   }};
