@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+import LinearGradient from 'react-native-linear-gradient';
 import CBColors, { ButtonColors } from '../../../theme/CBColor';
 
 const ButtonContainer = styled(TouchableOpacity)`
@@ -24,6 +25,15 @@ const ButtonContainer = styled(TouchableOpacity)`
     }
     return ButtonColors.blue;
   }};
+`;
+
+const LinearGradientBackground = styled(LinearGradient)`
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: ${props => (props.rounded ? 25 : 3)};
 `;
 
 const ButtonText = styled.Text`
@@ -53,6 +63,8 @@ function CBButton({
   rounded,
   horizontalMargin,
   children,
+  hasLinearGradient,
+  linearGradientProps,
   ...rest
 }) {
   return (
@@ -60,10 +72,11 @@ function CBButton({
       simple={simple}
       rounded={rounded}
       disabled={disabled}
-      bgColor={bgColor}
+      bgColor={hasLinearGradient ? 'transparent' : bgColor}
       horizontalMargin={horizontalMargin}
       {...rest}
     >
+      {hasLinearGradient && <LinearGradientBackground {...linearGradientProps} />}
       {children}
       {!children && (
         <ButtonText style={textStyle} textColor={textColor} disabled={disabled} simple={simple}>
@@ -80,7 +93,8 @@ CBButton.propTypes = {
   textStyle: PropTypes.object,
   rounded: PropTypes.bool,
   disabled: PropTypes.bool,
-  linearGradient: PropTypes.bool,
+  hasLinearGradient: PropTypes.bool,
+  linearGradientProps: PropTypes.object,
   horizontalMargin: PropTypes.bool,
 };
 
@@ -90,7 +104,8 @@ CBButton.defaultProps = {
   textStyle: {},
   rounded: false,
   disabled: false,
-  linearGradient: false,
+  hasLinearGradient: false,
+  linearGradientProps: {},
   horizontalMargin: true,
 };
 
