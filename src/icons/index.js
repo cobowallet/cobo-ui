@@ -95,6 +95,7 @@ import F3DKey from './F3DKey';
 import Community from './Community';
 import CircleCheckRegister from './CircleCheckRegister';
 import Secret from './Secret';
+import SignMessage from './SignMessage';
 
 export {
   FontAwesome,
@@ -195,4 +196,5 @@ export {
   Community,
   CircleCheckRegister,
   Secret,
+  SignMessage,
 };
