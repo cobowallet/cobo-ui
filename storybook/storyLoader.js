@@ -31,6 +31,7 @@ function loadStories() {
   require('../src/components/RewardCoinCard/index.stories');
   require('../src/components/SecretCode/index.stories');
   require('../src/components/SuccessAnimation/index.stories');
+  require('../src/components/Tabs/index.stories');
   require('../src/components/TransactionRecordRow/index.stories');
   require('../src/components/TransactionStatus/index.stories');
   require('../src/components/VoteHeader/index.stories');
@@ -70,6 +71,7 @@ const stories = [
   '../src/components/RewardCoinCard/index.stories',
   '../src/components/SecretCode/index.stories',
   '../src/components/SuccessAnimation/index.stories',
+  '../src/components/Tabs/index.stories',
   '../src/components/TransactionRecordRow/index.stories',
   '../src/components/TransactionStatus/index.stories',
   '../src/components/VoteHeader/index.stories',
