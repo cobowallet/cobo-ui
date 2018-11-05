@@ -49,12 +49,14 @@ class SecretCode extends Component {
       isModalOpen: true,
       activeIndex: 1,
     });
+    this.props.onTrackAction('HD_CREATE_BACKUP_NOW');
   };
 
   goToConfirmPage = num => {
     this.setState({
       activeIndex: num,
     });
+    this.props.onTrackAction('HD_CREATE_BACKUP_NEXTSTEP', { step: num });
   };
 
   closeModal = () => {
@@ -141,6 +143,7 @@ SecretCode.propTypes = {
   onSuccess: PropTypes.func,
   onCancel: PropTypes.func,
   onFail: PropTypes.func,
+  onTrackAction: PropTypes.func,
   theme: PropTypes.string,
   questionNumber: PropTypes.number,
   style: PropTypes.object,
