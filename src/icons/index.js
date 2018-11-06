@@ -96,6 +96,7 @@ import Community from './Community';
 import CircleCheckRegister from './CircleCheckRegister';
 import Secret from './Secret';
 import SignMessage from './SignMessage';
+import Customer from './Customer';
 
 export {
   FontAwesome,
@@ -197,4 +198,5 @@ export {
   CircleCheckRegister,
   Secret,
   SignMessage,
+  Customer,
 };
