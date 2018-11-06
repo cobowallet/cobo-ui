@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function Customer({ style }) {
   return (
-    <Image style={[{ width: 39, height: 42 }, style]} source={require('./img/customer.png')} />
+    <Image style={[{ width: 22, height: 20 }, style]} source={require('./img/customer.png')} />
   );
 }
 
