@@ -68,7 +68,7 @@ class MessageModal extends PureComponent {
           onModalShow={this.onModalShow}
           animationOutTiming={50}
           backdropTransitionOutTiming={50}
-          borderRadius={borderRadius}
+          backgroundBorderRadius={borderRadius}
           {...otherProps}
         >
           {hasTitle && (
@@ -94,7 +94,7 @@ class MessageModal extends PureComponent {
 
           {renderContent && renderContent()}
 
-          <ButtonsContainer borderRadius={borderRadius}>
+          <ButtonsContainer backgroundBorderRadius={borderRadius}>
             {renderBottomButtons(buttons)}
           </ButtonsContainer>
         </BoxModal>
