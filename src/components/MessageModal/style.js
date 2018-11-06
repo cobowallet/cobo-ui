@@ -15,7 +15,7 @@ export const BoxModal = styled(CBModal)`
   background-color: white;
   align-items: center;
   flex-direction: column;
-  border-radius: ${BORDER_RADIUS};
+  border-radius: ${props => props.borderRadius || BORDER_RADIUS};
   padding-top: 16;
 `;
 
@@ -46,8 +46,8 @@ export const ButtonsContainer = styled.View`
   border-top-width: 1;
   width: 100%;
   background-color: ${props => props.theme.buttonsContainerColor};
-  border-bottom-left-radius: ${BORDER_RADIUS};
-  border-bottom-right-radius: ${BORDER_RADIUS};
+  border-bottom-left-radius: ${props => props.borderRadius || BORDER_RADIUS};
+  border-bottom-right-radius: ${props => props.borderRadius || BORDER_RADIUS};
 `;
 
 const Touchable = styled.TouchableOpacity`

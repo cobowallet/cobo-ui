@@ -55,6 +55,7 @@ class MessageModal extends PureComponent {
       theme,
       titleStyle,
       contentStyle,
+      borderRadius,
       ...otherProps // orther react-native-modal props
     } = this.props;
     const messageHeight = this.getMessageContentHeight();
@@ -67,6 +68,7 @@ class MessageModal extends PureComponent {
           onModalShow={this.onModalShow}
           animationOutTiming={50}
           backdropTransitionOutTiming={50}
+          borderRadius={borderRadius}
           {...otherProps}
         >
           {hasTitle && (
@@ -92,7 +94,9 @@ class MessageModal extends PureComponent {
 
           {renderContent && renderContent()}
 
-          <ButtonsContainer>{renderBottomButtons(buttons)}</ButtonsContainer>
+          <ButtonsContainer borderRadius={borderRadius}>
+            {renderBottomButtons(buttons)}
+          </ButtonsContainer>
         </BoxModal>
       </ThemeProvider>
     );
@@ -118,6 +122,7 @@ MessageModal.propTypes = {
     })
   ).isRequired,
   theme: PropTypes.string,
+  borderRadius: PropTypes.number,
 };
 
 MessageModal.defaultProps = {
@@ -127,6 +132,7 @@ MessageModal.defaultProps = {
   theme: 'default',
   titleStyle: {},
   contentStyle: {},
+  borderRadius: 12,
 };
 
 export default MessageModal;
