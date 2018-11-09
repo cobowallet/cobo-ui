@@ -4,7 +4,7 @@ import SecretCode from './index';
 
 storiesOf('Secret code', module).add('default', () => (
   <SecretCode
-    locale={'en'}
+    locale={'zh'}
     secretWords={[
       'grass',
       'belt',

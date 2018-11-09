@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components/native';
 import PropTypes from 'prop-types';
 import SecretCodePanel from '../SecretCode/SecretCodePanel';
-import { lang } from './lang';
+import languages from '../../languages';
 import CodeTable from '../SecretCode/CodePage/CodeTable';
 import { secretCodeTheme } from '../../theme';
 
@@ -18,7 +18,7 @@ const getBody = codes => (
 );
 
 const MnemonicChecker = ({ locale, codes, style, children, theme }) => {
-  const checkPageSetting = lang[locale].checkPage;
+  const checkPageSetting = languages(locale).MnemonicChecker.checkPage;
   const codesList = codes.map((each, index) => ({
     index: index + 1,
     value: each,

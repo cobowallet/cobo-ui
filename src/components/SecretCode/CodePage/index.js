@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import SecretCodePanel from '../SecretCodePanel';
-import { lang } from '../lang';
+import languages from '../../../languages';
 import CodeTable from './CodeTable';
 
 const Container = styled.View`
@@ -17,7 +17,7 @@ const getBody = codes => (
 );
 
 const CodePage = ({ locale, codes, goToConfirmOne, style }) => {
-  const codePageSetting = lang[locale].codePage;
+  const codePageSetting = languages(locale).SecretCode.codePage;
   return (
     <SecretCodePanel
       header={codePageSetting.header}

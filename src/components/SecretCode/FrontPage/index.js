@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import FrontPagePanle from './FrontPagePanle';
 import FrontPageIcon from './FrontPageIcon/index';
-import { lang } from '../lang';
+import languages from '../../../languages';
 import CBButton from '../../Core/CBButton/index';
 
 const Container = styled.View`
@@ -21,7 +21,7 @@ const Body = (
 );
 
 const FrontPage = ({ locale, goToCodePage, style, onCancel }) => {
-  const fontPageSetting = lang[locale].frontPage;
+  const fontPageSetting = languages(locale).SecretCode.frontPage;
   return (
     <FrontPagePanle
       header={fontPageSetting.header}

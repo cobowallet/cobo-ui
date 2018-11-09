@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import SecretCodePanel from '../SecretCodePanel';
-import { lang } from '../lang';
+import languages from '../../../languages';
 import CBButton from '../../Core/CBButton/index';
 import WordsBox from './WordsBox';
 import { ButtonColors, FontColors } from '../../../theme/CBColor';
@@ -67,7 +67,7 @@ class ConfirmPage extends React.PureComponent {
 
   render() {
     const { locale, words, page, wordIndex, style } = this.props;
-    const confirmPageSetting = lang[locale].confirmPage;
+    const confirmPageSetting = languages(locale).SecretCode.confirmPage;
     return (
       <SecretCodePanel
         header={confirmPageSetting.header}

@@ -7,7 +7,7 @@ import FrontPage from './FrontPage';
 import CodePage from './CodePage';
 import ConfirmPage from './ConfirmPage';
 import SecretModal from './SecretModal';
-import { lang } from './lang';
+import languages from '../../languages';
 import { transformSecretCodeFormat, generateQuestionWordsAndNoise } from './codeHelper';
 import { secretCodeTheme } from '../../theme';
 
@@ -66,7 +66,7 @@ class SecretCode extends Component {
   };
 
   render() {
-    const modalSetting = lang[this.props.locale].modal;
+    const modalSetting = languages(this.props.locale).SecretCode.modal;
     return (
       <ThemeProvider theme={secretCodeTheme[this.props.theme] || secretCodeTheme.default}>
         <ScrollView
@@ -154,6 +154,7 @@ SecretCode.defaultProps = {
   onSuccess: () => {},
   onCancel: () => {},
   onFail: () => {},
+  onTrackAction: () => {},
   theme: 'dark',
   questionNumber: 2,
   style: {},

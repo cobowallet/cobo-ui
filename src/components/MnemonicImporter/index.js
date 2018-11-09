@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from 'styled-components/native';
 import PropTypes from 'prop-types';
 import { update } from 'ramda';
 import SecretCodePanel from '../SecretCode/SecretCodePanel';
-import { lang } from './lang';
+import languages from '../../languages';
 import CodeInputTable from './codeInputTable';
 import { secretCodeTheme } from '../../theme';
 
@@ -73,7 +73,7 @@ class MnemonicImporter extends PureComponent {
   };
 
   render() {
-    const importPageSetting = lang[this.props.locale].importPage;
+    const importPageSetting = languages(this.props.locale).MnemonicImporter.importPage;
     return (
       <ThemeProvider theme={secretCodeTheme[this.props.theme] || secretCodeTheme.default}>
         <SecretCodePanel
