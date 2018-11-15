@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { splitData } from 'cobo-wallet-utils/qrCode';
+import { qrCode } from 'cobo-wallet-utils';
 import CBQRCode from '../QRCode';
+
+const { splitData } = qrCode;
 
 class DynamicQRCode extends React.PureComponent {
   state = {
