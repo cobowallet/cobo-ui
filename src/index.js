@@ -32,7 +32,8 @@ export { default as BrowseIcon } from './components/Browse';
 export { default as RewardCard } from './components/RewardCard';
 export { default as WalletAddonItem } from './components/WalletAddonItem';
 export { default as ProgressRow } from './components/ProgressRow';
-export { default as DynamicQRCode } from './components/DynamicQRCode';
+// yarn start会有问题，临时注释
+// export { default as DynamicQRCode } from './components/DynamicQRCode';
 export { default as AdBadge } from './components/AdBadge';
 export { default as isIPhoneX } from './utils/devices';
 export { default as Tabs } from './components/Tabs';
