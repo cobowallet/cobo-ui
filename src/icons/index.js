@@ -55,6 +55,7 @@ import {
   ReceiveTab,
   SettingTab,
   BrowseTab,
+  FinanceTab,
 } from './TabIcons';
 import Asset from './Asset';
 import Delete from './Delete';
@@ -154,6 +155,7 @@ export {
   ReceiveTab,
   SettingTab,
   BrowseTab,
+  FinanceTab,
   AssetWalletLogo,
   Asset,
   Delete,
