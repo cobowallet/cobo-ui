@@ -15,6 +15,9 @@ export default function ArrowRight({ style, type }) {
       case 'blue':
         source = require(`./img/arrow-right-blue.png`);
         break;
+      case 'red':
+        source = require(`./img/arrow-right-red.png`);
+        break;
       default:
         source = require('./img/arrow-right.png');
     }

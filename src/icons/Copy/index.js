@@ -8,11 +8,14 @@ function Copy({ type, style }) {
   if (type === 'white') {
     source = require('./img/copy-white.png');
   }
+  if (type === 'gray') {
+    source = require('./img/copy-gray.png');
+  }
   return <Image style={style} source={source} />;
 }
 
 Copy.propTypes = {
-  type: PropTypes.oneOf(['', 'white']),
+  type: PropTypes.oneOf(['', 'white', 'gray']),
   style: PropTypes.any,
 };
 

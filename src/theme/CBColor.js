@@ -10,6 +10,7 @@ export const FontColors = {
   disabledGray: '#8F95AA',
   orange: '#FFC22F',
   green: '#00B191',
+  candyRed: '#DC134E',
 };
 
 export const ButtonColors = {

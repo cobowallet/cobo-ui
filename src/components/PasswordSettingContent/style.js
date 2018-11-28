@@ -13,6 +13,8 @@ const InputView = styled.View`
   justify-content: flex-start;
   align-items: center;
   margin-top: 16;
+  border-bottom-width: 1;
+  border-bottom-color: ${props => props.theme.line};
 `;
 
 const PasswordInput = styled.TextInput`
@@ -20,8 +22,6 @@ const PasswordInput = styled.TextInput`
   flex: 1;
   font-size: 15;
   justify-content: center;
-  border-bottom-width: 1;
-  border-bottom-color: ${props => props.theme.line};
 `;
 
 const PasswordHintText = styled.Text`
@@ -51,7 +51,7 @@ export const renderPasswordInputContent = ({
           autoCorrect={false}
           underlineColorAndroid={'transparent'}
         />
-        {isComplete && <Indicator style={{ marginLeft: 10 }} />}
+        {isComplete && <Indicator style={{ marginLeft: 5, marginRight: 8 }} />}
       </InputView>
       {passwordPrompt.length > 0 && (
         <PasswordHintText color={passwordPromptColor}>{passwordPrompt}</PasswordHintText>

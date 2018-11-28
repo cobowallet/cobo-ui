@@ -26,6 +26,7 @@ CBText.propTypes = {
     'red',
     'blue',
     'orange',
+    'candyRed',
   ]),
   colorHex: PropTypes.string,
 };
