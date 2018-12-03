@@ -115,6 +115,8 @@ export const RecordIcon = ({ isSendOut, action, iconUrl, type }) => {
         return <RewardIcon style={styled} />;
       case 'send':
         return <SendIcon type={'transaction'} style={styled} />;
+      case 'sending':
+        return <SendIcon type={'sending'} style={styled} />;
       case 'receive':
         return <ReceiveIcon type={'transaction'} style={styled} />;
     }

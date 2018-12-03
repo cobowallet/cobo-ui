@@ -5,12 +5,14 @@ import transaction from './img/send-coin.png';
 import financing from './img/financing-send.png';
 import spending from './img/spending-send.png';
 import sent from './img/sent.png';
+import sending from './img/sending.png';
 
 const SEND_IMG_PATHS = {
   transaction,
   financing,
   spending,
   sent,
+  sending,
 };
 
 function SendIcon({ style, type }) {
@@ -19,7 +21,7 @@ function SendIcon({ style, type }) {
 
 SendIcon.propTypes = {
   style: PropTypes.object,
-  type: PropTypes.oneOf(['transaction', 'financing', 'spending', 'sent']),
+  type: PropTypes.oneOf(['transaction', 'financing', 'spending', 'sent', 'sending']),
 };
 
 SendIcon.defaultProps = {
