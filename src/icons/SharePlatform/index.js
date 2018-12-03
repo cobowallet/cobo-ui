@@ -7,6 +7,9 @@ import qq from './img/qq.png';
 import sinaWeibo from './img/sina-weibo.png';
 import facebook from './img/facebook.png';
 import twitter from './img/twitter.png';
+import messenger from './img/messenger.png';
+import telegram from './img/telegram.png';
+import whatsapp from './img/whatsapp.png';
 import copy from './img/copy.png';
 import more from './img/more.png';
 
@@ -17,6 +20,9 @@ const Platforms = {
   sinaWeibo,
   facebook,
   twitter,
+  messenger,
+  telegram,
+  whatsapp,
   copy,
   more,
 };
@@ -34,6 +40,9 @@ SharePlatform.propTypes = {
     'sinaWeibo',
     'facebook',
     'twitter',
+    'messenger',
+    'telegram',
+    'whatsapp',
     'copy',
     'more',
   ]),
