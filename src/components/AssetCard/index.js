@@ -34,8 +34,9 @@ class AssetCard extends PureComponent {
     };
   }
 
-  onFold = () => {
+  onFold = coinCode => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    this.props.onFold && this.props.onFold(coinCode, !this.state.open);
     this.setState({
       open: !this.state.open,
     });
@@ -95,7 +96,7 @@ class AssetCard extends PureComponent {
                 numberOfLines={1}
               >{`${fiatCurrencySymbol} ${fiatCurrencyAmount}`}</FiatCurrencyAmountText>
             </AmountContainer>
-            <ToggleArea onPress={this.onFold}>
+            <ToggleArea onPress={() => this.onFold(coinCode)}>
               <FoldingSwitch isCollapsed={!this.state.open} />
             </ToggleArea>
           </Row>
@@ -122,6 +123,7 @@ AssetCard.propTypes = {
   adBadge: PropTypes.string,
   desc: PropTypes.string,
   onAssetCardLayout: PropTypes.func,
+  onFold: PropTypes.func,
   coinParent: PropTypes.string,
   coinParentIconUrl: PropTypes.string,
 };
