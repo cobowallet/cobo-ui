@@ -11,6 +11,7 @@ import messenger from './img/messenger.png';
 import telegram from './img/telegram.png';
 import whatsapp from './img/whatsapp.png';
 import reddit from './img/reddit.png';
+import snapchat from './img/snapchat.png';
 import copy from './img/copy.png';
 import more from './img/more.png';
 
@@ -25,6 +26,7 @@ const Platforms = {
   telegram,
   whatsapp,
   reddit,
+  snapchat,
   copy,
   more,
 };
@@ -46,6 +48,7 @@ SharePlatform.propTypes = {
     'telegram',
     'whatsapp',
     'reddit',
+    'snapchat',
     'copy',
     'more',
   ]),
