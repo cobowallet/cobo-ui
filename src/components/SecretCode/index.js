@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components/native';
 import { ScrollView, Dimensions } from 'react-native';
-import { range } from 'ramda';
+import { equals, range } from 'ramda';
 import FrontPage from './FrontPage';
 import CodePage from './CodePage';
 import ConfirmPage from './ConfirmPage';
@@ -14,24 +14,32 @@ import { secretCodeTheme } from '../../theme';
 const { width } = Dimensions.get('window');
 
 class SecretCode extends Component {
-  state = {
-    isModalOpen: false,
-    activeIndex: 0,
-    secretWords: [],
-    questionWordsAndNoise: [],
-  };
-
-  componentWillReceiveProps(nextProps) {
-    const secretWords = transformSecretCodeFormat(nextProps.secretWords);
-    this.setState({
+  constructor(props) {
+    super(props);
+    const secretWords = transformSecretCodeFormat(this.props.secretWords);
+    this.state = {
+      isModalOpen: false,
+      activeIndex: 0,
       secretWords,
       questionWordsAndNoise: generateQuestionWordsAndNoise(secretWords, this.props.questionNumber),
-    });
+    };
   }
 
-  componentDidUpdate() {
-    const scrolledX = this.state.activeIndex * width;
-    this.scrollView.scrollTo({ x: scrolledX, y: 0, animated: true });
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.activeIndex !== this.state.activeIndex) {
+      const scrolledX = this.state.activeIndex * width;
+      this.scrollView.scrollTo({ x: scrolledX, y: 0, animated: true });
+    }
+    if (!equals(prevProps.secretWords, this.props.secretWords)) {
+      const secretWords = transformSecretCodeFormat(this.props.secretWords);
+      this.setState({
+        secretWords,
+        questionWordsAndNoise: generateQuestionWordsAndNoise(
+          secretWords,
+          this.props.questionNumber
+        ),
+      });
+    }
   }
 
   regenerateQuestionAndNoise = () => {
