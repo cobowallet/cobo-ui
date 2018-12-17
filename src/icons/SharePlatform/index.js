@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 import wechatSession from './img/wechat-session.png';
 import wechatTimeLine from './img/wechat-timeLine.png';
@@ -14,6 +13,8 @@ import reddit from './img/reddit.png';
 import snapchat from './img/snapchat.png';
 import copy from './img/copy.png';
 import more from './img/more.png';
+
+import { Container, PlatformImage, HotImage } from './style';
 
 const Platforms = {
   wechatSession,
@@ -31,8 +32,13 @@ const Platforms = {
   more,
 };
 
-function SharePlatform({ style, platform }) {
-  return <Image source={Platforms[platform]} style={style} />;
+function SharePlatform({ style, platform, hot }) {
+  return (
+    <Container>
+      <PlatformImage source={Platforms[platform]} style={style} />
+      {hot && <HotImage source={require('./img/hot.png')} />}
+    </Container>
+  );
 }
 
 SharePlatform.propTypes = {
@@ -52,11 +58,13 @@ SharePlatform.propTypes = {
     'copy',
     'more',
   ]),
+  hot: PropTypes.bool,
 };
 
 SharePlatform.defaultProps = {
   style: {},
   platform: 'wechatSession',
+  hot: false,
 };
 
 export default SharePlatform;
