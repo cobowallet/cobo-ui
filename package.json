@@ -1,6 +1,6 @@
 {
   "name": "CoboUI",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "private": true,
   "rnpm": {
     "assets": [
@@ -24,7 +24,7 @@
   "dependencies": {
     "bignumber.js": "^7.0.2",
     "bip39": "^2.5.0",
-    "cobo-wallet-utils": "git+ssh://git@114.112.100.193:cobo-wallet-utils.git",
+    "cobo-wallet-utils": "git+ssh://git@114.112.100.193:cobo-wallet-utils.git#1cb696aef0dc5e76604505a1ad36e5bff6be014b",
     "numeral": "^2.0.6",
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
