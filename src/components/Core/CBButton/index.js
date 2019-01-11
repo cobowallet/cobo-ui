@@ -18,7 +18,7 @@ const ButtonContainer = styled(TouchableOpacity)`
       return 'transparent';
     }
     if (props.disabled) {
-      return ButtonColors.disabledGray;
+      return props.disabledColor ? props.disabledColor : ButtonColors.disabledGray;
     }
     if (props.bgColor) {
       return props.bgColor;
@@ -91,8 +91,10 @@ CBButton.propTypes = {
   text: PropTypes.string,
   simple: PropTypes.bool,
   textStyle: PropTypes.object,
+  bgColor: PropTypes.string,
   rounded: PropTypes.bool,
   disabled: PropTypes.bool,
+  disabledColor: PropTypes.string,
   hasLinearGradient: PropTypes.bool,
   linearGradientProps: PropTypes.object,
   horizontalMargin: PropTypes.bool,
