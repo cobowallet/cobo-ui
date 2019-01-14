@@ -1,16 +1,11 @@
 {
   "name": "CoboUI",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "private": true,
   "rnpm": {
-    "assets": [
-      "assets/fonts"
-    ]
+    "assets": ["assets/fonts"]
   },
-  "files": [
-    "src",
-    "assets"
-  ],
+  "files": ["src", "assets"],
   "main": "src/index.js",
   "scripts": {
     "eslint": "eslint src/**/*.js",
@@ -24,7 +19,8 @@
   "dependencies": {
     "bignumber.js": "^7.0.2",
     "bip39": "^2.5.0",
-    "cobo-wallet-utils": "git+ssh://git@114.112.100.193:cobo-wallet-utils.git#1cb696aef0dc5e76604505a1ad36e5bff6be014b",
+    "cobo-wallet-utils":
+      "git+ssh://git@114.112.100.193:cobo-wallet-utils.git#1cb696aef0dc5e76604505a1ad36e5bff6be014b",
     "numeral": "^2.0.6",
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
@@ -73,28 +69,18 @@
   },
   "config": {
     "react-native-storybook-loader": {
-      "searchDir": [
-        "./src"
-      ],
+      "searchDir": ["./src"],
       "pattern": "**/*.stories.js",
       "outputFile": "./storybook/storyLoader.js"
     }
   },
   "lint-staged": {
-    "src/**/*.{js,json,css}": [
-      "eslint",
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.{js,json,css}": ["eslint", "prettier --write", "git add"]
   },
   "jest": {
     "verbose": true,
-    "setupFiles": [
-      "./test/config.js"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|react-native-.*|native-.*)/)"
-    ],
+    "setupFiles": ["./test/config.js"],
+    "transformIgnorePatterns": ["node_modules/(?!(react-native|react-native-.*|native-.*)/)"],
     "preset": "react-native"
   }
 }
