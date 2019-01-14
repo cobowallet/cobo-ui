@@ -98,6 +98,7 @@ import CircleCheckRegister from './CircleCheckRegister';
 import Secret from './Secret';
 import SignMessage from './SignMessage';
 import Customer from './Customer';
+import Spell from './Spell';
 
 export {
   FontAwesome,
@@ -201,4 +202,5 @@ export {
   Secret,
   SignMessage,
   Customer,
+  Spell,
 };
