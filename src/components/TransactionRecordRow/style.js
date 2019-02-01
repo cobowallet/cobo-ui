@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Image } from 'react-native';
 import { CBText } from '../Core';
+import AddressTag from '../AddressTag';
 import { SendIcon, ReceiveIcon, RewardIcon, ExchangeTx } from '../../icons';
 
 export const Container = styled.TouchableOpacity`
@@ -30,6 +31,11 @@ export const TitleRow = styled.View`
 export const DescRow = styled.View`
   margin-top: 7;
   flex-flow: row;
+  align-items: center;
+`;
+
+export const TitleTag = styled(AddressTag)`
+  margin-left: 6;
   align-items: center;
 `;
 

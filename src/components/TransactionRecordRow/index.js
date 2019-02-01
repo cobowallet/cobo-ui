@@ -8,6 +8,7 @@ import {
   DescRow,
   TitleRow,
   TitleText,
+  TitleTag,
   AmountText,
   Message,
   TimeText,
@@ -18,6 +19,7 @@ const TransactionRecordRow = ({
   showIcon,
   iconUrl,
   title,
+  titleTag,
   amount,
   messageTitle,
   message,
@@ -36,6 +38,13 @@ const TransactionRecordRow = ({
     <Content>
       <TitleRow>
         <TitleText title={title} />
+        {!!titleTag && (
+          <TitleTag
+            text={titleTag}
+            backgroundStartColor={'#ff5b2f'}
+            backgroundEndColor={'#ff9c30'}
+          />
+        )}
         <AmountText
           isSendOut={isSendOut}
           amount={amount}
@@ -43,7 +52,6 @@ const TransactionRecordRow = ({
           displayCode={displayCode}
         />
       </TitleRow>
-
       <DescRow>
         <Message messageTitle={messageTitle} message={message} />
         {typeof extra === 'string' ? <TimeText time={extra} /> : <TransactionStatus {...extra} />}
@@ -57,6 +65,7 @@ TransactionRecordRow.propTypes = {
   showIcon: PropTypes.bool,
   iconUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
+  titleTag: PropTypes.string,
   amount: PropTypes.string.isRequired,
   messageTitle: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
@@ -81,6 +90,7 @@ TransactionRecordRow.defaultProps = {
   style: {},
   action: '',
   iconUrl: null,
+  titleTag: null,
   canPress: true,
   onPress: () => {},
 };

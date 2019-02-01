@@ -36,3 +36,4 @@ export { default as DynamicQRCode } from './components/DynamicQRCode';
 export { default as AdBadge } from './components/AdBadge';
 export { default as isIPhoneX } from './utils/devices';
 export { default as Tabs } from './components/Tabs';
+export { default as AddressTag } from './components/AddressTag';

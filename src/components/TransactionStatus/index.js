@@ -7,6 +7,7 @@ export const StatusColors = {
   confirming: { font: '#FF9B00', background: '#FFF0D3' },
   complete: { font: '#5170EB', background: '#E0E9FB' },
   pending: { font: '#FF9B00', background: '#FFF5D3' },
+  to_be_multi_signed: { font: '#FF9B00', background: '#FFF5D3' },
   failed: { font: '#FF0E3D', background: '#FFE6EC' },
   canceled: { font: '#8F95AA', background: '#EBEDF6' },
   expired: { font: '#8F95AA', background: '#EBEDF6' },
