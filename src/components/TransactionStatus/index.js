@@ -13,6 +13,7 @@ export const StatusColors = {
   expired: { font: '#8F95AA', background: '#EBEDF6' },
   partial_complete: { font: '#8F95AA', background: '#EBEDF6' },
   partial_complete_canceled: { font: '#8F95AA', background: '#EBEDF6' },
+  to_be_approved: { font: '#8F95AA', background: '#EBEDF6' },
   droped: { font: '#8F95AA', background: '#EBEDF6' },
   other: { font: '#8F95AA', background: '#EBEDF6' },
 };

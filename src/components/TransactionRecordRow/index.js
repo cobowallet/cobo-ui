@@ -31,6 +31,7 @@ const TransactionRecordRow = ({
   style,
   canPress,
   onPress,
+  toBeApproved,
 }) => (
   <Container onPress={onPress} style={style} disabled={!canPress} activeOpacity={0.6}>
     {showIcon && <RecordIcon isSendOut={isSendOut} type={type} action={action} iconUrl={iconUrl} />}
@@ -43,6 +44,13 @@ const TransactionRecordRow = ({
             text={titleTag}
             backgroundStartColor={'#ff5b2f'}
             backgroundEndColor={'#ff9c30'}
+          />
+        )}
+        {!!toBeApproved && (
+          <TransactionStatus
+            status={'to_be_approved'}
+            statusText={toBeApproved}
+            style={{ marginLeft: 5 }}
           />
         )}
         <AmountText
@@ -83,6 +91,7 @@ TransactionRecordRow.propTypes = {
   canPress: PropTypes.bool,
   onPress: PropTypes.func,
   style: PropTypes.any,
+  toBeApproved: PropTypes.string,
 };
 
 TransactionRecordRow.defaultProps = {
@@ -93,6 +102,7 @@ TransactionRecordRow.defaultProps = {
   titleTag: null,
   canPress: true,
   onPress: () => {},
+  toBeApproved: '',
 };
 
 export default TransactionRecordRow;

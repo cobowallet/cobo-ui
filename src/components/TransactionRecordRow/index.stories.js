@@ -19,6 +19,7 @@ storiesOf('Transaction Record', module).add('default', () => (
         messageTitle="To:"
         message="Red packet"
         extra="2018/04/15"
+        toBeApproved={'to_be_approved'}
       />
       <TransactionRecordRow
         action={'recv_pos_dividend'}
@@ -34,6 +35,7 @@ storiesOf('Transaction Record', module).add('default', () => (
           statusText: '3/12 确认中',
         }}
         canPress={false}
+        toBeApproved={'to_be_approved'}
       />
       <TransactionRecordRow
         coinCode="ETH"
@@ -53,9 +55,10 @@ storiesOf('Transaction Record', module).add('default', () => (
         messageTitle="From:"
         message="0x1jfsakljfdl;kjas;lfkjsa;lfjddjf"
         extra={{
-          status: 'complete',
+          status: 'pending',
           statusText: '12/12 已确认',
         }}
+        toBeApproved={'to_be_approved'}
       />
 
       <TransactionRecordRow
@@ -67,6 +70,7 @@ storiesOf('Transaction Record', module).add('default', () => (
         messageTitle="From:"
         message="0x1jflskjdflkasdjdflk;jsal;fjsadl;jfddjf"
         extra="2018/04/17"
+        toBeApproved={'to_be_approved'}
       />
     </View>
   </ScrollView>
