@@ -56,7 +56,7 @@ storiesOf('Transaction Record', module).add('default', () => (
         message="0x1jfsakljfdl;kjas;lfkjsa;lfjddjf"
         extra={{
           status: 'pending',
-          statusText: '12/12 已确认',
+          statusText: '0/12 待确认',
         }}
         toBeApproved={'to_be_approved'}
       />

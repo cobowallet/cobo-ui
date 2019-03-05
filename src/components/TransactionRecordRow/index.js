@@ -47,10 +47,11 @@ const TransactionRecordRow = ({
           />
         )}
         {!!toBeApproved && (
-          <TransactionStatus
-            status={'to_be_approved'}
-            statusText={toBeApproved}
-            style={{ marginLeft: 5 }}
+          <TitleTag
+            text={toBeApproved}
+            textColor={'#ffffff'}
+            backgroundStartColor={'#FF582E'}
+            backgroundEndColor={'#FF9D2E'}
           />
         )}
         <AmountText
