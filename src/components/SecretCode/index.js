@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components/native';
 import { ScrollView, Dimensions } from 'react-native';
-import { equals, range } from 'ramda';
+import { equals } from 'ramda';
 import FrontPage from './FrontPage';
 import CodePage from './CodePage';
-import ConfirmPage from './ConfirmPage';
+import BackupPage from './BackupPage';
 import SecretModal from './SecretModal';
 import languages from '../../languages';
 import { transformSecretCodeFormat, generateQuestionWordsAndNoise } from './codeHelper';
@@ -42,16 +42,6 @@ class SecretCode extends Component {
     }
   }
 
-  regenerateQuestionAndNoise = () => {
-    this.setState({
-      questionWordsAndNoise: generateQuestionWordsAndNoise(
-        this.state.secretWords,
-        this.props.questionNumber
-      ),
-      activeIndex: 0,
-    });
-  };
-
   goToCodePage = () => {
     this.setState({
       isModalOpen: true,
@@ -60,7 +50,7 @@ class SecretCode extends Component {
     this.props.onTrackAction('HD_CREATE_BACKUP_NOW');
   };
 
-  goToConfirmPage = num => {
+  goToBackupPage = num => () => {
     this.setState({
       activeIndex: num,
     });
@@ -87,51 +77,23 @@ class SecretCode extends Component {
         >
           <FrontPage
             locale={this.props.locale}
-            isModalOpen={this.state.isModalOpen}
             goToCodePage={this.goToCodePage}
-            closeModal={this.closeModal}
             style={this.props.style}
             onCancel={this.props.onCancel}
           />
           <CodePage
             locale={this.props.locale}
             codes={this.state.secretWords}
-            goToConfirmOne={() => this.goToConfirmPage(2)}
+            goToConfirmOne={this.goToBackupPage(2)}
             style={this.props.style}
           />
-          {range(0, this.props.questionNumber).map(eachIndex => {
-            const onSuccess =
-              eachIndex !== this.props.questionNumber - 1
-                ? () => this.goToConfirmPage(3 + eachIndex)
-                : this.props.onSuccess;
-            const pageType = eachIndex !== this.props.questionNumber - 1 ? 'Normal' : 'Last';
-            return (
-              <ConfirmPage
-                key={eachIndex}
-                locale={this.props.locale}
-                words={
-                  this.state.questionWordsAndNoise[eachIndex]
-                    ? this.state.questionWordsAndNoise[eachIndex].noiseWithAnswer
-                    : []
-                }
-                answer={
-                  this.state.questionWordsAndNoise[eachIndex]
-                    ? this.state.questionWordsAndNoise[eachIndex].value
-                    : ''
-                }
-                page={pageType}
-                wordIndex={
-                  this.state.questionWordsAndNoise[eachIndex]
-                    ? this.state.questionWordsAndNoise[eachIndex].index
-                    : 0
-                }
-                onSuccess={onSuccess}
-                onFail={this.props.onFail}
-                regenerateQuestionAndNoise={this.regenerateQuestionAndNoise}
-                style={this.props.style}
-              />
-            );
-          })}
+          <BackupPage
+            locale={this.props.locale}
+            codes={this.state.secretWords}
+            style={this.props.style}
+            onSuccess={this.props.onSuccess}
+            onShowAlert={this.props.onShowAlert}
+          />
           <SecretModal
             isModalOpen={this.state.isModalOpen}
             header={modalSetting.header}
@@ -155,6 +117,7 @@ SecretCode.propTypes = {
   theme: PropTypes.string,
   questionNumber: PropTypes.number,
   style: PropTypes.object,
+  onShowAlert: PropTypes.func,
 };
 
 SecretCode.defaultProps = {
@@ -166,6 +129,7 @@ SecretCode.defaultProps = {
   theme: 'dark',
   questionNumber: 2,
   style: {},
+  onShowAlert: () => null,
 };
 
 export default SecretCode;

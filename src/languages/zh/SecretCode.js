@@ -27,6 +27,13 @@ const SecretCode = {
     buttonLast: '完成',
   },
 
+  backupPage: {
+    header: '请确认 Cobo 密语',
+    descriptions: ['为了确保您已将 Cobo 助记词正确抄写，请按照对应的顺序点击助记词。'],
+    finish: '完成',
+    error: '选择的助记词不正确，请重新选择',
+  },
+
   modal: {
     header: '请环顾四周',
     description: '任何人获得了助记词，意味着获取了您的资产，请确保周围无人，无摄像头。',

@@ -18,6 +18,18 @@ storiesOf('Secret code', module).add('default', () => (
       'vendor',
       'conduct',
       'invite',
+      'aim',
+      'amateur',
+      'bachelor',
+      'zebra',
+      'wish',
+      'witness',
+      'violin',
+      'virtual',
+      'truly',
+      'trumpet',
+      'struggle',
+      'student',
     ]}
     onSuccess={() => {
       console.log('this is the callback props');
