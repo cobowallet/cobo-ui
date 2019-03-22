@@ -14,6 +14,19 @@ class BackupPage extends React.PureComponent {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.codes !== this.props.codes && !equals(prevProps.codes, this.props.codes)) {
+      this.upgradeWords();
+    }
+  }
+
+  upgradeWords = () => {
+    this.setState({
+      selectedWords: [],
+      unSelectedWords: shuffle(this.props.codes).map(code => code.value),
+    });
+  };
+
   onUnSelectedWord = (word, index) => () => {
     const { unSelectedWords, selectedWords } = this.state;
     this.setState({
