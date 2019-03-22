@@ -30,10 +30,13 @@ const SecretCode = {
   },
 
   backupPage: {
-    header: '请确认 Cobo 密语',
-    descriptions: ['为了确保您已将 Cobo 助记词正确抄写，请按照对应的顺序点击助记词。'],
+    header: 'Please re-enter your mnemonic phrases',
+    descriptions: [
+      'To ensure that you have remembered your mnemonic phrases, please input the phrases in the right order.',
+    ],
     finish: 'Done',
-    error: '选择的助记词不正确，请重新选择',
+    error:
+      'You selected mnemonic phrases order is incorrect, please input the phrases in the right order.',
   },
 
   modal: {
