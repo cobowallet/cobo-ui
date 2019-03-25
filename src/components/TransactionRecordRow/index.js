@@ -12,11 +12,14 @@ import {
   AmountText,
   Message,
   TimeText,
+  IconContent,
+  LNLogo,
 } from './style';
 
 const TransactionRecordRow = ({
   isSendOut,
   showIcon,
+  showLnIcon,
   iconUrl,
   title,
   titleTag,
@@ -34,7 +37,12 @@ const TransactionRecordRow = ({
   toBeApproved,
 }) => (
   <Container onPress={onPress} style={style} disabled={!canPress} activeOpacity={0.6}>
-    {showIcon && <RecordIcon isSendOut={isSendOut} type={type} action={action} iconUrl={iconUrl} />}
+    {showIcon && (
+      <IconContent>
+        <RecordIcon isSendOut={isSendOut} type={type} action={action} iconUrl={iconUrl} />
+        {!!showLnIcon && <LNLogo />}
+      </IconContent>
+    )}
 
     <Content>
       <TitleRow>

@@ -31,6 +31,7 @@ import TriangleMark from './TriangleMark';
 import FoldingSwitch from './FoldingSwitch';
 import WalletLogo from './WalletLogo';
 import SendIcon from './SendIcon';
+import LNIcon from './LNIcon';
 import ReceiveIcon from './ReceiveIcon';
 import UserAvatarIcon from './UserAvatarIcon';
 import ScanQRCode from './ScanQRCode';
@@ -134,6 +135,7 @@ export {
   FoldingSwitch,
   WalletLogo,
   SendIcon,
+  LNIcon,
   ReceiveIcon,
   UserAvatarIcon,
   ScanQRCode,

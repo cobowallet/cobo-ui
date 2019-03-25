@@ -20,6 +20,7 @@ function loadStories() {
   require('../src/components/HomeDrawerContent/index.stories');
   require('../src/components/HorizontalAssetRatio/index.stories');
   require('../src/components/IntroductionCard/index.stories');
+  require('../src/components/LNBadge/index.stories');
   require('../src/components/MessageModal/index.stories');
   require('../src/components/MnemonicChecker/index.stories');
   require('../src/components/MnemonicImporter/index.stories');
@@ -60,6 +61,7 @@ const stories = [
   '../src/components/HomeDrawerContent/index.stories',
   '../src/components/HorizontalAssetRatio/index.stories',
   '../src/components/IntroductionCard/index.stories',
+  '../src/components/LNBadge/index.stories',
   '../src/components/MessageModal/index.stories',
   '../src/components/MnemonicChecker/index.stories',
   '../src/components/MnemonicImporter/index.stories',

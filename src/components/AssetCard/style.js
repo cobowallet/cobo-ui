@@ -67,6 +67,11 @@ export const ToggleArea = styled.TouchableOpacity`
   align-items: center;
 `;
 
+export const CoinLineContainer = styled.View`
+  align-items: stretch;
+  flex-direction: row;
+`;
+
 export const CoinCodeText = styled(CBText)`
   font-weight: 700;
   color: ${props => props.theme.CoinCodeColor};

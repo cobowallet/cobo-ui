@@ -5,12 +5,14 @@ import transaction from './img/receive-coin.png';
 import financing from './img/financing-receive.png';
 import spending from './img/spending-receive.png';
 import received from './img/received.png';
+import invoiceUnpaid from './img/invoice_unpaid.png';
 
 const RECEIVE_IMG_PATHS = {
   transaction,
   financing,
   spending,
   received,
+  invoiceUnpaid,
 };
 
 function ReceiveIcon({ style, type }) {
@@ -19,7 +21,7 @@ function ReceiveIcon({ style, type }) {
 
 ReceiveIcon.propTypes = {
   style: PropTypes.object,
-  type: PropTypes.oneOf(['transaction', 'financing', 'spending', 'received']),
+  type: PropTypes.oneOf(['transaction', 'financing', 'spending', 'received', 'invoiceUnpaid']),
 };
 
 ReceiveIcon.defaultProps = {

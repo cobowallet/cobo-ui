@@ -48,6 +48,17 @@ class AssetCardTest extends PureComponent {
         coinParent: '',
         coinParentIconUrl: '',
       },
+      {
+        coinCode: 'BTC',
+        amount: '4.800',
+        fiatCurrencyAmount: '5220.96',
+        fiatCurrencySymbol: '$',
+        lnBadge: '支持闪电网络',
+        slogan: '年化收益300%+',
+        desc: '14:00(GMT+8)获取VET增益',
+        coinParent: '',
+        coinParentIconUrl: '',
+      },
     ];
   };
 

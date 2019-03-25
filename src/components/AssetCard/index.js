@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components/native';
 import { FoldingSwitch } from '../../icons';
 import RewardBadge from '../RewardBadge';
 import AdBadge from '../AdBadge';
+import LNBadge from '../LNBadge';
 import {
   Container,
   Row,
@@ -15,6 +16,7 @@ import {
   ToggleArea,
   CoinContainer,
   CoinCodeText,
+  CoinLineContainer,
   FiatCurrencyAmountText,
   CoinDescContainer,
   DescText,
@@ -55,6 +57,7 @@ class AssetCard extends PureComponent {
       iconUrl,
       onAssetCardLayout,
       adBadge,
+      lnBadge,
       desc,
       coinParent,
       coinParentIconUrl,
@@ -70,7 +73,10 @@ class AssetCard extends PureComponent {
               {!!coinParent && <ParentLogo coin={coinParent} uri={coinParentIconUrl} />}
             </IconContent>
             <CoinContainer>
-              <CoinCodeText>{displayCode || coinCode}</CoinCodeText>
+              <CoinLineContainer>
+                <CoinCodeText> {displayCode || coinCode} </CoinCodeText>
+                {!!lnBadge && <LNBadge content={lnBadge} style={{ marginLeft: 5 }} />}
+              </CoinLineContainer>
               {(showBadge || showDesc) && (
                 <CoinDescContainer>
                   {showBadge && (

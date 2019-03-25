@@ -62,6 +62,60 @@ storiesOf('Transaction Record', module).add('default', () => (
       />
 
       <TransactionRecordRow
+        coinCode="BTC"
+        isSendOut
+        showLnIcon
+        action={'send_lightning'}
+        title="Sent"
+        amount="0.000321"
+        messageTitle="For:"
+        message="Starbucks Coffee"
+        extra="2019/04/15"
+      />
+
+      <TransactionRecordRow
+        coinCode="BTC"
+        showLnIcon
+        isSendOut={false}
+        action={'recv_lightning'}
+        title="Receive"
+        amount="0.000321"
+        messageTitle="For:"
+        message="Need borrow money"
+        extra="2019/04/15"
+      />
+
+      <TransactionRecordRow
+        coinCode="BTC"
+        showLnIcon
+        extra={{
+          status: 'pending',
+          statusText: '待支付',
+        }}
+        action={'recv_lightning'}
+        type={'invoiceUnpaid'}
+        title="Invoice"
+        amount="0.000321"
+        messageTitle="For:"
+        message="I am an pending ln invoice"
+      />
+
+      <TransactionRecordRow
+        coinCode="BTC"
+        showLnIcon
+        extra={{
+          status: 'expired',
+          statusText: '已过期',
+        }}
+        action={'recv_lightning'}
+        type={'invoiceUnpaid'}
+        title="Invoice"
+        amount="0.000321"
+        messageTitle="For:"
+        message="I am an expired ln invoice"
+      />
+
+      <TransactionRecordRow
         coinCode="ETH"
         isSendOut={false}
         showIcon={false}

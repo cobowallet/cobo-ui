@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { Image } from 'react-native';
 import { CBText } from '../Core';
 import AddressTag from '../AddressTag';
-import { SendIcon, ReceiveIcon, RewardIcon, ExchangeTx } from '../../icons';
+import { SendIcon, ReceiveIcon, RewardIcon, ExchangeTx, LNIcon } from '../../icons';
 
 export const Container = styled.TouchableOpacity`
   width: 100%;
@@ -38,6 +38,35 @@ export const TitleTag = styled(AddressTag)`
   margin-left: 6;
   align-items: center;
 `;
+
+const ParentIconContainer = styled.View`
+  height: 20;
+  width: 20;
+  border-radius: 10;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -1;
+  right: -1;
+  z-index: 9000;
+`;
+const ParentIcon = styled(LNIcon)`
+  height: 16;
+  width: 16;
+`;
+export const IconContent = styled.View`
+  justify-content: center;
+  margin-right: 12;
+`;
+
+export const LNLogo = () => {
+  return (
+    <ParentIconContainer>
+      <ParentIcon />
+    </ParentIconContainer>
+  );
+};
 
 export const TitleText = ({ title }) => {
   return (
@@ -125,6 +154,8 @@ export const RecordIcon = ({ isSendOut, action, iconUrl, type }) => {
         return <SendIcon type={'sending'} style={styled} />;
       case 'receive':
         return <ReceiveIcon type={'transaction'} style={styled} />;
+      case 'invoiceUnpaid':
+        return <ReceiveIcon type={type} style={styled} />;
     }
   }
   if (action === 'recv_pos_dividend' || action === 'recv_growth_dividend') {
