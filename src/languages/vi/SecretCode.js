@@ -36,7 +36,7 @@ const SecretCode = {
     ],
     finish: 'Done',
     error:
-      'You selected mnemonic phrases order is incorrect, please input the phrases in the right order.',
+      'Your selected mnemonic phrases order is incorrect, please input the phrases in the right order.',
   },
 
   modal: {
