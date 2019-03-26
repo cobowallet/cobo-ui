@@ -59,7 +59,10 @@ class WarningModal extends React.PureComponent {
               {description}
             </CBText>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <TouchableOpacity onPress={() => this.setState({ isChecked: !this.state.isChecked })}>
+              <TouchableOpacity
+                style={{ width: 20, height: 20, alignItems: 'center', justifyContent: 'center' }}
+                onPress={() => this.setState({ isChecked: !this.state.isChecked })}
+              >
                 {this.state.isChecked ? (
                   <FontAwesome name={'check-circle'} size={16} color={'#5170EB'} />
                 ) : (
