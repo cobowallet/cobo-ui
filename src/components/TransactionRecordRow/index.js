@@ -89,7 +89,7 @@ TransactionRecordRow.propTypes = {
   coinCode: PropTypes.string.isRequired,
   displayCode: PropTypes.string,
   action: PropTypes.string,
-  type: PropTypes.oneOf(['exchange', 'reward', 'send', 'sending', 'receive']),
+  type: PropTypes.oneOf(['exchange', 'reward', 'send', 'sending', 'receive', 'invoiceUnpaid']),
   extra: PropTypes.oneOfType([
     PropTypes.shape({
       status: PropTypes.string.isRequired,
