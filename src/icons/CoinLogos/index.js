@@ -34,6 +34,7 @@ import Qtum from './img/qtum.png';
 import AISI from './img/AISI.png';
 import SEELE from './img/SEELE.png';
 import IOTEX from './img/IOTEX.png';
+import IOST from './img/IOST.png';
 
 export default {
   BTC,
@@ -80,4 +81,5 @@ export default {
   IOTX: IOTEX,
   EOS_EOS: EOS,
   TEOS_EOS: EOS,
+  IOST,
 };
