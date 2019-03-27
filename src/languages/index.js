@@ -14,6 +14,11 @@ const translations = {
     MnemonicImporter: require('./vi/MnemonicImporter').default,
     SecretCode: require('./vi/SecretCode').default,
   },
+  es: {
+    MnemonicChecker: require('./es/MnemonicChecker').default,
+    MnemonicImporter: require('./es/MnemonicImporter').default,
+    SecretCode: require('./es/SecretCode').default,
+  },
 };
 
 //default en
