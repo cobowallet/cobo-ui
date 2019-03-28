@@ -17,7 +17,7 @@ const SecretCode = {
       'Frase de recuperación Cobo se utiliza para recuperar su billetera. Por favor, guarde las siguientes 12 palabras de forma segura.',
       '¡No hay captura de pantalla! Cualquier persona con la frase de recuperación puede obtener acceso total a sus fondos asociados.',
     ],
-    button: 'I have safely stored Recovery Phrase',
+    button: 'He guardado frase de recuperación',
   },
 
   confirmPage: {
