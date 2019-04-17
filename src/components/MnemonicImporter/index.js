@@ -54,7 +54,6 @@ class MnemonicImporter extends PureComponent {
     const newState = update(index - 1, { index, value: text.trim() }, this.state.words);
     this.setState({
       words: newState,
-      focusedId: index,
     });
   };
 
