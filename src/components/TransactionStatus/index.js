@@ -29,7 +29,7 @@ const StatusContent = styled.View`
   padding-bottom: 4;
 `;
 
-const StatusText = CBText.extend`
+const StatusText = styled(CBText)`
   font-size: 10;
   color: ${props => (StatusColors[props.status] || StatusColors.other).font};
 `;

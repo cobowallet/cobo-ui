@@ -79,7 +79,7 @@ class CodeCell extends React.PureComponent {
         </Top>
         <Content>
           <CellInput
-            innerRef={input => {
+            ref={input => {
               this.textInput = input;
             }}
             value={this.props.code.value}
@@ -87,6 +87,7 @@ class CodeCell extends React.PureComponent {
               this.props.onInputChange(this.props.code.index, text.toLowerCase())
             }
             onKeyPress={e => this.props.onKeyPress(this.props.code.index, e.nativeEvent)}
+            underlineColorAndroid={'transparent'}
           />
         </Content>
       </CellContainer>

@@ -67,7 +67,7 @@ export default class Texts extends React.PureComponent {
     const { textObj } = this.props;
     return (
       <ScrollViewContainer
-        innerRef={scrollView => {
+        ref={scrollView => {
           this._scrollView = scrollView;
         }}
         horizontal
