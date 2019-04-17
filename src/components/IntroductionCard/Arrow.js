@@ -25,12 +25,16 @@ export default class Arrow extends React.PureComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
+    this.updateAnimated();
+  }
+
+  updateAnimated = () => {
     Animated.timing(this.state.leftAnim, {
-      toValue: nextProps.index ? 1 / (nextProps.index + 1) : 0,
+      toValue: this.props.index ? 1 / (this.props.index + 1) : 0,
       duration: 300,
     }).start();
-  }
+  };
 
   render() {
     return (

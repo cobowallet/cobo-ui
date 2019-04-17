@@ -49,9 +49,10 @@ export default class Texts extends React.PureComponent {
       }
     });
   }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.index !== this.props.index) {
-      const x = nextProps.index * (width - 32);
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.index !== this.props.index) {
+      const x = this.props.index * (width - 32);
       this._scrollView.scrollTo({ x });
     }
   }

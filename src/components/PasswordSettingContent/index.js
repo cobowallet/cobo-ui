@@ -22,16 +22,20 @@ class PasswordSettingContent extends React.PureComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.theme !== this.props.theme) {
-      const theme =
-        PasswordSettingContentTheme[nextProps.theme] || PasswordSettingContentTheme.default;
-      this.setState({
-        theme,
-        verifyPasswordPromptColor: theme.errorColor,
-      });
+  componentDidUpdate(prevProps) {
+    if (prevProps.theme !== this.props.theme) {
+      this.updateTheme();
     }
   }
+
+  updateTheme = () => {
+    const theme =
+      PasswordSettingContentTheme[this.props.theme] || PasswordSettingContentTheme.default;
+    this.setState({
+      theme,
+      verifyPasswordPromptColor: theme.errorColor,
+    });
+  };
 
   clear = () => {
     this.setState({

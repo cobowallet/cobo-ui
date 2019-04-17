@@ -27,13 +27,17 @@ class SuccessAnimation extends React.Component {
     this.startLoadingAnimation();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!this.props.success && nextProps.success) {
-      this.setState({
-        success: true,
-      });
+  componentDidUpdate(prevProps) {
+    if (this.props.success && !prevProps.success) {
+      this.updateSuccess();
     }
   }
+
+  updateSuccess = () => {
+    this.setState({
+      success: true,
+    });
+  };
 
   restart = () => {
     this.setState(
