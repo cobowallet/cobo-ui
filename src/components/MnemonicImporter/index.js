@@ -1,7 +1,7 @@
-import React, { PureComponent, version } from 'react';
+import React, { PureComponent } from 'react';
 import styled, { ThemeProvider } from 'styled-components/native';
 import PropTypes from 'prop-types';
-import { update } from 'ramda';
+import { update, equals } from 'ramda';
 import SecretCodePanel from '../SecretCode/SecretCodePanel';
 import languages from '../../languages';
 import CodeInputTable from './codeInputTable';
@@ -24,38 +24,31 @@ const getBody = (words, onInputChange, focusedId, onKeyPress) => (
 );
 
 class MnemonicImporter extends PureComponent {
-  state = {
-    words: new Array(this.props.wordsNumber)
-      .fill()
-      .map((each, index) => ({ index: index + 1, value: undefined })),
-    focusedId: 1,
+  constructor(props) {
+    super(props);
+    this.state = {
+      words: new Array(props.wordsNumber)
+        .fill()
+        .map((each, index) => ({ index: index + 1, value: undefined })),
+      focusedId: 1,
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.words &&
+      this.props.words.length > 0 &&
+      !equals(prevProps.words, this.props.words)
+    ) {
+      this.updateWords();
+    }
+  }
+
+  updateWords = () => {
+    this.setState({
+      words: this.props.words.map((each, index) => ({ index: index + 1, value: each })),
+    });
   };
-
-  componentWillReceiveProps(nextProps) {
-    if (parseFloat(version) < 16.3) {
-      if (nextProps.words.length > 0) {
-        this.setState({
-          words: nextProps.words.map((each, index) => ({ index: index + 1, value: each })),
-        });
-      }
-    }
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.words.length > 0) {
-      return {
-        words: nextProps.words.map((each, index) => ({ index: index + 1, value: each })),
-        focusedId: 1,
-      };
-    } else {
-      return {
-        words: new Array(nextProps.wordsNumber)
-          .fill()
-          .map((each, index) => ({ index: index + 1, value: undefined })),
-        focusedId: 1,
-      };
-    }
-  }
 
   onInputChange = (index, text) => {
     const newState = update(index - 1, { index, value: text.trim() }, this.state.words);

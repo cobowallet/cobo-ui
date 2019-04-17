@@ -84,7 +84,7 @@ class CodeCell extends React.PureComponent {
             }}
             value={this.props.code.value}
             onChangeText={text =>
-              this.props.onInputChange(this.props.code.index, text.toLowerCase())
+              this.props.onInputChange(this.props.code.index, text.replace(/ /g, '').toLowerCase())
             }
             onKeyPress={e => this.props.onKeyPress(this.props.code.index, e.nativeEvent)}
             underlineColorAndroid={'transparent'}
