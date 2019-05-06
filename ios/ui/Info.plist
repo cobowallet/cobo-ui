@@ -66,6 +66,14 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>dinpro_bold.otf</string>
+		<string>DINNextLTPro-Bold.ttf</string>
+		<string>DINNextLTPro-BoldCondensed.ttf</string>
+		<string>DINNextLTPro-Medium.ttf</string>
+		<string>DINNextLTPro-MediumCond.ttf</string>
+		<string>AntDesign.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
 	</array>
 </dict>
 </plist>

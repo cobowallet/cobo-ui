@@ -1,6 +1,6 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import { View, Platform } from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components/native';
 import isIPhoneX from '../../utils/devices';
 
@@ -46,7 +46,7 @@ export const CoinText = styled.Text`
   color: white;
   font-weight: bold;
   font-size: 32;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
+  font-family: 'DINNextLTPro-BoldCondensed';
 `;
 
 export const CurrencyText = styled.Text`
@@ -54,7 +54,7 @@ export const CurrencyText = styled.Text`
   font-weight: bold;
   font-size: 24;
   margin-top: 4;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
+  font-family: 'DINNextLTPro-BoldCondensed';
 `;
 
 export const Description = styled.View`

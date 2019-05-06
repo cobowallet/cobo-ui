@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Platform } from 'react-native';
 import { LINE_COLORS, FontColors } from '../../theme/CBColor';
 import { WalletLogo } from '../../icons';
 
@@ -36,7 +35,7 @@ export const Button = styled.View`
 export const Balance = styled.Text`
   font-size: 26;
   color: ${FontColors.primary};
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
+  font-family: 'DINNextLTPro-BoldCondensed';
   text-align: right;
 `;
 

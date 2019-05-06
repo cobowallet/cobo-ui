@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 const ValueLabel = styled.Text`
   color: ${props => props.color || 'white'};
   font-size: ${props => props.size};
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
+  font-family: 'DINNextLTPro-BoldCondensed';
 `;
 
 const Container = styled.View`

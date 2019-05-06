@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 import { BigNumber } from 'bignumber.js';
 import { Eye } from '../../icons';
@@ -32,7 +31,7 @@ const CurrencyAmount = styled.Text`
   font-size: 24;
   color: #000;
   margin-right: 6;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
+  font-family: 'DINNextLTPro-BoldCondensed';
 `;
 
 const CurrencyText = styled(CBText)`
@@ -42,7 +41,7 @@ const CurrencyText = styled(CBText)`
 const BTCAmount = styled.Text`
   font-size: 16;
   color: rgba(143, 149, 170, 0.5);
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
+  font-family: 'DINNextLTPro-BoldCondensed';
 `;
 
 const Touchable = styled.TouchableOpacity`

@@ -22,7 +22,7 @@ export const CoinText = styled.Text`
   font-weight: bold;
   font-size: 32;
   margin-bottom: 4;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
+  font-family: 'DINNextLTPro-BoldCondensed';
   font-style: normal;
 `;
 
@@ -30,7 +30,7 @@ export const CurrencyText = styled.Text`
   color: rgba(255, 255, 255, 0.6);
   font-weight: bold;
   font-size: 24;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
+  font-family: 'DINNextLTPro-BoldCondensed';
   font-style: normal;
 `;
 
@@ -38,7 +38,7 @@ export const RewardText = styled.Text`
   color: white;
   font-weight: bold;
   font-size: 24;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
+  font-family: 'DINNextLTPro-BoldCondensed';
   font-style: normal;
   margin-left: 2;
 `;

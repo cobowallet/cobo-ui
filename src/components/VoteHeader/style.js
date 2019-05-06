@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Platform } from 'react-native';
 import { VoteDetailHeader, WalletLogo } from '../../icons';
 import { CBText } from '../Core';
 
@@ -25,14 +24,14 @@ export const NameText = styled(CBText)`
   color: white;
   font-weight: 800;
   font-size: 28;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
+  font-family: 'DINNextLTPro-BoldCondensed';
   margin-left: 12;
   margin-bottom: -10;
 `;
 
 export const ContactText = styled(CBText)`
   margin-top: 16;
-  font-family: ${Platform.OS === 'ios' ? 'DIN Next LT Pro' : 'dinpro_bold'};
+  font-family: 'DINNextLTPro-BoldCondensed';
   color: rgba(255, 255, 255, 0.8);
   font-size: 20;
   font-weight: 600;
