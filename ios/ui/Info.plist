@@ -39,7 +39,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -53,7 +53,6 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>dinpro_bold.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>
 		<string>Feather.ttf</string>
@@ -65,7 +64,6 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
-		<string>dinpro_bold.otf</string>
 		<string>DINNextLTPro-Bold.ttf</string>
 		<string>DINNextLTPro-BoldCondensed.ttf</string>
 		<string>DINNextLTPro-Medium.ttf</string>
