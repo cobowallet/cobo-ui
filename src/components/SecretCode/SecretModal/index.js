@@ -8,7 +8,7 @@ import { CBLabel, CBText } from '../../Core';
 import CBButton from '../../Core/CBButton';
 import { MODAL_COLORS } from '../../../theme/CBColor';
 
-const SecretModal = ({ isModalOpen, header, description, button, onPress }) => {
+const SecretModal = ({ isModalOpen, header, description, button, onPress, bannerContent }) => {
   return (
     <Modal isVisible={isModalOpen} backdropColor={MODAL_COLORS.black} backdropOpacity={0.9}>
       <LinearGradient
@@ -57,6 +57,7 @@ const SecretModal = ({ isModalOpen, header, description, button, onPress }) => {
             onPress={onPress}
           />
         </View>
+        {bannerContent}
       </LinearGradient>
     </Modal>
   );
@@ -67,6 +68,7 @@ SecretModal.propTypes = {
   header: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
+  bannerContent: PropTypes.element,
 };
 
 export default SecretModal;

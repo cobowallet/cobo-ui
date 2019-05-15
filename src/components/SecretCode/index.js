@@ -100,6 +100,7 @@ class SecretCode extends Component {
             description={modalSetting.description}
             button={modalSetting.button}
             onPress={this.closeModal}
+            bannerContent={this.props.bannerContent}
           />
         </ScrollView>
       </ThemeProvider>
@@ -118,6 +119,7 @@ SecretCode.propTypes = {
   questionNumber: PropTypes.number,
   style: PropTypes.object,
   onShowAlert: PropTypes.func,
+  bannerContent: PropTypes.element,
 };
 
 SecretCode.defaultProps = {
@@ -130,6 +132,7 @@ SecretCode.defaultProps = {
   questionNumber: 2,
   style: {},
   onShowAlert: () => null,
+  bannerContent: null,
 };
 
 export default SecretCode;
