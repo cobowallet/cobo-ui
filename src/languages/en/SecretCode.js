@@ -1,11 +1,11 @@
 const SecretCode = {
   frontPage: {
     header: 'Backup Recovery Phrase',
-    subTitle: 'Recovery Phrase is your Private Key, which controls all your assets',
+    subTitle: 'The recovery phrase is your private key, giving you control of all your assets.',
     descriptions: [
-      'Consists of 12 words, please store them safely.',
-      '100% managed by yourself, wallet cannot be recovered if Recovery Phrase is lost.',
-      'Backup them up before deposit or delete App.',
+      'There are 12-words, please store them safely.',
+      'Completely owned by yourself, so if the phrase is lost, we cannot retrieve your wallet.',
+      'Make sure to back up your phrase before depositing or deleting the app.',
     ],
     button: 'Backup Immediately',
     secondButton: 'I will do it later',
@@ -40,9 +40,9 @@ const SecretCode = {
   },
 
   modal: {
-    header: 'Are you being watched',
+    header: 'Be Careful',
     description:
-      'No Screenshot! Anyone with the Receovery Phrase can gain full access to your associated funds. Please make sure no spying eyes around and no hidden camera.',
+      'No screenshots! Anyone with your recovery phrase can access your funds. Please also make sure there are no spying eyes or hidden cameras around.',
     button: 'I have checked',
   },
 };
