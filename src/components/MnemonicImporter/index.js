@@ -30,7 +30,7 @@ class MnemonicImporter extends PureComponent {
       words: new Array(props.wordsNumber)
         .fill()
         .map((each, index) => ({ index: index + 1, value: undefined })),
-      focusedId: 1,
+      focusedId: props.initialFocusId || 1, // 键盘初始不希望弹起时，可设置initialFocusId=-1
     };
   }
 
