@@ -24,7 +24,7 @@
   "dependencies": {
     "bignumber.js": "^7.0.2",
     "bip39": "^2.5.0",
-    "cobo-wallet-utils": "file:../cobo-wallet-utils",
+    "cobo-wallet-utils": "https://github.com/cobowallet/cobo-wallet-utils.git#307356aa1ef093342c29379a8b88367e1839d190",
     "numeral": "^2.0.6",
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",

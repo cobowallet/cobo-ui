@@ -2948,8 +2948,9 @@ coa@~1.0.1:
   dependencies:
     q "^1.1.2"
 
-"cobo-wallet-utils@file:../cobo-wallet-utils":
+"cobo-wallet-utils@https://github.com/cobowallet/cobo-wallet-utils.git#307356aa1ef093342c29379a8b88367e1839d190":
   version "0.0.3"
+  resolved "https://github.com/cobowallet/cobo-wallet-utils.git#307356aa1ef093342c29379a8b88367e1839d190"
   dependencies:
     browserify-zlib "^0.2.0"
     crypto-js "^3.1.9-1"
