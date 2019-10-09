@@ -16,7 +16,7 @@ Style:
 #### Develop
 
 ```
-git clone https://github.com/cobowallet/UI.git
+git clone git@github.com:cobowallet/cobo-ui.git
 yarn
 yarn start
 ```
@@ -26,6 +26,6 @@ Open browser at: http://localhost:7007
 #### Use
 
 ```
-yarn add cobowallet/UI
+yarn add cobowallet/cobo-ui
 import { ActiveAccountCard } from 'CoboUI';
 ```
